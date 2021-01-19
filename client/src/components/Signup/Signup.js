@@ -37,7 +37,7 @@ function Signup() {
       firstName: '',
       lastName: '',
       gender: '',
-      birthday: new Date(1800, 1, 1),
+      birthday: new Date(1800, 0, 1),
       country: '',
     }
     fetch('/newuser', {
