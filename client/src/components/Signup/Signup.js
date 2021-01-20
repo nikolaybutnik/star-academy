@@ -33,6 +33,7 @@ function Signup() {
       level: 1,
       experience: 0,
       class: 'Budding Star',
+      energy: 3,
       answered: [],
       firstName: '',
       lastName: '',
