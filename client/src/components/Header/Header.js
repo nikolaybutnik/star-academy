@@ -1,8 +1,12 @@
-import React from 'react'
-import './Header.css'
+import React from "react";
+import "./Header.css";
 
 function Header() {
-  return <div>Header Component</div>
+  return (
+    <nav>
+      <h5 className="navbar-header">Music Playground</h5>
+    </nav>
+  );
 }
 
-export default Header
+export default Header;
