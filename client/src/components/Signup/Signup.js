@@ -32,7 +32,7 @@ function Signup() {
       joined: new Date(),
       level: 1,
       experience: 0,
-      class: 'Budding Star',
+      class: 'Beginner',
       energy: 3,
       answered: [],
       firstName: '',
@@ -129,16 +129,11 @@ function Signup() {
                 </button>
               </Link>
             </div>
-            {/* <div class="form-check">
-              <input
-                type="checkbox"
-                class="form-check-input"
-                id="exampleCheck1"
-              ></input>
-              <label class="form-check-label" for="exampleCheck1">
-                Check me out
-              </label>
-            </div> */}
+            <Link to="/home">
+              <button type="submit" class="btn btn-primary">
+                GO TO QUESTIONS
+              </button>
+            </Link>
           </form>
         </div>
       </div>

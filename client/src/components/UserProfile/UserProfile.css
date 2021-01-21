@@ -1,0 +1,20 @@
+.user-image-profile {
+  margin-top: 50px;
+  margin-bottom: 20px;
+  border-radius: 50%;
+}
+
+.exhaustion-level {
+  background-color: black;
+  margin-top: 35px;
+}
+
+.exhaustion-level-title {
+  text-align: center;
+}
+
+.user-level {
+  text-align: center;
+}
+
+/*  */
