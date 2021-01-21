@@ -5,6 +5,8 @@ import './Login.css'
 import Hero from '../Hero/Hero'
 
 function Login() {
+  const [user, setUser] = useState('')
+
   // Reference input fields
   const emailRef = useRef()
   const newPasswordRef = useRef()
@@ -19,7 +21,9 @@ function Login() {
 
   const handleFormSubmit = (event) => {
     event.preventDefault()
-    // HANDLE SIGN IN AND AUTHENTICATION PROCESS. RESEARCH Auth0
+    // HANDLE SIGN IN AND AUTHENTICATION PROCESS.
+    // MAKE A CALL TO GET API ROUTE TO FETCH THE CORRECT USER OBJECT
+    // AND SET IT TO A STATE.
   }
 
   return (
@@ -41,9 +45,6 @@ function Login() {
                 onChange={(event) => setEmail(event.target.value)}
                 ref={emailRef}
               ></input>
-              {/* <small id="emailHelp" class="form-text text-muted">
-                We'll never share your email with anyone else.
-              </small> */}
             </div>
 
             <div class="form-group">
@@ -71,16 +72,11 @@ function Login() {
                 </button>
               </Link>
             </div>
-            {/* <div class="form-check">
-              <input
-                type="checkbox"
-                class="form-check-input"
-                id="exampleCheck1"
-              ></input>
-              <label class="form-check-label" for="exampleCheck1">
-                Check me out
-              </label>
-            </div> */}
+            <Link to="/home">
+              <button type="submit" class="btn btn-primary">
+                GO TO QUESTIONS
+              </button>
+            </Link>
           </form>
         </div>
       </div>

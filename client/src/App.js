@@ -1,13 +1,12 @@
-import React from "react";
-import { BrowserRouter as Router, Route } from "react-router-dom";
-import "./App.css";
+import React from 'react'
+import { BrowserRouter as Router, Route } from 'react-router-dom'
+import './App.css'
 
+import Signup from './components/Signup/Signup'
+import Login from './components/Login/Login'
 // import Header from './components/Header/Header'
-import Signup from "./components/Signup/Signup";
-import Login from "./components/Login/Login";
-import Header from "./components/Header/Header";
-import Home from "./components/Home/Home";
-import UserProfile from "./components/UserProfile/UserProfile";
+import Home from './components/Home/Home'
+import UserProfile from './components/UserProfile/UserProfile'
 
 function App() {
   return (
@@ -21,7 +20,7 @@ function App() {
         <Route exact path="/userprofile" component={UserProfile} />
       </div>
     </Router>
-  );
+  )
 }
 
-export default App;
+export default App

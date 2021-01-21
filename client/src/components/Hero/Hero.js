@@ -3,7 +3,7 @@ import './Hero.css'
 
 function Hero() {
   return (
-    <div>
+    <div id="hero-img">
       <img src="https://placehold.it/500x500" alt=""></img>
     </div>
   )

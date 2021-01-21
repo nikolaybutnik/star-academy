@@ -36,6 +36,16 @@ app.post('/newuser', (req, res) => {
     })
 })
 
+// This route will be used to fetch the user object from the database
+app.get('/getuser', (req, res) => {
+  //////////
+})
+
+// This route will be used for any edits that need to be made to the user object
+app.patch('/edituser', (req, res) => {
+  //////////
+})
+
 // Send every other request to the React app
 // Define any API routes before this runs
 app.get('*', (req, res) => {
