@@ -1,6 +1,7 @@
 import React from "react";
 import ProgressBar from "react-bootstrap/ProgressBar";
 import { Link } from "react-router-dom";
+import homeicon from "../../Assets/user-avatar.png";
 
 function HomeHeader() {
   return (
@@ -18,7 +19,16 @@ function HomeHeader() {
       <div className="col">
         {" "}
         <Link to="/userprofile">
-          <button className="user-profile-btn" href=""></button>
+          <button className="user-profile-btn" href="">
+            <img
+              src={homeicon}
+              alt="home icon"
+              style={{
+                maxHeight: "25px",
+                maxWidth: "25px",
+              }}
+            ></img>
+          </button>
         </Link>
       </div>
     </div>

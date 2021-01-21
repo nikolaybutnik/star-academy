@@ -1,11 +1,11 @@
-import React from 'react'
-import './Busker.css'
+import React from "react";
+import "./Busker.css";
 import {
   buskerEasyQuestions,
   buskerMediumQuestions,
   buskerHardQuestions,
-} from '../../../utils/questions'
-import QuestionDisplay from '../QuestionDisplay/QuestionDisplay'
+} from "../../../utils/questions";
+import QuestionDisplay from "../QuestionDisplay/QuestionDisplay";
 
 const Busker = ({
   props: {
@@ -30,58 +30,58 @@ const Busker = ({
   },
 }) => {
   const handleGoToQuizEasy = () => {
-    setEasyBeginner([])
-    setMediumBeginner([])
-    setHardBeginner([])
-    setMediumBusker([])
-    setHardBusker([])
-    setEasyLocalTalent([])
-    setMediumLocalTalent([])
-    setHardLocalTalent([])
+    setEasyBeginner([]);
+    setMediumBeginner([]);
+    setHardBeginner([]);
+    setMediumBusker([]);
+    setHardBusker([]);
+    setEasyLocalTalent([]);
+    setMediumLocalTalent([]);
+    setHardLocalTalent([]);
     //ADD LOGIC TO PREVENT DUPLICATE QUESTIONS
-    const newArr = []
+    const newArr = [];
     for (let i = 0; i < 5; i++) {
-      const randNum = Math.random() * buskerEasyQuestions.length
-      newArr.push(buskerEasyQuestions[Math.floor(randNum)])
+      const randNum = Math.random() * buskerEasyQuestions.length;
+      newArr.push(buskerEasyQuestions[Math.floor(randNum)]);
     }
-    setEasyBusker(newArr)
-  }
+    setEasyBusker(newArr);
+  };
 
   const handleGoToQuizMedium = () => {
-    setEasyBeginner([])
-    setMediumBeginner([])
-    setHardBeginner([])
-    setEasyBusker([])
-    setHardBusker([])
-    setEasyLocalTalent([])
-    setMediumLocalTalent([])
-    setHardLocalTalent([])
+    setEasyBeginner([]);
+    setMediumBeginner([]);
+    setHardBeginner([]);
+    setEasyBusker([]);
+    setHardBusker([]);
+    setEasyLocalTalent([]);
+    setMediumLocalTalent([]);
+    setHardLocalTalent([]);
     //ADD LOGIC TO PREVENT DUPLICATE QUESTIONS
-    const newArr = []
+    const newArr = [];
     for (let i = 0; i < 5; i++) {
-      const randNum = Math.random() * buskerMediumQuestions.length
-      newArr.push(buskerMediumQuestions[Math.floor(randNum)])
+      const randNum = Math.random() * buskerMediumQuestions.length;
+      newArr.push(buskerMediumQuestions[Math.floor(randNum)]);
     }
-    setMediumBusker(newArr)
-  }
+    setMediumBusker(newArr);
+  };
 
   const handleGoToQuizHard = () => {
-    setEasyBeginner([])
-    setMediumBeginner([])
-    setHardBeginner([])
-    setEasyBusker([])
-    setMediumBusker([])
-    setEasyLocalTalent([])
-    setMediumLocalTalent([])
-    setHardLocalTalent([])
+    setEasyBeginner([]);
+    setMediumBeginner([]);
+    setHardBeginner([]);
+    setEasyBusker([]);
+    setMediumBusker([]);
+    setEasyLocalTalent([]);
+    setMediumLocalTalent([]);
+    setHardLocalTalent([]);
     //ADD LOGIC TO PREVENT DUPLICATE QUESTIONS
-    const newArr = []
+    const newArr = [];
     for (let i = 0; i < 5; i++) {
-      const randNum = Math.random() * buskerHardQuestions.length
-      newArr.push(buskerHardQuestions[Math.floor(randNum)])
+      const randNum = Math.random() * buskerHardQuestions.length;
+      newArr.push(buskerHardQuestions[Math.floor(randNum)]);
     }
-    setHardBusker(newArr)
-  }
+    setHardBusker(newArr);
+  };
 
   return (
     <>
@@ -89,7 +89,11 @@ const Busker = ({
       <div className="question-cards">
         <button
           className="card questions col-md-4"
-          style={{ width: '20.5rem', backgroundColor: '#d0d0d0' }}
+          style={{
+            width: "20.5rem",
+            backgroundColor: "rgb(214 250 214)",
+            borderColor: "green",
+          }}
           onClick={() => handleGoToQuizEasy(buskerEasyQuestions)}
         >
           <h5 className="card-title col-md-12">EASY</h5>
@@ -97,7 +101,11 @@ const Busker = ({
 
         <button
           className="card questions col-md-4"
-          style={{ width: '20.5rem', backgroundColor: '#d0d0d0' }}
+          style={{
+            width: "20.5rem",
+            backgroundColor: "rgb(255 225 144)",
+            borderColor: "orange",
+          }}
           onClick={() => handleGoToQuizMedium(buskerMediumQuestions)}
         >
           <h5 className="card-title col-md-12">MEDIUM</h5>
@@ -105,7 +113,11 @@ const Busker = ({
 
         <button
           className="card questions col-md-4"
-          style={{ width: '20.5rem', backgroundColor: '#d0d0d0' }}
+          style={{
+            width: "20.5rem",
+            backgroundColor: "rgb(255 131 131)",
+            borderColor: "darkred",
+          }}
           onClick={() => handleGoToQuizHard(buskerHardQuestions)}
         >
           <h5 className="card-title col-md-12">HARD</h5>
@@ -128,7 +140,7 @@ const Busker = ({
         ))}
       </div>
     </>
-  )
-}
+  );
+};
 
-export default Busker
+export default Busker;
