@@ -1,30 +1,30 @@
-import React, { useState, useEffect, useRef } from 'react'
-import { Link } from 'react-router-dom'
-import './Login.css'
+import React, { useState, useEffect, useRef } from "react";
+import { Link } from "react-router-dom";
+import "./Login.css";
 
-import Hero from '../Hero/Hero'
+import Hero from "../Hero/Hero";
 
 function Login() {
-  const [user, setUser] = useState('')
+  const [user, setUser] = useState("");
 
   // Reference input fields
-  const emailRef = useRef()
-  const newPasswordRef = useRef()
+  const emailRef = useRef();
+  const newPasswordRef = useRef();
 
   // Set up input field states
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
   useEffect(() => {
-    console.log(email, password)
-  }, [email, password])
+    console.log(email, password);
+  }, [email, password]);
 
   const handleFormSubmit = (event) => {
-    event.preventDefault()
+    event.preventDefault();
     // HANDLE SIGN IN AND AUTHENTICATION PROCESS.
     // MAKE A CALL TO GET API ROUTE TO FETCH THE CORRECT USER OBJECT
     // AND SET IT TO A STATE.
-  }
+  };
 
   return (
     <div className="wrapper">
@@ -34,11 +34,11 @@ function Login() {
         </div>
         <div className="col">
           <form onSubmit={(event) => handleFormSubmit(event)}>
-            <div class="form-group">
+            <div className="form-group">
               <label for="email">Email address</label>
               <input
                 type="email"
-                class="form-control"
+                className="form-control"
                 id="email"
                 aria-describedby="emailHelp"
                 placeholder="Enter email"
@@ -47,33 +47,33 @@ function Login() {
               ></input>
             </div>
 
-            <div class="form-group">
+            <div className="form-group">
               <label for="password">Password</label>
               <input
                 type="password"
-                class="form-control"
+                className="form-control"
                 id="password"
                 placeholder="Enter password"
                 onChange={(event) => setPassword(event.target.value)}
                 ref={newPasswordRef}
               ></input>
-              <button type="submit" class="btn btn-primary">
+              <button type="submit" className="btn btn-primary">
                 Sign In
               </button>
             </div>
 
-            <div class="form-group">
-              <small id="redirectSignin" class="form-text text-muted">
+            <div className="form-group">
+              <small id="redirectSignin" className="form-text text-muted">
                 Don't have an account yet?
               </small>
               <Link to="/signup">
-                <button type="submit" class="btn btn-primary">
+                <button type="submit" className="btn btn-primary">
                   Sign Up
                 </button>
               </Link>
             </div>
             <Link to="/home">
-              <button type="submit" class="btn btn-primary">
+              <button type="submit" className="btn btn-primary">
                 GO TO QUESTIONS
               </button>
             </Link>
@@ -81,7 +81,7 @@ function Login() {
         </div>
       </div>
     </div>
-  )
+  );
 }
 
-export default Login
+export default Login;
