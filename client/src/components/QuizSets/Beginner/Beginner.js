@@ -1,5 +1,9 @@
 import React from "react";
 import "./Beginner.css";
+import wholeNoteIcon from "../../../Assets/icon2.png";
+import halfNoteIcon from "../../../Assets/icon2 2.png";
+import eighthNoteIcon from "../../../Assets/icon2 3.png";
+
 import {
   beginnerEasyQuestions,
   beginnerMediumQuestions,
@@ -96,6 +100,14 @@ const Beginner = ({
           }}
           onClick={() => handleGoToQuizEasy(beginnerEasyQuestions)}
         >
+          <div className="col-md-12">
+            <img
+              src={wholeNoteIcon}
+              alt="whole note"
+              className="card-title"
+              style={{ height: "40px", margin: "10px" }}
+            />
+          </div>
           <h5 className="card-title col-md-12">EASY</h5>
         </button>
 
@@ -108,6 +120,14 @@ const Beginner = ({
           }}
           onClick={() => handleGoToQuizMedium(beginnerMediumQuestions)}
         >
+          <div className="col-md-12">
+            <img
+              src={halfNoteIcon}
+              alt="half note"
+              className="card-title"
+              style={{ height: "40px", margin: "10px" }}
+            />
+          </div>
           <h5 className="card-title col-md-12">MEDIUM</h5>
         </button>
 
@@ -120,6 +140,14 @@ const Beginner = ({
           }}
           onClick={() => handleGoToQuizHard(beginnerHardQuestions)}
         >
+          <div className="col-md-12">
+            <img
+              src={eighthNoteIcon}
+              alt="eighth note"
+              className="card-title"
+              style={{ height: "40px", margin: "10px" }}
+            />
+          </div>
           <h5 className="card-title col-md-12">HARD</h5>
         </button>
       </div>

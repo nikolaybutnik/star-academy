@@ -7,6 +7,10 @@ import {
 } from "../../../utils/questions";
 import QuestionDisplay from "../QuestionDisplay/QuestionDisplay";
 
+import wholeNoteIcon from "../../../Assets/icon2.png";
+import halfNoteIcon from "../../../Assets/icon2 2.png";
+import eighthNoteIcon from "../../../Assets/icon2 3.png";
+
 const Busker = ({
   props: {
     easyBeginner,
@@ -96,7 +100,15 @@ const Busker = ({
           }}
           onClick={() => handleGoToQuizEasy(buskerEasyQuestions)}
         >
-          <h5 className="card-title col-md-12">EASY</h5>
+          {/* <h5 className="card-title col-md-12">EASY</h5> */}
+          <div className="col-md-12">
+            <img
+              src={wholeNoteIcon}
+              alt="whole note"
+              className="card-title"
+              style={{ height: "40px", margin: "10px" }}
+            />
+          </div>
         </button>
 
         <button
@@ -108,7 +120,15 @@ const Busker = ({
           }}
           onClick={() => handleGoToQuizMedium(buskerMediumQuestions)}
         >
-          <h5 className="card-title col-md-12">MEDIUM</h5>
+          {/* <h5 className="card-title col-md-12">MEDIUM</h5> */}
+          <div className="col-md-12">
+            <img
+              src={halfNoteIcon}
+              alt="half note"
+              className="card-title"
+              style={{ height: "40px", margin: "10px" }}
+            />
+          </div>
         </button>
 
         <button
@@ -120,7 +140,15 @@ const Busker = ({
           }}
           onClick={() => handleGoToQuizHard(buskerHardQuestions)}
         >
-          <h5 className="card-title col-md-12">HARD</h5>
+          {/* <h5 className="card-title col-md-12">HARD</h5> */}
+          <div className="col-md-12">
+            <img
+              src={eighthNoteIcon}
+              alt="eighth note"
+              className="card-title"
+              style={{ height: "40px", margin: "10px" }}
+            />
+          </div>
         </button>
       </div>
 
