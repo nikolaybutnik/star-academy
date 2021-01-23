@@ -1,30 +1,30 @@
-import React, { useState, useEffect, useRef } from "react";
-import { Link, useHistory } from "react-router-dom";
-import "./Signup.css";
+import React, { useState, useEffect, useRef } from 'react'
+import { Link, useHistory } from 'react-router-dom'
+import './Signup.css'
 
-import Hero from "../Hero/Hero";
+import Hero from '../../Hero/Hero'
 
 function Signup() {
-  const history = useHistory();
+  const history = useHistory()
 
   // Reference input fields
-  const newEmailRef = useRef();
-  const newUsernameRef = useRef();
-  const newPasswordRef = useRef();
-  const confirmNewPasswrdRef = useRef();
+  const newEmailRef = useRef()
+  const newUsernameRef = useRef()
+  const newPasswordRef = useRef()
+  const confirmNewPasswrdRef = useRef()
 
   // Set up input field states
-  const [email, setEmail] = useState("");
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
+  const [email, setEmail] = useState('')
+  const [username, setUsername] = useState('')
+  const [password, setPassword] = useState('')
+  const [confirmPassword, setConfirmPassword] = useState('')
 
   useEffect(() => {
-    console.log(email, username, password, confirmPassword);
-  }, [email, username, password, confirmPassword]);
+    console.log(email, username, password, confirmPassword)
+  }, [email, username, password, confirmPassword])
 
   const handleNewUser = (event) => {
-    event.preventDefault();
+    event.preventDefault()
     const newUser = {
       email: email,
       username: username,
@@ -32,29 +32,29 @@ function Signup() {
       joined: new Date(),
       level: 1,
       experience: 0,
-      class: "Beginner",
+      class: 'Beginner',
       energy: 3,
       answered: [],
-      firstName: "",
-      lastName: "",
-      gender: "",
+      firstName: '',
+      lastName: '',
+      gender: '',
       birthday: new Date(1800, 0, 1),
-      country: "",
-    };
-    fetch("/newuser", {
-      method: "POST",
+      country: '',
+    }
+    fetch('/newuser', {
+      method: 'POST',
       body: JSON.stringify(newUser),
       headers: {
-        Accept: "application/json, text/plain, */*",
-        "Content-Type": "application/json",
+        Accept: 'application/json, text/plain, */*',
+        'Content-Type': 'application/json',
       },
-    });
-    setEmail("");
-    setUsername("");
-    setPassword("");
-    setConfirmPassword("");
-    history.push("/login");
-  };
+    })
+    setEmail('')
+    setUsername('')
+    setPassword('')
+    setConfirmPassword('')
+    history.push('/login')
+  }
 
   return (
     <div className="wrapper">
@@ -129,7 +129,7 @@ function Signup() {
                 </button>
               </Link>
             </div>
-            <Link to="/home">
+            <Link to="/quiz">
               <button type="submit" className="btn btn-primary">
                 GO TO QUESTIONS
               </button>
@@ -138,7 +138,7 @@ function Signup() {
         </div>
       </div>
     </div>
-  );
+  )
 }
 
-export default Signup;
+export default Signup
