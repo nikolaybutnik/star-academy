@@ -1,5 +1,5 @@
-import React from "react";
-import { PieChart } from "react-minimal-pie-chart";
+import React from 'react'
+import { PieChart } from 'react-minimal-pie-chart'
 
 const ProfileUserInfo = () => {
   return (
@@ -11,14 +11,15 @@ const ProfileUserInfo = () => {
         <PieChart
           // label={({ dataEntry }) => "WINS"}
           data={[
-            { title: "One", value: 50, color: "#E38627" },
-            { title: "Two", value: 50, color: "#C13C37" },
+            { title: 'One', value: 50, color: '#E38627' },
+            { title: 'Two', value: 50, color: '#C13C37' },
           ]}
-          style={{ height: "auto", maxHeight: "250px", margin: "20px" }}
+          style={{ height: 'auto', maxHeight: '250px', margin: '20px' }}
         />
       </div>
 
       <div className="col-md-6">
+
         <form
           style={{
             height: "auto",
@@ -28,6 +29,7 @@ const ProfileUserInfo = () => {
           }}
         >
           <h6>Username:</h6>
+
           <h6>Email: </h6>
           <h6>Streak: </h6>
           <h6>Birthday: </h6>
@@ -35,7 +37,7 @@ const ProfileUserInfo = () => {
         </form>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default ProfileUserInfo;
+export default ProfileUserInfo
