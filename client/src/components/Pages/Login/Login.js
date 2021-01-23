@@ -1,29 +1,18 @@
-import React, { useState, useEffect, useRef } from 'react'
+import React, { useState, useRef } from 'react'
 import { Link } from 'react-router-dom'
 import './Login.css'
 
 import Hero from '../../Hero/Hero'
 
 function Login() {
-  const [user, setUser] = useState('')
-
   // Reference input fields
   const emailRef = useRef()
   const passwordRef = useRef()
 
-  // Set up input field states
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
-
-  // useEffect(() => {
-  //   console.log(email, password)
-  // }, [email, password])
-
   const handleFormSubmit = (event) => {
     event.preventDefault()
     // HANDLE SIGN IN AND AUTHENTICATION PROCESS.
-    // MAKE A CALL TO GET API ROUTE TO FETCH THE CORRECT USER OBJECT
-    // AND SET IT TO A STATE.
+
     const checkLogin = {
       email: emailRef.current.value,
       password: passwordRef.current.value,
@@ -69,7 +58,6 @@ function Login() {
                 id="email"
                 aria-describedby="emailHelp"
                 placeholder="Enter email"
-                onChange={(event) => setEmail(event.target.value)}
                 ref={emailRef}
               ></input>
             </div>
@@ -81,7 +69,6 @@ function Login() {
                 className="form-control"
                 id="password"
                 placeholder="Enter password"
-                onChange={(event) => setPassword(event.target.value)}
                 ref={passwordRef}
               ></input>
               <button type="submit" className="btn btn-primary">
