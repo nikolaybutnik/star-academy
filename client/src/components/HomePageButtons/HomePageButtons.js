@@ -19,6 +19,7 @@ const HomePageButtons = () => {
       >
         <h2 style={{ padding: "5px" }}>DAILY QUIZ</h2>
       </button>
+      <div>hello</div>
     </Link>
   );
 };
