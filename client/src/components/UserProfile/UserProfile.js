@@ -13,15 +13,13 @@ const UserProfile = () => {
     <>
       <div className="home-page">
         <ProfileHeader />
-
-        <div className="main-page-body">
-          <div className="row">
-            <ProfileUserTier />
-            <div className="col-md-7">
-              <ProfileUserInfo />
-              <Calendar />
-              <HomePageButtons />
-            </div>
+      <div className="main-page-body">
+        <div className="row">
+          <ProfileUserTier />
+          <div className="col-md-7">
+            <ProfileUserInfo />
+            <HomePageButtons />
+            <Calendar />
           </div>
         </div>
       </div>
