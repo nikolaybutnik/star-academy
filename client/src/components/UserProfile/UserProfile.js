@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 
 import ProfileHeader from '../Header/ProfileHeader'
 import Calendar from '../Calendar/Calendar'
@@ -8,13 +8,7 @@ import HomePageButtons from '../HomePageButtons/HomePageButtons'
 
 import './UserProfile.css'
 
-const UserProfile = ({ location }) => {
-  const [currentUser, setCurrentUser] = useState()
-  useEffect(() => {
-    setCurrentUser(location.state)
-    console.log(currentUser)
-  }, [location.state, currentUser])
-
+const UserProfile = () => {
   return (
     <>
       <div className="home-page">
