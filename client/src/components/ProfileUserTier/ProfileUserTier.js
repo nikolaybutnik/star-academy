@@ -1,6 +1,6 @@
 import React from "react";
-import ProgressBar from "react-bootstrap/ProgressBar";
 import beginner from "../../Assets/512x512.png";
+import energyIcon from "../../Assets/bolt-128.png";
 
 const ProfileUserTier = () => {
   return (
@@ -11,8 +11,14 @@ const ProfileUserTier = () => {
         alt="beginner logo"
         className="user-image-profile col-md-12"
       />
-      <ProgressBar now={40} variant="warning" className="exhaustion-level" />
-      <h5 className="exhaustion-level-title">Exhaustion Level</h5>
+
+      <div className="user-tier-info col-md-12">
+        <img src={energyIcon} alt="logo" className="energy-icon" />
+        <h2 className="energy-level">3/4</h2>
+      </div>
+      <div className="user-tier-info col-md-12">
+        <h6 className="energy-title">ENERGY LEVEL</h6>
+      </div>
     </div>
   );
 };

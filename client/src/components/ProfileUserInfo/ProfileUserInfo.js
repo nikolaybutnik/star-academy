@@ -9,10 +9,10 @@ const ProfileUserInfo = () => {
     >
       <div className="col-md-6">
         <PieChart
+          // label={({ dataEntry }) => "WINS"}
           data={[
-            { title: "One", value: 10, color: "#E38627" },
-            { title: "Two", value: 15, color: "#C13C37" },
-            { title: "Three", value: 20, color: "#6A2135" },
+            { title: "One", value: 50, color: "#E38627" },
+            { title: "Two", value: 50, color: "#C13C37" },
           ]}
           style={{ height: "auto", maxHeight: "250px", margin: "20px" }}
         />

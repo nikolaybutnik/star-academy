@@ -22,7 +22,7 @@ const Calendar = () => {
           <table>
             <tbody>
               <tr>
-                <td></td>
+                <td style={{ backgroundColor: "green" }}></td>
                 <td></td>
                 <td></td>
                 <td></td>

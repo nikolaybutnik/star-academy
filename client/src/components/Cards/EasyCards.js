@@ -1,27 +1,27 @@
-import React from 'react'
-import './Cards.css'
-import { Link } from 'react-router-dom'
+import React from "react";
+import "./Cards.css";
+import { Link } from "react-router-dom";
 import {
   beginnerEasyQuestions,
   buskerEasyQuestions,
   localTalentEasyQuestions,
-} from '../../utils/questions'
+} from "../../utils/questions";
 
 const EasyCards = () => {
   const handleGoToQuiz = () => {
-    console.log(beginnerEasyQuestions)
-  }
+    console.log(beginnerEasyQuestions);
+  };
   return (
     <Link to="/quiz">
       <button
         className="card questions col-md-4"
-        style={{ width: '20.5rem', backgroundColor: '#d0d0d0' }}
+        style={{ width: "20.5rem", backgroundColor: "white" }}
         onClick={handleGoToQuiz}
       >
         <h5 className="card-title col-md-12">EASY</h5>
       </button>
     </Link>
-  )
-}
+  );
+};
 
-export default EasyCards
+export default EasyCards;
