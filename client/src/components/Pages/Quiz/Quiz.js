@@ -1,23 +1,23 @@
-import React, { useState } from "react";
-import "./Home.css";
+import React, { useState } from 'react'
+import './Quiz.css'
 
-import Beginner from "../../components/QuizSets/Beginner/Beginner";
-import Busker from "../../components/QuizSets/Busker/Busker";
-import LocalTalent from "../../components/QuizSets/LocalTalent/LocalTalent";
-import HomeHeader from "../Header/HomeHeader";
+import Beginner from './QuizSets/Beginner/Beginner'
+import Busker from './QuizSets/Busker/Busker'
+import LocalTalent from './QuizSets/LocalTalent/LocalTalent'
+import HomeHeader from '../../Header/HomeHeader'
 
 const Home = () => {
-  const [easyBeginner, setEasyBeginner] = useState([]);
-  const [mediumBeginner, setMediumBeginner] = useState([]);
-  const [hardBeginner, setHardBeginner] = useState([]);
+  const [easyBeginner, setEasyBeginner] = useState([])
+  const [mediumBeginner, setMediumBeginner] = useState([])
+  const [hardBeginner, setHardBeginner] = useState([])
 
-  const [easyBusker, setEasyBusker] = useState([]);
-  const [mediumBusker, setMediumBusker] = useState([]);
-  const [hardBusker, setHardBusker] = useState([]);
+  const [easyBusker, setEasyBusker] = useState([])
+  const [mediumBusker, setMediumBusker] = useState([])
+  const [hardBusker, setHardBusker] = useState([])
 
-  const [easyLocalTalent, setEasyLocalTalent] = useState([]);
-  const [mediumLocalTalent, setMediumLocalTalent] = useState([]);
-  const [hardLocalTalent, setHardLocalTalent] = useState([]);
+  const [easyLocalTalent, setEasyLocalTalent] = useState([])
+  const [mediumLocalTalent, setMediumLocalTalent] = useState([])
+  const [hardLocalTalent, setHardLocalTalent] = useState([])
 
   const props = {
     easyBeginner,
@@ -38,7 +38,7 @@ const Home = () => {
     setMediumLocalTalent,
     hardLocalTalent,
     setHardLocalTalent,
-  };
+  }
 
   return (
     <div className="home-page">
@@ -94,7 +94,7 @@ const Home = () => {
         </div> */}
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default Home;
+export default Home
