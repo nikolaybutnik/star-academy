@@ -7,6 +7,7 @@ import ProfileUserTier from "../ProfileUserTier/ProfileUserTier";
 import HomePageButtons from "../HomePageButtons/HomePageButtons";
 
 import "./UserProfile.css";
+import { Container } from "react-bootstrap";
 
 const UserProfile = () => {
   return (
@@ -19,8 +20,18 @@ const UserProfile = () => {
           <div className="col-md-7">
             <ProfileUserInfo />
             <HomePageButtons />
-
-            <Calendar />
+            <Container
+              style={{
+                maxWidth: "730px",
+                width: "100%",
+                paddingRight: "0px",
+                paddingLeft: "0px",
+                marginRight: "auto",
+                marginLeft: "auto",
+              }}
+            >
+              <Calendar />
+            </Container>
           </div>
         </div>
       </div>

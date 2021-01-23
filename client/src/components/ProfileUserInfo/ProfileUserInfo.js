@@ -5,7 +5,7 @@ const ProfileUserInfo = () => {
   return (
     <div
       className="row col-md-12"
-      style={{ flexWrap: "nowrap", marginTop: "70px" }}
+      style={{ flexWrap: "nowrap", marginTop: "90px" }}
     >
       <div className="col-md-6">
         <PieChart
@@ -19,7 +19,14 @@ const ProfileUserInfo = () => {
       </div>
 
       <div className="col-md-6">
-        <form style={{ height: "auto", maxHeight: "250px", margin: "20px" }}>
+        <form
+          style={{
+            height: "auto",
+            maxHeight: "250px",
+            margin: "20px",
+            textAlign: "left",
+          }}
+        >
           <h6>Username:</h6>
           <h6>Email: </h6>
           <h6>Streak: </h6>
