@@ -28,16 +28,29 @@ function Login() {
       email: emailRef.current.value,
       password: passwordRef.current.value,
     }
-    emailRef.current.value = ''
-    passwordRef.current.value = ''
-    fetch('/getuser', {
-      method: 'GET',
-      body: JSON.stringify(checkLogin),
-      headers: {
-        Accept: 'application/json, text/plain, */*',
-        'Content-Type': 'application/json',
-      },
-    }).then((req, res) => console.log(res))
+
+    if (emailRef.current.value && passwordRef.current.value) {
+      fetch('/getuser', {
+        method: 'POST',
+        body: JSON.stringify(checkLogin),
+        headers: {
+          Accept: 'application/json, text/plain, */*',
+          'Content-Type': 'application/json',
+        },
+      })
+        .then((res) => res.json(res))
+        .then((retrievedUser) => {
+          if (retrievedUser) {
+            console.log(retrievedUser)
+            emailRef.current.value = ''
+            passwordRef.current.value = ''
+          } else {
+            console.log('User not found.')
+          }
+        })
+    } else {
+      console.log('INPUT INFO')
+    }
   }
 
   return (
