@@ -18,6 +18,7 @@ function App() {
   const [user, setUser] = useState()
 
   // Check if user has previosuly logged in when page loads.
+  // LOOK INTO USING CONTEXT PROVIDER INSTEAD
   useEffect(() => {
     const loggedInUser = localStorage.getItem('user')
     if (loggedInUser) {
@@ -59,6 +60,8 @@ function App() {
             // NOTE: REFACTOR LATER, THIS WAY EXPOSES USER'S PERSONAL INFO
             // LOOK INTO TOKENS
             // IMPLEMENT LOGOUT BUTTON
+            // setUser()
+            // localStorage.clear();
             localStorage.setItem('user', JSON.stringify(retrievedUser))
           } else {
             console.log('User not found.')

@@ -1,7 +1,7 @@
 import React from 'react'
 import { PieChart } from 'react-minimal-pie-chart'
 
-const ProfileUserInfo = () => {
+const ProfileUserInfo = ({ user }) => {
   return (
     <div
       className="row col-md-12"
@@ -20,11 +20,11 @@ const ProfileUserInfo = () => {
 
       <div className="col-md-6">
         <form style={{ height: 'auto', maxHeight: '250px', margin: '20px' }}>
-          <h6>Username: </h6>
-          <h6>Email: </h6>
+          <h6>Username: {user ? user.username : null}</h6>
+          <h6>Email: {user ? user.email : null}</h6>
           <h6>Streak: </h6>
           <h6>Birthday: </h6>
-          <h6>Joined Date: </h6>
+          <h6>Joined Date: {user ? user.joined : null}</h6>
         </form>
       </div>
     </div>

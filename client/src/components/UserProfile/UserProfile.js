@@ -31,13 +31,13 @@ const UserProfile = () => {
   return (
     <>
       <div className="home-page">
-        <ProfileHeader />
+        <ProfileHeader user={user} />
 
         <div className="main-page-body">
           <div className="row">
             <ProfileUserTier />
             <div className="col-md-7">
-              <ProfileUserInfo />
+              <ProfileUserInfo user={user} />
               <Calendar />
               <HomePageButtons />
             </div>
