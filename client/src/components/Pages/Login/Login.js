@@ -1,30 +1,30 @@
-import React, { useState, useEffect, useRef } from "react";
-import { Link } from "react-router-dom";
-import "./Login.css";
+import React, { useState, useEffect, useRef } from 'react'
+import { Link } from 'react-router-dom'
+import './Login.css'
 
-import Hero from "../Hero/Hero";
+import Hero from '../../Hero/Hero'
 
 function Login() {
-  const [user, setUser] = useState("");
+  const [user, setUser] = useState('')
 
   // Reference input fields
-  const emailRef = useRef();
-  const newPasswordRef = useRef();
+  const emailRef = useRef()
+  const newPasswordRef = useRef()
 
   // Set up input field states
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
 
   useEffect(() => {
-    console.log(email, password);
-  }, [email, password]);
+    console.log(email, password)
+  }, [email, password])
 
   const handleFormSubmit = (event) => {
-    event.preventDefault();
+    event.preventDefault()
     // HANDLE SIGN IN AND AUTHENTICATION PROCESS.
     // MAKE A CALL TO GET API ROUTE TO FETCH THE CORRECT USER OBJECT
     // AND SET IT TO A STATE.
-  };
+  }
 
   return (
     <div className="wrapper">
@@ -72,7 +72,7 @@ function Login() {
                 </button>
               </Link>
             </div>
-            <Link to="/home">
+            <Link to="/quiz">
               <button type="submit" className="btn btn-primary">
                 GO TO QUESTIONS
               </button>
@@ -81,7 +81,7 @@ function Login() {
         </div>
       </div>
     </div>
-  );
+  )
 }
 
-export default Login;
+export default Login
