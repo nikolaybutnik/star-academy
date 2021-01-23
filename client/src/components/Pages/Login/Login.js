@@ -9,21 +9,35 @@ function Login() {
 
   // Reference input fields
   const emailRef = useRef()
-  const newPasswordRef = useRef()
+  const passwordRef = useRef()
 
   // Set up input field states
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
 
-  useEffect(() => {
-    console.log(email, password)
-  }, [email, password])
+  // useEffect(() => {
+  //   console.log(email, password)
+  // }, [email, password])
 
   const handleFormSubmit = (event) => {
     event.preventDefault()
     // HANDLE SIGN IN AND AUTHENTICATION PROCESS.
     // MAKE A CALL TO GET API ROUTE TO FETCH THE CORRECT USER OBJECT
     // AND SET IT TO A STATE.
+    const checkLogin = {
+      email: emailRef.current.value,
+      password: passwordRef.current.value,
+    }
+    emailRef.current.value = ''
+    passwordRef.current.value = ''
+    fetch('/getuser', {
+      method: 'GET',
+      body: JSON.stringify(checkLogin),
+      headers: {
+        Accept: 'application/json, text/plain, */*',
+        'Content-Type': 'application/json',
+      },
+    }).then((req, res) => console.log(res))
   }
 
   return (
@@ -55,7 +69,7 @@ function Login() {
                 id="password"
                 placeholder="Enter password"
                 onChange={(event) => setPassword(event.target.value)}
-                ref={newPasswordRef}
+                ref={passwordRef}
               ></input>
               <button type="submit" className="btn btn-primary">
                 Sign In

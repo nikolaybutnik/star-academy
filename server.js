@@ -38,7 +38,9 @@ app.post('/newuser', (req, res) => {
 
 // This route will be used to fetch the user object from the database
 app.get('/getuser', (req, res) => {
-  //////////
+  const checkUser = req.body
+  console.log(checkUser)
+  // User.findOne({})
 })
 
 // This route will be used for any edits that need to be made to the user object
