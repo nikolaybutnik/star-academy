@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import './Quiz.css'
 
 import Beginner from './QuizSets/Beginner/Beginner'
@@ -6,7 +6,26 @@ import Busker from './QuizSets/Busker/Busker'
 import LocalTalent from './QuizSets/LocalTalent/LocalTalent'
 import HomeHeader from '../../Header/HomeHeader'
 
-const Home = () => {
+const Quiz = () => {
+  // Currently logged in user state
+  const [user, setUser] = useState()
+
+  // Check if user has previosuly logged in when page loads.
+  useEffect(() => {
+    const fetchData = async () => {
+      const loggedInUser = await localStorage.getItem('user')
+      // console.log(loggedInUser)
+      if (loggedInUser) {
+        const foundUser = JSON.parse(loggedInUser)
+        console.log(foundUser)
+        setUser(foundUser)
+      } else {
+        console.log('No user logged in.')
+      }
+    }
+    fetchData()
+  }, [])
+
   const [easyBeginner, setEasyBeginner] = useState([])
   const [mediumBeginner, setMediumBeginner] = useState([])
   const [hardBeginner, setHardBeginner] = useState([])
@@ -97,4 +116,4 @@ const Home = () => {
   )
 }
 
-export default Home
+export default Quiz
