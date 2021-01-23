@@ -4,20 +4,39 @@ import { Link } from "react-router-dom";
 const HomePageButtons = () => {
   return (
     <Link to="/quiz">
-      <button
+      {/* <button
         className="user-home-btn col-md-12"
         href=""
         style={{
           margin: "auto",
-          marginTop: "100px",
-          marginBottom: "30px",
-          borderRadius: "0%",
-          backgroundColor: "lightblue",
+          height: "100px",
+          marginTop: "90px",
+          backgroundColor: "rgb(215 243 254)",
           borderWidth: "3px",
-          border: "grey solid thin",
+          border: "black solid thin",
+          borderRadius: "15px",
         }}
       >
-        <h2 style={{ padding: "5px" }}>DAILY QUIZ</h2>
+        <h2
+          style={{
+            padding: "5px",
+            fontFamily:
+              "Trebuchet MS, Lucida Sans Unicode, Lucida Grande, Lucida Sans, Arial, sans-serif",
+          }}
+        >
+          DAILY QUIZ
+        </h2>
+      </button> */}
+      <button href="" class="btn-gradient col-md-9 blue mini">
+        <h2
+          style={{
+            padding: "5px",
+            fontFamily:
+              "Trebuchet MS, Lucida Sans Unicode, Lucida Grande, Lucida Sans, Arial, sans-serif",
+          }}
+        >
+          DAILY QUIZ
+        </h2>
       </button>
     </Link>
   );

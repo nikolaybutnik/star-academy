@@ -7,6 +7,7 @@ import ProfileUserTier from '../ProfileUserTier/ProfileUserTier'
 import HomePageButtons from '../HomePageButtons/HomePageButtons'
 
 import './UserProfile.css'
+import { Container } from 'react-bootstrap'
 
 const UserProfile = () => {
   // Currently logged in user state
@@ -31,16 +32,26 @@ const UserProfile = () => {
   return (
     <>
       <div className="home-page">
-        <ProfileHeader user={user} />
-
-        <div className="main-page-body">
-          <div className="row">
-            <ProfileUserTier />
-            <div className="col-md-7">
-              <ProfileUserInfo user={user} />
+        <ProfileHeader />
+      </div>
+      <div className="main-page-body">
+        <div className="row">
+          <ProfileUserTier />
+          <div className="col-md-7">
+            <ProfileUserInfo user={user} />
+            <HomePageButtons />
+            <Container
+              style={{
+                maxWidth: '730px',
+                width: '100%',
+                paddingRight: '0px',
+                paddingLeft: '0px',
+                marginRight: 'auto',
+                marginLeft: 'auto',
+              }}
+            >
               <Calendar />
-              <HomePageButtons />
-            </div>
+            </Container>
           </div>
         </div>
       </div>
