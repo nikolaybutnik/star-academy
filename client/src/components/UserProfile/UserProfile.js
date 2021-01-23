@@ -18,8 +18,9 @@ const UserProfile = () => {
           <ProfileUserTier />
           <div className="col-md-7">
             <ProfileUserInfo />
-            <Calendar />
             <HomePageButtons />
+
+            <Calendar />
           </div>
         </div>
       </div>
