@@ -1,4 +1,4 @@
-import React, { useRef } from 'react'
+import React, { useState, useRef, useEffect } from 'react'
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
 import './App.css'
 
@@ -14,15 +14,31 @@ function App() {
   const emailRef = useRef()
   const passwordRef = useRef()
 
+  // Currently logged in user state
+  const [user, setUser] = useState()
+
+  // Check if user has previosuly logged in when page loads.
+  // LOOK INTO USING CONTEXT PROVIDER INSTEAD
+  useEffect(() => {
+    const loggedInUser = localStorage.getItem('user')
+    if (loggedInUser) {
+      const foundUser = JSON.parse(loggedInUser)
+      console.log(foundUser)
+      setUser(foundUser)
+    }
+  }, [])
+
   const handleFormSubmit = (event) => {
     event.preventDefault()
-    // HANDLE SIGN IN AND AUTHENTICATION PROCESS.
+    // NOTE: HANDLE AUTHENTICATION PROCESS
 
     const checkLogin = {
       email: emailRef.current.value,
       password: passwordRef.current.value,
     }
 
+    // Fetch the user's data from the server on form submission.
+    // If user data exists, ssave it to local storage.
     if (emailRef.current.value && passwordRef.current.value) {
       fetch('/getuser', {
         method: 'POST',
@@ -38,17 +54,29 @@ function App() {
             console.log(retrievedUser)
             emailRef.current.value = ''
             passwordRef.current.value = ''
-            ////////////////////////////////////////
-            // HANDLE SAVING OF USER STATE (PERSISTENT)
-            ////////////////////////////////////////
+            // Set the retrieved user as a state.
+            setUser(retrievedUser)
+            // Store the user in local storage.
+            // NOTE: REFACTOR LATER, THIS WAY EXPOSES USER'S PERSONAL INFO
+            // LOOK INTO TOKENS
+            // IMPLEMENT LOGOUT BUTTON
+            // setUser()
+            // localStorage.clear();
+            localStorage.setItem('user', JSON.stringify(retrievedUser))
           } else {
             console.log('User not found.')
           }
         })
+        .catch((err) => console.log(err))
     } else {
-      console.log('INPUT INFO')
+      console.log('Email and password are required.')
     }
   }
+
+  // if (user) {
+  //   return <div>{user.username} is logged in</div>
+  // }
+
   return (
     <Router>
       <div className="container col-md-12">
@@ -110,6 +138,12 @@ function App() {
         {/* <Route exact path="/login" component={Login} /> */}
         <Route exact path="/signup" component={Signup} />
         <Route path="/quiz" component={Quiz} />
+        {/* <Route
+          path="/userprofile"
+          component={(props) => (
+            <UserProfile {...props} user={user} setUser={setUser} />
+          )}
+        /> */}
         <Route path="/userprofile" component={UserProfile} />
       </div>
     </Router>
