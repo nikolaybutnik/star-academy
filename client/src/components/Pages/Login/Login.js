@@ -1,10 +1,11 @@
 import React, { useState, useRef } from 'react'
-import { Link } from 'react-router-dom'
+import { Link, Redirect, useHistory } from 'react-router-dom'
 import './Login.css'
 
 import Hero from '../../Hero/Hero'
 
 function Login() {
+  const history = useHistory()
   // Reference input fields
   const emailRef = useRef()
   const passwordRef = useRef()
@@ -30,9 +31,16 @@ function Login() {
         .then((res) => res.json(res))
         .then((retrievedUser) => {
           if (retrievedUser) {
-            console.log(retrievedUser)
+            // console.log(retrievedUser)
             emailRef.current.value = ''
             passwordRef.current.value = ''
+            ////////////////////////////////////////
+            const location = {
+              pathname: './userprofile',
+              state: retrievedUser,
+            }
+            history.push(location)
+            ////////////////////////////////////////
           } else {
             console.log('User not found.')
           }

@@ -14,10 +14,10 @@ function App() {
       <div className="container col-md-12">
         {/* <Header /> */}
         <Route exact path="/" component={Login} />
-        <Route exact path="/signup" component={Signup} />
         <Route exact path="/login" component={Login} />
-        <Route exact path="/quiz" component={Quiz} />
-        <Route exact path="/userprofile" component={UserProfile} />
+        <Route exact path="/signup" component={Signup} />
+        <Route path="/quiz" component={Quiz} />
+        <Route path="/userprofile" component={UserProfile} />
       </div>
     </Router>
   )
