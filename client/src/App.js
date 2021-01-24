@@ -39,7 +39,7 @@ function App() {
     // Fetch the user's data from the server on form submission.
     // If user data exists, ssave it to local storage.
     if (emailRef.current.value && passwordRef.current.value) {
-      fetch('/tokens', {
+      fetch('/auth/tokens', {
         method: 'POST',
         body: JSON.stringify(checkLogin),
         headers: {

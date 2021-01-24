@@ -30,7 +30,7 @@ mongoose.connect(
 // Define API routes here
 
 // Handling of new user signup.
-app.post('/newuser', async (req, res) => {
+app.post('/auth/newuser', async (req, res) => {
   // Check if user email is in database.
   const userExists = !!(await User.countDocuments({ email: req.body.email }))
   if (userExists) {
@@ -63,7 +63,7 @@ app.post('/newuser', async (req, res) => {
 })
 
 // Login a user and return an authentication token
-app.post('/tokens', async (req, res) => {
+app.post('/auth/tokens', async (req, res) => {
   // Find if the user with the provided email exists. All the logic is in the User model.
   const { email, password } = req.body
   const user = await User.authenticate(email, password)
@@ -85,18 +85,14 @@ app.post('/tokens', async (req, res) => {
   res.status(201).send({ data: { token: user.generateAuthToken() } })
 })
 
-// Fetch the user object from the database. WILL BE REPLACED.
-// app.post('/getuser', (req, res) => {
-//   const checkUser = req.body
-//   User.findOne({ email: checkUser.email, password: checkUser.password })
-//     .then((user) => {
-//       console.log(user)
-//       res.json(user)
-//     })
-//     .catch((err) => {
-//       res.status(400).json(err)
-//     })
-// })
+// Get the currently logge in user.
+app.post('/auth/users/me', async (req, res) => {
+  // Get the JWT from the request header
+  // Validate the JWT
+  // Load the User document from the database using the `_id` in the JWT
+  // Remember to redact sensitive data like the user's password
+  // Send the data back to the client.
+})
 
 // This route will be used for any edits that need to be made to the user object
 app.patch('/edituser', (req, res) => {

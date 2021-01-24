@@ -44,7 +44,7 @@ function Signup() {
       birthday: new Date(1800, 0, 1),
       country: '',
     }
-    fetch('/newuser', {
+    fetch('/auth/newuser', {
       method: 'POST',
       body: JSON.stringify(newUser),
       headers: {
