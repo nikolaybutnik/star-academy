@@ -4,6 +4,7 @@ const PORT = process.env.PORT || 3001
 const app = express()
 const mongoose = require('mongoose')
 const User = require('./client/src/models/User')
+const jwt = require('jsonwebtoken')
 const bcrypt = require('bcrypt')
 const saltRounds = 14
 
@@ -63,28 +64,25 @@ app.post('/newuser', async (req, res) => {
 
 // Login a user and return an authentication token
 app.post('/tokens', async (req, res) => {
-  // Find if the user with the provided email exists
+  // Find if the user with the provided email exists. All the logic is in the User model.
   const { email, password } = req.body
-  const user = await User.findOne({ email: email })
-  // If a user is returned, accept password. If not, generate a dummy hash password.
-  // This is to mask the difference in response time when the user provides valid/invalid
-  // email. Hackers can use this difference in time to their advantage, so we want to run
-  // bycrypt.compare() whether we get a valid user or not.
-  const hashedPassword = user
-    ? user.password
-    : `$2b$${saltRounds}$invalidusernameaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa`
+  const user = await User.authenticate(email, password)
 
-  // Compare the hashed password to the user payload password, or the generated dummy password.
-  const passwordDidMatch = await bcrypt.compare(password, hashedPassword)
-  if (!user || !passwordDidMatch) {
-    return res.status(401).send({ errors: ['PLACEHOLDER'] })
+  // What we get back will either be a user object or null.
+  if (!user) {
+    return res.status(401).send({
+      errors: [
+        {
+          status: 'Unauthorized',
+          code: '401',
+          title: 'Incorrect username or password.',
+        },
+      ],
+    })
   }
 
-  // If all is good, return a token
-  const token = 'iamatoken'
-  res.status(201).send({ data: { token } })
-
-  // if any condition failed, return an error message
+  // If all is good, return a token. The method is defined in the User model.
+  res.status(201).send({ data: { token: user.generateAuthToken() } })
 })
 
 // Fetch the user object from the database. WILL BE REPLACED.
