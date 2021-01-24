@@ -28,19 +28,25 @@ mongoose.connect(
 
 // Define API routes here
 app.post('/newuser', async (req, res) => {
-  // Intercept the body of the request and hash the password.
-  const newUser = {
-    ...req.body,
-    password: await bcrypt.hash(req.body.password, saltRounds),
+  // Check if user email is in database.
+  const userExists = !!(await User.countDocuments({ email: req.body.email }))
+  if (userExists) {
+    console.log('Email is in use.')
+  } else {
+    // Intercept the body of the request and hash the password.
+    const newUser = {
+      ...req.body,
+      password: await bcrypt.hash(req.body.password, saltRounds),
+    }
+
+    User.create(newUser)
+      .then((user) => {
+        res.json(user)
+      })
+      .catch((err) => {
+        res.status(400).json(err)
+      })
   }
-  // console.log(newUser)
-  User.create(newUser)
-    .then((user) => {
-      res.json(user)
-    })
-    .catch((err) => {
-      res.status(400).json(err)
-    })
 })
 
 // This route will be used to fetch the user object from the database
