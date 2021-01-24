@@ -25,7 +25,7 @@ function Signup() {
 
   const handleNewUser = (event) => {
     // ADD LOGIC TO MAKE SURE PASSWORD AND CONFIRMATION MATCH
-    // ADD LOGIC TO ENSURE THE EMAIL IS UNIQUE
+    // ADD LOGIC THAT PREVENTS REDIRECT IF NEW USER WASN'T CREATED.
     event.preventDefault()
     const newUser = {
       email: email,

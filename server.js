@@ -27,11 +27,23 @@ mongoose.connect(
 )
 
 // Define API routes here
+
+// Handling of new user signup.
 app.post('/newuser', async (req, res) => {
   // Check if user email is in database.
   const userExists = !!(await User.countDocuments({ email: req.body.email }))
   if (userExists) {
-    console.log('Email is in use.')
+    return res.status(400).send({
+      errors: [
+        {
+          status: 'Bad Request',
+          code: '400',
+          title: 'Validation Error',
+          detail: `Email address '${req.body.email}' is already registered.`,
+          source: { pointer: '/data/attributes/email' },
+        },
+      ],
+    })
   } else {
     // Intercept the body of the request and hash the password.
     const newUser = {
@@ -49,7 +61,33 @@ app.post('/newuser', async (req, res) => {
   }
 })
 
-// This route will be used to fetch the user object from the database
+// Login a user and return an authentication token
+app.post('/tokens', async (req, res) => {
+  // Find if the user with the provided email exists
+  const { email, password } = req.body
+  const user = await User.findOne({ email: email })
+  // If a user is returned, accept password. If not, generate a dummy hash password.
+  // This is to mask the difference in response time when the user provides valid/invalid
+  // email. Hackers can use this difference in time to their advantage, so we want to run
+  // bycrypt.compare() whether we get a valid user or not.
+  const hashedPassword = user
+    ? user.password
+    : `$2b$${saltRounds}$invalidusernameaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa`
+
+  // Compare the hashed password to the user payload password, or the generated dummy password.
+  const passwordDidMatch = await bcrypt.compare(password, hashedPassword)
+  if (!user || !passwordDidMatch) {
+    return res.status(401).send({ errors: ['PLACEHOLDER'] })
+  }
+
+  // If all is good, return a token
+  const token = 'iamatoken'
+  res.status(201).send({ data: { token } })
+
+  // if any condition failed, return an error message
+})
+
+// Fetch the user object from the database. WILL BE REPLACED.
 app.post('/getuser', (req, res) => {
   const checkUser = req.body
   User.findOne({ email: checkUser.email, password: checkUser.password })
