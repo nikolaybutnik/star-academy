@@ -19,9 +19,9 @@ function Signup() {
   const [password, setPassword] = useState('')
   const [confirmPassword, setConfirmPassword] = useState('')
 
-  useEffect(() => {
-    console.log(email, username, password, confirmPassword)
-  }, [email, username, password, confirmPassword])
+  // useEffect(() => {
+  //   console.log(email, username, password, confirmPassword)
+  // }, [email, username, password, confirmPassword])
 
   const handleNewUser = (event) => {
     event.preventDefault()
@@ -34,6 +34,7 @@ function Signup() {
       experience: 0,
       class: 'Beginner',
       energy: 3,
+      maxEnergy: 3,
       answered: [],
       firstName: '',
       lastName: '',
@@ -53,7 +54,7 @@ function Signup() {
     setUsername('')
     setPassword('')
     setConfirmPassword('')
-    history.push('/login')
+    history.push('/')
   }
 
   return (

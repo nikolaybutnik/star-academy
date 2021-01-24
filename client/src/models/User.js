@@ -29,6 +29,12 @@ const userSchema = new Schema({
   class: {
     type: String,
   },
+  energy: {
+    type: Number,
+  },
+  maxEnergy: {
+    type: Number,
+  },
   answered: {
     type: Array,
   },

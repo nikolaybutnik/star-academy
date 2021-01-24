@@ -4,6 +4,8 @@ const PORT = process.env.PORT || 3001
 const app = express()
 const mongoose = require('mongoose')
 const User = require('./client/src/models/User')
+const bcrypt = require('bcrypt')
+const saltRounds = 14
 
 // Define middleware here
 app.use(express.urlencoded({ extended: true }))
@@ -25,11 +27,16 @@ mongoose.connect(
 )
 
 // Define API routes here
-app.post('/newuser', (req, res) => {
-  // console.log(req.body)
-  User.create(req.body)
-    .then((newUser) => {
-      res.json(newUser)
+app.post('/newuser', async (req, res) => {
+  // Intercept the body of the request and hash the password.
+  const newUser = {
+    ...req.body,
+    password: await bcrypt.hash(req.body.password, saltRounds),
+  }
+  // console.log(newUser)
+  User.create(newUser)
+    .then((user) => {
+      res.json(user)
     })
     .catch((err) => {
       res.status(400).json(err)
