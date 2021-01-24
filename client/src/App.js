@@ -50,18 +50,19 @@ function App() {
         .then((res) => res.json(res))
         .then((retrievedUserToken) => {
           if (retrievedUserToken) {
-            console.log(retrievedUserToken)
             emailRef.current.value = ''
             passwordRef.current.value = ''
-            // Set the retrieved user token as a state and save to local storage.
-            setUser(retrievedUserToken.data.token)
-            // IMPLEMENT LOGOUT BUTTON
-            // setUser()
-            // localStorage.clear();
-            localStorage.setItem(
-              'user',
-              JSON.stringify(retrievedUserToken.data.token)
-            )
+            fetch('/auth/users/me', {
+              method: 'GET',
+              headers: {
+                Authorization: 'Bearer ' + retrievedUserToken.data.token,
+              },
+            })
+              .then((res) => res.json())
+              .then((data) => {
+                console.log(data.data)
+                // SET CONTEXT WITH THIS USER DATA
+              })
           } else {
             console.log('User not found.')
           }

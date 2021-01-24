@@ -28,9 +28,7 @@ mongoose.connect(
   }
 )
 
-// Define API routes here
-
-// Handling of new user signup.
+// Register a new user.
 app.post('/auth/users', async (req, res) => {
   try {
     // Check if user email is in database.
@@ -111,14 +109,10 @@ app.post('/auth/tokens', async (req, res) => {
 
 // Get the currently logged in user.
 app.get('/auth/users/me', authorize, async (req, res) => {
-  // console.log(req.user)
+  console.log(req.user)
   const user = await User.findById(req.user._id)
+  console.log(user)
   res.send({ data: user })
-  // Get the JWT from the request header
-  // Validate the JWT
-  // Load the User document from the database using the `_id` in the JWT
-  // Remember to redact sensitive data like the user's password
-  // Send the data back to the client.
 })
 
 // This route will be used for any edits that need to be made to the user object
