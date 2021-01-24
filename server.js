@@ -7,6 +7,7 @@ const User = require('./client/src/models/User')
 const jwt = require('jsonwebtoken')
 const bcrypt = require('bcrypt')
 const saltRounds = 14
+const authorize = require('./client/src/middleware/auth')
 
 // Define middleware here
 app.use(express.urlencoded({ extended: true }))
@@ -30,35 +31,46 @@ mongoose.connect(
 // Define API routes here
 
 // Handling of new user signup.
-app.post('/auth/newuser', async (req, res) => {
-  // Check if user email is in database.
-  const userExists = !!(await User.countDocuments({ email: req.body.email }))
-  if (userExists) {
-    return res.status(400).send({
-      errors: [
-        {
-          status: 'Bad Request',
-          code: '400',
-          title: 'Validation Error',
-          detail: `Email address '${req.body.email}' is already registered.`,
-          source: { pointer: '/data/attributes/email' },
-        },
-      ],
-    })
-  } else {
+app.post('/auth/users', async (req, res) => {
+  try {
+    // Check if user email is in database.
+    const userExists = !!(await User.countDocuments({ email: req.body.email }))
+    if (userExists) {
+      return res.status(400).send({
+        errors: [
+          {
+            status: 'Bad Request',
+            code: '400',
+            title: 'Validation Error',
+            detail: `Email address '${req.body.email}' is already registered.`,
+            source: { pointer: '/data/attributes/email' },
+          },
+        ],
+      })
+    }
     // Intercept the body of the request and hash the password.
     const newUser = {
       ...req.body,
       password: await bcrypt.hash(req.body.password, saltRounds),
     }
-
     User.create(newUser)
       .then((user) => {
-        res.json(user)
+        res.status(201).send({ data: newUser })
       })
       .catch((err) => {
         res.status(400).json(err)
       })
+  } catch (err) {
+    debug('Error saving new user: ', err.message)
+    res.status(500).send({
+      errors: [
+        {
+          status: 'Server error',
+          code: '500',
+          title: 'Problem saving document to the database.',
+        },
+      ],
+    })
   }
 })
 
@@ -66,27 +78,42 @@ app.post('/auth/newuser', async (req, res) => {
 app.post('/auth/tokens', async (req, res) => {
   // Find if the user with the provided email exists. All the logic is in the User model.
   const { email, password } = req.body
-  const user = await User.authenticate(email, password)
+  try {
+    const user = await User.authenticate(email, password)
 
-  // What we get back will either be a user object or null.
-  if (!user) {
-    return res.status(401).send({
+    // What we get back will either be a user object or null.
+    if (!user) {
+      return res.status(401).send({
+        errors: [
+          {
+            status: 'Unauthorized',
+            code: '401',
+            title: 'Incorrect username or password.',
+          },
+        ],
+      })
+    }
+    // If all is good, return a token. The method is defined in the User model.
+    res.status(201).send({ data: { token: user.generateAuthToken() } })
+  } catch (err) {
+    debug(`Error authenticating user ... `, err.message)
+    res.status(500).send({
       errors: [
         {
-          status: 'Unauthorized',
-          code: '401',
-          title: 'Incorrect username or password.',
+          status: 'Server error',
+          code: '500',
+          title: 'Problem saving document to the database.',
         },
       ],
     })
   }
-
-  // If all is good, return a token. The method is defined in the User model.
-  res.status(201).send({ data: { token: user.generateAuthToken() } })
 })
 
-// Get the currently logge in user.
-app.post('/auth/users/me', async (req, res) => {
+// Get the currently logged in user.
+app.get('/auth/users/me', authorize, async (req, res) => {
+  // console.log(req.user)
+  const user = await User.findById(req.user._id)
+  res.send({ data: user })
   // Get the JWT from the request header
   // Validate the JWT
   // Load the User document from the database using the `_id` in the JWT
