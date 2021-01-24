@@ -23,14 +23,13 @@ function App() {
     const loggedInUser = localStorage.getItem('user')
     if (loggedInUser) {
       const foundUser = JSON.parse(loggedInUser)
-      console.log(foundUser)
+      // console.log(foundUser)
       setUser(foundUser)
     }
   }, [])
 
   const handleFormSubmit = (event) => {
     event.preventDefault()
-    // NOTE: HANDLE AUTHENTICATION PROCESS
 
     const checkLogin = {
       email: emailRef.current.value,
@@ -40,7 +39,7 @@ function App() {
     // Fetch the user's data from the server on form submission.
     // If user data exists, ssave it to local storage.
     if (emailRef.current.value && passwordRef.current.value) {
-      fetch('/getuser', {
+      fetch('/tokens', {
         method: 'POST',
         body: JSON.stringify(checkLogin),
         headers: {
@@ -49,20 +48,20 @@ function App() {
         },
       })
         .then((res) => res.json(res))
-        .then((retrievedUser) => {
-          if (retrievedUser) {
-            console.log(retrievedUser)
+        .then((retrievedUserToken) => {
+          if (retrievedUserToken) {
+            console.log(retrievedUserToken)
             emailRef.current.value = ''
             passwordRef.current.value = ''
-            // Set the retrieved user as a state.
-            setUser(retrievedUser)
-            // Store the user in local storage.
-            // NOTE: REFACTOR LATER, THIS WAY EXPOSES USER'S PERSONAL INFO
-            // LOOK INTO TOKENS
+            // Set the retrieved user token as a state and save to local storage.
+            setUser(retrievedUserToken.data.token)
             // IMPLEMENT LOGOUT BUTTON
             // setUser()
             // localStorage.clear();
-            localStorage.setItem('user', JSON.stringify(retrievedUser))
+            localStorage.setItem(
+              'user',
+              JSON.stringify(retrievedUserToken.data.token)
+            )
           } else {
             console.log('User not found.')
           }
@@ -72,10 +71,6 @@ function App() {
       console.log('Email and password are required.')
     }
   }
-
-  // if (user) {
-  //   return <div>{user.username} is logged in</div>
-  // }
 
   return (
     <Router>

@@ -86,17 +86,17 @@ app.post('/tokens', async (req, res) => {
 })
 
 // Fetch the user object from the database. WILL BE REPLACED.
-app.post('/getuser', (req, res) => {
-  const checkUser = req.body
-  User.findOne({ email: checkUser.email, password: checkUser.password })
-    .then((user) => {
-      console.log(user)
-      res.json(user)
-    })
-    .catch((err) => {
-      res.status(400).json(err)
-    })
-})
+// app.post('/getuser', (req, res) => {
+//   const checkUser = req.body
+//   User.findOne({ email: checkUser.email, password: checkUser.password })
+//     .then((user) => {
+//       console.log(user)
+//       res.json(user)
+//     })
+//     .catch((err) => {
+//       res.status(400).json(err)
+//     })
+// })
 
 // This route will be used for any edits that need to be made to the user object
 app.patch('/edituser', (req, res) => {
