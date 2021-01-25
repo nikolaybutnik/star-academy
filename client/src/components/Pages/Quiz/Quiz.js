@@ -1,4 +1,5 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
+import UserContext from '../../../utils/UserContext'
 import './Quiz.css'
 
 import Beginner from './QuizSets/Beginner/Beginner'
@@ -7,24 +8,24 @@ import LocalTalent from './QuizSets/LocalTalent/LocalTalent'
 import HomeHeader from '../../Header/HomeHeader'
 
 const Quiz = () => {
-  // Currently logged in user state
-  const [user, setUser] = useState()
+  // Currently logged in user
+  const user = useContext(UserContext)
 
   // Check if user has previosuly logged in when page loads.
-  useEffect(() => {
-    const fetchData = async () => {
-      const loggedInUser = await localStorage.getItem('user')
-      // console.log(loggedInUser)
-      if (loggedInUser) {
-        const foundUser = JSON.parse(loggedInUser)
-        console.log(foundUser)
-        setUser(foundUser)
-      } else {
-        console.log('No user logged in.')
-      }
-    }
-    fetchData()
-  }, [])
+  // useEffect(() => {
+  //   const fetchData = async () => {
+  //     const loggedInUser = await localStorage.getItem('user')
+  //     // console.log(loggedInUser)
+  //     if (loggedInUser) {
+  //       const foundUser = JSON.parse(loggedInUser)
+  //       console.log(foundUser)
+  //       setUser(foundUser)
+  //     } else {
+  //       console.log('No user logged in.')
+  //     }
+  //   }
+  //   fetchData()
+  // }, [])
 
   const [easyBeginner, setEasyBeginner] = useState([])
   const [mediumBeginner, setMediumBeginner] = useState([])
