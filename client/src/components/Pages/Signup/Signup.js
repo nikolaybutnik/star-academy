@@ -19,11 +19,13 @@ function Signup() {
   const [password, setPassword] = useState('')
   const [confirmPassword, setConfirmPassword] = useState('')
 
-  useEffect(() => {
-    console.log(email, username, password, confirmPassword)
-  }, [email, username, password, confirmPassword])
+  // useEffect(() => {
+  //   console.log(email, username, password, confirmPassword)
+  // }, [email, username, password, confirmPassword])
 
   const handleNewUser = (event) => {
+    // ADD LOGIC TO MAKE SURE PASSWORD AND CONFIRMATION MATCH
+    // ADD LOGIC THAT PREVENTS REDIRECT IF NEW USER WASN'T CREATED.
     event.preventDefault()
     const newUser = {
       email: email,
@@ -34,6 +36,7 @@ function Signup() {
       experience: 0,
       class: 'Beginner',
       energy: 3,
+      maxEnergy: 3,
       answered: [],
       firstName: '',
       lastName: '',
@@ -41,7 +44,7 @@ function Signup() {
       birthday: new Date(1800, 0, 1),
       country: '',
     }
-    fetch('/newuser', {
+    fetch('/auth/users', {
       method: 'POST',
       body: JSON.stringify(newUser),
       headers: {
@@ -53,7 +56,7 @@ function Signup() {
     setUsername('')
     setPassword('')
     setConfirmPassword('')
-    history.push('/login')
+    history.push('/')
   }
 
   return (
