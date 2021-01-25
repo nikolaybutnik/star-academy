@@ -1,7 +1,11 @@
-import React from 'react'
+import React, { useContext } from 'react'
+import UserContext from '../../utils/UserContext'
 import { PieChart } from 'react-minimal-pie-chart'
 
-const ProfileUserInfo = ({ user }) => {
+const ProfileUserInfo = () => {
+  // Currently logged in user
+  const user = useContext(UserContext)
+
   return (
     <div
       className="row col-md-12"
