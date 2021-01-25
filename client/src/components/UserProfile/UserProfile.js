@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 import ProfileHeader from "../Header/ProfileHeader";
 import Calendar from "../Calendar/Calendar";
@@ -10,14 +10,35 @@ import "./UserProfile.css";
 import { Container } from "react-bootstrap";
 
 const UserProfile = () => {
+  // Currently logged in user state
+  const [user, setUser] = useState();
+
+  // Check if user has previosuly logged in when page loads.
+  useEffect(() => {
+    const fetchData = async () => {
+      const loggedInUser = await localStorage.getItem("user");
+      // console.log(loggedInUser)
+      if (loggedInUser) {
+        const foundUser = JSON.parse(loggedInUser);
+        console.log(foundUser);
+        setUser(foundUser);
+      } else {
+        console.log("No user logged in.");
+      }
+    };
+    fetchData();
+  }, []);
+
   return (
-    <div className="home-page">
-      <ProfileHeader />
+    <div>
+      <div className="home-page">
+        <ProfileHeader />
+      </div>
       <div className="main-page-body">
         <div className="row">
           <ProfileUserTier />
           <div className="col-md-7">
-            <ProfileUserInfo />
+            <ProfileUserInfo user={user} />
             <HomePageButtons />
             <Container
               style={{

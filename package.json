@@ -20,9 +20,11 @@
   },
   "dependencies": {
     "@auth0/auth0-react": "^1.2.0",
+    "bcrypt": "^5.0.0",
     "bootstrap": "^4.6.0",
     "express": "^4.17.1",
     "if-env": "^1.0.4",
+    "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.11.12",
     "react-bootstrap": "^1.4.3",
     "react-minimal-pie-chart": "^8.1.0",
