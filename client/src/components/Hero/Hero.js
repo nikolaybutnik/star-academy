@@ -1,6 +1,6 @@
 import React from "react";
 import "./Hero.css";
-import test from "../../Assets/BeFunky-collage (5).png";
+import test from "../../Assets/BeFunky-collage (9).png";
 
 function Hero() {
   return (

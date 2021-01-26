@@ -22,7 +22,7 @@ function App() {
   const passwordRef = useRef();
 
   // Currently logged in user state
-  const [user, setUser] = useState()
+  const [user, setUser] = useState();
 
   useEffect(() => {
     console.log(user);
@@ -61,9 +61,9 @@ function App() {
               .then((res) => res.json())
               .then((data) => {
                 // Store user id in local storage and pass into context provider.
-                localStorage.setItem('user', data.data._id)
-                setUser(data.data._id)
-              })
+                localStorage.setItem("user", data.data._id);
+                setUser(data.data._id);
+              });
           } else {
             console.log("User not found.");
           }
@@ -135,11 +135,11 @@ function App() {
                       </button>
                     </Link>
                   </div>
-                  {/* <Link to="/quiz">
-                      <button type="submit" className="btn btn-primary">
-                        GO TO QUESTIONS
-                      </button>
-                    </Link> */}
+                  <Link to="/userprofile">
+                    <button type="submit" className="btn btn-primary">
+                      GO TO QUESTIONS
+                    </button>
+                  </Link>
                 </form>
               </div>
             </div>

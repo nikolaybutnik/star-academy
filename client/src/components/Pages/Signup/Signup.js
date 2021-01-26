@@ -143,16 +143,6 @@ function Signup() {
               </button>
             </Link>
           </div>
-          {/* <Link to="/quiz">
-            <button type="submit" className="btn btn-primary">
-            <button
-              href=""
-              type="submit"
-              class="btn-gradient col-md-9 blue mini  signup-btn"
-            >
-              GO TO QUESTIONS
-            </button>
-          </Link> */}
         </form>
       </div>
     </div>

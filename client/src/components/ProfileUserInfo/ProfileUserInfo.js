@@ -11,7 +11,7 @@ const ProfileUserInfo = () => {
     // if none exists, redirect to login page.
     <div
       className="row col-md-12"
-      style={{ flexWrap: "nowrap", marginTop: "90px" }}
+      style={{ flexWrap: "nowrap", marginTop: "70px" }}
     >
       <div className="col-md-6">
         <PieChart
