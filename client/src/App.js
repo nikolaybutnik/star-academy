@@ -1,19 +1,20 @@
-import React, { useState, useRef, useEffect } from 'react'
+import React, { useState, useRef, useEffect } from "react";
 import {
   BrowserRouter as Router,
   Route,
   Link,
   Redirect,
-} from 'react-router-dom'
-import './App.css'
+} from "react-router-dom";
+import "./App.css";
+import "./components/Pages/Signup/Signup.css";
 
-import Signup from './components/Pages/Signup/Signup'
-import Hero from './components/Hero/Hero'
+import Signup from "./components/Pages/Signup/Signup";
+import Hero from "./components/Hero/Hero";
 // import Header from './components/Header/Header'
 import Quiz from "./components/Pages/Quiz/Quiz";
 import UserProfile from "./components/UserProfile/UserProfile";
 
-import UserContext from './utils/UserContext'
+import UserContext from "./utils/UserContext";
 
 function App() {
   // Reference input fields
@@ -22,26 +23,26 @@ function App() {
 
   // Currently logged in user state
   const [user, setUser] = useState({
-    email: '',
-    username: '',
-    password: '',
-    joined: '',
+    email: "",
+    username: "",
+    password: "",
+    joined: "",
     level: 0,
     experience: 0,
-    class: '',
+    class: "",
     energy: 0,
     maxEnergy: 0,
     answered: [],
-    firstName: '',
-    lastName: '',
-    gender: '',
-    birthday: '',
-    country: '',
-  })
+    firstName: "",
+    lastName: "",
+    gender: "",
+    birthday: "",
+    country: "",
+  });
 
   useEffect(() => {
-    console.log(user)
-  }, [user])
+    console.log(user);
+  }, [user]);
 
   const handleFormSubmit = (event) => {
     event.preventDefault();
@@ -75,8 +76,8 @@ function App() {
             })
               .then((res) => res.json())
               .then((data) => {
-                setUser(data.data)
-              })
+                setUser(data.data);
+              });
           } else {
             console.log("User not found.");
           }
@@ -93,59 +94,66 @@ function App() {
         <div className="container col-md-12">
           {/* <Header /> */}
           <Route exact path="/">
-            <div className="wrapper">
-              <div className="row">
-                <div className="col">
-                  <Hero />
-                </div>
-                <div className="col">
-                  <form onSubmit={(event) => handleFormSubmit(event)}>
-                    <div className="form-group">
-                      <label for="email">Email address</label>
-                      <input
-                        type="email"
-                        className="form-control"
-                        id="email"
-                        aria-describedby="emailHelp"
-                        placeholder="Enter email"
-                        ref={emailRef}
-                      ></input>
-                    </div>
+            <div className="row signup-row">
+              <div className="col-md-8 hero-column">
+                <Hero />
+              </div>
+              <div className="col-md-4 signup-column">
+                <form onSubmit={(event) => handleFormSubmit(event)}>
+                  <h1 className="signup-slogan">
+                    Start learning music the fun way, today!
+                  </h1>
+                  <div className="form-group sign-up-form">
+                    <h2 style={{ marginBottom: "40px", marginTop: "40px" }}>
+                      Login
+                    </h2>
+                    <label for="email">Email address</label>
+                    <input
+                      type="email"
+                      className="form-control"
+                      id="email"
+                      aria-describedby="emailHelp"
+                      placeholder="Enter email"
+                      ref={emailRef}
+                    ></input>
+                  </div>
 
-                    <div className="form-group">
-                      <label for="password">Password</label>
-                      <input
-                        type="password"
-                        className="form-control"
-                        id="password"
-                        placeholder="Enter password"
-                        ref={passwordRef}
-                      ></input>
-                      <button type="submit" className="btn btn-primary">
-                        Sign In
-                      </button>
-                    </div>
+                  <div className="form-group  sign-up-form">
+                    <label for="password">Password</label>
+                    <input
+                      type="password"
+                      className="form-control signin-form"
+                      id="password"
+                      placeholder="Enter password"
+                      ref={passwordRef}
+                    ></input>
+                    <button
+                      type="submit"
+                      className="btn-gradient blue mini signup-btn col-md-9"
+                    >
+                      Sign In
+                    </button>
+                  </div>
 
-                    <div className="form-group">
-                      <small
-                        id="redirectSignin"
-                        className="form-text text-muted"
+                  <div className="form-group sign-up-form">
+                    <small id="redirectSignin" className="form-text text-muted">
+                      Don't have an account yet?
+                    </small>
+                    <Link to="/signup">
+                      <button
+                        type="submit"
+                        className="btn-gradient blue mini signup-btn col-md-9"
                       >
-                        Don't have an account yet?
-                      </small>
-                      <Link to="/signup">
-                        <button type="submit" className="btn btn-primary">
-                          Sign Up
-                        </button>
-                      </Link>
-                    </div>
-                    <Link to="/quiz">
+                        Sign Up
+                      </button>
+                    </Link>
+                  </div>
+                  {/* <Link to="/quiz">
                       <button type="submit" className="btn btn-primary">
                         GO TO QUESTIONS
                       </button>
-                    </Link>
-                  </form>
-                </div>
+                    </Link> */}
+                </form>
               </div>
             </div>
           </Route>
@@ -155,7 +163,7 @@ function App() {
         </div>
       </Router>
     </UserContext.Provider>
-  )
+  );
 }
 
 export default App;
