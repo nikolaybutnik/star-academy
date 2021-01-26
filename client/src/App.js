@@ -69,6 +69,7 @@ function App() {
   }
 
   return (
+    // INCLUDE A SWITCH ROUTE AT THE END
     <UserContext.Provider value={user}>
       <Router>
         <div className="container col-md-12">

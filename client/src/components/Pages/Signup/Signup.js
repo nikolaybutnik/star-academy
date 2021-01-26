@@ -126,7 +126,7 @@ function Signup() {
               <small id="redirectSignin" className="form-text text-muted">
                 Already have an account?
               </small>
-              <Link to="/login">
+              <Link to="/">
                 <button type="submit" className="btn btn-primary">
                   Sign In
                 </button>
