@@ -1,10 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react'
-import {
-  BrowserRouter as Router,
-  Route,
-  Link,
-  Redirect,
-} from 'react-router-dom'
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
 import './App.css'
 
 import Signup from './components/Pages/Signup/Signup'
@@ -21,23 +16,7 @@ function App() {
   const passwordRef = useRef();
 
   // Currently logged in user state
-  const [user, setUser] = useState({
-    email: '',
-    username: '',
-    password: '',
-    joined: '',
-    level: 0,
-    experience: 0,
-    class: '',
-    energy: 0,
-    maxEnergy: 0,
-    answered: [],
-    firstName: '',
-    lastName: '',
-    gender: '',
-    birthday: '',
-    country: '',
-  })
+  const [user, setUser] = useState()
 
   useEffect(() => {
     console.log(user)
@@ -75,7 +54,9 @@ function App() {
             })
               .then((res) => res.json())
               .then((data) => {
-                setUser(data.data)
+                // Store user id in local storage and pass into context provider.
+                localStorage.setItem('user', data.data._id)
+                setUser(data.data._id)
               })
           } else {
             console.log("User not found.");
@@ -88,6 +69,7 @@ function App() {
   };
 
   return (
+    // INCLUDE A SWITCH ROUTE AT THE END
     <UserContext.Provider value={user}>
       <Router>
         <div className="container col-md-12">

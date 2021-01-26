@@ -1,5 +1,11 @@
 import React, { useState, useEffect, useContext } from 'react'
 import UserContext from '../../../utils/UserContext'
+import {
+  BrowserRouter as Router,
+  Route,
+  Link,
+  Redirect,
+} from 'react-router-dom'
 import './Quiz.css'
 
 import Beginner from './QuizSets/Beginner/Beginner'
@@ -12,20 +18,10 @@ const Quiz = () => {
   const user = useContext(UserContext)
 
   // Check if user has previosuly logged in when page loads.
-  // useEffect(() => {
-  //   const fetchData = async () => {
-  //     const loggedInUser = await localStorage.getItem('user')
-  //     // console.log(loggedInUser)
-  //     if (loggedInUser) {
-  //       const foundUser = JSON.parse(loggedInUser)
-  //       console.log(foundUser)
-  //       setUser(foundUser)
-  //     } else {
-  //       console.log('No user logged in.')
-  //     }
-  //   }
-  //   fetchData()
-  // }, [])
+  useEffect(() => {
+    // On page render, check if user context exists. If not, check if user
+    // id exists in local storage. If yes, fetch user object. if not, redirect.
+  }, [])
 
   const [easyBeginner, setEasyBeginner] = useState([])
   const [mediumBeginner, setMediumBeginner] = useState([])
@@ -38,6 +34,10 @@ const Quiz = () => {
   const [easyLocalTalent, setEasyLocalTalent] = useState([])
   const [mediumLocalTalent, setMediumLocalTalent] = useState([])
   const [hardLocalTalent, setHardLocalTalent] = useState([])
+
+  if (!user) {
+    return <Redirect to="/" />
+  }
 
   const props = {
     easyBeginner,

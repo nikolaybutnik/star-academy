@@ -127,21 +127,16 @@ function Signup() {
               Sign Up
             </button>
           </div>
-
-          <div className="form-group">
-            <small id="redirectSignin" className="form-text text-muted">
-              Already have an account?
-            </small>
-            <Link to="/login">
-              {/* <button type="submit" className="btn btn-primary"> */}
-              <button
-                href=""
-                type="submit"
-                class="btn-gradient col-md-9 blue mini  signup-btn"
-              >
-                Sign In
-              </button>
-            </Link>
+            <div className="form-group">
+              <small id="redirectSignin" className="form-text text-muted">
+                Already have an account?
+              </small>
+              <Link to="/">
+                <button type="submit" className="btn-gradient col-md-9 blue mini  signup-btn">
+                  Sign In
+                </button>
+              </Link>
+            </div>
           </div>
           <Link to="/quiz">
             {/* <button type="submit" className="btn btn-primary"> */}
