@@ -1,10 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react'
-import {
-  BrowserRouter as Router,
-  Route,
-  Link,
-  Redirect,
-} from 'react-router-dom'
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
 import './App.css'
 
 import Signup from './components/Pages/Signup/Signup'
@@ -59,9 +54,9 @@ function App() {
             })
               .then((res) => res.json())
               .then((data) => {
-                // Store user id in local storage, and call fetch when pages render
-                // to find the user by id.
-                setUser(data.data)
+                // Store user id in local storage and pass into context provider.
+                localStorage.setItem('user', data.data._id)
+                setUser(data.data._id)
               })
           } else {
             console.log('User not found.')

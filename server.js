@@ -107,12 +107,17 @@ app.post('/auth/tokens', async (req, res) => {
   }
 })
 
-// Get the currently logged in user.
+// Verify a user by the token. If verified, return the user.
 app.get('/auth/users/me', authorize, async (req, res) => {
   console.log(req.user)
   const user = await User.findById(req.user._id)
   console.log(user)
   res.send({ data: user })
+})
+
+// Create an API route that gets a user by id if a user is currently logged in.
+app.get('/auth/users/loggedin', (req, res) => {
+  console.log(req)
 })
 
 // This route will be used for any edits that need to be made to the user object
