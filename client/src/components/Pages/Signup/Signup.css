@@ -1,0 +1,19 @@
+.signup-row {
+  justify-content: center;
+}
+
+.signup-column {
+  padding: 20px;
+}
+
+.signup-btn {
+  /* width: 15% !important; */
+  height: 9% !important;
+  background: rgb(89, 174, 248) !important;
+}
+
+.hero-column {
+  width: auto;
+  height: auto;
+  padding-left: 0px;
+}

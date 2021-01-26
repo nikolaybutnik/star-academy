@@ -133,9 +133,13 @@ const LocalTalent = ({
         <button
           className="card questions col-md-4"
           style={{
-            width: '20.5rem',
-            backgroundColor: 'rgb(214 250 214)',
-            borderColor: 'green',
+            width: "20.5rem",
+            backgroundColor: "rgb(245 255 245)",
+            borderColor: "rgb(3 184 3)",
+            borderWidth: "3px",
+            margin: "10px",
+            marginLeft: "-5px",
+            marginRight: "0px",
           }}
           onClick={() => handleGoToQuizEasy(localTalentEasyQuestions)}
         >
@@ -152,9 +156,13 @@ const LocalTalent = ({
         <button
           className="card questions col-md-4"
           style={{
-            width: '20.5rem',
-            backgroundColor: 'rgb(255 225 144)',
-            borderColor: 'orange',
+            width: "20.5rem",
+            backgroundColor: "rgb(255 248 228)",
+            borderColor: "orange",
+            borderWidth: "3px",
+            margin: "10px",
+            marginLeft: "5px",
+            marginRight: "5px",
           }}
           onClick={() => handleGoToQuizMedium(localTalentMediumQuestions)}
         >
@@ -171,9 +179,13 @@ const LocalTalent = ({
         <button
           className="card questions col-md-4"
           style={{
-            width: '20.5rem',
-            backgroundColor: 'rgb(255 131 131)',
-            borderColor: 'darkred',
+            width: "20.5rem",
+            backgroundColor: "rgb(255 223 223)",
+            borderColor: "#e90202",
+            borderWidth: "3px",
+            margin: "10px",
+            marginLeft: "0px",
+            marginRight: "0px",
           }}
           onClick={() => handleGoToQuizHard(localTalentHardQuestions)}
         >

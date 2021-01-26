@@ -127,9 +127,13 @@ const Beginner = ({
         <button
           className="card questions col-md-4"
           style={{
-            width: '20.5rem',
-            backgroundColor: 'rgb(214 250 214)',
-            borderColor: 'green',
+            width: "20.5rem",
+            backgroundColor: "rgb(245 255 245)",
+            borderColor: "rgb(3 184 3)",
+            borderWidth: "3px",
+            margin: "10px",
+            marginLeft: "-5px",
+            marginRight: "0px",
           }}
           onClick={() => handleGoToQuizEasy(beginnerEasyQuestions)}
         >
@@ -141,15 +145,19 @@ const Beginner = ({
               style={{ height: '40px', margin: '10px' }}
             />
           </div>
-          <h5 className="card-title col-md-12">EASY</h5>
+          {/* <h5 className="card-title col-md-12">EASY</h5> */}
         </button>
 
         <button
           className="card questions col-md-4"
           style={{
-            width: '20.5rem',
-            backgroundColor: 'rgb(255 225 144)',
-            borderColor: 'orange',
+            width: "20.5rem",
+            backgroundColor: "rgb(255 248 228)",
+            borderColor: "orange",
+            borderWidth: "3px",
+            margin: "10px",
+            marginLeft: "5px",
+            marginRight: "5px",
           }}
           onClick={() => handleGoToQuizMedium(beginnerMediumQuestions)}
         >
@@ -161,15 +169,19 @@ const Beginner = ({
               style={{ height: '40px', margin: '10px' }}
             />
           </div>
-          <h5 className="card-title col-md-12">MEDIUM</h5>
+          {/* <h5 className="card-title col-md-12">MEDIUM</h5> */}
         </button>
 
         <button
           className="card questions col-md-4"
           style={{
-            width: '20.5rem',
-            backgroundColor: 'rgb(255, 131, 131)',
-            borderColor: 'darkred',
+            width: "20.5rem",
+            backgroundColor: "rgb(255 223 223)",
+            borderColor: "#e90202",
+            borderWidth: "3px",
+            margin: "10px",
+            marginLeft: "0px",
+            marginRight: "0px",
           }}
           onClick={() => handleGoToQuizHard(beginnerHardQuestions)}
         >
@@ -181,7 +193,7 @@ const Beginner = ({
               style={{ height: '40px', margin: '10px' }}
             />
           </div>
-          <h5 className="card-title col-md-12">HARD</h5>
+          {/* <h5 className="card-title col-md-12">HARD</h5> */}
         </button>
       </div>
 

@@ -1,12 +1,13 @@
-import React from 'react'
-import './Hero.css'
+import React from "react";
+import "./Hero.css";
+import test from "../../Assets/user-avatar.png";
 
 function Hero() {
   return (
-    <div id="hero-img">
-      <img src="https://placehold.it/500x500" alt=""></img>
-    </div>
-  )
+    // <div id="hero-img">
+    <img src={test} alt="d" className="hero-img"></img>
+    // </div>
+  );
 }
 
-export default Hero
+export default Hero;

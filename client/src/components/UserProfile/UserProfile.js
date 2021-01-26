@@ -6,11 +6,11 @@ import {
   Redirect,
 } from 'react-router-dom'
 
-import ProfileHeader from '../Header/ProfileHeader'
-import Calendar from '../Calendar/Calendar'
-import ProfileUserInfo from '../ProfileUserInfo/ProfileUserInfo'
-import ProfileUserTier from '../ProfileUserTier/ProfileUserTier'
-import HomePageButtons from '../HomePageButtons/HomePageButtons'
+import ProfileHeader from "../Header/ProfileHeader";
+import Calendar from "../Calendar/Calendar";
+import ProfileUserInfo from "../ProfileUserInfo/ProfileUserInfo";
+import ProfileUserTier from "../ProfileUserTier/ProfileUserTier";
+import HomePageButtons from "../HomePageButtons/HomePageButtons";
 
 import UserContext from '../../utils/UserContext'
 
@@ -42,7 +42,7 @@ const UserProfile = () => {
   // }, [])
 
   return (
-    <>
+    <div>
       <div className="home-page">
         <ProfileHeader />
       </div>
@@ -54,12 +54,12 @@ const UserProfile = () => {
             <HomePageButtons />
             <Container
               style={{
-                maxWidth: '730px',
-                width: '100%',
-                paddingRight: '0px',
-                paddingLeft: '0px',
-                marginRight: 'auto',
-                marginLeft: 'auto',
+                maxWidth: "730px",
+                width: "100%",
+                paddingRight: "0px",
+                paddingLeft: "0px",
+                marginRight: "auto",
+                marginLeft: "auto",
               }}
             >
               <Calendar />
@@ -67,8 +67,8 @@ const UserProfile = () => {
           </div>
         </div>
       </div>
-    </>
-  )
-}
+    </div>
+  );
+};
 
-export default UserProfile
+export default UserProfile;
