@@ -130,16 +130,14 @@ function Signup() {
               Sign Up
             </button>
           </div>
-
           <div className="form-group sign-up-form">
             <small id="redirectSignin" className="form-text text-muted">
               Already have an account?
             </small>
-            <Link to="/login">
+            <Link to="/">
               <button
-                href=""
                 type="submit"
-                class="btn-gradient col-md-9 blue mini  signup-btn"
+                className="btn-gradient col-md-9 blue mini  signup-btn"
               >
                 Sign In
               </button>
