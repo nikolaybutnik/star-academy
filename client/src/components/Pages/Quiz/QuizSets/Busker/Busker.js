@@ -1,15 +1,15 @@
-import React from "react";
-import "./Busker.css";
+import React from 'react'
+import './Busker.css'
 import {
   buskerEasyQuestions,
   buskerMediumQuestions,
   buskerHardQuestions,
-} from "../../../../../utils/questions";
-import QuestionDisplay from "../QuestionDisplay/QuestionDisplay";
+} from '../../../../../utils/questions'
+import QuestionDisplay from '../QuestionDisplay/QuestionDisplay'
 
-import wholeNoteIcon from "../../../../../Assets/icon2.png";
-import halfNoteIcon from "../../../../../Assets/icon2 2.png";
-import eighthNoteIcon from "../../../../../Assets/icon2 3.png";
+import wholeNoteIcon from '../../../../../Assets/icon2.png'
+import halfNoteIcon from '../../../../../Assets/icon2 2.png'
+import eighthNoteIcon from '../../../../../Assets/icon2 3.png'
 
 const Busker = ({
   props: {
@@ -34,58 +34,91 @@ const Busker = ({
   },
 }) => {
   const handleGoToQuizEasy = () => {
-    setEasyBeginner([]);
-    setMediumBeginner([]);
-    setHardBeginner([]);
-    setMediumBusker([]);
-    setHardBusker([]);
-    setEasyLocalTalent([]);
-    setMediumLocalTalent([]);
-    setHardLocalTalent([]);
-    //ADD LOGIC TO PREVENT DUPLICATE QUESTIONS
-    const newArr = [];
-    for (let i = 0; i < 5; i++) {
-      const randNum = Math.random() * buskerEasyQuestions.length;
-      newArr.push(buskerEasyQuestions[Math.floor(randNum)]);
+    setEasyBeginner([])
+    setMediumBeginner([])
+    setHardBeginner([])
+    setMediumBusker([])
+    setHardBusker([])
+    setEasyLocalTalent([])
+    setMediumLocalTalent([])
+    setHardLocalTalent([])
+
+    // Prevent duplicate questions
+    const newArr = []
+    while (newArr.length < 5) {
+      const randNum = Math.floor(Math.random() * buskerEasyQuestions.length)
+      const nextQuestion = buskerEasyQuestions[randNum]
+      if (
+        newArr
+          .map((q) => {
+            return q.id
+          })
+          .includes(nextQuestion.id)
+      ) {
+        continue
+      }
+      newArr.push(nextQuestion)
     }
-    setEasyBusker(newArr);
-  };
+    setEasyBusker(newArr)
+  }
 
   const handleGoToQuizMedium = () => {
-    setEasyBeginner([]);
-    setMediumBeginner([]);
-    setHardBeginner([]);
-    setEasyBusker([]);
-    setHardBusker([]);
-    setEasyLocalTalent([]);
-    setMediumLocalTalent([]);
-    setHardLocalTalent([]);
-    //ADD LOGIC TO PREVENT DUPLICATE QUESTIONS
-    const newArr = [];
-    for (let i = 0; i < 5; i++) {
-      const randNum = Math.random() * buskerMediumQuestions.length;
-      newArr.push(buskerMediumQuestions[Math.floor(randNum)]);
+    setEasyBeginner([])
+    setMediumBeginner([])
+    setHardBeginner([])
+    setEasyBusker([])
+    setHardBusker([])
+    setEasyLocalTalent([])
+    setMediumLocalTalent([])
+    setHardLocalTalent([])
+
+    // Prevent duplicate questions
+    const newArr = []
+    while (newArr.length < 5) {
+      const randNum = Math.floor(Math.random() * buskerMediumQuestions.length)
+      const nextQuestion = buskerMediumQuestions[randNum]
+      if (
+        newArr
+          .map((q) => {
+            return q.id
+          })
+          .includes(nextQuestion.id)
+      ) {
+        continue
+      }
+      newArr.push(nextQuestion)
     }
-    setMediumBusker(newArr);
-  };
+    setMediumBusker(newArr)
+  }
 
   const handleGoToQuizHard = () => {
-    setEasyBeginner([]);
-    setMediumBeginner([]);
-    setHardBeginner([]);
-    setEasyBusker([]);
-    setMediumBusker([]);
-    setEasyLocalTalent([]);
-    setMediumLocalTalent([]);
-    setHardLocalTalent([]);
-    //ADD LOGIC TO PREVENT DUPLICATE QUESTIONS
-    const newArr = [];
-    for (let i = 0; i < 5; i++) {
-      const randNum = Math.random() * buskerHardQuestions.length;
-      newArr.push(buskerHardQuestions[Math.floor(randNum)]);
+    setEasyBeginner([])
+    setMediumBeginner([])
+    setHardBeginner([])
+    setEasyBusker([])
+    setMediumBusker([])
+    setEasyLocalTalent([])
+    setMediumLocalTalent([])
+    setHardLocalTalent([])
+
+    // Prevent duplicate questions
+    const newArr = []
+    while (newArr.length < 5) {
+      const randNum = Math.floor(Math.random() * buskerHardQuestions.length)
+      const nextQuestion = buskerHardQuestions[randNum]
+      if (
+        newArr
+          .map((q) => {
+            return q.id
+          })
+          .includes(nextQuestion.id)
+      ) {
+        continue
+      }
+      newArr.push(nextQuestion)
     }
-    setHardBusker(newArr);
-  };
+    setHardBusker(newArr)
+  }
 
   return (
     <>
@@ -94,9 +127,9 @@ const Busker = ({
         <button
           className="card questions col-md-4"
           style={{
-            width: "20.5rem",
-            backgroundColor: "rgb(214 250 214)",
-            borderColor: "green",
+            width: '20.5rem',
+            backgroundColor: 'rgb(214 250 214)',
+            borderColor: 'green',
           }}
           onClick={() => handleGoToQuizEasy(buskerEasyQuestions)}
         >
@@ -106,7 +139,7 @@ const Busker = ({
               src={wholeNoteIcon}
               alt="whole note"
               className="card-title"
-              style={{ height: "40px", margin: "10px" }}
+              style={{ height: '40px', margin: '10px' }}
             />
           </div>
         </button>
@@ -114,9 +147,9 @@ const Busker = ({
         <button
           className="card questions col-md-4"
           style={{
-            width: "20.5rem",
-            backgroundColor: "rgb(255 225 144)",
-            borderColor: "orange",
+            width: '20.5rem',
+            backgroundColor: 'rgb(255 225 144)',
+            borderColor: 'orange',
           }}
           onClick={() => handleGoToQuizMedium(buskerMediumQuestions)}
         >
@@ -126,7 +159,7 @@ const Busker = ({
               src={halfNoteIcon}
               alt="half note"
               className="card-title"
-              style={{ height: "40px", margin: "10px" }}
+              style={{ height: '40px', margin: '10px' }}
             />
           </div>
         </button>
@@ -134,9 +167,9 @@ const Busker = ({
         <button
           className="card questions col-md-4"
           style={{
-            width: "20.5rem",
-            backgroundColor: "rgb(255 131 131)",
-            borderColor: "darkred",
+            width: '20.5rem',
+            backgroundColor: 'rgb(255 131 131)',
+            borderColor: 'darkred',
           }}
           onClick={() => handleGoToQuizHard(buskerHardQuestions)}
         >
@@ -146,7 +179,7 @@ const Busker = ({
               src={eighthNoteIcon}
               alt="eighth note"
               className="card-title"
-              style={{ height: "40px", margin: "10px" }}
+              style={{ height: '40px', margin: '10px' }}
             />
           </div>
         </button>
@@ -168,7 +201,7 @@ const Busker = ({
         ))}
       </div>
     </>
-  );
-};
+  )
+}
 
-export default Busker;
+export default Busker

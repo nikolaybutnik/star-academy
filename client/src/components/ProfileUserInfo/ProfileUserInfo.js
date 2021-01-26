@@ -7,6 +7,8 @@ const ProfileUserInfo = () => {
   const user = useContext(UserContext)
 
   return (
+    // check if user id exists in context. if not, get id from local storage and fetch.
+    // if none exists, redirect to login page.
     <div
       className="row col-md-12"
       style={{ flexWrap: 'nowrap', marginTop: '90px' }}

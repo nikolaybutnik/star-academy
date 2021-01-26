@@ -1,4 +1,10 @@
 import React, { useEffect, useState, useContext } from 'react'
+import {
+  BrowserRouter as Router,
+  Route,
+  Link,
+  Redirect,
+} from 'react-router-dom'
 
 import ProfileHeader from '../Header/ProfileHeader'
 import Calendar from '../Calendar/Calendar'
@@ -6,14 +12,18 @@ import ProfileUserInfo from '../ProfileUserInfo/ProfileUserInfo'
 import ProfileUserTier from '../ProfileUserTier/ProfileUserTier'
 import HomePageButtons from '../HomePageButtons/HomePageButtons'
 
-// import UserContext from '../../utils/UserContext'
+import UserContext from '../../utils/UserContext'
 
 import './UserProfile.css'
 import { Container } from 'react-bootstrap'
 
 const UserProfile = () => {
   // Currently logged in user
-  // const user = useContext(UserContext)
+  const user = useContext(UserContext)
+
+  if (!user) {
+    return <Redirect to="/" />
+  }
 
   // Check if user has previosuly logged in when page loads.
   // useEffect(() => {

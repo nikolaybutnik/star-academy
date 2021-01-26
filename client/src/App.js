@@ -21,23 +21,7 @@ function App() {
   const passwordRef = useRef()
 
   // Currently logged in user state
-  const [user, setUser] = useState({
-    email: '',
-    username: '',
-    password: '',
-    joined: '',
-    level: 0,
-    experience: 0,
-    class: '',
-    energy: 0,
-    maxEnergy: 0,
-    answered: [],
-    firstName: '',
-    lastName: '',
-    gender: '',
-    birthday: '',
-    country: '',
-  })
+  const [user, setUser] = useState()
 
   useEffect(() => {
     console.log(user)
@@ -75,6 +59,8 @@ function App() {
             })
               .then((res) => res.json())
               .then((data) => {
+                // Store user id in local storage, and call fetch when pages render
+                // to find the user by id.
                 setUser(data.data)
               })
           } else {
