@@ -1,24 +1,24 @@
-import React, { useContext } from 'react'
-import UserContext from '../../utils/UserContext'
-import { PieChart } from 'react-minimal-pie-chart'
+import React, { useContext } from "react";
+import UserContext from "../../utils/UserContext";
+import { PieChart } from "react-minimal-pie-chart";
 
 const ProfileUserInfo = () => {
   // Currently logged in user
-  const user = useContext(UserContext)
+  const user = useContext(UserContext);
 
   return (
     // check if user id exists in context. if not, get id from local storage and fetch.
     // if none exists, redirect to login page.
     <div
       className="row col-md-12"
-      style={{ flexWrap: "nowrap", marginTop: "90px" }}
+      style={{ flexWrap: "nowrap", marginTop: "70px" }}
     >
       <div className="col-md-6">
         <PieChart
           // label={({ dataEntry }) => "WINS"}
           data={[
-            { title: "One", value: 50, color: "#E38627" },
-            { title: "Two", value: 50, color: "#C13C37" },
+            { title: "One", value: 80, color: "#E38627" },
+            { title: "Two", value: 20, color: "#C13C37" },
           ]}
           style={{ height: "auto", maxHeight: "250px", margin: "20px" }}
         />

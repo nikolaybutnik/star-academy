@@ -26,7 +26,7 @@ function Signup() {
   const handleNewUser = (event) => {
     // ADD LOGIC TO MAKE SURE PASSWORD AND CONFIRMATION MATCH
     // ADD LOGIC THAT PREVENTS REDIRECT IF NEW USER WASN'T CREATED.
-    event.preventDefault()
+    event.preventDefault();
     const newUser = {
       email: email,
       username: username,
@@ -42,33 +42,36 @@ function Signup() {
       lastName: "",
       gender: "",
       birthday: new Date(1800, 0, 1),
-      country: '',
-    }
-    fetch('/auth/users', {
-      method: 'POST',
+      country: "",
+    };
+    fetch("/auth/users", {
+      method: "POST",
       body: JSON.stringify(newUser),
       headers: {
         Accept: "application/json, text/plain, */*",
         "Content-Type": "application/json",
       },
-    })
-    setEmail('')
-    setUsername('')
-    setPassword('')
-    setConfirmPassword('')
-    history.push('/')
-  }
+    });
+    setEmail("");
+    setUsername("");
+    setPassword("");
+    setConfirmPassword("");
+    history.push("/");
+  };
 
   return (
     <div className="row signup-row">
-      <div className="col-md-7 hero-column">
+      <div className="col-md-8 hero-column">
         <Hero />
       </div>
-      <div className="col-md-5 signup-column">
-        <form onSubmit={(event) => handleNewUser(event)}>
-          <div className="form-group">
-            <div style={{ marginTop: "50px" }}></div>
 
+      <div className="col-md-4 signup-column">
+        <form onSubmit={(event) => handleNewUser(event)}>
+          <h1 className="signup-slogan">
+            Start learning music the fun way, today!
+          </h1>
+          <div className="form-group sign-up-form">
+            <h2 style={{ marginBottom: "40px", marginTop: "40px" }}>Sign up</h2>
             <label for="newEmail">Email address</label>
             <input
               type="email"
@@ -84,7 +87,7 @@ function Signup() {
               </small> */}
           </div>
 
-          <div className="form-group">
+          <div className="form-group sign-up-form">
             <label for="newUsername">Username</label>
             <input
               type="username"
@@ -96,7 +99,7 @@ function Signup() {
             ></input>
           </div>
 
-          <div className="form-group">
+          <div className="form-group sign-up-form">
             <label for="newPassword">Password</label>
             <input
               type="password"
@@ -108,7 +111,7 @@ function Signup() {
             ></input>
           </div>
 
-          <div className="form-group">
+          <div className="form-group sign-up-form">
             <label for="confirmNewPassword">Confirm Password</label>
             <input
               type="password"
@@ -127,27 +130,19 @@ function Signup() {
               Sign Up
             </button>
           </div>
-            <div className="form-group">
-              <small id="redirectSignin" className="form-text text-muted">
-                Already have an account?
-              </small>
-              <Link to="/">
-                <button type="submit" className="btn-gradient col-md-9 blue mini  signup-btn">
-                  Sign In
-                </button>
-              </Link>
-            </div>
+          <div className="form-group sign-up-form">
+            <small id="redirectSignin" className="form-text text-muted">
+              Already have an account?
+            </small>
+            <Link to="/">
+              <button
+                type="submit"
+                className="btn-gradient col-md-9 blue mini  signup-btn"
+              >
+                Sign In
+              </button>
+            </Link>
           </div>
-          <Link to="/quiz">
-            {/* <button type="submit" className="btn btn-primary"> */}
-            <button
-              href=""
-              type="submit"
-              class="btn-gradient col-md-9 blue mini  signup-btn"
-            >
-              GO TO QUESTIONS
-            </button>
-          </Link>
         </form>
       </div>
     </div>
