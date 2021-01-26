@@ -1,15 +1,15 @@
-import React from "react";
-import "./Beginner.css";
-import wholeNoteIcon from "../../../../../Assets/icon2.png";
-import halfNoteIcon from "../../../../../Assets/icon2 2.png";
-import eighthNoteIcon from "../../../../../Assets/icon2 3.png";
+import React from 'react'
+import './Beginner.css'
+import wholeNoteIcon from '../../../../../Assets/icon2.png'
+import halfNoteIcon from '../../../../../Assets/icon2 2.png'
+import eighthNoteIcon from '../../../../../Assets/icon2 3.png'
 
 import {
   beginnerEasyQuestions,
   beginnerMediumQuestions,
   beginnerHardQuestions,
-} from "../../../../../utils/questions";
-import QuestionDisplay from "../QuestionDisplay/QuestionDisplay";
+} from '../../../../../utils/questions'
+import QuestionDisplay from '../QuestionDisplay/QuestionDisplay'
 
 const Beginner = ({
   props: {
@@ -34,58 +34,91 @@ const Beginner = ({
   },
 }) => {
   const handleGoToQuizEasy = () => {
-    setMediumBeginner([]);
-    setHardBeginner([]);
-    setEasyBusker([]);
-    setMediumBusker([]);
-    setHardBusker([]);
-    setEasyLocalTalent([]);
-    setMediumLocalTalent([]);
-    setHardLocalTalent([]);
-    //ADD LOGIC TO PREVENT DUPLICATE QUESTIONS
-    const newArr = [];
-    for (let i = 0; i < 5; i++) {
-      const randNum = Math.random() * beginnerEasyQuestions.length;
-      newArr.push(beginnerEasyQuestions[Math.floor(randNum)]);
+    setMediumBeginner([])
+    setHardBeginner([])
+    setEasyBusker([])
+    setMediumBusker([])
+    setHardBusker([])
+    setEasyLocalTalent([])
+    setMediumLocalTalent([])
+    setHardLocalTalent([])
+
+    // Prevent duplicate questions
+    const newArr = []
+    while (newArr.length < 5) {
+      const randNum = Math.floor(Math.random() * beginnerEasyQuestions.length)
+      const nextQuestion = beginnerEasyQuestions[randNum]
+      if (
+        newArr
+          .map((q) => {
+            return q.id
+          })
+          .includes(nextQuestion.id)
+      ) {
+        continue
+      }
+      newArr.push(nextQuestion)
     }
-    setEasyBeginner(newArr);
-  };
+    setEasyBeginner(newArr)
+  }
 
   const handleGoToQuizMedium = () => {
-    setEasyBeginner([]);
-    setHardBeginner([]);
-    setEasyBusker([]);
-    setMediumBusker([]);
-    setHardBusker([]);
-    setEasyLocalTalent([]);
-    setMediumLocalTalent([]);
-    setHardLocalTalent([]);
-    //ADD LOGIC TO PREVENT DUPLICATE QUESTIONS
-    const newArr = [];
-    for (let i = 0; i < 5; i++) {
-      const randNum = Math.random() * beginnerMediumQuestions.length;
-      newArr.push(beginnerMediumQuestions[Math.floor(randNum)]);
+    setEasyBeginner([])
+    setHardBeginner([])
+    setEasyBusker([])
+    setMediumBusker([])
+    setHardBusker([])
+    setEasyLocalTalent([])
+    setMediumLocalTalent([])
+    setHardLocalTalent([])
+
+    // Prevent duplicate questions
+    const newArr = []
+    while (newArr.length < 5) {
+      const randNum = Math.floor(Math.random() * beginnerMediumQuestions.length)
+      const nextQuestion = beginnerMediumQuestions[randNum]
+      if (
+        newArr
+          .map((q) => {
+            return q.id
+          })
+          .includes(nextQuestion.id)
+      ) {
+        continue
+      }
+      newArr.push(nextQuestion)
     }
-    setMediumBeginner(newArr);
-  };
+    setMediumBeginner(newArr)
+  }
 
   const handleGoToQuizHard = () => {
-    setEasyBeginner([]);
-    setMediumBeginner([]);
-    setEasyBusker([]);
-    setMediumBusker([]);
-    setHardBusker([]);
-    setEasyLocalTalent([]);
-    setMediumLocalTalent([]);
-    setHardLocalTalent([]);
-    //ADD LOGIC TO PREVENT DUPLICATE QUESTIONS
-    const newArr = [];
-    for (let i = 0; i < 5; i++) {
-      const randNum = Math.random() * beginnerHardQuestions.length;
-      newArr.push(beginnerHardQuestions[Math.floor(randNum)]);
+    setEasyBeginner([])
+    setMediumBeginner([])
+    setEasyBusker([])
+    setMediumBusker([])
+    setHardBusker([])
+    setEasyLocalTalent([])
+    setMediumLocalTalent([])
+    setHardLocalTalent([])
+
+    // Prevent duplicate questions
+    const newArr = []
+    while (newArr.length < 5) {
+      const randNum = Math.floor(Math.random() * beginnerHardQuestions.length)
+      const nextQuestion = beginnerHardQuestions[randNum]
+      if (
+        newArr
+          .map((q) => {
+            return q.id
+          })
+          .includes(nextQuestion.id)
+      ) {
+        continue
+      }
+      newArr.push(nextQuestion)
     }
-    setHardBeginner(newArr);
-  };
+    setHardBeginner(newArr)
+  }
 
   return (
     <>
@@ -109,7 +142,7 @@ const Beginner = ({
               src={wholeNoteIcon}
               alt="whole note"
               className="card-title"
-              style={{ height: "40px", margin: "10px" }}
+              style={{ height: '40px', margin: '10px' }}
             />
           </div>
           {/* <h5 className="card-title col-md-12">EASY</h5> */}
@@ -133,7 +166,7 @@ const Beginner = ({
               src={halfNoteIcon}
               alt="half note"
               className="card-title"
-              style={{ height: "40px", margin: "10px" }}
+              style={{ height: '40px', margin: '10px' }}
             />
           </div>
           {/* <h5 className="card-title col-md-12">MEDIUM</h5> */}
@@ -157,7 +190,7 @@ const Beginner = ({
               src={eighthNoteIcon}
               alt="eighth note"
               className="card-title"
-              style={{ height: "40px", margin: "10px" }}
+              style={{ height: '40px', margin: '10px' }}
             />
           </div>
           {/* <h5 className="card-title col-md-12">HARD</h5> */}
@@ -180,7 +213,7 @@ const Beginner = ({
         ))}
       </div>
     </>
-  );
-};
+  )
+}
 
-export default Beginner;
+export default Beginner

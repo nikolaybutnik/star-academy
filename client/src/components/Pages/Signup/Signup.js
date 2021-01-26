@@ -136,7 +136,6 @@ function Signup() {
               Already have an account?
             </small>
             <Link to="/login">
-              {/* <button type="submit" className="btn btn-primary"> */}
               <button
                 href=""
                 type="submit"

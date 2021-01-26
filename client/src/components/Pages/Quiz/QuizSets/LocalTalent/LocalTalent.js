@@ -1,15 +1,15 @@
-import React from "react";
-import "./LocalTalent.css";
+import React from 'react'
+import './LocalTalent.css'
 import {
   localTalentEasyQuestions,
   localTalentMediumQuestions,
   localTalentHardQuestions,
-} from "../../../../../utils/questions";
-import QuestionDisplay from "../QuestionDisplay/QuestionDisplay";
+} from '../../../../../utils/questions'
+import QuestionDisplay from '../QuestionDisplay/QuestionDisplay'
 
-import wholeNoteIcon from "../../../../../Assets/icon2.png";
-import halfNoteIcon from "../../../../../Assets/icon2 2.png";
-import eighthNoteIcon from "../../../../../Assets/icon2 3.png";
+import wholeNoteIcon from '../../../../../Assets/icon2.png'
+import halfNoteIcon from '../../../../../Assets/icon2 2.png'
+import eighthNoteIcon from '../../../../../Assets/icon2 3.png'
 
 const LocalTalent = ({
   props: {
@@ -34,62 +34,101 @@ const LocalTalent = ({
   },
 }) => {
   const handleGoToQuizEasy = () => {
-    setEasyBeginner([]);
-    setMediumBeginner([]);
-    setHardBeginner([]);
-    setEasyBusker([]);
-    setMediumBusker([]);
-    setHardBusker([]);
-    setMediumLocalTalent([]);
-    setHardLocalTalent([]);
-    //ADD LOGIC TO PREVENT DUPLICATE QUESTIONS
-    const newArr = [];
-    for (let i = 0; i < 5; i++) {
-      const randNum = Math.random() * localTalentEasyQuestions.length;
-      newArr.push(localTalentEasyQuestions[Math.floor(randNum)]);
+    setEasyBeginner([])
+    setMediumBeginner([])
+    setHardBeginner([])
+    setEasyBusker([])
+    setMediumBusker([])
+    setHardBusker([])
+    setMediumLocalTalent([])
+    setHardLocalTalent([])
+
+    // Prevent duplicate questions
+    const newArr = []
+    while (newArr.length < 5) {
+      const randNum = Math.floor(
+        Math.random() * localTalentEasyQuestions.length
+      )
+      const nextQuestion = localTalentEasyQuestions[randNum]
+      if (
+        newArr
+          .map((q) => {
+            return q.id
+          })
+          .includes(nextQuestion.id)
+      ) {
+        continue
+      }
+      newArr.push(nextQuestion)
     }
-    setEasyLocalTalent(newArr);
-  };
+    setEasyLocalTalent(newArr)
+  }
 
   const handleGoToQuizMedium = () => {
-    setEasyBeginner([]);
-    setMediumBeginner([]);
-    setHardBeginner([]);
-    setEasyBusker([]);
-    setMediumBusker([]);
-    setHardBusker([]);
-    setEasyLocalTalent([]);
-    setHardLocalTalent([]);
-    //ADD LOGIC TO PREVENT DUPLICATE QUESTIONS
-    const newArr = [];
-    for (let i = 0; i < 5; i++) {
-      const randNum = Math.random() * localTalentMediumQuestions.length;
-      newArr.push(localTalentMediumQuestions[Math.floor(randNum)]);
+    setEasyBeginner([])
+    setMediumBeginner([])
+    setHardBeginner([])
+    setEasyBusker([])
+    setMediumBusker([])
+    setHardBusker([])
+    setEasyLocalTalent([])
+    setHardLocalTalent([])
+
+    // Prevent duplicate questions
+    const newArr = []
+    while (newArr.length < 5) {
+      const randNum = Math.floor(
+        Math.random() * localTalentMediumQuestions.length
+      )
+      const nextQuestion = localTalentMediumQuestions[randNum]
+      if (
+        newArr
+          .map((q) => {
+            return q.id
+          })
+          .includes(nextQuestion.id)
+      ) {
+        continue
+      }
+      newArr.push(nextQuestion)
     }
-    setMediumLocalTalent(newArr);
-  };
+    setMediumLocalTalent(newArr)
+  }
 
   const handleGoToQuizHard = () => {
-    setEasyBeginner([]);
-    setMediumBeginner([]);
-    setHardBeginner([]);
-    setEasyBusker([]);
-    setMediumBusker([]);
-    setHardBusker([]);
-    setEasyLocalTalent([]);
-    setMediumLocalTalent([]);
-    //ADD LOGIC TO PREVENT DUPLICATE QUESTIONS
-    const newArr = [];
-    for (let i = 0; i < 5; i++) {
-      const randNum = Math.random() * localTalentHardQuestions.length;
-      newArr.push(localTalentHardQuestions[Math.floor(randNum)]);
+    setEasyBeginner([])
+    setMediumBeginner([])
+    setHardBeginner([])
+    setEasyBusker([])
+    setMediumBusker([])
+    setHardBusker([])
+    setEasyLocalTalent([])
+    setMediumLocalTalent([])
+
+    // Prevent duplicate questions
+    const newArr = []
+    while (newArr.length < 5) {
+      const randNum = Math.floor(
+        Math.random() * localTalentHardQuestions.length
+      )
+      const nextQuestion = localTalentHardQuestions[randNum]
+      if (
+        newArr
+          .map((q) => {
+            return q.id
+          })
+          .includes(nextQuestion.id)
+      ) {
+        continue
+      }
+      newArr.push(nextQuestion)
     }
-    setHardLocalTalent(newArr);
-  };
+    setHardLocalTalent(newArr)
+  }
 
   return (
     <>
-      <div className="">BUSKER</div>
+      <div className="">LOCAL TALENT</div>
       <div className="question-cards">
         <button
           className="card questions col-md-4"
@@ -109,7 +148,7 @@ const LocalTalent = ({
               src={wholeNoteIcon}
               alt="whole note"
               className="card-title"
-              style={{ height: "40px", margin: "10px" }}
+              style={{ height: '40px', margin: '10px' }}
             />
           </div>
         </button>
@@ -132,7 +171,7 @@ const LocalTalent = ({
               src={halfNoteIcon}
               alt="half note"
               className="card-title"
-              style={{ height: "40px", margin: "10px" }}
+              style={{ height: '40px', margin: '10px' }}
             />
           </div>
         </button>
@@ -155,7 +194,7 @@ const LocalTalent = ({
               src={eighthNoteIcon}
               alt="eighth note"
               className="card-title"
-              style={{ height: "40px", margin: "10px" }}
+              style={{ height: '40px', margin: '10px' }}
             />
           </div>
         </button>
@@ -177,7 +216,7 @@ const LocalTalent = ({
         ))}
       </div>
     </>
-  );
-};
+  )
+}
 
-export default LocalTalent;
+export default LocalTalent
