@@ -1,11 +1,6 @@
 import React, { useState, useEffect, useContext } from 'react'
 import UserContext from '../../../utils/UserContext'
-import {
-  BrowserRouter as Router,
-  Route,
-  Link,
-  Redirect,
-} from 'react-router-dom'
+import { Redirect } from 'react-router-dom'
 import './Quiz.css'
 
 import Beginner from './QuizSets/Beginner/Beginner'

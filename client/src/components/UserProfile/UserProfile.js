@@ -6,6 +6,7 @@ import Calendar from '../Calendar/Calendar'
 import ProfileUserInfo from '../ProfileUserInfo/ProfileUserInfo'
 import ProfileUserTier from '../ProfileUserTier/ProfileUserTier'
 import HomePageButtons from '../HomePageButtons/HomePageButtons'
+// import Header from '../Header/Header'
 
 import UserContext from '../../utils/UserContext'
 
@@ -28,8 +29,9 @@ const UserProfile = () => {
   }
 
   return (
-    <>
+    <div>
       <div className="home-page">
+        {/* <Header /> */}
         <ProfileHeader />
       </div>
       <div className="main-page-body">
@@ -53,7 +55,7 @@ const UserProfile = () => {
           </div>
         </div>
       </div>
-    </>
+    </div>
   )
 }
 
