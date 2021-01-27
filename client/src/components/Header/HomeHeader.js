@@ -27,6 +27,7 @@ function HomeHeader() {
           alt="home button"
           style={{
             maxHeight: "25px",
+            
             maxWidth: "25px",
             // opacity: "30%",
             marginBottom: "5px",
