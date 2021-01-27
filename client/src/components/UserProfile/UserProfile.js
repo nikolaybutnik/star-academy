@@ -1,46 +1,32 @@
-import React, { useEffect, useState, useContext } from "react";
-import {
-  BrowserRouter as Router,
-  Route,
-  Link,
-  Redirect,
-} from "react-router-dom";
+import React, { useEffect, useState, useContext } from 'react'
+import { Redirect } from 'react-router-dom'
 
-import ProfileHeader from "../Header/ProfileHeader";
-import Calendar from "../Calendar/Calendar";
-import ProfileUserInfo from "../ProfileUserInfo/ProfileUserInfo";
-import ProfileUserTier from "../ProfileUserTier/ProfileUserTier";
-import HomePageButtons from "../HomePageButtons/HomePageButtons";
-import Header from "../Header/Header";
+import ProfileHeader from '../Header/ProfileHeader'
+import Calendar from '../Calendar/Calendar'
+import ProfileUserInfo from '../ProfileUserInfo/ProfileUserInfo'
+import ProfileUserTier from '../ProfileUserTier/ProfileUserTier'
+import HomePageButtons from '../HomePageButtons/HomePageButtons'
+// import Header from '../Header/Header'
 
-import UserContext from "../../utils/UserContext";
+import UserContext from '../../utils/UserContext'
 
-import "./UserProfile.css";
-import { Container } from "react-bootstrap";
+import './UserProfile.css'
+import { Container } from 'react-bootstrap'
 
 const UserProfile = () => {
   // Currently logged in user
-  const user = useContext(UserContext);
-
-  if (!user) {
-    return <Redirect to="/" />;
-  }
+  const user = useContext(UserContext) || localStorage.getItem('user')
 
   // Check if user has previosuly logged in when page loads.
-  // useEffect(() => {
-  //   const fetchData = async () => {
-  //     const loggedInUser = await localStorage.getItem('user')
-  //     // console.log(loggedInUser)
-  //     if (loggedInUser) {
-  //       const foundUser = JSON.parse(loggedInUser)
-  //       console.log(foundUser)
-  //       setUser(foundUser)
-  //     } else {
-  //       console.log('No user logged in.')
-  //     }
-  //   }
-  //   fetchData()
-  // }, [])
+  useEffect(() => {
+    console.log(user)
+    // On page render, check if user context exists. If not, check if user
+    // id exists in local storage. If yes, fetch user object. if not, redirect.
+  }, [])
+
+  if (!user) {
+    return <Redirect to="/" />
+  }
 
   return (
     <div>
@@ -56,12 +42,12 @@ const UserProfile = () => {
             <HomePageButtons />
             <Container
               style={{
-                maxWidth: "730px",
-                width: "100%",
-                paddingRight: "0px",
-                paddingLeft: "0px",
-                marginRight: "auto",
-                marginLeft: "auto",
+                maxWidth: '730px',
+                width: '100%',
+                paddingRight: '0px',
+                paddingLeft: '0px',
+                marginRight: 'auto',
+                marginLeft: 'auto',
               }}
             >
               <Calendar />
@@ -70,7 +56,7 @@ const UserProfile = () => {
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default UserProfile;
+export default UserProfile
