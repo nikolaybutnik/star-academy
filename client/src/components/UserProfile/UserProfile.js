@@ -1,10 +1,5 @@
 import React, { useEffect, useState, useContext } from 'react'
-import {
-  BrowserRouter as Router,
-  Route,
-  Link,
-  Redirect,
-} from 'react-router-dom'
+import { Redirect } from 'react-router-dom'
 
 import ProfileHeader from '../Header/ProfileHeader'
 import Calendar from '../Calendar/Calendar'
@@ -19,27 +14,18 @@ import { Container } from 'react-bootstrap'
 
 const UserProfile = () => {
   // Currently logged in user
-  const user = useContext(UserContext)
+  const user = useContext(UserContext) || localStorage.getItem('user')
+
+  // Check if user has previosuly logged in when page loads.
+  useEffect(() => {
+    console.log(user)
+    // On page render, check if user context exists. If not, check if user
+    // id exists in local storage. If yes, fetch user object. if not, redirect.
+  }, [])
 
   if (!user) {
     return <Redirect to="/" />
   }
-
-  // Check if user has previosuly logged in when page loads.
-  // useEffect(() => {
-  //   const fetchData = async () => {
-  //     const loggedInUser = await localStorage.getItem('user')
-  //     // console.log(loggedInUser)
-  //     if (loggedInUser) {
-  //       const foundUser = JSON.parse(loggedInUser)
-  //       console.log(foundUser)
-  //       setUser(foundUser)
-  //     } else {
-  //       console.log('No user logged in.')
-  //     }
-  //   }
-  //   fetchData()
-  // }, [])
 
   return (
     <>

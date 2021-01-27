@@ -15,10 +15,11 @@ import HomeHeader from '../../Header/HomeHeader'
 
 const Quiz = () => {
   // Currently logged in user
-  const user = useContext(UserContext)
+  const user = useContext(UserContext) || localStorage.getItem('user')
 
   // Check if user has previosuly logged in when page loads.
   useEffect(() => {
+    console.log(user)
     // On page render, check if user context exists. If not, check if user
     // id exists in local storage. If yes, fetch user object. if not, redirect.
   }, [])
