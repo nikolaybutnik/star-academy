@@ -25,8 +25,12 @@ function App() {
   const [user, setUser] = useState()
 
   useEffect(() => {
-    console.log(user)
-  }, [user])
+    // On page render, if user is stored in localstorage, redirect to profile
+    if (!!localStorage.getItem('user')) {
+      console.log(true)
+      return <Redirect to="/userprofile" />
+    }
+  }, [])
 
   const handleFormSubmit = (event) => {
     event.preventDefault()
@@ -37,7 +41,7 @@ function App() {
     }
 
     // Fetch the user's data from the server on form submission.
-    // If user data exists, ssave it to local storage.
+    // If user data exists, save it to local storage.
     if (emailRef.current.value && passwordRef.current.value) {
       fetch('/auth/tokens', {
         method: 'POST',

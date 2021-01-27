@@ -15,8 +15,7 @@ const Quiz = () => {
   // Check if user has previosuly logged in when page loads.
   useEffect(() => {
     console.log(user)
-    // On page render, check if user context exists. If not, check if user
-    // id exists in local storage. If yes, fetch user object. if not, redirect.
+    // On page render, fetch the user object.
   }, [])
 
   const [easyBeginner, setEasyBeginner] = useState([])
