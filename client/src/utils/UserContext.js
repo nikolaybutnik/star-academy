@@ -16,6 +16,7 @@ function UserProvider(props) {
 
   function logout() {
     setUser(null)
+    localStorage.removeItem('userToken')
   }
 
   function getUser() {

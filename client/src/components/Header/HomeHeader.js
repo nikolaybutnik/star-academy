@@ -1,20 +1,12 @@
-import React, { useContext } from 'react'
 import ProgressBar from 'react-bootstrap/ProgressBar'
-import { Link, useHistory } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import home from '../../Assets/home.png'
-import { UserProvider, useUser } from '../../utils/UserContext'
-import logout from '../../Assets/toppng.com-logout-icon-png-transparent-login-logout-icon-1653x1637.png'
+import { useUser } from '../../utils/UserContext'
+import logoutIcon from '../../Assets/toppng.com-logout-icon-png-transparent-login-logout-icon-1653x1637.png'
 
 function QuizHeader() {
-  const history = useHistory()
-
   // Currently logged in user
-  const user = useUser()
-
-  const handleLogout = () => {
-    localStorage.removeItem('user')
-    history.push('/')
-  }
+  const { logout } = useUser()
 
   return (
     <div className="homepage-header">
@@ -28,10 +20,10 @@ function QuizHeader() {
           backgroundColor: '#fbf4f4',
           borderRadius: '15%',
         }}
-        onClick={handleLogout}
+        onClick={logout}
       >
         <img
-          src={logout}
+          src={logoutIcon}
           alt="home button"
           style={{
             maxHeight: '25px',

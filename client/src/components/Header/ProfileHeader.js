@@ -1,18 +1,12 @@
 import React from 'react'
-import { useHistory } from 'react-router-dom'
 import './Header.css'
 import home from '../../Assets/home.png'
-import logout from '../../Assets/toppng.com-logout-icon-png-transparent-login-logout-icon-1653x1637.png'
-import { UserProvider, useUser } from '../../utils/UserContext'
+import logoutIcon from '../../Assets/toppng.com-logout-icon-png-transparent-login-logout-icon-1653x1637.png'
+import { useUser } from '../../utils/UserContext'
 import ProgressBar from 'react-bootstrap/ProgressBar'
 
 function ProfileHeader() {
-  const history = useHistory()
-
-  const handleLogout = () => {
-    localStorage.removeItem('user')
-    history.push('/')
-  }
+  const { logout } = useUser()
 
   return (
     <div className="homepage-header">
@@ -26,10 +20,10 @@ function ProfileHeader() {
           backgroundColor: '#fbf4f4',
           borderRadius: '15%',
         }}
-        onClick={handleLogout}
+        onClick={logout}
       >
         <img
-          src={logout}
+          src={logoutIcon}
           alt="home button"
           style={{
             maxHeight: '25px',
