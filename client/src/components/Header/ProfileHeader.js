@@ -1,9 +1,9 @@
 import React from 'react'
-import { useHistory, Redirect } from 'react-router-dom'
+import { useHistory } from 'react-router-dom'
 import './Header.css'
 import home from '../../Assets/home.png'
 import logout from '../../Assets/toppng.com-logout-icon-png-transparent-login-logout-icon-1653x1637.png'
-
+import { UserProvider, useUser } from '../../utils/UserContext'
 import ProgressBar from 'react-bootstrap/ProgressBar'
 
 function ProfileHeader() {
@@ -11,7 +11,6 @@ function ProfileHeader() {
 
   const handleLogout = () => {
     localStorage.removeItem('user')
-    // return <Redirect to="/" />
     history.push('/')
   }
 

@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from 'react'
-import UserContext from '../../../utils/UserContext'
+import { UserProvider, useUser } from '../../../utils/UserContext'
 import { Redirect } from 'react-router-dom'
 import './Quiz.css'
 
@@ -10,7 +10,7 @@ import HomeHeader from '../../Header/HomeHeader'
 
 const Quiz = () => {
   // Currently logged in user
-  const user = useContext(UserContext) || localStorage.getItem('user')
+  const user = useUser() //|| localStorage.getItem('user')
 
   // Check if user has previosuly logged in when page loads.
   useEffect(() => {

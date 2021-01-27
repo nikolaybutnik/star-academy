@@ -1,19 +1,18 @@
 import React, { useContext } from 'react'
 import ProgressBar from 'react-bootstrap/ProgressBar'
-import { Link, Redirect, useHistory } from 'react-router-dom'
+import { Link, useHistory } from 'react-router-dom'
 import home from '../../Assets/home.png'
-import UserContext from '../../utils/UserContext'
+import { UserProvider, useUser } from '../../utils/UserContext'
 import logout from '../../Assets/toppng.com-logout-icon-png-transparent-login-logout-icon-1653x1637.png'
 
 function QuizHeader() {
   const history = useHistory()
 
   // Currently logged in user
-  const user = useContext(UserContext)
+  const user = useUser()
 
   const handleLogout = () => {
     localStorage.removeItem('user')
-    // return <Redirect to="/" />
     history.push('/')
   }
 
