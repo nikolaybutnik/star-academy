@@ -1,10 +1,9 @@
-import React, { useContext } from 'react'
-import { UserProvider, useUser } from '../../utils/UserContext'
+import { useUser } from '../../utils/UserContext'
 import { PieChart } from 'react-minimal-pie-chart'
 
 const ProfileUserInfo = () => {
   // Currently logged in user
-  const user = useUser()
+  const { user } = useUser()
 
   return (
     // check if user id exists in context. if not, get id from local storage and fetch.
@@ -36,7 +35,7 @@ const ProfileUserInfo = () => {
           <h6>Username: {user ? user.username : null}</h6>
           <h6>Email: {user ? user.email : null}</h6>
           <h6>Streak: </h6>
-          <h6>Birthday: </h6>
+          <h6>Birthday: {user ? user.birthday : null} </h6>
           <h6>Joined Date: {user ? user.joined : null}</h6>
         </form>
       </div>
