@@ -8,7 +8,12 @@ const Calendar = () => {
   // Could possibly use local storage to hold an array of last 3 days? But that won't help if user
   // logs in from elsewhere. Utilize database or the user object somehow?
   const today = new Date()
-
+  const oneDayAgo = new Date()
+  const twoDaysAgo = new Date()
+  const threeDaysAgo = new Date()
+  const oneDayFuture = new Date()
+  const twoDaysFuture = new Date()
+  const threeDaysFuture = new Date()
   let days = []
   switch (today.getDay()) {
     case 1:
@@ -57,13 +62,37 @@ const Calendar = () => {
           <table>
             <tbody>
               <tr>
-                <td style={{ backgroundColor: 'green' }}></td>
-                <td></td>
-                <td>{console.log(today)}</td>
+                <td style={{ backgroundColor: 'green' }}>
+                  {new Date(
+                    threeDaysAgo.setDate(threeDaysAgo.getDate() - 3)
+                  ).getDate()}
+                </td>
+                <td>
+                  {new Date(
+                    twoDaysAgo.setDate(twoDaysAgo.getDate() - 2)
+                  ).getDate()}
+                </td>
+                <td>
+                  {new Date(
+                    oneDayAgo.setDate(oneDayAgo.getDate() - 1)
+                  ).getDate()}
+                </td>
                 <th>{today.getDate()}</th>
-                <td></td>
-                <td></td>
-                <td></td>
+                <td>
+                  {new Date(
+                    oneDayFuture.setDate(oneDayFuture.getDate() + 1)
+                  ).getDate()}
+                </td>
+                <td>
+                  {new Date(
+                    twoDaysFuture.setDate(twoDaysFuture.getDate() + 2)
+                  ).getDate()}
+                </td>
+                <td>
+                  {new Date(
+                    threeDaysFuture.setDate(threeDaysFuture.getDate() + 3)
+                  ).getDate()}
+                </td>
               </tr>
             </tbody>
           </table>
