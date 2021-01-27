@@ -30,7 +30,7 @@ function ProfileHeader({ user }) {
           }}
         />
       </button>
-      <div className="col-md-11" style={{paddingRight: "0px"}}>
+      <div className="col-md-11" style={{ paddingRight: "0px" }}>
         <h6 className="xp-progressbar"> Fans Until Next Tier</h6>
         <ProgressBar
           className="user-main-progressbar"
