@@ -1,5 +1,5 @@
-import React, { useState, useEffect, useContext } from 'react'
-import { UserProvider, useUser } from '../../../utils/UserContext'
+import React, { useState, useEffect } from 'react'
+import { useUser } from '../../../utils/UserContext'
 import { Redirect } from 'react-router-dom'
 import './Quiz.css'
 
@@ -10,13 +10,11 @@ import HomeHeader from '../../Header/HomeHeader'
 
 const Quiz = () => {
   // Currently logged in user
-  const user = useUser() //|| localStorage.getItem('user')
+  const { user } = useUser()
 
-  // Check if user has previosuly logged in when page loads.
   useEffect(() => {
     console.log(user)
-    // On page render, fetch the user object.
-  }, [])
+  }, [user])
 
   const [easyBeginner, setEasyBeginner] = useState([])
   const [mediumBeginner, setMediumBeginner] = useState([])
@@ -31,7 +29,7 @@ const Quiz = () => {
   const [hardLocalTalent, setHardLocalTalent] = useState([])
 
   if (!user) {
-    return <Redirect to="/" />
+    return null
   }
 
   const props = {

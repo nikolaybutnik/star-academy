@@ -8,11 +8,13 @@ import Signup from './components/Pages/Signup/Signup'
 import Quiz from './components/Pages/Quiz/Quiz'
 import UserProfile from './components/UserProfile/UserProfile'
 
-import { UserProvider } from './utils/UserContext'
+import { UserProvider, useUser } from './utils/UserContext'
 
 function App() {
   return (
     // INCLUDE A SWITCH ROUTE AT THE END
+    // HANDLE REDIRECTING HERE IF USER DOESN'T EXIST
+    // ex: {user ? <Route/> : <Redirect/>}
     <UserProvider>
       <Router>
         <div className="container col-md-12">

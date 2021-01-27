@@ -1,14 +1,12 @@
 import React, { useEffect, useState, useContext } from 'react'
-import { Redirect } from 'react-router-dom'
 
 import ProfileHeader from '../Header/ProfileHeader'
 import Calendar from '../Calendar/Calendar'
 import ProfileUserInfo from '../ProfileUserInfo/ProfileUserInfo'
 import ProfileUserTier from '../ProfileUserTier/ProfileUserTier'
 import HomePageButtons from '../HomePageButtons/HomePageButtons'
-// import Header from '../Header/Header'
 
-import { UserProvider, useUser } from '../../utils/UserContext'
+import { useUser } from '../../utils/UserContext'
 
 import './UserProfile.css'
 import { Container } from 'react-bootstrap'
@@ -17,11 +15,8 @@ const UserProfile = () => {
   // Currently logged in user
   const { user } = useUser()
 
-  // Check if user has previosuly logged in when page loads.
   useEffect(() => {
     console.log(user)
-    // On page render, check if user context exists. If not, check if user
-    // id exists in local storage. If yes, fetch user object. if not, redirect.
   }, [user])
 
   if (!user) {
