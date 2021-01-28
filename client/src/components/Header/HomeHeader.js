@@ -1,14 +1,12 @@
-// import React, { useContext } from 'react'
-import React from 'react'
 import ProgressBar from 'react-bootstrap/ProgressBar'
 import { Link } from 'react-router-dom'
 import home from '../../Assets/home.png'
-// import UserContext from '../../utils/UserContext'
-import logout from '../../Assets/toppng.com-logout-icon-png-transparent-login-logout-icon-1653x1637.png'
+import { useUser } from '../../utils/UserContext'
+import logoutIcon from '../../Assets/toppng.com-logout-icon-png-transparent-login-logout-icon-1653x1637.png'
 
-function HomeHeader() {
+function QuizHeader() {
   // Currently logged in user
-  // const user = useContext(UserContext)
+  const { logout } = useUser()
 
   return (
     <div className="homepage-header">
@@ -22,9 +20,10 @@ function HomeHeader() {
           backgroundColor: '#fbf4f4',
           borderRadius: '75%',
         }}
+        onClick={logout}
       >
         <img
-          src={logout}
+          src={logoutIcon}
           alt="home button"
           style={{
             maxHeight: '25px',
@@ -63,4 +62,4 @@ function HomeHeader() {
   )
 }
 
-export default HomeHeader
+export default QuizHeader

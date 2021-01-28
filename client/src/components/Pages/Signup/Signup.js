@@ -1,4 +1,3 @@
-// import React, { useState, useEffect, useRef } from 'react'
 import React, { useState, useRef } from 'react'
 import { Link, useHistory } from 'react-router-dom'
 import './Signup.css'
@@ -18,16 +17,12 @@ function Signup() {
   const [email, setEmail] = useState('')
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
-  // const [confirmPassword, setConfirmPassword] = useState('')
-  // const [confirmPassword, setConfirmPassword] = useState('')
-
-  // useEffect(() => {
-  //   console.log(email, username, password, confirmPassword)
-  // }, [email, username, password, confirmPassword])
+  const [confirmPassword, setConfirmPassword] = useState('')
 
   const handleNewUser = (event) => {
+    /////////////////////////////////////////////////////////
     // ADD LOGIC TO MAKE SURE PASSWORD AND CONFIRMATION MATCH
-    // ADD LOGIC THAT PREVENTS REDIRECT IF NEW USER WASN'T CREATED.
+    /////////////////////////////////////////////////////////
     event.preventDefault()
     const newUser = {
       email: email,
@@ -57,7 +52,7 @@ function Signup() {
     setEmail('')
     setUsername('')
     setPassword('')
-    // setConfirmPassword('')
+    setConfirmPassword('')
     history.push('/')
   }
 

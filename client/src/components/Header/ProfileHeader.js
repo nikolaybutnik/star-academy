@@ -1,11 +1,13 @@
 import React from 'react'
 import './Header.css'
 import home from '../../Assets/home.png'
-import logout from '../../Assets/toppng.com-logout-icon-png-transparent-login-logout-icon-1653x1637.png'
-
+import logoutIcon from '../../Assets/toppng.com-logout-icon-png-transparent-login-logout-icon-1653x1637.png'
+import { useUser } from '../../utils/UserContext'
 import ProgressBar from 'react-bootstrap/ProgressBar'
 
-function ProfileHeader({ user }) {
+function ProfileHeader() {
+  const { logout } = useUser()
+
   return (
     <div className="homepage-header">
       <button
@@ -18,9 +20,10 @@ function ProfileHeader({ user }) {
           backgroundColor: '#fbf4f4',
           borderRadius: '75%',
         }}
+        onClick={logout}
       >
         <img
-          src={logout}
+          src={logoutIcon}
           alt="home button"
           style={{
             maxHeight: '25px',
