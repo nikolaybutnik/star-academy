@@ -79,12 +79,12 @@ function Login() {
                 placeholder="Enter password"
                 ref={passwordRef}
               ></input>
-              <button type="submit" className="btn btn-primary">
-                Sign In
-              </button>
             </div>
 
             <div className="form-group">
+              <button type="submit" className="btn btn-primary">
+                Sign In
+              </button>
               <small id="redirectSignin" className="form-text text-muted">
                 Don't have an account yet?
               </small>

@@ -1,10 +1,20 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 // import UserContext from '../../utils/UserContext'
 import { PieChart } from 'react-minimal-pie-chart'
 
 const ProfileUserInfo = () => {
   // Currently logged in user
   // const user = useContext(UserContext)
+
+  useEffect(() => {
+    const script = document.createElement('script')
+    script.src = './js/script.js'
+    script.async = true
+    document.body.appendChild(script)
+    return () => {
+      document.body.removeChild(script)
+    }
+  }, [])
 
   return (
     // check if user id exists in context. if not, get id from local storage and fetch.
@@ -40,7 +50,7 @@ const ProfileUserInfo = () => {
           <div id="myDIV" class="header">
             <h2>My To Do List</h2>
             <input type="text" id="myInput" placeholder="Title..." />
-            <span onclick="newElement()" class="addBtn">
+            <span onclick={'newElement()'} class="addBtn">
               Add
             </span>
           </div>
