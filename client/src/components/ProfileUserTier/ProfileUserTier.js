@@ -1,6 +1,6 @@
-import React from "react";
-import beginner from "../../Assets/512x512.png";
-import energyIcon from "../../Assets/bolt-128.png";
+import React from 'react'
+import beginner from '../../Assets/512x512.png'
+import energyIcon from '../../Assets/bolt-128.png'
 
 const ProfileUserTier = () => {
   return (
@@ -20,7 +20,7 @@ const ProfileUserTier = () => {
         <h6 className="energy-title">ENERGY LEVEL</h6>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default ProfileUserTier;
+export default ProfileUserTier
