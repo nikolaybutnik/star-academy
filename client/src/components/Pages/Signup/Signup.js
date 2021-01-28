@@ -20,7 +20,9 @@ function Signup() {
   const [confirmPassword, setConfirmPassword] = useState('')
 
   const handleNewUser = (event) => {
+    /////////////////////////////////////////////////////////
     // ADD LOGIC TO MAKE SURE PASSWORD AND CONFIRMATION MATCH
+    /////////////////////////////////////////////////////////
     event.preventDefault()
     const newUser = {
       email: email,
