@@ -7,9 +7,9 @@ import {
 } from '../../../../../utils/questions'
 import QuestionDisplay from '../QuestionDisplay/QuestionDisplay'
 
-import wholeNoteIcon from '../../../../../Assets/icon2.png'
-import halfNoteIcon from '../../../../../Assets/icon2 2.png'
-import eighthNoteIcon from '../../../../../Assets/icon2 3.png'
+import wholeNoteIcon from '../../../../../Assets/greensingle.png'
+import halfNoteIcon from '../../../../../Assets/orangedouble.png'
+import eighthNoteIcon from '../../../../../Assets/redtriple.png'
 
 const Busker = ({
   props: {
@@ -127,13 +127,13 @@ const Busker = ({
         <button
           className="card questions col-md-4"
           style={{
-            width: "20.5rem",
-            backgroundColor: "rgb(245 255 245)",
-            borderColor: "rgb(3 184 3)",
-            borderWidth: "3px",
-            margin: "10px",
-            marginLeft: "-5px",
-            marginRight: "0px",
+            width: '20.5rem',
+            backgroundColor: 'rgb(245 255 245)',
+            borderColor: 'rgb(3 184 3)',
+            borderWidth: '3px',
+            margin: '10px',
+            marginLeft: '-5px',
+            marginRight: '0px',
           }}
           onClick={() => handleGoToQuizEasy(buskerEasyQuestions)}
         >
@@ -151,13 +151,13 @@ const Busker = ({
         <button
           className="card questions col-md-4"
           style={{
-            width: "20.5rem",
-            backgroundColor: "rgb(255 248 228)",
-            borderColor: "orange",
-            borderWidth: "3px",
-            margin: "10px",
-            marginLeft: "5px",
-            marginRight: "5px",
+            width: '20.5rem',
+            backgroundColor: 'rgb(255 248 228)',
+            borderColor: 'orange',
+            borderWidth: '3px',
+            margin: '10px',
+            marginLeft: '5px',
+            marginRight: '5px',
           }}
           onClick={() => handleGoToQuizMedium(buskerMediumQuestions)}
         >
@@ -175,13 +175,13 @@ const Busker = ({
         <button
           className="card questions col-md-4"
           style={{
-            width: "20.5rem",
-            backgroundColor: "rgb(255 223 223)",
-            borderColor: "#e90202",
-            borderWidth: "3px",
-            margin: "10px",
-            marginLeft: "0px",
-            marginRight: "0px",
+            width: '20.5rem',
+            backgroundColor: 'rgb(255 223 223)',
+            borderColor: '#e90202',
+            borderWidth: '3px',
+            margin: '10px',
+            marginLeft: '0px',
+            marginRight: '0px',
           }}
           onClick={() => handleGoToQuizHard(buskerHardQuestions)}
         >

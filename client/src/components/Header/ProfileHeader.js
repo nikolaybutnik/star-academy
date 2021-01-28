@@ -14,11 +14,11 @@ function ProfileHeader() {
         className="col btn-gradient"
         style={{
           height: '50px',
-          width: '50px',
+          maxWidth: '50px',
           margin: '5px',
           marginTop: '38px',
           backgroundColor: '#fbf4f4',
-          borderRadius: '15%',
+          borderRadius: '75%',
         }}
         onClick={logout}
       >

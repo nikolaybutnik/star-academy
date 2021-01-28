@@ -1,5 +1,5 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React from 'react'
+import { Link } from 'react-router-dom'
 
 const HomePageButtons = () => {
   return (
@@ -30,16 +30,16 @@ const HomePageButtons = () => {
       <button href="" class="btn-gradient col-md-9 blue mini">
         <h2
           style={{
-            padding: "5px",
+            padding: '5px',
             fontFamily:
-              "Trebuchet MS, Lucida Sans Unicode, Lucida Grande, Lucida Sans, Arial, sans-serif",
+              'Trebuchet MS, Lucida Sans Unicode, Lucida Grande, Lucida Sans, Arial, sans-serif',
           }}
         >
           DAILY QUIZ
         </h2>
       </button>
     </Link>
-  );
-};
+  )
+}
 
-export default HomePageButtons;
+export default HomePageButtons

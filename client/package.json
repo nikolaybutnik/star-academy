@@ -24,6 +24,17 @@
       "react-app/jest"
     ]
   },
+  "devDependencies": {
+    "eslint": "^7.13.0",
+    "eslint-config-prettier": "^6.15.0",
+    "eslint-config-standard": "^16.0.1",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^4.1.0",
+    "nodemon": "^2.0.6",
+    "prettier": "^2.1.2"
+  },
   "browserslist": {
     "production": [
       ">0.2%",

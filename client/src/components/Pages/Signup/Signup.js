@@ -115,7 +115,7 @@ function Signup() {
               className="form-control"
               id="confirmNewPassword"
               placeholder="Confirm password"
-              onChange={(event) => setConfirmPassword(event.target.value)}
+              // onChange={(event) => setConfirmPassword(event.target.value)}
               ref={confirmNewPasswrdRef}
             ></input>
             <button
