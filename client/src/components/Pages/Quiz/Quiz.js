@@ -29,7 +29,7 @@ const Quiz = () => {
   const [hardLocalTalent, setHardLocalTalent] = useState([])
 
   if (!user) {
-    return null
+    return <Redirect to="/" />
   }
 
   const props = {

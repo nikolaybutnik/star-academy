@@ -1,32 +1,27 @@
-import React, { useState, useEffect, useRef } from "react";
-import { Link, useHistory } from "react-router-dom";
-import "./Signup.css";
+import React, { useState, useRef } from 'react'
+import { Link, useHistory } from 'react-router-dom'
+import './Signup.css'
 
-import Hero from "../../Hero/Hero";
+import Hero from '../../Hero/Hero'
 
 function Signup() {
-  const history = useHistory();
+  const history = useHistory()
 
   // Reference input fields
-  const newEmailRef = useRef();
-  const newUsernameRef = useRef();
-  const newPasswordRef = useRef();
-  const confirmNewPasswrdRef = useRef();
+  const newEmailRef = useRef()
+  const newUsernameRef = useRef()
+  const newPasswordRef = useRef()
+  const confirmNewPasswrdRef = useRef()
 
   // Set up input field states
-  const [email, setEmail] = useState("");
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
-  const [confirmPassword, setConfirmPassword] = useState("");
-
-  // useEffect(() => {
-  //   console.log(email, username, password, confirmPassword)
-  // }, [email, username, password, confirmPassword])
+  const [email, setEmail] = useState('')
+  const [username, setUsername] = useState('')
+  const [password, setPassword] = useState('')
+  const [confirmPassword, setConfirmPassword] = useState('')
 
   const handleNewUser = (event) => {
     // ADD LOGIC TO MAKE SURE PASSWORD AND CONFIRMATION MATCH
-    // ADD LOGIC THAT PREVENTS REDIRECT IF NEW USER WASN'T CREATED.
-    event.preventDefault();
+    event.preventDefault()
     const newUser = {
       email: email,
       username: username,
@@ -34,30 +29,30 @@ function Signup() {
       joined: new Date(),
       level: 1,
       experience: 0,
-      class: "Beginner",
+      class: 'Beginner',
       energy: 3,
       maxEnergy: 3,
       answered: [],
-      firstName: "",
-      lastName: "",
-      gender: "",
+      firstName: '',
+      lastName: '',
+      gender: '',
       birthday: new Date(1800, 0, 1),
-      country: "",
-    };
-    fetch("/auth/users", {
-      method: "POST",
+      country: '',
+    }
+    fetch('/auth/users', {
+      method: 'POST',
       body: JSON.stringify(newUser),
       headers: {
-        Accept: "application/json, text/plain, */*",
-        "Content-Type": "application/json",
+        Accept: 'application/json, text/plain, */*',
+        'Content-Type': 'application/json',
       },
-    });
-    setEmail("");
-    setUsername("");
-    setPassword("");
-    setConfirmPassword("");
-    history.push("/");
-  };
+    })
+    setEmail('')
+    setUsername('')
+    setPassword('')
+    setConfirmPassword('')
+    history.push('/')
+  }
 
   return (
     <div className="row signup-row">
@@ -71,7 +66,7 @@ function Signup() {
             Start learning music the fun way, today!
           </h1>
           <div className="form-group sign-up-form">
-            <h2 style={{ marginBottom: "40px", marginTop: "40px" }}>Sign up</h2>
+            <h2 style={{ marginBottom: '40px', marginTop: '40px' }}>Sign up</h2>
             <label for="newEmail">Email address</label>
             <input
               type="email"
@@ -126,7 +121,7 @@ function Signup() {
               type="submit"
               class="btn-gradient col-md-9 blue mini signup-btn"
             >
-              {" "}
+              {' '}
               Sign Up
             </button>
           </div>
@@ -146,7 +141,7 @@ function Signup() {
         </form>
       </div>
     </div>
-  );
+  )
 }
 
-export default Signup;
+export default Signup

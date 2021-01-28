@@ -1,4 +1,5 @@
 import React, { useEffect, useState, useContext } from 'react'
+import { Redirect } from 'react-router-dom'
 
 import ProfileHeader from '../Header/ProfileHeader'
 import Calendar from '../Calendar/Calendar'
@@ -20,7 +21,7 @@ const UserProfile = () => {
   }, [user])
 
   if (!user) {
-    return null
+    return <Redirect to="/" />
   }
 
   return (

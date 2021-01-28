@@ -1,28 +1,20 @@
-import React, { useState, useRef, useEffect } from 'react'
-import { Link, Redirect, useHistory } from 'react-router-dom'
+import React, { useRef, useEffect } from 'react'
+import { Link, Redirect } from 'react-router-dom'
 import './Login.css'
 
 import Hero from '../../Hero/Hero'
 
-import { UserProvider, useUser } from '../../../utils/UserContext'
+import { useUser } from '../../../utils/UserContext'
 
 function Login() {
-  const history = useHistory()
-
   // Reference input fields
   const emailRef = useRef()
   const passwordRef = useRef()
 
   // Currently logged in user state
-  const { user, logout, setToken } = useUser()
+  const { user, setToken } = useUser()
 
   useEffect(() => {
-    // On page render, if user is stored in localstorage, redirect to profile
-    // if (!!localStorage.getItem('user')) {
-    //   console.log(true)
-    //   // return <Redirect to="/userprofile" />
-    //   // history.push('/userprofile')
-    // }
     console.log(user)
   }, [user])
 
@@ -49,8 +41,6 @@ function Login() {
         .then((retrievedUserToken) => {
           if (retrievedUserToken) {
             // console.log(retrievedUserToken)
-            emailRef.current.value = ''
-            passwordRef.current.value = ''
             setToken(retrievedUserToken.data.token)
           } else {
             console.log('User not found.')
@@ -61,6 +51,10 @@ function Login() {
       console.log('Email and password are required.')
     }
   }
+  if (user) {
+    return <Redirect to="/userprofile" />
+  }
+
   return (
     <div className="row signup-row">
       <div className="col-md-8 hero-column">
@@ -114,11 +108,16 @@ function Login() {
               </button>
             </Link>
           </div>
-          <Link to="/userprofile">
+          {/* <Link to="/quiz">
             <button type="submit" className="btn btn-primary">
               GO TO QUESTIONS
             </button>
           </Link>
+          <Link to="/userprofile">
+            <button type="submit" className="btn btn-primary">
+              GO TO PROFILE
+            </button>
+          </Link> */}
         </form>
       </div>
     </div>

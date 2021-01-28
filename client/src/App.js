@@ -13,8 +13,6 @@ import { UserProvider, useUser } from './utils/UserContext'
 function App() {
   return (
     // INCLUDE A SWITCH ROUTE AT THE END
-    // HANDLE REDIRECTING HERE IF USER DOESN'T EXIST
-    // ex: {user ? <Route/> : <Redirect/>}
     <UserProvider>
       <Router>
         <div className="container col-md-12">

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import useLocalStorageState from '../utils/useLocalStorageState'
 
-// store token and user object
+// Store token and user object
 const UserContext = React.createContext()
 
 function UserProvider(props) {
@@ -28,8 +28,18 @@ function UserProvider(props) {
     })
       .then((res) => res.json())
       .then((data) => {
-        // console.log(data)
-        setUser(data.data)
+        const user = data.data
+        // if (!user.streakStart) {
+        //   user.streakStart = new Date()
+        //   user.streakLastVisit = new Date()
+        // } else {
+        //   const now = new Date()
+        //   // find a library to find difference in dates.
+        //   // if the difference between the visits is 2 or more, we set the streakStart property
+        //   // and streakLastVisit property to new Date(), setting streak count to 0
+        //   if (user.streakLastVisit )
+        // }
+        setUser(user)
       })
   }
   return <UserContext.Provider value={{ user, logout, setToken }} {...props} />
