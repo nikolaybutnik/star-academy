@@ -128,7 +128,8 @@ const LocalTalent = ({
 
   return (
     <>
-      <div className="">LOCAL TALENT</div>
+      <hr style={{ borderWidth: '2px' }}></hr>
+      <h5 className="">LOCAL TALENT</h5>
       <div className="question-cards">
         <button
           className="card questions col-md-4"

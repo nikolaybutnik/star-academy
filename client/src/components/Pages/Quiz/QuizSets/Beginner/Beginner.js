@@ -122,7 +122,9 @@ const Beginner = ({
 
   return (
     <>
-      <div className="">BEGINNER</div>
+      <hr style={{ borderWidth: '2px' }}></hr>
+
+      <h5 className="">BEGINNER</h5>
       <div className="question-cards">
         <button
           className="card questions col-md-4"

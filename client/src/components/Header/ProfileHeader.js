@@ -1,11 +1,14 @@
 import React from 'react'
 import './Header.css'
 import home from '../../Assets/home.png'
-import logout from '../../Assets/toppng.com-logout-icon-png-transparent-login-logout-icon-1653x1637.png'
-
+import logoutIcon from '../../Assets/toppng.com-logout-icon-png-transparent-login-logout-icon-1653x1637.png'
+import { useUser } from '../../utils/UserContext'
 import ProgressBar from 'react-bootstrap/ProgressBar'
 
-function ProfileHeader({ user }) {
+function ProfileHeader() {
+  const { logout } = useUser()
+  const { user } = useUser()
+
   return (
     <div className="homepage-header">
       <button
@@ -14,13 +17,14 @@ function ProfileHeader({ user }) {
           height: '50px',
           maxWidth: '50px',
           margin: '5px',
-          marginTop: '38px',
+          marginTop: '75px',
           backgroundColor: '#fbf4f4',
           borderRadius: '75%',
         }}
+        onClick={logout}
       >
         <img
-          src={logout}
+          src={logoutIcon}
           alt="home button"
           style={{
             maxHeight: '25px',
@@ -31,6 +35,7 @@ function ProfileHeader({ user }) {
         />
       </button>
       <div className="col-md-11" style={{ paddingRight: '0px' }}>
+        <h3 style={{ marginTop: '5px' }}>{user ? user.username : null}</h3>
         <h6 className="xp-progressbar"> Fans Until Next Tier</h6>
         <ProgressBar
           className="user-main-progressbar"
