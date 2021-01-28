@@ -122,7 +122,9 @@ const Busker = ({
 
   return (
     <>
-      <div className="">BUSKER</div>
+      <hr style={{ borderWidth: '2px' }}></hr>
+
+      <h5 className="">BUSKER</h5>
       <div className="question-cards">
         <button
           className="card questions col-md-4"

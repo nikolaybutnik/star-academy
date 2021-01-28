@@ -1,6 +1,9 @@
 /* eslint-disable no-unused-vars */
 import { useUser } from '../../utils/UserContext'
 import { PieChart } from 'react-minimal-pie-chart'
+import React, { useRef, useState } from 'react'
+import ListItem from './ListItems'
+import ToDoList from './ToDoList'
 
 const ProfileUserInfo = () => {
   // Currently logged in user
@@ -11,6 +14,42 @@ const ProfileUserInfo = () => {
     // if none exists, redirect to login page.
     <div className="row col-md-12" style={{ marginTop: '70px' }}>
       <div className="col-md-5">
+        <div className="row" style={{ justifyContent: 'center' }}>
+          <h3
+            style={{
+              marginLeft: '25px',
+            }}
+          >
+            WINS{' '}
+          </h3>
+          <span
+            class="dot"
+            style={{
+              height: '25px',
+              width: '25px',
+              backgroundColor: 'rgb(0 156 92)',
+              borderRadius: '50%',
+              display: 'inline-block',
+              margin: '5px',
+              marginLeft: '10px',
+              marginRight: '15px',
+            }}
+          ></span>
+          <h3>LOSSES</h3>
+          <span
+            class="dot"
+            style={{
+              height: '25px',
+              width: '25px',
+              backgroundColor: '#ff5061',
+              borderRadius: '50%',
+              display: 'inline-block',
+              margin: '5px',
+              marginRight: '0px',
+              marginLeft: '10px',
+            }}
+          ></span>
+        </div>
         <PieChart
           // label={({ dataEntry }) => "WINS"}
           data={[
@@ -18,7 +57,7 @@ const ProfileUserInfo = () => {
               title: 'Right answers',
               value:
                 user.correct === 0 && user.incorrect === 0 ? 1 : user.correct,
-              color: 'rgb(45 182 56)',
+              color: 'rgb(0 156 92)',
             },
             { title: 'Wrong answers', value: user.incorrect, color: '#ff5061' },
           ]}
@@ -26,7 +65,10 @@ const ProfileUserInfo = () => {
         />
       </div>
 
-      <div className="col-md-7">
+      <div
+        className="col-md-7"
+        style={{ paddingRight: '0px', justifyContent: 'center' }}
+      >
         {/* <form
           style={{
             height: 'auto',
@@ -41,24 +83,7 @@ const ProfileUserInfo = () => {
           <h6>Birthday: {user ? user.birthday : null} </h6>
           <h6>Joined Date: {user ? user.joined : null}</h6>
         </form> */}
-        <div id="" style={{ overflow: 'scroll', height: '400px' }}>
-          <div id="myDIV" class="header">
-            <h2>My To Do List</h2>
-            <input type="text" id="myInput" placeholder="Title..." />
-            <span onClick="newElement()" class="addBtn">
-              Add
-            </span>
-          </div>
-
-          <ul id="myUL">
-            <li>Hit the gym</li>
-            <li class="checked">Pay bills</li>
-            <li>Meet George</li>
-            <li>Buy eggs</li>
-            <li>Read a book</li>
-            <li>Organize office</li>
-          </ul>
-        </div>
+        <ToDoList />
       </div>
     </div>
   )

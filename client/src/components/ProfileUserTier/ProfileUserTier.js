@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 import React from 'react'
-import beginner from '../../Assets/512x512.png'
+import beginner from '../../Assets/beginnerIcon.png'
 import energyIcon from '../../Assets/bolt-128.png'
 import { useUser } from '../../utils/UserContext'
 

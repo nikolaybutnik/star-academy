@@ -16,7 +16,7 @@ function Login() {
   const { user, setToken } = useUser()
 
   useEffect(() => {
-    console.log(user)
+    // console.log(user)
   }, [user])
 
   const handleFormSubmit = (event) => {
@@ -79,7 +79,7 @@ function Login() {
             ></input>
           </div>
 
-          <div className="form-group  sign-up-form">
+          <div className="form-group sign-up-form">
             <label for="password">Password</label>
             <input
               type="password"

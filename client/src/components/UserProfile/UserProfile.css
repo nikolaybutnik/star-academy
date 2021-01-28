@@ -8,7 +8,7 @@
   height: 50px;
   width: 50px;
   border-radius: 50%;
-  margin-top: 38px;
+  margin-top: 75px;
   background-color: rgb(228, 227, 227);
 }
 
@@ -218,7 +218,7 @@ ul li {
   cursor: pointer;
   position: relative;
   padding: 12px 8px 12px 40px;
-  background: #eee;
+  background: #d9ebff;
   font-size: 18px;
   transition: 0.2s;
 
@@ -236,7 +236,7 @@ ul li:nth-child(odd) {
 
 /* Darker background-color on hover */
 ul li:hover {
-  background: #ddd;
+  background: #bcdafd;
 }
 
 /* When clicked on, add a background color and strike out text */
