@@ -58,6 +58,24 @@ const Quiz = () => {
       <HomeHeader />
 
       <div className="main-page-body">
+        <div
+          className="row"
+          style={{
+            flexWrap: 'nowrap',
+            marginTop: '20px',
+            marginBottom: '20px',
+          }}
+        >
+          <div className="col-md-4">
+            <h3 style={{ color: '#007700' }}>EASY</h3>
+          </div>
+          <div className="col-md-4">
+            <h3 style={{ color: '#b27300' }}>MEDIUM</h3>
+          </div>
+          <div className="col-md-4">
+            <h3 style={{ color: '#9c0000' }}>HARD</h3>
+          </div>
+        </div>
         <Beginner props={props} />
 
         {/* <div className="">BLOOMING ARTIST</div>

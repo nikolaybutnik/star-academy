@@ -8,7 +8,7 @@ import Signup from './components/Pages/Signup/Signup'
 import Quiz from './components/Pages/Quiz/Quiz'
 import UserProfile from './components/UserProfile/UserProfile'
 
-import { UserProvider, useUser } from './utils/UserContext'
+import { UserProvider } from './utils/UserContext'
 
 function App() {
   return (

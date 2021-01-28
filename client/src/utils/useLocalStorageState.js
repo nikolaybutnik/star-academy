@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import { useState, useEffect } from 'react'
 
 export default function useLocalStorageState(key, initialState) {
   // Set the state to either what's in local storage or the initialState

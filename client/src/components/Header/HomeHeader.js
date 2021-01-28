@@ -7,6 +7,7 @@ import logoutIcon from '../../Assets/toppng.com-logout-icon-png-transparent-logi
 function QuizHeader() {
   // Currently logged in user
   const { logout } = useUser()
+  const { user } = useUser()
 
   return (
     <div className="homepage-header">
@@ -16,7 +17,7 @@ function QuizHeader() {
           height: '50px',
           maxWidth: '50px',
           margin: '5px',
-          marginTop: '38px',
+          marginTop: '75px',
           backgroundColor: '#fbf4f4',
           borderRadius: '75%',
         }}
@@ -34,6 +35,8 @@ function QuizHeader() {
         />
       </button>
       <div className="col-md-11" style={{ paddingRight: '0px' }}>
+        <h3 style={{ marginTop: '5px' }}>{user ? user.username : null}</h3>
+
         <h6 className="xp-progressbar"> Fans Until Next Tier</h6>
         <ProgressBar
           className="user-main-progressbar"

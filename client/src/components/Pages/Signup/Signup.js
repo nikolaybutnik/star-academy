@@ -17,12 +17,10 @@ function Signup() {
   const [email, setEmail] = useState('')
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
-  const [confirmPassword, setConfirmPassword] = useState('')
+  const [, setConfirmPassword] = useState('')
 
   const handleNewUser = (event) => {
-    /////////////////////////////////////////////////////////
     // ADD LOGIC TO MAKE SURE PASSWORD AND CONFIRMATION MATCH
-    /////////////////////////////////////////////////////////
     event.preventDefault()
     const newUser = {
       email: email,
@@ -85,7 +83,7 @@ function Signup() {
           </div>
 
           <div className="form-group sign-up-form">
-            <label for="newUsername">Username</label>
+            <label for="newUsername">Bandname</label>
             <input
               type="username"
               className="form-control"
