@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useContext } from 'react'
+import React, { useEffect, useContext } from 'react'
 import { Redirect } from 'react-router-dom'
 
 import ProfileHeader from '../Header/ProfileHeader'

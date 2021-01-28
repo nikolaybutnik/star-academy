@@ -1,9 +1,10 @@
 import React, { useState, useRef, useEffect } from 'react'
+
 import {
   BrowserRouter as Router,
   Route,
   Link,
-  Redirect,
+  // Redirect,
 } from 'react-router-dom'
 import './App.css'
 import './components/Pages/Signup/Signup.css'
