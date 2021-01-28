@@ -27,7 +27,11 @@ const HomePageButtons = () => {
           DAILY QUIZ
         </h2>
       </button> */}
-      <button href="" class="btn-gradient col-md-9 blue mini">
+      <button
+        href=""
+        class="btn-gradient col-md-9 blue mini"
+        style={{ minWidth: '50px' }}
+      >
         <h2
           style={{
             padding: '5px',

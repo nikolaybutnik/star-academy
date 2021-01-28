@@ -24,6 +24,12 @@ const userSchema = new Schema({
   joined: {
     type: Date,
   },
+  streakStart: {
+    type: Date,
+  },
+  streakLastVisit: {
+    type: Date,
+  },
   level: {
     type: Number,
   },
