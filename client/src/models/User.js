@@ -45,6 +45,9 @@ const userSchema = new Schema({
   experienceToNextLevel: {
     type: Number,
   },
+  totalExperience: {
+    type: Number,
+  },
   class: {
     type: String,
   },

@@ -13,6 +13,7 @@ const QuestionDisplay = ({ quiz: { question, answers, correct, reward } }) => {
       const updatedUser = {
         ...user,
         experience: user.experience + reward,
+        totalExperience: user.totalExperience + reward,
         correct: user.correct + 1,
       }
 

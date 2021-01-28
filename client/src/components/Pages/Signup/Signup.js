@@ -33,6 +33,7 @@ function Signup() {
       level: 1,
       experience: 0,
       experienceToNextLevel: 15,
+      totalExperience: 0,
       correct: 0,
       incorrect: 0,
       class: 'Beginner',
