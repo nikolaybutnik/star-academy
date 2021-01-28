@@ -1,7 +1,8 @@
+/* eslint-disable spaced-comment */
+/* eslint-disable no-unused-vars */
 import React, { useState, useRef } from 'react'
-import { Link, useHistory } from 'react-router-dom'
+import { useHistory, Link } from 'react-router-dom'
 import './Signup.css'
-
 import Hero from '../../Hero/Hero'
 
 function Signup() {
@@ -28,18 +29,20 @@ function Signup() {
       email: email,
       username: username,
       password: password,
-      joined: new Date(),
+      // joined: new Date(),
       level: 1,
       experience: 0,
+      experienceToNextLevel: 15,
       class: 'Beginner',
       energy: 3,
       maxEnergy: 3,
+      tasks: [],
       answered: [],
-      firstName: '',
-      lastName: '',
-      gender: '',
-      birthday: new Date(1800, 0, 1),
-      country: '',
+      // firstName: '',
+      // lastName: '',
+      // gender: '',
+      // birthday: new Date(1800, 0, 1),
+      // country: '',
     }
     fetch('/auth/users', {
       method: 'POST',

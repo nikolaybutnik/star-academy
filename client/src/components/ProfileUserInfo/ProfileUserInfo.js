@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { useUser } from '../../utils/UserContext'
 import { PieChart } from 'react-minimal-pie-chart'
 

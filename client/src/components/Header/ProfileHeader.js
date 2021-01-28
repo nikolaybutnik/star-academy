@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React from 'react'
 import './Header.css'
 import home from '../../Assets/home.png'
@@ -6,7 +7,9 @@ import { useUser } from '../../utils/UserContext'
 import ProgressBar from 'react-bootstrap/ProgressBar'
 
 function ProfileHeader() {
-  const { logout } = useUser()
+  const { user, logout } = useUser()
+
+  const exp = (user.experienceToNextLevel / user.experience) * 100
 
   return (
     <div className="homepage-header">
@@ -34,12 +37,14 @@ function ProfileHeader() {
         />
       </button>
       <div className="col-md-11" style={{ paddingRight: '0px' }}>
-        <h6 className="xp-progressbar"> Fans Until Next Tier</h6>
+        <h6 className="xp-progressbar">
+          Lv {user.level}: {user.class} {user.username}
+        </h6>
         <ProgressBar
           className="user-main-progressbar"
           animated
-          now={40}
-          label={`+${40}`}
+          now={exp}
+          label={`+${exp}`}
           style={{ height: '2rem' }}
         />
       </div>

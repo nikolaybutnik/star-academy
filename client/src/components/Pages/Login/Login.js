@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React, { useRef, useEffect } from 'react'
 import { Link, Redirect } from 'react-router-dom'
 import './Login.css'
@@ -87,15 +88,15 @@ function Login() {
               placeholder="Enter password"
               ref={passwordRef}
             ></input>
+          </div>
+
+          <div className="form-group sign-up-form">
             <button
               type="submit"
               className="btn-gradient blue mini signup-btn col-md-9"
             >
               Sign In
             </button>
-          </div>
-
-          <div className="form-group sign-up-form">
             <small id="redirectSignin" className="form-text text-muted">
               Don't have an account yet?
             </small>

@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React, { useEffect, useContext } from 'react'
 import { Redirect } from 'react-router-dom'
 
