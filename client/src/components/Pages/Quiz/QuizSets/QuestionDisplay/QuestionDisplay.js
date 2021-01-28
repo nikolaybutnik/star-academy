@@ -2,6 +2,7 @@
 import React from 'react'
 import './QuestionDisplay.css'
 import { useUser } from '../../../../../utils/UserContext'
+import checkLevelUp from '../../../../../utils/checkLevelUp'
 
 const QuestionDisplay = ({ quiz: { question, answers, correct, reward } }) => {
   const { user, setUser } = useUser()
@@ -14,7 +15,9 @@ const QuestionDisplay = ({ quiz: { question, answers, correct, reward } }) => {
         experience: user.experience + reward,
         correct: user.correct + 1,
       }
-      setUser(updatedUser)
+
+      // Pass the resulting user object through a function that checks if user has levelled up.
+      setUser(checkLevelUp(updatedUser))
       // console.log(user)
       fetch('/edituser', {
         method: 'PATCH',
