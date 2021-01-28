@@ -1,10 +1,25 @@
+/* eslint-disable no-unused-vars */
 import React from 'react'
 import './QuestionDisplay.css'
+import { useUser } from '../../../../../utils/UserContext'
 
 const QuestionDisplay = ({ quiz: { question, answers, correct } }) => {
+  const { user, setUser } = useUser()
+
   const checkAnswer = (event) => {
     if (event.target.textContent === correct) {
       console.log('CORRECT!')
+      const updatedUser = { ...user, experience: user.experience + 1 }
+      setUser(updatedUser)
+      // console.log(user)
+      fetch('/edituser', {
+        method: 'PATCH',
+        body: JSON.stringify(updatedUser),
+        headers: {
+          Accept: 'application/json, text/plain, */*',
+          'Content-Type': 'application/json',
+        },
+      })
     } else {
       console.log('WRONG!!!')
     }

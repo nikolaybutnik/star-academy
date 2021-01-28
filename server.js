@@ -120,9 +120,25 @@ app.get('/auth/users/loggedin', (req, res) => {
   console.log(req)
 })
 
-// This route will be used for any edits that need to be made to the user object
-app.patch('/edituser/:item', (req, res) => {
-  const item = req.params.item
+// This route will be used to update the user object
+app.patch('/edituser', async (req, res) => {
+  try {
+    const id = req.body._id
+    console.log(id)
+    const updatedUser = await User.findByIdAndUpdate(id, req.body)
+    res.send({ data: updatedUser })
+  } catch (err) {
+    debug('Error updating the user: ', err.message)
+    res.status(500).send({
+      errors: [
+        {
+          status: 'Server error',
+          code: '500',
+          title: 'Problem updating document in database.',
+        },
+      ],
+    })
+  }
 })
 
 // Send every other request to the React app

@@ -42,7 +42,12 @@ function UserProvider(props) {
         setUser(user)
       })
   }
-  return <UserContext.Provider value={{ user, logout, setToken }} {...props} />
+  return (
+    <UserContext.Provider
+      value={{ user, setUser, logout, setToken }}
+      {...props}
+    />
+  )
 }
 
 function useUser() {

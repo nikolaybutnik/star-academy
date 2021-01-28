@@ -9,7 +9,7 @@ function QuizHeader() {
   // Currently logged in user
   const { user, logout } = useUser()
 
-  const exp = (user.experienceToNextLevel / user.experience) * 100
+  const exp = (user.experience / user.experienceToNextLevel) * 100
 
   return (
     <div className="homepage-header">
@@ -43,8 +43,8 @@ function QuizHeader() {
         <ProgressBar
           className="user-main-progressbar"
           animated
-          now={exp}
-          label={`+${exp}`}
+          now={exp === Infinity ? 0 : Math.floor(exp)}
+          label={`${exp === Infinity ? 0 : Math.floor(exp)}%`}
           style={{ height: '2rem' }}
         />
       </div>

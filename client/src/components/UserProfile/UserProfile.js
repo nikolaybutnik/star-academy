@@ -18,7 +18,7 @@ const UserProfile = () => {
   const { user } = useUser()
 
   useEffect(() => {
-    console.log(user)
+    // console.log(user)
   }, [user])
 
   if (!user) {
