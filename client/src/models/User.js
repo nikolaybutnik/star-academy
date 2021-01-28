@@ -24,6 +24,12 @@ const userSchema = new Schema({
   // joined: {
   //   type: Date,
   // },
+  correct: {
+    type: Number,
+  },
+  incorrect: {
+    type: Number,
+  },
   streakStart: {
     type: Date,
   },

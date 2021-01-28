@@ -14,8 +14,13 @@ const ProfileUserInfo = () => {
         <PieChart
           // label={({ dataEntry }) => "WINS"}
           data={[
-            { title: 'One', value: 80, color: 'rgb(45 182 56)' },
-            { title: 'Two', value: 20, color: '#ff5061' },
+            {
+              title: 'Right answers',
+              value:
+                user.correct === 0 && user.incorrect === 0 ? 1 : user.correct,
+              color: 'rgb(45 182 56)',
+            },
+            { title: 'Wrong answers', value: user.incorrect, color: '#ff5061' },
           ]}
           style={{ height: 'auto', maxHeight: '250px', margin: '20px' }}
         />

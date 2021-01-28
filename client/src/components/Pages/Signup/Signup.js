@@ -33,6 +33,8 @@ function Signup() {
       level: 1,
       experience: 0,
       experienceToNextLevel: 15,
+      correct: 0,
+      incorrect: 0,
       class: 'Beginner',
       energy: 3,
       maxEnergy: 3,

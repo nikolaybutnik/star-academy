@@ -9,7 +9,11 @@ const QuestionDisplay = ({ quiz: { question, answers, correct } }) => {
   const checkAnswer = (event) => {
     if (event.target.textContent === correct) {
       console.log('CORRECT!')
-      const updatedUser = { ...user, experience: user.experience + 1 }
+      const updatedUser = {
+        ...user,
+        experience: user.experience + 1,
+        correct: user.correct + 1,
+      }
       setUser(updatedUser)
       // console.log(user)
       fetch('/edituser', {
@@ -22,8 +26,23 @@ const QuestionDisplay = ({ quiz: { question, answers, correct } }) => {
       })
     } else {
       console.log('WRONG!!!')
+      const updatedUser = {
+        ...user,
+        incorrect: user.incorrect + 1,
+      }
+      setUser(updatedUser)
+      // console.log(user)
+      fetch('/edituser', {
+        method: 'PATCH',
+        body: JSON.stringify(updatedUser),
+        headers: {
+          Accept: 'application/json, text/plain, */*',
+          'Content-Type': 'application/json',
+        },
+      })
     }
   }
+
   return (
     <div
       className="card"

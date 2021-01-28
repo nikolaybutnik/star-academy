@@ -44,7 +44,9 @@ function QuizHeader() {
           className="user-main-progressbar"
           animated
           now={exp === Infinity ? 0 : Math.floor(exp)}
-          label={`${exp === Infinity ? 0 : Math.floor(exp)}%`}
+          label={`${
+            user.experienceToNextLevel - user.experience
+          } fans until next level`}
           style={{ height: '2rem' }}
         />
       </div>
