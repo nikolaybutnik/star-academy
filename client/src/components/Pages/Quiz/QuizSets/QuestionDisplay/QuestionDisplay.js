@@ -3,7 +3,7 @@ import React from 'react'
 import './QuestionDisplay.css'
 import { useUser } from '../../../../../utils/UserContext'
 
-const QuestionDisplay = ({ quiz: { question, answers, correct } }) => {
+const QuestionDisplay = ({ quiz: { question, answers, correct, reward } }) => {
   const { user, setUser } = useUser()
 
   const checkAnswer = (event) => {
@@ -11,7 +11,7 @@ const QuestionDisplay = ({ quiz: { question, answers, correct } }) => {
       console.log('CORRECT!')
       const updatedUser = {
         ...user,
-        experience: user.experience + 1,
+        experience: user.experience + reward,
         correct: user.correct + 1,
       }
       setUser(updatedUser)
