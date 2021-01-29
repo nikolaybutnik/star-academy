@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React, { useState, useEffect } from 'react'
 import { useUser } from '../../../utils/UserContext'
 import { Redirect } from 'react-router-dom'
@@ -13,7 +14,7 @@ const Quiz = () => {
   const { user } = useUser()
 
   useEffect(() => {
-    console.log(user)
+    // console.log(user)
   }, [user])
 
   const [easyBeginner, setEasyBeginner] = useState([])

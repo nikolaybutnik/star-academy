@@ -1,4 +1,5 @@
-import React, { useEffect } from 'react'
+/* eslint-disable no-unused-vars */
+import React, { useEffect, useContext } from 'react'
 import { Redirect } from 'react-router-dom'
 
 import ProfileHeader from '../Header/ProfileHeader'
@@ -17,7 +18,7 @@ const UserProfile = () => {
   const { user } = useUser()
 
   useEffect(() => {
-    console.log(user)
+    // console.log(user)
   }, [user])
 
   if (!user) {

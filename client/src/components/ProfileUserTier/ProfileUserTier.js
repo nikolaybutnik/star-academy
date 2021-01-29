@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React from 'react'
 import beginner from '../../Assets/beginnerIcon.png'
 import energyIcon from '../../Assets/bolt-128.png'
@@ -14,7 +15,7 @@ const ProfileUserTier = () => {
         alt="beginner logo"
         className="user-image-profile col-md-12"
       />
-
+      <h2>Total fans: {user.totalExperience}</h2>
       <div className="user-tier-info col-md-12">
         <img src={energyIcon} alt="logo" className="energy-icon" />
         <h2 className="energy-level">

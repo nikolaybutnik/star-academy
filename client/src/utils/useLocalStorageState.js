@@ -1,4 +1,5 @@
-import { useState, useEffect } from 'react'
+/* eslint-disable no-unused-vars */
+import React, { useState, useEffect } from 'react'
 
 export default function useLocalStorageState(key, initialState) {
   // Set the state to either what's in local storage or the initialState

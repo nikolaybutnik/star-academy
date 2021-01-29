@@ -21,8 +21,14 @@ const userSchema = new Schema({
     trim: true,
     required: 'Password is required',
   },
-  joined: {
-    type: Date,
+  // joined: {
+  //   type: Date,
+  // },
+  correct: {
+    type: Number,
+  },
+  incorrect: {
+    type: Number,
   },
   streakStart: {
     type: Date,
@@ -34,6 +40,12 @@ const userSchema = new Schema({
     type: Number,
   },
   experience: {
+    type: Number,
+  },
+  experienceToNextLevel: {
+    type: Number,
+  },
+  totalExperience: {
     type: Number,
   },
   class: {
@@ -48,21 +60,21 @@ const userSchema = new Schema({
   answered: {
     type: Array,
   },
-  firstName: {
-    type: String,
-  },
-  lastName: {
-    type: String,
-  },
-  gender: {
-    type: String,
-  },
-  birthday: {
-    type: Date,
-  },
-  country: {
-    type: String,
-  },
+  // firstName: {
+  //   type: String,
+  // },
+  // lastName: {
+  //   type: String,
+  // },
+  // gender: {
+  //   type: String,
+  // },
+  // birthday: {
+  //   type: Date,
+  // },
+  // country: {
+  //   type: String,
+  // },
 })
 
 // Do not use an arrow function here. We need 'this' inside the function to

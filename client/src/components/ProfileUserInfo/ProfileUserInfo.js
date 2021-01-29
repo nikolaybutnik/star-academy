@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-// import { useUser } from '../../utils/UserContext'
+import { useUser } from '../../utils/UserContext'
 import { PieChart } from 'react-minimal-pie-chart'
 import React, { useRef, useState } from 'react'
 import ListItem from './ListItems'
@@ -7,7 +7,7 @@ import ToDoList from './ToDoList'
 
 const ProfileUserInfo = () => {
   // Currently logged in user
-  // const { user } = useUser()
+  const { user } = useUser()
 
   return (
     // check if user id exists in context. if not, get id from local storage and fetch.
@@ -53,8 +53,13 @@ const ProfileUserInfo = () => {
         <PieChart
           // label={({ dataEntry }) => "WINS"}
           data={[
-            { title: 'One', value: 80, color: 'rgb(0 156 92)' },
-            { title: 'Two', value: 20, color: '#ff5061' },
+            {
+              title: 'Right answers',
+              value:
+                user.correct === 0 && user.incorrect === 0 ? 1 : user.correct,
+              color: 'rgb(0 156 92)',
+            },
+            { title: 'Wrong answers', value: user.incorrect, color: '#ff5061' },
           ]}
           style={{ height: 'auto', maxHeight: '250px', margin: '20px' }}
         />

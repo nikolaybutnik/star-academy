@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import ProgressBar from 'react-bootstrap/ProgressBar'
 import { Link } from 'react-router-dom'
 import home from '../../Assets/home.png'
@@ -6,8 +7,9 @@ import logoutIcon from '../../Assets/toppng.com-logout-icon-png-transparent-logi
 
 function QuizHeader() {
   // Currently logged in user
-  const { logout } = useUser()
-  const { user } = useUser()
+  const { user, logout } = useUser()
+
+  const exp = (user.experience / user.experienceToNextLevel) * 100
 
   return (
     <div className="homepage-header">
@@ -35,14 +37,18 @@ function QuizHeader() {
         />
       </button>
       <div className="col-md-11" style={{ paddingRight: '0px' }}>
-        <h3 style={{ marginTop: '5px' }}>{user ? user.username : null}</h3>
+        {/* <h3 style={{ marginTop: '5px' }}>{user ? user.username : null}</h3> */}
 
-        <h6 className="xp-progressbar"> Fans Until Next Tier</h6>
+        <h6 className="xp-progressbar">
+          Lv {user.level}: {user.class} {user.username}
+        </h6>
         <ProgressBar
           className="user-main-progressbar"
           animated
-          now={40}
-          label={`+${40}`}
+          now={exp === Infinity ? 0 : Math.floor(exp)}
+          label={`${
+            user.experienceToNextLevel - user.experience
+          } fans until next level`}
           style={{ height: '2rem' }}
         />
       </div>
