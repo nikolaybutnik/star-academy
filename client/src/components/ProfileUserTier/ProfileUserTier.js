@@ -8,7 +8,7 @@ const ProfileUserTier = () => {
   // Currently logged in user
   const { user } = useUser()
   return (
-    <div className="col-md-5">
+    <div className="col-md-4">
       <h1 className="user-level">{user ? user.class : null}</h1>
       <img
         src={beginner}

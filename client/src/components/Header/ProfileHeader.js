@@ -13,34 +13,52 @@ function ProfileHeader() {
 
   return (
     <div className="homepage-header">
-      <button
-        className="col btn-gradient"
-        style={{
-          height: '50px',
-          maxWidth: '50px',
-          margin: '5px',
-          marginTop: '75px',
-          backgroundColor: '#fbf4f4',
-          borderRadius: '75%',
-        }}
-        onClick={logout}
-      >
-        <img
-          src={logoutIcon}
-          alt="home button"
-          style={{
-            maxHeight: '25px',
-            maxWidth: '25px',
-            // opacity: "30%",
-            marginBottom: '5px',
-          }}
-        />
-      </button>
-      <div className="col-md-11" style={{ paddingRight: '0px' }}>
-        {/* <h3 style={{ marginTop: '5px' }}>{user ? user.username : null}</h3> */}
-        <h6 className="xp-progressbar">
-          Lv {user.level}: {user.class} {user.username}
-        </h6>
+      <div className="col-md-12" style={{ paddingRight: '0px' }}>
+        <div className="row" style={{ flexWrap: 'nowrap', margin: '10px' }}>
+          <div className="col-md-1">
+            <button className="user-profile-btn" href="">
+              <img
+                src={home}
+                alt="home button"
+                style={{
+                  maxHeight: '25px',
+                  maxWidth: '25px',
+                  opacity: '20%',
+                }}
+              />
+            </button>
+          </div>
+          <div className="col-md-10">
+            <h6 className="xp-progressbar">
+              Lv {user.level}: {user.class} {user.username}
+            </h6>
+          </div>
+          <div className="col-md-1">
+            <button
+              className="col btn-gradient"
+              style={{
+                height: '50px',
+                maxWidth: '50px',
+                margin: '5px',
+                marginTop: '10px',
+                backgroundColor: '#fbf4f4',
+                borderRadius: '75%',
+              }}
+              onClick={logout}
+            >
+              <img
+                src={logoutIcon}
+                alt="home button"
+                style={{
+                  maxHeight: '25px',
+                  maxWidth: '25px',
+                  // opacity: "30%",
+                  marginBottom: '5px',
+                }}
+              />
+            </button>
+          </div>
+        </div>
         <ProgressBar
           className="user-main-progressbar"
           animated
@@ -51,20 +69,7 @@ function ProfileHeader() {
           style={{ height: '2rem' }}
         />
       </div>
-      <div className="col">
-        {' '}
-        <button className="user-profile-btn" href="">
-          <img
-            src={home}
-            alt="home button"
-            style={{
-              maxHeight: '25px',
-              maxWidth: '25px',
-              opacity: '20%',
-            }}
-          />
-        </button>
-      </div>
+      <div className="col"> </div>
     </div>
   )
 }

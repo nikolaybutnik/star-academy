@@ -4,10 +4,11 @@ import { useUser } from '../../../utils/UserContext'
 import { Redirect } from 'react-router-dom'
 import './Quiz.css'
 
-import Beginner from './QuizSets/Beginner/Beginner'
+import QuestionButtons from './QuizSets/QuestionButtons/QuestionButtons'
 import Busker from './QuizSets/Busker/Busker'
 import LocalTalent from './QuizSets/LocalTalent/LocalTalent'
 import HomeHeader from '../../Header/HomeHeader'
+import QuestionDisplay from './QuizSets/QuestionDisplay/QuestionDisplay'
 
 const Quiz = () => {
   // Currently logged in user
@@ -58,72 +59,17 @@ const Quiz = () => {
     <div className="home-page">
       <HomeHeader />
 
-      <div className="main-page-body">
-        <div
-          className="row"
-          style={{
-            flexWrap: 'nowrap',
-            marginTop: '20px',
-            marginBottom: '20px',
-          }}
-        >
-          <div className="col-md-4">
-            <h3 style={{ color: '#007700' }}>EASY</h3>
-          </div>
-          <div className="col-md-4">
-            <h3 style={{ color: '#b27300' }}>MEDIUM</h3>
-          </div>
-          <div className="col-md-4">
-            <h3 style={{ color: '#9c0000' }}>HARD</h3>
-          </div>
+      <div className="row">
+        <div className="main-page-body col-md-6">
+          <QuestionButtons props={props} />
         </div>
-        <Beginner props={props} />
-
-        {/* <div className="">BLOOMING ARTIST</div>
-        <div className="question-cards">
-          <EasyCards />
-          <MediumCards />
-          <HardCards />
-        </div> */}
-
-        <Busker props={props} />
-
-        {/* <div className="">LOCAL UPCOMER</div>
-        <div className="question-cards">
-          <EasyCards />
-          <MediumCards />
-          <HardCards />
-        </div> */}
-
-        <LocalTalent props={props} />
-
-        {/* <div className="">LOCAL SUPERSTAR</div>
-        <div className="question-cards">
-          <EasyCards />
-          <MediumCards />
-          <HardCards />
-        </div> */}
-
-        {/* <div className="">PROVINCIAL TALENT</div>
-        <div className="question-cards">
-          <EasyCards />
-          <MediumCards />
-          <HardCards />
-        </div> */}
-
-        {/* <div className="">PROVINCIAL SENSATION</div>
-        <div className="question-cards">
-          <EasyCards />
-          <MediumCards />
-          <HardCards />
-        </div> */}
-
-        {/* <div className="">COUNTRY TALENT</div>
-        <div className="question-cards">
-          <EasyCards />
-          <MediumCards />
-          <HardCards />
-        </div> */}
+        <div className="col-md-6" style={{ flexWrap: 'nowrap' }}>
+          <hr style={{ borderWidth: '2px' }}></hr>
+          {easyBeginner.map((question) => (
+            <QuestionDisplay quiz={question} />
+          ))}
+          <hr style={{ borderWidth: '2px' }}></hr>
+        </div>
       </div>
     </div>
   )

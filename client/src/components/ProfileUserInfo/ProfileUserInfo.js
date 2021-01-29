@@ -51,7 +51,7 @@ const ProfileUserInfo = () => {
           ></span>
         </div>
         <PieChart
-          // label={({ dataEntry }) => "WINS"}
+          // label={({ dataEntry }) => 'WINS'}
           data={[
             {
               title: 'Right answers',
