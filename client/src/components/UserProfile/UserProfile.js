@@ -34,7 +34,7 @@ const UserProfile = () => {
       <div className="main-page-body">
         <div className="row">
           <ProfileUserTier />
-          <div className="col-md-7">
+          <div className="col-md-8">
             <ProfileUserInfo />
             <HomePageButtons />
             <Container
