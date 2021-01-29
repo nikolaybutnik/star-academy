@@ -87,6 +87,11 @@ thead {
   border-bottom: 2px solid #ddd;
 }
 
+th {
+  border-right: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+}
+
 thead th {
   text-align: center;
   width: 100%;
