@@ -16,13 +16,27 @@ function QuizHeader() {
   return (
     <div className="homepage-header">
       {/* Header */}
-      <div className="col-md-12" style={{ paddingRight: '0px' }}>
+      <div
+        className="col-md-12"
+        style={{ paddingRight: '0px', paddingLeft: '0px' }}
+      >
         <div className="row" style={{ flexWrap: 'nowrap' }}>
-          <div className="col-md-2">
+          <div className="col-md-3">
             <div className="row">
-              <div className="col-md-3">
+              <div className="col-md-6">
                 <Link to="/userprofile">
-                  <button className="user-home-btn" href="">
+                  <button
+                    className="user-home-btn btn-gradient"
+                    href=""
+                    style={{
+                      height: '50px',
+                      width: '100%',
+                      marginTop: '10px',
+                      backgroundColor: 'rgb(233 233 233)',
+                      justifyContent: 'center',
+                      padding: '0px',
+                    }}
+                  >
                     <img
                       src={home}
                       alt="home icon"
@@ -34,7 +48,7 @@ function QuizHeader() {
                   </button>
                 </Link>
               </div>
-              <div className="col-md-9" style={{ flexWrap: 'nowrap' }}>
+              <div className="col-md-6" style={{ flexWrap: 'nowrap' }}>
                 <div className="row" style={{ flexWrap: 'nowrap' }}>
                   <img
                     src={energyIcon}
@@ -42,7 +56,6 @@ function QuizHeader() {
                     style={{
                       height: '30px',
                       marginTop: '18px',
-                      marginLeft: '20px',
                     }}
                   />
                   <span
@@ -65,7 +78,7 @@ function QuizHeader() {
               </div>
             </div>
           </div>
-          <div className="col-md-7" style={{ paddingLeft: '0px' }}>
+          <div className="col-md-6" style={{ paddingLeft: '0px' }}>
             <h3 style={{ marginTop: '10px' }}>
               {user.username}{' '}
               <h5 className="xp-progressbar" style={{ marginBottom: '5px' }}>
@@ -73,29 +86,21 @@ function QuizHeader() {
               </h5>
             </h3>
           </div>
-          <div className="col-md-4">
+          <div className="col-md-3">
             <button
               className="col btn-gradient"
               style={{
                 height: '50px',
-                maxWidth: '50px',
+                maxWidth: '150px',
                 margin: '5px',
                 marginTop: '10px',
-                backgroundColor: '#fbf4f4',
-                borderRadius: '75%',
+                backgroundColor: 'rgb(233 233 233)',
+                color: 'black',
+                float: 'right',
               }}
               onClick={logout}
             >
-              <img
-                src={logoutIcon}
-                alt="home button"
-                style={{
-                  maxHeight: '25px',
-                  maxWidth: '25px',
-                  // opacity: "30%",
-                  marginBottom: '5px',
-                }}
-              />
+              LOGOUT
             </button>
           </div>
         </div>

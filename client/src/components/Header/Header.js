@@ -7,13 +7,8 @@ import { useAuth0 } from '@auth0/auth0-react'
 function Header() {
   const { isAuthenticated } = useAuth0()
   return (
-    <nav className="navbar" style={{ color: 'blue', height: '100px' }}>
-      <h1
-        className="navbar-header col-md-9"
-        style={{ justifyContent: 'center', textAlign: 'center' }}
-      >
-        Star Academy
-      </h1>
+    <nav className="navbar">
+      <h1 className="navbar-header col-md-9">Star Academy</h1>
       {/* <button className="col-md-1">ho</button>
       <button className="col-md-1">ho</button> */}
       {/* {isAuthenticated ? <LogoutButton /> : <LoginButton />} */}

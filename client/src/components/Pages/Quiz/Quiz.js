@@ -58,17 +58,19 @@ const Quiz = () => {
   return (
     <div className="home-page">
       <HomeHeader />
+      <hr style={{ borderWidth: '2px' }}></hr>
 
       <div className="row">
         <div className="main-page-body col-md-6">
           <QuestionButtons props={props} />
         </div>
-        <div className="col-md-6" style={{ flexWrap: 'nowrap' }}>
-          <hr style={{ borderWidth: '2px' }}></hr>
+        <div
+          className="col-md-6"
+          style={{ flexWrap: 'nowrap', marginTop: '38px' }}
+        >
           {easyBeginner.map((question) => (
             <QuestionDisplay quiz={question} />
           ))}
-          <hr style={{ borderWidth: '2px' }}></hr>
         </div>
       </div>
     </div>
