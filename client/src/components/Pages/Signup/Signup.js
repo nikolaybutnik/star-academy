@@ -27,7 +27,6 @@ function Signup() {
       email: email,
       username: username,
       password: password,
-      // joined: new Date(),
       level: 1,
       experience: 0,
       experienceToNextLevel: 15,
@@ -39,11 +38,6 @@ function Signup() {
       maxEnergy: 3,
       tasks: [],
       answered: [],
-      // firstName: '',
-      // lastName: '',
-      // gender: '',
-      // birthday: new Date(1800, 0, 1),
-      // country: '',
     }
     fetch('/auth/users', {
       method: 'POST',

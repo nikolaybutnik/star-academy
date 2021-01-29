@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React, { useState, useEffect } from 'react'
 import useLocalStorageState from '../utils/useLocalStorageState'
 
@@ -29,16 +30,16 @@ function UserProvider(props) {
       .then((res) => res.json())
       .then((data) => {
         const user = data.data
-        // if (!user.streakStart) {
-        //   user.streakStart = new Date()
-        //   user.streakLastVisit = new Date()
-        // } else {
-        //   const now = new Date()
-        //   // find a library to find difference in dates.
-        //   // if the difference between the visits is 2 or more, we set the streakStart property
-        //   // and streakLastVisit property to new Date(), setting streak count to 0
-        //   if (user.streakLastVisit )
-        // }
+        // Make a request to server to log the user log in event.
+        const newLog = { id: user._id, log: new Date() }
+        fetch('/log', {
+          method: 'POST',
+          body: JSON.stringify(newLog),
+          headers: {
+            Accept: 'application/json, text/plain, */*',
+            'Content-Type': 'application/json',
+          },
+        })
         setUser(user)
       })
   }

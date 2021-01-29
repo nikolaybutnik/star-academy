@@ -117,15 +117,15 @@ app.get('/auth/users/me', authorize, async (req, res) => {
 })
 
 // Create an API route that gets a user by id if a user is currently logged in.
-app.get('/auth/users/loggedin', (req, res) => {
-  console.log(req)
-})
+// app.get('/auth/users/loggedin', (req, res) => {
+//   console.log(req)
+// })
 
 // This route will be used to update the user object
 app.patch('/edituser', async (req, res) => {
   try {
     const id = req.body._id
-    console.log(id)
+    // console.log(id)
     const updatedUser = await User.findByIdAndUpdate(id, req.body)
     res.send({ data: updatedUser })
   } catch (err) {
@@ -140,6 +140,19 @@ app.patch('/edituser', async (req, res) => {
       ],
     })
   }
+})
+
+// This route will make a log of a user log in event.
+app.post('/log', (req, res) => {
+  const newLog = req.body
+  // console.log(req.body)
+  Log.create(newLog)
+    .then((user) => {
+      res.status(201).send({ data: newLog })
+    })
+    .catch((err) => {
+      res.status(400).json(err)
+    })
 })
 
 // Send every other request to the React app
