@@ -122,8 +122,6 @@ const Beginner = ({
 
   return (
     <>
-      <hr style={{ borderWidth: '2px' }}></hr>
-
       <h3 className="">CHOOSE A QUESTION</h3>
       {/* <div className="question-cards"> */}
       <button
@@ -191,7 +189,6 @@ const Beginner = ({
         </div>
         <h5 className="card-title col-md-12">HARD</h5>
       </button>
-      <hr style={{ borderWidth: '2px' }}></hr>
     </>
   )
 }

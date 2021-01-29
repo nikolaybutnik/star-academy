@@ -17,7 +17,7 @@ const ProfileUserInfo = () => {
         <div className="row" style={{ justifyContent: 'center' }}>
           <h3
             style={{
-              marginLeft: '25px',
+              marginLeft: '40px',
             }}
           >
             WINS{' '}

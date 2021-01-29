@@ -50,18 +50,50 @@ const QuestionDisplay = ({ quiz: { question, answers, correct, reward } }) => {
   return (
     <div
       className="card"
-      style={{ width: '100%', margin: '5px', marginLeft: '0px' }}
+      style={{
+        width: '100%',
+        margin: '5px',
+        marginLeft: '0px',
+        backgroundColor: 'rgb(230 247 255)',
+      }}
     >
-      <div className="card-header">Question:{question}</div>
-      <ul className="list-group list-group-flush">
-        <li className="list-group-item">
-          <button onClick={(event) => checkAnswer(event)}>{answers[0]}</button>
+      <h5 className="card-header">{question}</h5>
+      <ul
+        className="list-group list-group-flush"
+        style={{ backgroundColor: '#d2d2d2' }}
+      >
+        <li
+          className="list-group-item"
+          style={{ backgroundColor: 'rgb(241 241 241)' }}
+        >
+          <button
+            onClick={(event) => checkAnswer(event)}
+            style={{ backgroundColor: 'rgb(241 241 241)' }}
+          >
+            {answers[0]}
+          </button>
         </li>
-        <li className="list-group-item">
-          <button onClick={(event) => checkAnswer(event)}>{answers[1]}</button>
+        <li
+          className="list-group-item"
+          style={{ backgroundColor: 'rgb(241 241 241)' }}
+        >
+          <button
+            onClick={(event) => checkAnswer(event)}
+            style={{ backgroundColor: 'rgb(241 241 241)' }}
+          >
+            {answers[1]}
+          </button>
         </li>
-        <li className="list-group-item">
-          <button onClick={(event) => checkAnswer(event)}>{answers[2]}</button>
+        <li
+          className="list-group-item"
+          style={{ backgroundColor: 'rgb(241 241 241)' }}
+        >
+          <button
+            onClick={(event) => checkAnswer(event)}
+            style={{ backgroundColor: 'rgb(241 241 241)' }}
+          >
+            {answers[2]}
+          </button>
         </li>
       </ul>
     </div>

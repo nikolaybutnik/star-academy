@@ -27,7 +27,7 @@
 
 .user-level {
   text-align: center;
-  margin-top: 5px;
+  margin-top: 30px;
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
     'Lucida Sans', Arial, sans-serif;
 }
@@ -43,10 +43,8 @@
   background: #ffffff;
   text-align: center;
   color: rgb(161, 161, 161);
-}
-
-.energy-icon {
-  height: 60px;
+  font-size: 15px;
+  margin-top: 20px;
 }
 
 .energy-level {
@@ -87,6 +85,11 @@ thead {
   z-index: 2;
   background: white;
   border-bottom: 2px solid #ddd;
+}
+
+th {
+  border-right: 1px solid #eee;
+  border-bottom: 1px solid #eee;
 }
 
 thead th {
@@ -162,7 +165,6 @@ tr td {
   border-bottom: 4px solid rgba(0, 0, 0, 0.21);
   border-radius: 15px;
   text-shadow: 0 1px 0 rgba(0, 0, 0, 0.15);
-  margin: 5px;
   height: 125px;
 }
 
@@ -218,7 +220,6 @@ ul li {
   cursor: pointer;
   position: relative;
   padding: 12px 8px 12px 40px;
-  background: #d9ebff;
   font-size: 18px;
   transition: 0.2s;
 

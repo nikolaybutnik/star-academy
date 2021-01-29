@@ -18,7 +18,6 @@ const ToDoList = () => {
       style={{
         overflow: 'scroll',
         height: '300px',
-        maxWidth: '430px',
         minWidth: '310px',
         marginBottom: '30px',
         boxShadow:

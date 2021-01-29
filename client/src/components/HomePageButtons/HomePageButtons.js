@@ -29,8 +29,8 @@ const HomePageButtons = () => {
       </button> */}
       <button
         href=""
-        class="btn-gradient col-md-9 blue mini"
-        style={{ minWidth: '50px' }}
+        class="btn-gradient col-md-11 blue mini"
+        style={{ minWidth: '50px', float: 'right' }}
       >
         <h2
           style={{
