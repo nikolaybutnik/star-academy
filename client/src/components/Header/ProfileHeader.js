@@ -55,6 +55,8 @@ function ProfileHeader() {
                     style={{
                       height: '30px',
                       marginTop: '18px',
+                      marginBottom: '18px',
+                      paddingLeft: '5px',
                     }}
                   />
                   <span
