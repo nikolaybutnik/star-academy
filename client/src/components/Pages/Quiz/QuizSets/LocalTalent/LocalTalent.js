@@ -1,11 +1,9 @@
+/* eslint-disable no-unused-vars */
 import React from 'react'
 import './LocalTalent.css'
-import {
-  localTalentEasyQuestions,
-  localTalentMediumQuestions,
-  localTalentHardQuestions,
-} from '../../../../../utils/questions'
-import QuestionDisplay from '../QuestionDisplay/QuestionDisplay'
+import { localTalentEasyQuestions } from '../../../../../utils/QuestionSets/LocalTalent/localTalentEasyQ'
+import { localTalentMediumQuestions } from '../../../../../utils/QuestionSets/LocalTalent/localTalentMediumQ'
+import { localTalentHardQuestions } from '../../../../../utils/QuestionSets/LocalTalent/localTalentHardQ'
 
 import wholeNoteIcon from '../../../../../Assets/greensingle.png'
 import halfNoteIcon from '../../../../../Assets/orangedouble.png'
@@ -13,18 +11,6 @@ import eighthNoteIcon from '../../../../../Assets/redtriple.png'
 
 const LocalTalent = ({
   props: {
-    easyBeginner,
-    setEasyBeginner,
-    mediumBeginner,
-    setMediumBeginner,
-    hardBeginner,
-    setHardBeginner,
-    easyBusker,
-    setEasyBusker,
-    mediumBusker,
-    setMediumBusker,
-    hardBusker,
-    setHardBusker,
     easyLocalTalent,
     setEasyLocalTalent,
     mediumLocalTalent,
@@ -34,15 +20,6 @@ const LocalTalent = ({
   },
 }) => {
   const handleGoToQuizEasy = () => {
-    setEasyBeginner([])
-    setMediumBeginner([])
-    setHardBeginner([])
-    setEasyBusker([])
-    setMediumBusker([])
-    setHardBusker([])
-    setMediumLocalTalent([])
-    setHardLocalTalent([])
-
     // Prevent duplicate questions
     const newArr = []
     while (newArr.length < 5) {
@@ -65,15 +42,6 @@ const LocalTalent = ({
   }
 
   const handleGoToQuizMedium = () => {
-    setEasyBeginner([])
-    setMediumBeginner([])
-    setHardBeginner([])
-    setEasyBusker([])
-    setMediumBusker([])
-    setHardBusker([])
-    setEasyLocalTalent([])
-    setHardLocalTalent([])
-
     // Prevent duplicate questions
     const newArr = []
     while (newArr.length < 5) {
@@ -96,15 +64,6 @@ const LocalTalent = ({
   }
 
   const handleGoToQuizHard = () => {
-    setEasyBeginner([])
-    setMediumBeginner([])
-    setHardBeginner([])
-    setEasyBusker([])
-    setMediumBusker([])
-    setHardBusker([])
-    setEasyLocalTalent([])
-    setMediumLocalTalent([])
-
     // Prevent duplicate questions
     const newArr = []
     while (newArr.length < 5) {
@@ -201,7 +160,7 @@ const LocalTalent = ({
         </button>
       </div>
 
-      <div id="EasyQuestions" className="d-flex">
+      {/* <div id="EasyQuestions" className="d-flex">
         {easyLocalTalent.map((question) => (
           <QuestionDisplay quiz={question} />
         ))}
@@ -215,7 +174,7 @@ const LocalTalent = ({
         {hardLocalTalent.map((question) => (
           <QuestionDisplay quiz={question} />
         ))}
-      </div>
+      </div> */}
     </>
   )
 }

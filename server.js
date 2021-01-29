@@ -4,6 +4,7 @@ const PORT = process.env.PORT || 3001
 const app = express()
 const mongoose = require('mongoose')
 const User = require('./client/src/models/User')
+const Log = require('./client/src/models/Log')
 const jwt = require('jsonwebtoken')
 const bcrypt = require('bcrypt')
 const saltRounds = 14

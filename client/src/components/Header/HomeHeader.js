@@ -39,9 +39,9 @@ function QuizHeader() {
       <div className="col-md-11" style={{ paddingRight: '0px' }}>
         {/* <h3 style={{ marginTop: '5px' }}>{user ? user.username : null}</h3> */}
 
-        <h6 className="xp-progressbar">
+        <h4 style={{ paddingRight: '0px' }} className="xp-progressbar">
           Lv {user.level}: {user.class} {user.username}
-        </h6>
+        </h4>
         <ProgressBar
           className="user-main-progressbar"
           animated

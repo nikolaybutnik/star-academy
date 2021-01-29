@@ -4,6 +4,9 @@ const bcrypt = require('bcrypt')
 const saltRounds = 14
 const Schema = mongoose.Schema
 
+// create another document collection.
+// log the auth event, add record. {user id, timestamp}
+
 const userSchema = new Schema({
   email: {
     type: String,
@@ -30,12 +33,12 @@ const userSchema = new Schema({
   incorrect: {
     type: Number,
   },
-  streakStart: {
-    type: Date,
-  },
-  streakLastVisit: {
-    type: Date,
-  },
+  // streakStart: {
+  //   type: Date,
+  // },
+  // streakLastVisit: {
+  //   type: Date,
+  // },
   level: {
     type: Number,
   },
