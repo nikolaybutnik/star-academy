@@ -87,7 +87,7 @@ userSchema.statics.authenticate = async function (email, password) {
 
   // Compare the hashed password to the user payload password, or the generated dummy password.
   const passwordDidMatch = await bcrypt.compare(password, hashedPassword)
-  console.log(passwordDidMatch)
+  // console.log(passwordDidMatch)
 
   // If the email didn't match, mongo returns null, this we need to replicate this.
   return passwordDidMatch ? user : null

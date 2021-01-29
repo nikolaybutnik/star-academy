@@ -31,7 +31,7 @@ function UserProvider(props) {
       .then((data) => {
         const user = data.data
         // Make a request to server to log the user log in event.
-        const newLog = { id: user._id, log: new Date() }
+        const newLog = { userId: user._id, log: new Date() }
         fetch('/log', {
           method: 'POST',
           body: JSON.stringify(newLog),

@@ -110,9 +110,9 @@ app.post('/auth/tokens', async (req, res) => {
 
 // Verify a user by the token. If verified, return the user.
 app.get('/auth/users/me', authorize, async (req, res) => {
-  console.log(req.user)
+  // console.log(req.user)
   const user = await User.findById(req.user._id)
-  console.log(user)
+  // console.log(user)
   res.send({ data: user })
 })
 
@@ -150,6 +150,15 @@ app.post('/log', (req, res) => {
     .then((user) => {
       res.status(201).send({ data: newLog })
     })
+    .catch((err) => {
+      res.status(400).json(err)
+    })
+})
+
+// This route will return an array of objects with all the instances of user log in
+app.get('/getlog/:id', (req, res) => {
+  Log.find({ userId: req.params.id })
+    .then((data) => res.status(200).send({ data: data }))
     .catch((err) => {
       res.status(400).json(err)
     })

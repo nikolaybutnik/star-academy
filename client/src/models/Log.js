@@ -5,7 +5,7 @@ const Schema = mongoose.Schema
 // log the auth event, add record. {user id, timestamp}
 
 const logSchema = new Schema({
-  id: {
+  userId: {
     type: String,
   },
   log: {
