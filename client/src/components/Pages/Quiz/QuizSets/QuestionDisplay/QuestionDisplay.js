@@ -42,7 +42,7 @@ const QuestionDisplay = ({ questionState, setQuestionState }) => {
 
       // Pass the resulting user object through a function that checks if user has levelled up.
       setUser(checkLevelUp(updatedUser))
-      updatedUser(updatedUser)
+      updateUser(updatedUser)
     } else {
       // Visually notify user the answer is wrong
       event.target.style.background = '#e65f55'
@@ -56,7 +56,7 @@ const QuestionDisplay = ({ questionState, setQuestionState }) => {
         incorrect: user.incorrect + 1,
       }
       setUser(updatedUser)
-      updatedUser(updatedUser)
+      updateUser(updatedUser)
     }
   }
 
