@@ -1,0 +1,14 @@
+.list-group-item.question-list {
+  height: 33.33%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-size: 24px;
+  background-color: rgb(241 241 241);
+}
+
+.list-group-item.question-list:hover {
+  background-color: rgb(226 225 225);
+}
