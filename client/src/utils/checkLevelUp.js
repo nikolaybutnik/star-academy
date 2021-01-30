@@ -15,6 +15,8 @@ const checkLevelUp = (user) => {
       case 5:
         userClass = 'Upcoming Legend'
         break
+      default:
+        userClass = 'Super Star'
     }
     user = {
       ...user,

@@ -24,17 +24,6 @@ const QuestionButtons = ({ setQuestionState }) => {
     updateUser(updatedUser)
     setUser(updatedUser)
 
-    // Make a log of the user's attempt
-    const newAttemptLog = { userId: user._id, attemptLog: new Date() }
-    fetch('/logattempt', {
-      method: 'POST',
-      body: JSON.stringify(newAttemptLog),
-      headers: {
-        Accept: 'application/json, text/plain, */*',
-        'Content-Type': 'application/json',
-      },
-    })
-
     // Select the correct questions based on user level/class
     const questionsBasedOnUserLevel = getQuestions(difficulty, user)
     setQuestionState(questionsBasedOnUserLevel)
