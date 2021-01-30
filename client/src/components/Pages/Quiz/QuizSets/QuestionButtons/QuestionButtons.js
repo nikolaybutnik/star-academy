@@ -15,7 +15,10 @@ const QuestionButtons = ({ setQuestionState }) => {
     // On button click, deduct user energy
     const updatedUser = {
       ...user,
-      energy: user.energy - 1,
+      energy: {
+        value: user.energy.value - 1,
+        timestamp: user.energy.timestamp,
+      },
     }
     fetch('/edituser', {
       method: 'PATCH',

@@ -1,6 +1,7 @@
 /* eslint-disable no-unused-vars */
 import React, { useState, useEffect } from 'react'
 import useLocalStorageState from '../utils/useLocalStorageState'
+import { differenceInHours, differenceInMinutes } from 'date-fns'
 
 // Store token and user object
 const UserContext = React.createContext()
@@ -29,7 +30,7 @@ function UserProvider(props) {
     })
       .then((res) => res.json())
       .then((data) => {
-        const user = data.data
+        let user = data.data
         // Make a request to server to log the user log in event.
         const newLog = { userId: user._id, log: new Date() }
         fetch('/log', {
@@ -40,8 +41,40 @@ function UserProvider(props) {
             'Content-Type': 'application/json',
           },
         })
-        // check if energy needs to be topped up (sep func), before setting the user
         setUser(user)
+        // Check if user's energy needs to be topped up since last time.
+        if (user.energy.value < user.maxEnergy) {
+          const now = Date.parse(new Date())
+          const timestamp = Date.parse(user.energy.timestamp)
+          const difference = differenceInMinutes(now, timestamp)
+          console.log(difference)
+          if (difference >= 1 && difference < 2) {
+            user = {
+              ...user,
+              energy: { value: user.energy.value + 1, timestamp: new Date() },
+            }
+            setUser(user)
+          } else if (difference >= 2 && difference < 3) {
+            user = {
+              ...user,
+              energy: { value: user.energy.value + 2, timestamp: new Date() },
+            }
+            setUser(user)
+          } else if (difference >= 3) {
+            user = {
+              ...user,
+              energy: { value: user.energy.value + 3, timestamp: new Date() },
+            }
+            setUser(user)
+          }
+          if (user.energy.value > user.maxEnergy) {
+            user = {
+              ...user,
+              energy: { value: user.maxEnergy, timestamp: new Date() },
+            }
+            setUser(user)
+          }
+        }
       })
   }
   return (

@@ -76,7 +76,7 @@ const Quiz = () => {
       <div className="row">
         <div className="main-page-body col-md-6">
           {/* If user has no energy left, render locked buttons */}
-          {user.energy > 0 ? (
+          {user.energy.value > 0 ? (
             <QuestionButtons setQuestionState={setQuestionState} />
           ) : (
             <QuestionButtonsLocked />
