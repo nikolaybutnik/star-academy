@@ -13,11 +13,11 @@ const Quiz = () => {
   // Currently logged in user
   const { user } = useUser()
 
-  useEffect(() => {
-    // console.log(user)
-  })
-
   const [questionState, setQuestionState] = useState([])
+
+  useEffect(() => {
+    console.log(questionState)
+  }, [questionState])
 
   if (!user) {
     return <Redirect to="/" />
@@ -41,9 +41,10 @@ const Quiz = () => {
           className="col-md-6"
           style={{ flexWrap: 'nowrap', marginTop: '38px' }}
         >
-          {questionState.map((question) => (
-            <QuestionDisplay quiz={question} />
-          ))}
+          <QuestionDisplay
+            questionState={questionState}
+            setQuestionState={setQuestionState}
+          />
         </div>
       </div>
     </div>

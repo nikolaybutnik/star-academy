@@ -25,7 +25,7 @@ const QuestionButtons = ({ setQuestionState }) => {
     // On button click, deduct user energy
     const updatedUser = {
       ...user,
-      energy: user.energy - 1,
+      energy: user.energy - 0,
     }
     fetch('/edituser', {
       method: 'PATCH',
@@ -52,7 +52,6 @@ const QuestionButtons = ({ setQuestionState }) => {
       default:
         questionSet = localTalentEasyQuestions
     }
-    console.log(questionSet)
     // Make new questionb array and prevent duplicate questions
     const newArr = []
     while (newArr.length < 5) {
@@ -87,7 +86,6 @@ const QuestionButtons = ({ setQuestionState }) => {
       default:
         questionSet = localTalentMediumQuestions
     }
-    console.log(questionSet)
     // Make new questionb array and prevent duplicate questions
     const newArr = []
     while (newArr.length < 5) {
@@ -122,7 +120,6 @@ const QuestionButtons = ({ setQuestionState }) => {
       default:
         questionSet = localTalentHardQuestions
     }
-    console.log(questionSet)
     // Make new questionb array and prevent duplicate questions
     const newArr = []
     while (newArr.length < 5) {
