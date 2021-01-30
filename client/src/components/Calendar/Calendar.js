@@ -1,14 +1,45 @@
-import React from 'react'
-import './style.css'
+/* eslint-disable no-unused-vars */
+import React, { useEffect, useState } from 'react'
+import { useUser } from '../../utils/UserContext'
 // import { DateTime } from 'luxon'
+import { formatDistance, subDays } from 'date-fns'
 
 const Calendar = () => {
-  // Show current day in the middle
-  // Highlight days when user has logged in.
-  // Need to advance a day every 24 hrs. Utilize some kind of calendar api?
-  // In middle cell always render Date.now()?
-  // Could possibly use local storage to hold an array of last 3 days? But that won't help if user
-  // logs in from elsewhere. Utilize database or the user object somehow?
+  const { user } = useUser()
+
+  const [userLogs, setUserLogs] = useState([])
+
+  useEffect(() => {
+    // On page render, fetch an array of all user login instances.
+    fetch(`/getlog/${user._id}`, {
+      method: 'GET',
+      headers: {
+        Accept: 'application/json, text/plain, */*',
+        'Content-Type': 'application/json',
+      },
+    })
+      .then((res) => res.json())
+      .then((data) => setUserLogs(data.data))
+  }, [])
+
+  // Make a new array of objects with time of log in
+  const logsArr = userLogs.map((log) => {
+    return {
+      day: new Date(Date.parse(log.log)).getDay(),
+      month: new Date(Date.parse(log.log)).getMonth(),
+      date: new Date(Date.parse(log.log)).getDate(),
+      year: new Date(Date.parse(log.log)).getYear(),
+    }
+  })
+  // Remove all duplicates from the above arr. leaving only uniquw dates.
+  const uniqueEntries = Array.from(new Set(logsArr.map((a) => a.id))).map(
+    (id) => {
+      return logsArr.find((a) => a.id === id)
+    }
+  )
+  console.log(logsArr)
+  console.log(uniqueEntries)
+
   const today = new Date()
   const oneDayAgo = new Date()
   const twoDaysAgo = new Date()

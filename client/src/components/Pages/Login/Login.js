@@ -1,7 +1,6 @@
 /* eslint-disable no-unused-vars */
-import React, { useRef, useEffect } from 'react'
+import React, { useRef } from 'react'
 import { Link, Redirect } from 'react-router-dom'
-import './Login.css'
 
 import Hero from '../../Hero/Hero'
 
@@ -14,10 +13,6 @@ function Login() {
 
   // Currently logged in user state
   const { user, setToken } = useUser()
-
-  useEffect(() => {
-    // console.log(user)
-  }, [user])
 
   const handleFormSubmit = (event) => {
     event.preventDefault()
@@ -41,7 +36,6 @@ function Login() {
         .then((res) => res.json(res))
         .then((retrievedUserToken) => {
           if (retrievedUserToken) {
-            // console.log(retrievedUserToken)
             setToken(retrievedUserToken.data.token)
           } else {
             console.log('User not found.')
@@ -109,16 +103,6 @@ function Login() {
               </button>
             </Link>
           </div>
-          {/* <Link to="/quiz">
-            <button type="submit" className="btn btn-primary">
-              GO TO QUESTIONS
-            </button>
-          </Link>
-          <Link to="/userprofile">
-            <button type="submit" className="btn btn-primary">
-              GO TO PROFILE
-            </button>
-          </Link> */}
         </form>
       </div>
     </div>

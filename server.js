@@ -4,6 +4,7 @@ const PORT = process.env.PORT || 3001
 const app = express()
 const mongoose = require('mongoose')
 const User = require('./client/src/models/User')
+const Log = require('./client/src/models/Log')
 const jwt = require('jsonwebtoken')
 const bcrypt = require('bcrypt')
 const saltRounds = 14
@@ -109,22 +110,22 @@ app.post('/auth/tokens', async (req, res) => {
 
 // Verify a user by the token. If verified, return the user.
 app.get('/auth/users/me', authorize, async (req, res) => {
-  console.log(req.user)
+  // console.log(req.user)
   const user = await User.findById(req.user._id)
-  console.log(user)
+  // console.log(user)
   res.send({ data: user })
 })
 
 // Create an API route that gets a user by id if a user is currently logged in.
-app.get('/auth/users/loggedin', (req, res) => {
-  console.log(req)
-})
+// app.get('/auth/users/loggedin', (req, res) => {
+//   console.log(req)
+// })
 
 // This route will be used to update the user object
 app.patch('/edituser', async (req, res) => {
   try {
     const id = req.body._id
-    console.log(id)
+    // console.log(id)
     const updatedUser = await User.findByIdAndUpdate(id, req.body)
     res.send({ data: updatedUser })
   } catch (err) {
@@ -139,6 +140,28 @@ app.patch('/edituser', async (req, res) => {
       ],
     })
   }
+})
+
+// This route will make a log of a user log in event.
+app.post('/log', (req, res) => {
+  const newLog = req.body
+  // console.log(req.body)
+  Log.create(newLog)
+    .then((user) => {
+      res.status(201).send({ data: newLog })
+    })
+    .catch((err) => {
+      res.status(400).json(err)
+    })
+})
+
+// This route will return an array of objects with all the instances of user log in
+app.get('/getlog/:id', (req, res) => {
+  Log.find({ userId: req.params.id })
+    .then((data) => res.status(200).send({ data: data }))
+    .catch((err) => {
+      res.status(400).json(err)
+    })
 })
 
 // Send every other request to the React app
