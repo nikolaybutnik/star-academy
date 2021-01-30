@@ -11,11 +11,11 @@ import getQuestions from '../../../../../utils/getQuestions'
 const QuestionButtons = ({ setQuestionState }) => {
   const { user, setUser } = useUser()
 
-  const handleGoToQuizEasy = () => {
+  const handleGoToQuiz = (difficulty) => {
     // On button click, deduct user energy
     const updatedUser = {
       ...user,
-      energy: user.energy - 0,
+      energy: user.energy - 1,
     }
     fetch('/edituser', {
       method: 'PATCH',
@@ -27,47 +27,8 @@ const QuestionButtons = ({ setQuestionState }) => {
     })
     setUser(updatedUser)
 
-    const questionsBasedOnUserLevel = getQuestions('easy', user)
-    setQuestionState(questionsBasedOnUserLevel)
-  }
-
-  const handleGoToQuizMedium = () => {
-    // On button click, deduct user energy
-    const updatedUser = {
-      ...user,
-      energy: user.energy - 0,
-    }
-    fetch('/edituser', {
-      method: 'PATCH',
-      body: JSON.stringify(updatedUser),
-      headers: {
-        Accept: 'application/json, text/plain, */*',
-        'Content-Type': 'application/json',
-      },
-    })
-    setUser(updatedUser)
-
-    const questionsBasedOnUserLevel = getQuestions('medium', user)
-    setQuestionState(questionsBasedOnUserLevel)
-  }
-
-  const handleGoToQuizHard = () => {
-    // On button click, deduct user energy
-    const updatedUser = {
-      ...user,
-      energy: user.energy - 0,
-    }
-    fetch('/edituser', {
-      method: 'PATCH',
-      body: JSON.stringify(updatedUser),
-      headers: {
-        Accept: 'application/json, text/plain, */*',
-        'Content-Type': 'application/json',
-      },
-    })
-    setUser(updatedUser)
-
-    const questionsBasedOnUserLevel = getQuestions('hard', user)
+    // Select the correct questions based on user level/class
+    const questionsBasedOnUserLevel = getQuestions(difficulty, user)
     setQuestionState(questionsBasedOnUserLevel)
   }
 
@@ -85,7 +46,7 @@ const QuestionButtons = ({ setQuestionState }) => {
           marginRight: '0px',
           marginLeft: '0px',
         }}
-        onClick={() => handleGoToQuizEasy()}
+        onClick={() => handleGoToQuiz('easy')}
       >
         <div className="col-md-12">
           <img
@@ -105,7 +66,7 @@ const QuestionButtons = ({ setQuestionState }) => {
           borderColor: 'orange',
           borderWidth: '3px',
         }}
-        onClick={() => handleGoToQuizMedium()}
+        onClick={() => handleGoToQuiz('medium')}
       >
         <div className="col-md-12">
           <img
@@ -128,7 +89,7 @@ const QuestionButtons = ({ setQuestionState }) => {
           marginLeft: '0px',
           marginRight: '0px',
         }}
-        onClick={() => handleGoToQuizHard()}
+        onClick={() => handleGoToQuiz('hard')}
       >
         <div className="col-md-12">
           <img
