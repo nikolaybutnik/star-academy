@@ -8,7 +8,7 @@ import eighthNoteIcon from '../../../../../Assets/redtriple.png'
 const QuestionButtonsLocked = () => {
   return (
     <>
-      <h3 className="">CHOOSE A QUESTION</h3>
+      <h3 className="">OUT OF ENERGY</h3>
       <button
         className="card questions col-md-12"
         style={{

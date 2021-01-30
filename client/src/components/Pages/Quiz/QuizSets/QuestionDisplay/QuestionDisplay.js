@@ -70,30 +70,30 @@ const QuestionDisplay = ({ questionState, setQuestionState }) => {
             margin: '5px',
             marginLeft: '0px',
             backgroundColor: 'rgb(230 247 255)',
+            height: '100%',
           }}
         >
-          <h5 className="card-header">{currentQuestion.question}</h5>
+          <h5 className="card-header" style={{ fontSize: '1.75rem' }}>
+            {currentQuestion.question}
+          </h5>
           <ul
             className="list-group list-group-flush"
-            style={{ backgroundColor: '#d2d2d2' }}
+            style={{ backgroundColor: '#d2d2d2', height: '100%' }}
           >
             <li
-              className="list-group-item"
-              style={{ backgroundColor: 'rgb(241 241 241)' }}
+              className="list-group-item question-list"
               onClick={(event) => checkAnswer(event)}
             >
               {currentQuestion.answers[0]}
             </li>
             <li
-              className="list-group-item"
-              style={{ backgroundColor: 'rgb(241 241 241)' }}
+              className="list-group-item question-list"
               onClick={(event) => checkAnswer(event)}
             >
               {currentQuestion.answers[1]}
             </li>
             <li
-              className="list-group-item"
-              style={{ backgroundColor: 'rgb(241 241 241)' }}
+              className="list-group-item question-list"
               onClick={(event) => checkAnswer(event)}
             >
               {currentQuestion.answers[2]}

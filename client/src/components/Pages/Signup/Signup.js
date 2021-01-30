@@ -62,17 +62,14 @@ function Signup() {
 
   return (
     <div className="row signup-row">
-      <div className="col-md-8 hero-column">
+      <div className="hero-column">
         <Hero />
       </div>
 
-      <div className="col-md-4 signup-column">
+      <div className="signup-column">
         <form onSubmit={(event) => handleNewUser(event)}>
-          <h1 className="signup-slogan">
-            Start learning music the fun way, today!
-          </h1>
           <div className="form-group sign-up-form">
-            <h2 style={{ marginBottom: '40px', marginTop: '40px' }}>Sign up</h2>
+            <h2 style={{ marginBottom: '10px', marginTop: '10px' }}>Sign up</h2>
             <label for="newEmail">Email address</label>
             <input
               type="email"
@@ -122,6 +119,8 @@ function Signup() {
               onChange={(event) => setConfirmPassword(event.target.value)}
               ref={confirmNewPasswrdRef}
             ></input>
+          </div>
+          <div className="form-group sign-up-form">
             <button
               href=""
               type="submit"
@@ -130,8 +129,6 @@ function Signup() {
               {' '}
               Sign Up
             </button>
-          </div>
-          <div className="form-group sign-up-form">
             <small id="redirectSignin" className="form-text text-muted">
               Already have an account?
             </small>
