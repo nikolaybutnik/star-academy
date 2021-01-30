@@ -15,7 +15,7 @@ const QuestionButtons = ({ setQuestionState }) => {
     // On button click, deduct user energy
     const updatedUser = {
       ...user,
-      energy: user.energy - 1,
+      energy: user.energy - 0,
     }
     fetch('/edituser', {
       method: 'PATCH',
@@ -37,7 +37,7 @@ const QuestionButtons = ({ setQuestionState }) => {
       <h3 className="">CHOOSE A QUESTION</h3>
       {/* <div className="question-cards"> */}
       <button
-        className="card questions col-md-12"
+        className="card easy-questions col-md-12"
         style={{
           backgroundColor: 'rgb(221 250 221)',
           borderColor: 'rgb(3 184 3)',
@@ -60,7 +60,7 @@ const QuestionButtons = ({ setQuestionState }) => {
       </button>
 
       <button
-        className="card questions col-md-12"
+        className="card medium-questions col-md-12"
         style={{
           backgroundColor: 'rgb(255 248 228)',
           borderColor: 'orange',
@@ -80,9 +80,9 @@ const QuestionButtons = ({ setQuestionState }) => {
       </button>
 
       <button
-        className="card questions col-md-12"
+        className="card hard-questions col-md-12"
         style={{
-          backgroundColor: 'rgb(255 223 223)',
+          backgroundColor: 'rgb(252 229 229)',
           borderColor: '#e90202',
           borderWidth: '3px',
           margin: '10px',

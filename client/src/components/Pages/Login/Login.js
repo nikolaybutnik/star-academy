@@ -52,16 +52,13 @@ function Login() {
 
   return (
     <div className="row signup-row">
-      <div className="col-md-8 hero-column">
+      <div className="hero-column">
         <Hero />
       </div>
-      <div className="col-md-4 signup-column">
+      <div className="signup-column">
         <form onSubmit={(event) => handleFormSubmit(event)}>
-          <h1 className="signup-slogan">
-            Start learning music the fun way, today!
-          </h1>
           <div className="form-group sign-up-form">
-            <h2 style={{ marginBottom: '40px', marginTop: '40px' }}>Login</h2>
+            <h2 style={{ marginBottom: '20px', marginTop: '10px' }}>Login</h2>
             <label for="email">Email address</label>
             <input
               type="email"
