@@ -1,11 +1,12 @@
 /* eslint-disable no-unused-vars */
+import React from 'react'
 import ProgressBar from 'react-bootstrap/ProgressBar'
 import { Link } from 'react-router-dom'
 import home from '../../Assets/home.png'
 import { useUser } from '../../utils/UserContext'
 import energyIcon from '../../Assets/bolt-128.png'
 
-import logoutIcon from '../../Assets/toppng.com-logout-icon-png-transparent-login-logout-icon-1653x1637.png'
+// import logoutIcon from '../../Assets/toppng.com-logout-icon-png-transparent-login-logout-icon-1653x1637.png'
 
 function QuizHeader() {
   // Currently logged in user
@@ -108,6 +109,9 @@ function QuizHeader() {
         </div>
         {/*  */}
 
+        {/* <h4 style={{ paddingRight: '0px' }} className="xp-progressbar">
+          Lv {user.level}: {user.class} {user.username}
+        </h4> */}
         {/* Progress Bar */}
         <ProgressBar
           className="user-main-progressbar"

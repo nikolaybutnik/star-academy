@@ -21,21 +21,14 @@ const userSchema = new Schema({
     trim: true,
     required: 'Password is required',
   },
-  // joined: {
-  //   type: Date,
-  // },
+
   correct: {
     type: Number,
   },
   incorrect: {
     type: Number,
   },
-  streakStart: {
-    type: Date,
-  },
-  streakLastVisit: {
-    type: Date,
-  },
+
   level: {
     type: Number,
   },
@@ -60,21 +53,9 @@ const userSchema = new Schema({
   answered: {
     type: Array,
   },
-  // firstName: {
-  //   type: String,
-  // },
-  // lastName: {
-  //   type: String,
-  // },
-  // gender: {
-  //   type: String,
-  // },
-  // birthday: {
-  //   type: Date,
-  // },
-  // country: {
-  //   type: String,
-  // },
+  tasks: {
+    type: Array,
+  },
 })
 
 // Do not use an arrow function here. We need 'this' inside the function to
@@ -103,7 +84,7 @@ userSchema.statics.authenticate = async function (email, password) {
 
   // Compare the hashed password to the user payload password, or the generated dummy password.
   const passwordDidMatch = await bcrypt.compare(password, hashedPassword)
-  console.log(passwordDidMatch)
+  // console.log(passwordDidMatch)
 
   // If the email didn't match, mongo returns null, this we need to replicate this.
   return passwordDidMatch ? user : null

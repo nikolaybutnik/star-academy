@@ -1,41 +1,14 @@
 /* eslint-disable no-unused-vars */
 import React from 'react'
-import './QuestionButtons.css'
+import './QuestionButtonsLocked.css'
 import wholeNoteIcon from '../../../../../Assets/greensingle.png'
 import halfNoteIcon from '../../../../../Assets/orangedouble.png'
 import eighthNoteIcon from '../../../../../Assets/redtriple.png'
 
-import { useUser } from '../../../../../utils/UserContext'
-import getQuestions from '../../../../../utils/getQuestions'
-
-const QuestionButtons = ({ setQuestionState }) => {
-  const { user, setUser } = useUser()
-
-  const handleGoToQuiz = (difficulty) => {
-    // On button click, deduct user energy
-    const updatedUser = {
-      ...user,
-      energy: user.energy - 1,
-    }
-    fetch('/edituser', {
-      method: 'PATCH',
-      body: JSON.stringify(updatedUser),
-      headers: {
-        Accept: 'application/json, text/plain, */*',
-        'Content-Type': 'application/json',
-      },
-    })
-    setUser(updatedUser)
-
-    // Select the correct questions based on user level/class
-    const questionsBasedOnUserLevel = getQuestions(difficulty, user)
-    setQuestionState(questionsBasedOnUserLevel)
-  }
-
+const QuestionButtonsLocked = () => {
   return (
     <>
       <h3 className="">CHOOSE A QUESTION</h3>
-      {/* <div className="question-cards"> */}
       <button
         className="card questions col-md-12"
         style={{
@@ -46,7 +19,6 @@ const QuestionButtons = ({ setQuestionState }) => {
           marginRight: '0px',
           marginLeft: '0px',
         }}
-        onClick={() => handleGoToQuiz('easy')}
       >
         <div className="col-md-12">
           <img
@@ -56,7 +28,7 @@ const QuestionButtons = ({ setQuestionState }) => {
             style={{ height: '50px', margin: '10px' }}
           />
         </div>
-        <h5 className="card-title col-md-12">EASY</h5>
+        <h5 className="card-title col-md-12">EASY (LOCKED)</h5>
       </button>
 
       <button
@@ -66,7 +38,6 @@ const QuestionButtons = ({ setQuestionState }) => {
           borderColor: 'orange',
           borderWidth: '3px',
         }}
-        onClick={() => handleGoToQuiz('medium')}
       >
         <div className="col-md-12">
           <img
@@ -76,7 +47,7 @@ const QuestionButtons = ({ setQuestionState }) => {
             style={{ height: '50px', margin: '10px' }}
           />
         </div>
-        <h5 className="card-title col-md-12">MEDIUM</h5>
+        <h5 className="card-title col-md-12">MEDIUM (LOCKED)</h5>
       </button>
 
       <button
@@ -89,7 +60,6 @@ const QuestionButtons = ({ setQuestionState }) => {
           marginLeft: '0px',
           marginRight: '0px',
         }}
-        onClick={() => handleGoToQuiz('hard')}
       >
         <div className="col-md-12">
           <img
@@ -99,10 +69,10 @@ const QuestionButtons = ({ setQuestionState }) => {
             style={{ height: '50px', margin: '10px' }}
           />
         </div>
-        <h5 className="card-title col-md-12">HARD</h5>
+        <h5 className="card-title col-md-12">HARD (LOCKED)</h5>
       </button>
     </>
   )
 }
 
-export default QuestionButtons
+export default QuestionButtonsLocked
