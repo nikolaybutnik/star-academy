@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-import React, { useEffect, useContext } from 'react'
+import React from 'react'
 import { Redirect } from 'react-router-dom'
 
 import ProfileHeader from '../Header/ProfileHeader'
@@ -7,19 +7,15 @@ import Calendar from '../Calendar/Calendar'
 import ProfileUserInfo from '../ProfileUserInfo/ProfileUserInfo'
 import ProfileUserTier from '../ProfileUserTier/ProfileUserTier'
 import HomePageButtons from '../HomePageButtons/HomePageButtons'
+import { Container } from 'react-bootstrap'
 
 import { useUser } from '../../utils/UserContext'
 
 import './UserProfile.css'
-import { Container } from 'react-bootstrap'
 
 const UserProfile = () => {
   // Currently logged in user
   const { user } = useUser()
-
-  useEffect(() => {
-    // console.log(user)
-  }, [user])
 
   if (!user) {
     return <Redirect to="/" />
@@ -28,7 +24,6 @@ const UserProfile = () => {
   return (
     <div>
       <div className="home-page">
-        {/* <Header /> */}
         <ProfileHeader />
         <hr style={{ borderWidth: '2px' }}></hr>
       </div>
