@@ -39,7 +39,11 @@ const Quiz = () => {
         </div>
         <div
           className="col-md-6"
-          style={{ flexWrap: 'nowrap', marginTop: '38px' }}
+          style={{
+            flexWrap: 'nowrap',
+            marginTop: '38px',
+            paddingBottom: '15px',
+          }}
         >
           <QuestionDisplay
             questionState={questionState}
