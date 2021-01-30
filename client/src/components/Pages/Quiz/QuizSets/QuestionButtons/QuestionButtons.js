@@ -15,7 +15,7 @@ const QuestionButtons = ({ setQuestionState }) => {
     // On button click, deduct user energy
     const updatedUser = {
       ...user,
-      energy: user.energy - 1,
+      energy: user.energy - 0,
     }
     fetch('/edituser', {
       method: 'PATCH',
@@ -26,6 +26,17 @@ const QuestionButtons = ({ setQuestionState }) => {
       },
     })
     setUser(updatedUser)
+
+    // Make a log of the user's attempt
+    const newAttemptLog = { userId: user._id, attemptLog: new Date() }
+    fetch('/logattempt', {
+      method: 'POST',
+      body: JSON.stringify(newAttemptLog),
+      headers: {
+        Accept: 'application/json, text/plain, */*',
+        'Content-Type': 'application/json',
+      },
+    })
 
     // Select the correct questions based on user level/class
     const questionsBasedOnUserLevel = getQuestions(difficulty, user)

@@ -5,6 +5,7 @@ const app = express()
 const mongoose = require('mongoose')
 const User = require('./client/src/models/User')
 const Log = require('./client/src/models/Log')
+const Attempt = require('./client/src/models/Attempt')
 const jwt = require('jsonwebtoken')
 const bcrypt = require('bcrypt')
 const saltRounds = 14
@@ -116,11 +117,6 @@ app.get('/auth/users/me', authorize, async (req, res) => {
   res.send({ data: user })
 })
 
-// Create an API route that gets a user by id if a user is currently logged in.
-// app.get('/auth/users/loggedin', (req, res) => {
-//   console.log(req)
-// })
-
 // This route will be used to update the user object
 app.patch('/edituser', async (req, res) => {
   try {
@@ -158,6 +154,28 @@ app.post('/log', (req, res) => {
 // This route will return an array of objects with all the instances of user log in
 app.get('/getlog/:id', (req, res) => {
   Log.find({ userId: req.params.id })
+    .then((data) => res.status(200).send({ data: data }))
+    .catch((err) => {
+      res.status(400).json(err)
+    })
+})
+
+// This route will write a user attempt at a question set to the database.
+app.post('/logattempt', (req, res) => {
+  const newLog = req.body
+  console.log(newLog)
+  Attempt.create(newLog)
+    .then((log) => {
+      res.status(201).send({ data: newLog })
+    })
+    .catch((err) => {
+      res.status(400).json(err)
+    })
+})
+
+// This route will return an array of objects with all user attempts
+app.get('/getlogattempt/:id', (req, res) => {
+  Attempt.find({ userId: req.params.id })
     .then((data) => res.status(200).send({ data: data }))
     .catch((err) => {
       res.status(400).json(err)

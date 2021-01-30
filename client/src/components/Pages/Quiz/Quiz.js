@@ -14,10 +14,27 @@ const Quiz = () => {
   const { user } = useUser()
 
   const [questionState, setQuestionState] = useState([])
+  const [userAttempts, setUserAttempts] = useState([])
 
   useEffect(() => {
-    console.log(questionState)
-  }, [questionState])
+    // USER ATTEMPTS
+    // On page render, fetch an array of user attempt history.
+    // console.log(user._id)
+    if (user) {
+      fetch(`/getlogattempt/${user._id}`, {
+        method: 'GET',
+        headers: {
+          Accept: 'application/json, text/plain, */*',
+          'Content-Type': 'application/json',
+        },
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          setUserAttempts(data.data)
+        })
+    }
+  }, [])
+  console.log(userAttempts)
 
   if (!user) {
     return <Redirect to="/" />
