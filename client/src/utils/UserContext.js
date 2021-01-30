@@ -40,6 +40,7 @@ function UserProvider(props) {
             'Content-Type': 'application/json',
           },
         })
+        // check if energy needs to be topped up (sep func), before setting the user
         setUser(user)
       })
   }

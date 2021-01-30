@@ -34,11 +34,12 @@ function Signup() {
       correct: 0,
       incorrect: 0,
       class: 'Beginner',
-      energy: 3,
+      energy: { value: 3, timestamp: new Date() },
       maxEnergy: 3,
       tasks: [],
       answered: [],
     }
+
     fetch('/auth/users', {
       method: 'POST',
       body: JSON.stringify(newUser),
