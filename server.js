@@ -5,7 +5,7 @@ const app = express()
 const mongoose = require('mongoose')
 const User = require('./client/src/models/User')
 const Log = require('./client/src/models/Log')
-const jwt = require('jsonwebtoken')
+// const jwt = require('jsonwebtoken')
 const bcrypt = require('bcrypt')
 const saltRounds = 14
 const authorize = require('./client/src/middleware/auth')
@@ -60,7 +60,7 @@ app.post('/auth/users', async (req, res) => {
         res.status(400).json(err)
       })
   } catch (err) {
-    debug('Error saving new user: ', err.message)
+    // debug('Error saving new user: ', err.message)
     res.status(500).send({
       errors: [
         {
@@ -95,7 +95,7 @@ app.post('/auth/tokens', async (req, res) => {
     // If all is good, return a token. The method is defined in the User model.
     res.status(201).send({ data: { token: user.generateAuthToken() } })
   } catch (err) {
-    debug(`Error authenticating user ... `, err.message)
+    // debug(`Error authenticating user ... `, err.message)
     res.status(500).send({
       errors: [
         {
@@ -129,7 +129,7 @@ app.patch('/edituser', async (req, res) => {
     const updatedUser = await User.findByIdAndUpdate(id, req.body)
     res.send({ data: updatedUser })
   } catch (err) {
-    debug('Error updating the user: ', err.message)
+    // debug('Error updating the user: ', err.message)
     res.status(500).send({
       errors: [
         {
