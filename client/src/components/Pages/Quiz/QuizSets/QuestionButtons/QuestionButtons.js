@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-import React from 'react'
+import React, { useState } from 'react'
 import './QuestionButtons.css'
 import wholeNoteIcon from '../../../../../Assets/greensingle.png'
 import halfNoteIcon from '../../../../../Assets/orangedouble.png'
@@ -22,6 +22,22 @@ const QuestionButtons = ({ setQuestionState }) => {
   const { user, setUser } = useUser()
 
   const handleGoToQuizEasy = () => {
+    // On button click, deduct user energy
+    const updatedUser = {
+      ...user,
+      energy: user.energy - 1,
+    }
+    fetch('/edituser', {
+      method: 'PATCH',
+      body: JSON.stringify(updatedUser),
+      headers: {
+        Accept: 'application/json, text/plain, */*',
+        'Content-Type': 'application/json',
+      },
+    })
+    setUser(updatedUser)
+
+    // Choose the appropriate question set based on user level/class
     let questionSet = []
     switch (user.class) {
       case 'Beginner':

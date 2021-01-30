@@ -5,9 +5,8 @@ import { Redirect } from 'react-router-dom'
 import './Quiz.css'
 
 import QuestionButtons from './QuizSets/QuestionButtons/QuestionButtons'
-import Busker from './QuizSets/Busker/Busker'
-import LocalTalent from './QuizSets/LocalTalent/LocalTalent'
-import HomeHeader from '../../Header/HomeHeader'
+import QuestionButtonsLocked from './QuizSets/QuestionButtonsLocked/QestionButtonsLocked'
+import HomeHeader from '../../Header/QuizHeader'
 import QuestionDisplay from './QuizSets/QuestionDisplay/QuestionDisplay'
 
 const Quiz = () => {
@@ -16,19 +15,9 @@ const Quiz = () => {
 
   useEffect(() => {
     // console.log(user)
-  }, [user])
+  })
 
   const [questionState, setQuestionState] = useState([])
-  // const [mediumBeginner, setMediumBeginner] = useState([])
-  // const [hardBeginner, setHardBeginner] = useState([])
-
-  // const [easyBusker, setEasyBusker] = useState([])
-  // const [mediumBusker, setMediumBusker] = useState([])
-  // const [hardBusker, setHardBusker] = useState([])
-
-  // const [easyLocalTalent, setEasyLocalTalent] = useState([])
-  // const [mediumLocalTalent, setMediumLocalTalent] = useState([])
-  // const [hardLocalTalent, setHardLocalTalent] = useState([])
 
   if (!user) {
     return <Redirect to="/" />
@@ -41,7 +30,12 @@ const Quiz = () => {
 
       <div className="row">
         <div className="main-page-body col-md-6">
-          <QuestionButtons setQuestionState={setQuestionState} />
+          {/* If user has no energy left, render locked buttons */}
+          {user.energy > 0 ? (
+            <QuestionButtons setQuestionState={setQuestionState} />
+          ) : (
+            <QuestionButtonsLocked />
+          )}
         </div>
         <div
           className="col-md-6"
