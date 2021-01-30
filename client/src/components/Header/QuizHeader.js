@@ -1,12 +1,12 @@
 /* eslint-disable no-unused-vars */
-import React, { useState } from 'react'
+import React from 'react'
 import ProgressBar from 'react-bootstrap/ProgressBar'
 import { Link } from 'react-router-dom'
 import home from '../../Assets/home.png'
 import { useUser } from '../../utils/UserContext'
 import energyIcon from '../../Assets/bolt-128.png'
 
-import logoutIcon from '../../Assets/toppng.com-logout-icon-png-transparent-login-logout-icon-1653x1637.png'
+// import logoutIcon from '../../Assets/toppng.com-logout-icon-png-transparent-login-logout-icon-1653x1637.png'
 
 function QuizHeader() {
   // Currently logged in user

@@ -4,9 +4,6 @@ const bcrypt = require('bcrypt')
 const saltRounds = 14
 const Schema = mongoose.Schema
 
-// create another document collection.
-// log the auth event, add record. {user id, timestamp}
-
 const userSchema = new Schema({
   email: {
     type: String,

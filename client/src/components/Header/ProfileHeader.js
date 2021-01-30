@@ -1,8 +1,7 @@
 /* eslint-disable no-unused-vars */
 import React from 'react'
-import './Header.css'
 import home from '../../Assets/home.png'
-import logoutIcon from '../../Assets/toppng.com-logout-icon-png-transparent-login-logout-icon-1653x1637.png'
+// import logoutIcon from '../../Assets/toppng.com-logout-icon-png-transparent-login-logout-icon-1653x1637.png'
 import energyIcon from '../../Assets/bolt-128.png'
 
 import { useUser } from '../../utils/UserContext'

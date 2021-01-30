@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-import React, { useState } from 'react'
+import React from 'react'
 import './QuestionButtons.css'
 import wholeNoteIcon from '../../../../../Assets/greensingle.png'
 import halfNoteIcon from '../../../../../Assets/orangedouble.png'

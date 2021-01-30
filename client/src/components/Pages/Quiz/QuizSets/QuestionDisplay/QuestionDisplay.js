@@ -7,7 +7,7 @@ import checkLevelUp from '../../../../../utils/checkLevelUp'
 
 const nextQuestion = (event, index, setIndex) => {
   event.target.style.background = 'rgb(241 241 241)'
-  // Advance to the next question
+  // Advance to the next question after one second
   setIndex(index + 1)
 }
 
@@ -25,7 +25,7 @@ const QuestionDisplay = ({ questionState, setQuestionState }) => {
 
   const checkAnswer = (event) => {
     if (event.target.textContent === currentQuestion.correct) {
-      // Visually notify user the answer is wrong
+      // Visually notify user the answer is right
       event.target.style.background = '#97e376'
       setTimeout(() => {
         nextQuestion(event, index, setIndex)
