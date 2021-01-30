@@ -1,16 +1,24 @@
 /* eslint-disable no-unused-vars */
-// import { useUser } from '../../utils/UserContext'
+import { useUser } from '../../utils/UserContext'
 import React, { useRef, useState } from 'react'
 import ListItem from './ListItems'
+import updateUser from '../../utils/updateUser'
 
 const ToDoList = () => {
   const inputRef = useRef()
-  const [tasks, setTasks] = useState([
-    'String Names - 10mins',
-    'Staff Names - 10mins',
-    '5x Pull offs',
-    '3x Hammer-ons',
-  ])
+  const { user, setUser } = useUser()
+  const tasks = user.tasks
+
+  const handleNewTask = (event) => {
+    event.preventDefault()
+    if (inputRef) {
+      const newTasks = [...tasks, inputRef.current.value]
+      const updatedUser = { ...user, tasks: newTasks }
+      updateUser(updatedUser)
+      setUser(updatedUser)
+      inputRef.current.value = ''
+    }
+  }
 
   return (
     <div
@@ -27,27 +35,16 @@ const ToDoList = () => {
     >
       <div id="myDIV" class="header" style={{ backgroundColor: '#f6f6f6' }}>
         <h3 style={{ paddingTop: '8px' }}>Personal Goals</h3>
-        <input
-          ref={inputRef}
-          type="text"
-          id="myInput"
-          placeholder="Title..."
-          style={{ padding: '9px' }}
-        />
-        <span
-          onLoad={() => {}}
-          onClick={() => {
-            if (inputRef) {
-              const newArray = [...tasks, inputRef.current.value]
-              setTasks(newArray)
-              inputRef.current.value = ''
-              console.log(tasks)
-            }
-          }}
-          class="addBtn"
-        >
-          Add
-        </span>
+        <form onSubmit={(event) => handleNewTask(event)}>
+          <input
+            ref={inputRef}
+            type="text"
+            id="myInput"
+            placeholder="Title..."
+            style={{ padding: '9px' }}
+          />
+          <button>Add</button>
+        </form>
       </div>
 
       <ul id="myUL">
