@@ -1,27 +1,18 @@
 /* eslint-disable no-unused-vars */
 import { useUser } from '../../utils/UserContext'
+import updateUser from '../../utils/updateUser'
 
 const ListItems = (props) => {
-  const { user } = useUser()
+  const { user, setUser } = useUser()
   const handleRemoveListItem = (event) => {
-    console.log(event.target.parentNode.textContent)
+    const taskToDelete = event.target.parentNode.parentNode.textContent
+    const tasksArray = user.tasks
+    const filteredTasks = tasksArray.filter((task) => task !== taskToDelete)
+    const updatedUser = { ...user, tasks: filteredTasks }
+    updateUser(updatedUser)
+    setUser(updatedUser)
   }
-  //   const myNodelist = document.getElementsByTagName('li')
-  //   let i
-  //   for (i = 0; i < myNodelist.length; i++) {
-  //     const span = document.createElement('SPAN')
-  //     const txt = document.createTextNode('\u00D7')
-  //     span.className = 'close'
-  //     span.appendChild(txt)
-  //     myNodelist[i].appendChild(span)
-  //   }
-  //   const close = document.getElementsByClassName('close')
-  //   for (i = 0; i < close.length; i++) {
-  //     close[i].onclick = function () {
-  //       const div = this.parentElement
-  //       div.style.display = 'none'
-  //     }
-  //   }
+
   return (
     <li onClick={(ev) => ev.target.classList.toggle('checked')}>
       {props.item}
@@ -29,7 +20,7 @@ const ListItems = (props) => {
         style={{ float: 'right' }}
         onClick={(event) => handleRemoveListItem(event)}
       >
-        X
+        <i class="fa fa-trash"></i>
       </button>
     </li>
   )
