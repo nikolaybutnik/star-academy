@@ -1,5 +1,5 @@
 /* eslint-disable no-unused-vars */
-import React from 'react'
+import React, { useEffect } from 'react'
 import './QuestionDisplay.css'
 import { useUser } from '../../../../../utils/UserContext'
 import checkLevelUp from '../../../../../utils/checkLevelUp'
@@ -10,6 +10,13 @@ const QuestionDisplay = ({ quiz: { question, answers, correct, reward } }) => {
   const checkAnswer = (event) => {
     if (event.target.textContent === correct) {
       console.log('CORRECT!')
+      // Visually notify user the answer is wrong
+      event.target.style.background = '#97e376'
+      setTimeout(() => {
+        event.target.style.background = 'rgb(241 241 241)'
+      }, 1000)
+
+      // Update the user object
       const updatedUser = {
         ...user,
         experience: user.experience + reward,
@@ -30,6 +37,13 @@ const QuestionDisplay = ({ quiz: { question, answers, correct, reward } }) => {
       })
     } else {
       console.log('WRONG!!!')
+      // Visually notify user the answer is wrong
+      event.target.style.background = '#e65f55'
+      setTimeout(() => {
+        event.target.style.background = 'rgb(241 241 241)'
+      }, 1000)
+
+      // Update the user object
       const updatedUser = {
         ...user,
         incorrect: user.incorrect + 1,
@@ -65,35 +79,41 @@ const QuestionDisplay = ({ quiz: { question, answers, correct, reward } }) => {
         <li
           className="list-group-item"
           style={{ backgroundColor: 'rgb(241 241 241)' }}
+          onClick={(event) => checkAnswer(event)}
         >
-          <button
+          {/* <button
             onClick={(event) => checkAnswer(event)}
             style={{ backgroundColor: 'rgb(241 241 241)' }}
           >
             {answers[0]}
-          </button>
+          </button> */}
+          {answers[0]}
         </li>
         <li
           className="list-group-item"
           style={{ backgroundColor: 'rgb(241 241 241)' }}
+          onClick={(event) => checkAnswer(event)}
         >
-          <button
+          {/* <button
             onClick={(event) => checkAnswer(event)}
             style={{ backgroundColor: 'rgb(241 241 241)' }}
           >
             {answers[1]}
-          </button>
+          </button> */}
+          {answers[1]}
         </li>
         <li
           className="list-group-item"
           style={{ backgroundColor: 'rgb(241 241 241)' }}
+          onClick={(event) => checkAnswer(event)}
         >
-          <button
+          {/* <button
             onClick={(event) => checkAnswer(event)}
             style={{ backgroundColor: 'rgb(241 241 241)' }}
           >
             {answers[2]}
-          </button>
+          </button> */}
+          {answers[2]}
         </li>
       </ul>
     </div>

@@ -28,7 +28,7 @@ const QuestionButtonsLocked = () => {
             style={{ height: '50px', margin: '10px' }}
           />
         </div>
-        <h5 className="card-title col-md-12">EASY</h5>
+        <h5 className="card-title col-md-12">EASY (LOCKED)</h5>
       </button>
 
       <button
@@ -47,7 +47,7 @@ const QuestionButtonsLocked = () => {
             style={{ height: '50px', margin: '10px' }}
           />
         </div>
-        <h5 className="card-title col-md-12">MEDIUM</h5>
+        <h5 className="card-title col-md-12">MEDIUM (LOCKED)</h5>
       </button>
 
       <button
@@ -69,7 +69,7 @@ const QuestionButtonsLocked = () => {
             style={{ height: '50px', margin: '10px' }}
           />
         </div>
-        <h5 className="card-title col-md-12">HARD</h5>
+        <h5 className="card-title col-md-12"> (LOCKED)</h5>
       </button>
     </>
   )
