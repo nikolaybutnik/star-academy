@@ -95,7 +95,7 @@ const Calendar = () => {
           <table>
             <tbody>
               <tr>
-                <td style={{ backgroundColor: 'green' }}>
+                <td className="calendar-date">
                   {new Date(
                     threeDaysAgo.setDate(threeDaysAgo.getDate() - 3)
                   ).getDate()}

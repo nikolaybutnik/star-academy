@@ -30,22 +30,24 @@ const UserProfile = () => {
       <div className="home-page">
         {/* <Header /> */}
         <ProfileHeader />
+        <hr style={{ borderWidth: '2px' }}></hr>
       </div>
       <div className="main-page-body">
         <div className="row">
           <ProfileUserTier />
-          <div className="col-md-7">
+          <div className="col-md-8" style={{ padding: '0px' }}>
             <ProfileUserInfo />
             <HomePageButtons />
             <Container
               style={{
-                maxWidth: '730px',
                 width: '100%',
                 paddingRight: '0px',
                 paddingLeft: '0px',
                 marginRight: 'auto',
                 marginLeft: 'auto',
+                float: 'right',
               }}
+              className="col-md-11"
             >
               <Calendar />
             </Container>

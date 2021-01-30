@@ -4,8 +4,45 @@ nav {
   margin-bottom: 15px;
 }
 
+.navbar {
+  color: blue;
+  height: 100px;
+}
+
 .navbar-header {
   padding: 8px;
   font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
   font-weight: bold;
+  justify-content: 'center';
+  text-align: 'center';
+}
+
+.home-header-body {
+  padding-right: 0px;
+}
+
+.home-header-energy-row {
+  flex-wrap: nowrap;
+}
+
+.home-btn-img {
+  max-width: 25px;
+  max-height: 25px;
+}
+
+.energy-icon-row {
+  flex-wrap: nowrap;
+}
+
+.energy-icon {
+  height: 30px;
+  margin-top: 18px;
+  margin-left: 20px;
+}
+
+.energy-display {
+  margin-left: 0px;
+  margin-right: 5px;
+  margin-top: 20px;
+  color: #42bffb;
 }

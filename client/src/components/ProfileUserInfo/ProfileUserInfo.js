@@ -17,7 +17,7 @@ const ProfileUserInfo = () => {
         <div className="row" style={{ justifyContent: 'center' }}>
           <h3
             style={{
-              marginLeft: '25px',
+              marginLeft: '40px',
             }}
           >
             WINS{' '}
@@ -51,7 +51,7 @@ const ProfileUserInfo = () => {
           ></span>
         </div>
         <PieChart
-          // label={({ dataEntry }) => "WINS"}
+          // label={({ dataEntry }) => 'WINS'}
           data={[
             {
               title: 'Right answers',

@@ -4,10 +4,11 @@ import { useUser } from '../../../utils/UserContext'
 import { Redirect } from 'react-router-dom'
 import './Quiz.css'
 
-import Beginner from './QuizSets/Beginner/Beginner'
+import QuestionButtons from './QuizSets/QuestionButtons/QuestionButtons'
 import Busker from './QuizSets/Busker/Busker'
 import LocalTalent from './QuizSets/LocalTalent/LocalTalent'
 import HomeHeader from '../../Header/HomeHeader'
+import QuestionDisplay from './QuizSets/QuestionDisplay/QuestionDisplay'
 
 const Quiz = () => {
   // Currently logged in user
@@ -17,113 +18,39 @@ const Quiz = () => {
     // console.log(user)
   }, [user])
 
-  const [easyBeginner, setEasyBeginner] = useState([])
-  const [mediumBeginner, setMediumBeginner] = useState([])
-  const [hardBeginner, setHardBeginner] = useState([])
+  const [questionState, setQuestionState] = useState([])
+  // const [mediumBeginner, setMediumBeginner] = useState([])
+  // const [hardBeginner, setHardBeginner] = useState([])
 
-  const [easyBusker, setEasyBusker] = useState([])
-  const [mediumBusker, setMediumBusker] = useState([])
-  const [hardBusker, setHardBusker] = useState([])
+  // const [easyBusker, setEasyBusker] = useState([])
+  // const [mediumBusker, setMediumBusker] = useState([])
+  // const [hardBusker, setHardBusker] = useState([])
 
-  const [easyLocalTalent, setEasyLocalTalent] = useState([])
-  const [mediumLocalTalent, setMediumLocalTalent] = useState([])
-  const [hardLocalTalent, setHardLocalTalent] = useState([])
+  // const [easyLocalTalent, setEasyLocalTalent] = useState([])
+  // const [mediumLocalTalent, setMediumLocalTalent] = useState([])
+  // const [hardLocalTalent, setHardLocalTalent] = useState([])
 
   if (!user) {
     return <Redirect to="/" />
   }
 
-  const props = {
-    easyBeginner,
-    setEasyBeginner,
-    mediumBeginner,
-    setMediumBeginner,
-    hardBeginner,
-    setHardBeginner,
-    easyBusker,
-    setEasyBusker,
-    mediumBusker,
-    setMediumBusker,
-    hardBusker,
-    setHardBusker,
-    easyLocalTalent,
-    setEasyLocalTalent,
-    mediumLocalTalent,
-    setMediumLocalTalent,
-    hardLocalTalent,
-    setHardLocalTalent,
-  }
-
   return (
     <div className="home-page">
       <HomeHeader />
+      <hr style={{ borderWidth: '2px' }}></hr>
 
-      <div className="main-page-body">
-        <div
-          className="row"
-          style={{
-            flexWrap: 'nowrap',
-            marginTop: '20px',
-            marginBottom: '20px',
-          }}
-        >
-          <div className="col-md-4">
-            <h3 style={{ color: '#007700' }}>EASY</h3>
-          </div>
-          <div className="col-md-4">
-            <h3 style={{ color: '#b27300' }}>MEDIUM</h3>
-          </div>
-          <div className="col-md-4">
-            <h3 style={{ color: '#9c0000' }}>HARD</h3>
-          </div>
+      <div className="row">
+        <div className="main-page-body col-md-6">
+          <QuestionButtons setQuestionState={setQuestionState} />
         </div>
-        <Beginner props={props} />
-
-        {/* <div className="">BLOOMING ARTIST</div>
-        <div className="question-cards">
-          <EasyCards />
-          <MediumCards />
-          <HardCards />
-        </div> */}
-
-        <Busker props={props} />
-
-        {/* <div className="">LOCAL UPCOMER</div>
-        <div className="question-cards">
-          <EasyCards />
-          <MediumCards />
-          <HardCards />
-        </div> */}
-
-        <LocalTalent props={props} />
-
-        {/* <div className="">LOCAL SUPERSTAR</div>
-        <div className="question-cards">
-          <EasyCards />
-          <MediumCards />
-          <HardCards />
-        </div> */}
-
-        {/* <div className="">PROVINCIAL TALENT</div>
-        <div className="question-cards">
-          <EasyCards />
-          <MediumCards />
-          <HardCards />
-        </div> */}
-
-        {/* <div className="">PROVINCIAL SENSATION</div>
-        <div className="question-cards">
-          <EasyCards />
-          <MediumCards />
-          <HardCards />
-        </div> */}
-
-        {/* <div className="">COUNTRY TALENT</div>
-        <div className="question-cards">
-          <EasyCards />
-          <MediumCards />
-          <HardCards />
-        </div> */}
+        <div
+          className="col-md-6"
+          style={{ flexWrap: 'nowrap', marginTop: '38px' }}
+        >
+          {questionState.map((question) => (
+            <QuestionDisplay quiz={question} />
+          ))}
+        </div>
       </div>
     </div>
   )
