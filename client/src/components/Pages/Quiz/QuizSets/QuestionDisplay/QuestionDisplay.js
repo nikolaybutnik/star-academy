@@ -4,6 +4,7 @@ import React, { useState, useEffect } from 'react'
 import './QuestionDisplay.css'
 import { useUser } from '../../../../../utils/UserContext'
 import checkLevelUp from '../../../../../utils/checkLevelUp'
+import updateUser from '../../../../../utils/updateUser'
 
 const nextQuestion = (event, index, setIndex) => {
   event.target.style.background = 'rgb(241 241 241)'
@@ -41,14 +42,7 @@ const QuestionDisplay = ({ questionState, setQuestionState }) => {
 
       // Pass the resulting user object through a function that checks if user has levelled up.
       setUser(checkLevelUp(updatedUser))
-      fetch('/edituser', {
-        method: 'PATCH',
-        body: JSON.stringify(updatedUser),
-        headers: {
-          Accept: 'application/json, text/plain, */*',
-          'Content-Type': 'application/json',
-        },
-      })
+      updatedUser(updatedUser)
     } else {
       // Visually notify user the answer is wrong
       event.target.style.background = '#e65f55'
@@ -62,14 +56,7 @@ const QuestionDisplay = ({ questionState, setQuestionState }) => {
         incorrect: user.incorrect + 1,
       }
       setUser(updatedUser)
-      fetch('/edituser', {
-        method: 'PATCH',
-        body: JSON.stringify(updatedUser),
-        headers: {
-          Accept: 'application/json, text/plain, */*',
-          'Content-Type': 'application/json',
-        },
-      })
+      updatedUser(updatedUser)
     }
   }
 
@@ -95,12 +82,6 @@ const QuestionDisplay = ({ questionState, setQuestionState }) => {
               style={{ backgroundColor: 'rgb(241 241 241)' }}
               onClick={(event) => checkAnswer(event)}
             >
-              {/* <button
-            onClick={(event) => checkAnswer(event)}
-            style={{ backgroundColor: 'rgb(241 241 241)' }}
-          >
-            {answers[0]}
-          </button> */}
               {currentQuestion.answers[0]}
             </li>
             <li
@@ -108,12 +89,6 @@ const QuestionDisplay = ({ questionState, setQuestionState }) => {
               style={{ backgroundColor: 'rgb(241 241 241)' }}
               onClick={(event) => checkAnswer(event)}
             >
-              {/* <button
-            onClick={(event) => checkAnswer(event)}
-            style={{ backgroundColor: 'rgb(241 241 241)' }}
-          >
-            {answers[1]}
-          </button> */}
               {currentQuestion.answers[1]}
             </li>
             <li
@@ -121,12 +96,6 @@ const QuestionDisplay = ({ questionState, setQuestionState }) => {
               style={{ backgroundColor: 'rgb(241 241 241)' }}
               onClick={(event) => checkAnswer(event)}
             >
-              {/* <button
-            onClick={(event) => checkAnswer(event)}
-            style={{ backgroundColor: 'rgb(241 241 241)' }}
-          >
-            {answers[2]}
-          </button> */}
               {currentQuestion.answers[2]}
             </li>
           </ul>

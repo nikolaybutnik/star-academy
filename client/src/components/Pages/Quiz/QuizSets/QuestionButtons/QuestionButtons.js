@@ -7,12 +7,13 @@ import eighthNoteIcon from '../../../../../Assets/redtriple.png'
 
 import { useUser } from '../../../../../utils/UserContext'
 import getQuestions from '../../../../../utils/getQuestions'
+import updateUser from '../../../../../utils/updateUser'
 
 const QuestionButtons = ({ setQuestionState }) => {
   const { user, setUser } = useUser()
 
   const handleGoToQuiz = (difficulty) => {
-    // On button click, deduct user energy
+    // On button click, deduct user energy, update + set user
     const updatedUser = {
       ...user,
       energy: {
@@ -20,14 +21,7 @@ const QuestionButtons = ({ setQuestionState }) => {
         timestamp: user.energy.timestamp,
       },
     }
-    fetch('/edituser', {
-      method: 'PATCH',
-      body: JSON.stringify(updatedUser),
-      headers: {
-        Accept: 'application/json, text/plain, */*',
-        'Content-Type': 'application/json',
-      },
-    })
+    updateUser(updatedUser)
     setUser(updatedUser)
 
     // Make a log of the user's attempt

@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from 'react'
 import useLocalStorageState from '../utils/useLocalStorageState'
 import { differenceInHours, differenceInMinutes } from 'date-fns'
+import updateUser from '../utils/updateUser'
 
 // Store token and user object
 const UserContext = React.createContext()
@@ -53,18 +54,21 @@ function UserProvider(props) {
               ...user,
               energy: { value: user.energy.value + 1, timestamp: new Date() },
             }
+            updateUser(user)
             setUser(user)
           } else if (difference >= 2 && difference < 3) {
             user = {
               ...user,
               energy: { value: user.energy.value + 2, timestamp: new Date() },
             }
+            updateUser(user)
             setUser(user)
           } else if (difference >= 3) {
             user = {
               ...user,
               energy: { value: user.energy.value + 3, timestamp: new Date() },
             }
+            updateUser(user)
             setUser(user)
           }
           if (user.energy.value > user.maxEnergy) {
@@ -72,6 +76,7 @@ function UserProvider(props) {
               ...user,
               energy: { value: user.maxEnergy, timestamp: new Date() },
             }
+            updateUser(user)
             setUser(user)
           }
         }
