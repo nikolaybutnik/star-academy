@@ -6,17 +6,7 @@ import halfNoteIcon from '../../../../../Assets/orangedouble.png'
 import eighthNoteIcon from '../../../../../Assets/redtriple.png'
 
 import { useUser } from '../../../../../utils/UserContext'
-
-import { beginnerEasyQuestions } from '../../../../../utils/QuestionSets/Beginner/beginnerEasyQ'
-import { beginnerMediumQuestions } from '../../../../../utils/QuestionSets/Beginner/beginnerMediumQ'
-import { beginnerHardQuestions } from '../../../../../utils/QuestionSets/Beginner/beginnerHardQ'
-import { buskerEasyQuestions } from '../../../../../utils/QuestionSets/Busker/buskerEasyQ'
-import { buskerMediumQuestions } from '../../../../../utils/QuestionSets/Busker/buskerMediumQ'
-import { buskerHardQuestions } from '../../../../../utils/QuestionSets/Busker/buskerHardQ'
-import { localTalentEasyQuestions } from '../../../../../utils/QuestionSets/LocalTalent/localTalentEasyQ'
-import { localTalentMediumQuestions } from '../../../../../utils/QuestionSets/LocalTalent/localTalentMediumQ'
-import { localTalentHardQuestions } from '../../../../../utils/QuestionSets/LocalTalent/localTalentHardQ'
-// import QuestionDisplay from '../QuestionDisplay/QuestionDisplay'
+import getQuestions from '../../../../../utils/getQuestions'
 
 const QuestionButtons = ({ setQuestionState }) => {
   const { user, setUser } = useUser()
@@ -37,106 +27,48 @@ const QuestionButtons = ({ setQuestionState }) => {
     })
     setUser(updatedUser)
 
-    // Choose the appropriate question set based on user level/class
-    let questionSet = []
-    switch (user.class) {
-      case 'Beginner':
-        questionSet = beginnerEasyQuestions
-        break
-      case 'Busker':
-        questionSet = buskerEasyQuestions
-        break
-      case 'Local Talent':
-        questionSet = localTalentEasyQuestions
-        break
-      default:
-        questionSet = localTalentEasyQuestions
-    }
-    // Make new questionb array and prevent duplicate questions
-    const newArr = []
-    while (newArr.length < 5) {
-      const randNum = Math.floor(Math.random() * questionSet.length)
-      const nextQuestion = questionSet[randNum]
-      if (
-        newArr
-          .map((q) => {
-            return q.id
-          })
-          .includes(nextQuestion.id)
-      ) {
-        continue
-      }
-      newArr.push(nextQuestion)
-    }
-    setQuestionState(newArr)
+    const questionsBasedOnUserLevel = getQuestions('easy', user)
+    setQuestionState(questionsBasedOnUserLevel)
   }
 
   const handleGoToQuizMedium = () => {
-    let questionSet = []
-    switch (user.class) {
-      case 'Beginner':
-        questionSet = beginnerMediumQuestions
-        break
-      case 'Busker':
-        questionSet = buskerMediumQuestions
-        break
-      case 'Local Talent':
-        questionSet = localTalentMediumQuestions
-        break
-      default:
-        questionSet = localTalentMediumQuestions
+    // On button click, deduct user energy
+    const updatedUser = {
+      ...user,
+      energy: user.energy - 0,
     }
-    // Make new questionb array and prevent duplicate questions
-    const newArr = []
-    while (newArr.length < 5) {
-      const randNum = Math.floor(Math.random() * questionSet.length)
-      const nextQuestion = questionSet[randNum]
-      if (
-        newArr
-          .map((q) => {
-            return q.id
-          })
-          .includes(nextQuestion.id)
-      ) {
-        continue
-      }
-      newArr.push(nextQuestion)
-    }
-    setQuestionState(newArr)
+    fetch('/edituser', {
+      method: 'PATCH',
+      body: JSON.stringify(updatedUser),
+      headers: {
+        Accept: 'application/json, text/plain, */*',
+        'Content-Type': 'application/json',
+      },
+    })
+    setUser(updatedUser)
+
+    const questionsBasedOnUserLevel = getQuestions('medium', user)
+    setQuestionState(questionsBasedOnUserLevel)
   }
 
   const handleGoToQuizHard = () => {
-    let questionSet = []
-    switch (user.class) {
-      case 'Beginner':
-        questionSet = beginnerHardQuestions
-        break
-      case 'Busker':
-        questionSet = buskerHardQuestions
-        break
-      case 'Local Talent':
-        questionSet = localTalentHardQuestions
-        break
-      default:
-        questionSet = localTalentHardQuestions
+    // On button click, deduct user energy
+    const updatedUser = {
+      ...user,
+      energy: user.energy - 0,
     }
-    // Make new questionb array and prevent duplicate questions
-    const newArr = []
-    while (newArr.length < 5) {
-      const randNum = Math.floor(Math.random() * questionSet.length)
-      const nextQuestion = questionSet[randNum]
-      if (
-        newArr
-          .map((q) => {
-            return q.id
-          })
-          .includes(nextQuestion.id)
-      ) {
-        continue
-      }
-      newArr.push(nextQuestion)
-    }
-    setQuestionState(newArr)
+    fetch('/edituser', {
+      method: 'PATCH',
+      body: JSON.stringify(updatedUser),
+      headers: {
+        Accept: 'application/json, text/plain, */*',
+        'Content-Type': 'application/json',
+      },
+    })
+    setUser(updatedUser)
+
+    const questionsBasedOnUserLevel = getQuestions('hard', user)
+    setQuestionState(questionsBasedOnUserLevel)
   }
 
   return (
