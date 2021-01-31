@@ -15,7 +15,7 @@ const QuestionButtons = ({ setQuestionState }) => {
   const handleGoToQuiz = (difficulty) => {
     // On button click, deduct user energy, update + set user
     let updatedUser
-    if (user.energy.value === user.maxEnery) {
+    if (user.energy.value === user.maxEnergy) {
       updatedUser = {
         ...user,
         energy: {

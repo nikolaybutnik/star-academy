@@ -11,7 +11,6 @@ const Calendar = () => {
 
   useEffect(() => {
     // STREAKS
-    // On page render, fetch an array of all user login instances.
     // fetch(`/getlog/${user._id}`, {
     //   method: 'GET',
     //   headers: {
@@ -20,8 +19,11 @@ const Calendar = () => {
     //   },
     // })
     //   .then((res) => res.json())
-    //   .then((data) => setUserLogs(data.data))
+    //   .then((data) => {
+    //     setUserLogs(data.data)
+    //   })
   }, [])
+  // console.log(userLogs)
 
   // // Make a new array of objects with time of log in
   // const logsArr = userLogs.map((log) => {

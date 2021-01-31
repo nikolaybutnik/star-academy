@@ -1,6 +1,7 @@
 /* eslint-disable no-unused-vars */
 import { useUser } from '../../utils/UserContext'
 import updateUser from '../../utils/updateUser'
+import checkLevelUp from '../../utils/checkLevelUp'
 
 const ListItems = (props) => {
   const { user, setUser } = useUser()
@@ -31,9 +32,14 @@ const ListItems = (props) => {
           return task
         }
       })
-      const updatedUser = { ...user, tasks: updatedTasksArray }
+      const updatedUser = {
+        ...user,
+        tasks: updatedTasksArray,
+        experience: user.experience + 1,
+        totalExperience: user.totalExperience + 1,
+      }
+      setUser(checkLevelUp(updatedUser))
       updateUser(updatedUser)
-      setUser(updatedUser)
     }
   }
 
