@@ -1,3 +1,11 @@
+/* Lock Icon */
+.lock-icon {
+  opacity: 50%;
+  height: 50px;
+  margin: 20px;
+}
+
+/*  */
 #EasyQuestions {
   flex-direction: row;
 }
@@ -7,6 +15,17 @@
     flex-direction: column;
   }
 }
+
+.card.questions.easy-lock-card {
+  background-color: rgb(209 219 209);
+  border-color: rgb(3 184 3);
+  border-width: 3px;
+  margin: 10px;
+  margin-right: 0px;
+  margin-left: 0px;
+  cursor:no-drop;
+}
+
 /*  */
 #MediumQuestions {
   flex-direction: row;
@@ -17,6 +36,17 @@
     flex-direction: column;
   }
 }
+
+.card.questions.medium-lock-card {
+  background-color: rgb(227 218 199);
+  border-color: orange;
+  border-width: 3px;
+  margin: 10px;
+  margin-right: 0px;
+  margin-left: 0px;
+  cursor:no-drop;
+}
+
 /*  */
 #HardQuestions {
   flex-direction: row;
@@ -26,4 +56,14 @@
   #HardQuestions {
     flex-direction: column;
   }
+}
+
+.card.questions.hard-lock-card {
+  background-color: rgb(217 204 204);
+  border-color: #e90202;
+  border-width: 3px;
+  margin: 10px;
+  margin-right: 0px;
+  margin-left: 0px;
+  cursor:no-drop;
 }

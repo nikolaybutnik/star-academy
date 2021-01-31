@@ -64,7 +64,7 @@ const QuestionButtons = ({ setQuestionState }) => {
             style={{ height: '50px', margin: '10px' }}
           />
         </div>
-        <h5 className="card-title col-md-12">EASY</h5>
+        <h5 className="card-title col-md-12">EASY (+1 Fans)</h5>
       </button>
 
       <button
@@ -84,7 +84,7 @@ const QuestionButtons = ({ setQuestionState }) => {
             style={{ height: '50px', margin: '10px' }}
           />
         </div>
-        <h5 className="card-title col-md-12">MEDIUM</h5>
+        <h5 className="card-title col-md-12">MEDIUM (+2 Fans)</h5>
       </button>
 
       <button
@@ -107,7 +107,7 @@ const QuestionButtons = ({ setQuestionState }) => {
             style={{ height: '50px', margin: '10px' }}
           />
         </div>
-        <h5 className="card-title col-md-12">HARD</h5>
+        <h5 className="card-title col-md-12">HARD (+3 Fans)</h5>
       </button>
     </>
   )
