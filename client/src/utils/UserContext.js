@@ -2,7 +2,7 @@
 /* eslint-disable no-unused-vars */
 import React, { useState, useEffect } from 'react'
 import useLocalStorageState from '../utils/useLocalStorageState'
-import { isToday, differenceInMinutes } from 'date-fns'
+import { isToday, isYesterday, differenceInMinutes } from 'date-fns'
 import updateUser from '../utils/updateUser'
 
 // Store token and user object
@@ -35,7 +35,6 @@ function UserProvider(props) {
         let user = data.data
 
         // Check if the day has advanced and personal goals need to be unchecked.
-        // Must be performed before logging the current log in event.
         fetch(`/getlog/${user._id}`, {
           method: 'GET',
           headers: {
@@ -45,18 +44,21 @@ function UserProvider(props) {
         })
           .then((res) => res.json())
           .then((data) => {
-            const lastActivity = Date.parse(data.data[data.data.length - 1].log)
-            console.log(data.data[data.data.length - 1].log)
-            if (!isToday(lastActivity)) {
-              const resetTasks = user.tasks.map((task) => {
-                return {
-                  task: task.task,
-                  checked: false,
-                }
-              })
-              user = { ...user, tasks: resetTasks }
-              updateUser(user)
-              setUser(user)
+            if (data.data.length >= 2) {
+              const lastActivity = Date.parse(
+                data.data[data.data.length - 2].log
+              )
+              if (!isToday(lastActivity)) {
+                const resetTasks = user.tasks.map((task) => {
+                  return {
+                    task: task.task,
+                    checked: false,
+                  }
+                })
+                user = { ...user, tasks: resetTasks }
+                updateUser(user)
+                setUser(user)
+              }
             }
           })
 
