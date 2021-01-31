@@ -12,7 +12,8 @@ const ToDoList = () => {
   const handleNewTask = (event) => {
     event.preventDefault()
     if (inputRef) {
-      const newTasks = [...tasks, inputRef.current.value]
+      const newTask = { task: inputRef.current.value, checked: false }
+      const newTasks = [...tasks, newTask]
       const updatedUser = { ...user, tasks: newTasks }
       updateUser(updatedUser)
       setUser(updatedUser)

@@ -7,7 +7,9 @@ const ListItems = (props) => {
   const handleRemoveListItem = (event) => {
     const taskToDelete = event.target.parentNode.parentNode.textContent
     const tasksArray = user.tasks
-    const filteredTasks = tasksArray.filter((task) => task !== taskToDelete)
+    const filteredTasks = tasksArray.filter(
+      (task) => task.task !== taskToDelete
+    )
     const updatedUser = { ...user, tasks: filteredTasks }
     updateUser(updatedUser)
     setUser(updatedUser)
@@ -15,7 +17,7 @@ const ListItems = (props) => {
 
   return (
     <li onClick={(ev) => ev.target.classList.toggle('checked')}>
-      {props.item}
+      {props.item.task}
       <button
         style={{ float: 'right' }}
         onClick={(event) => handleRemoveListItem(event)}
