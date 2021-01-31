@@ -14,12 +14,23 @@ const QuestionButtons = ({ setQuestionState }) => {
 
   const handleGoToQuiz = (difficulty) => {
     // On button click, deduct user energy, update + set user
-    const updatedUser = {
-      ...user,
-      energy: {
-        value: user.energy.value - 1,
-        timestamp: user.energy.timestamp,
-      },
+    let updatedUser
+    if (user.energy.value === user.maxEnery) {
+      updatedUser = {
+        ...user,
+        energy: {
+          value: user.energy.value - 1,
+          timestamp: new Date(),
+        },
+      }
+    } else {
+      updatedUser = {
+        ...user,
+        energy: {
+          value: user.energy.value - 1,
+          timestamp: user.energy.timestamp,
+        },
+      }
     }
     updateUser(updatedUser)
     setUser(updatedUser)
