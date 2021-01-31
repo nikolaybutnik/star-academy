@@ -44,11 +44,7 @@ function UserProvider(props) {
         })
           .then((res) => res.json())
           .then((data) => {
-            // console.log(isToday(data.data[data.data.length - 1].log))
-            // console.log(isToday(new Date()))
-            // console.log(data.data.length > 1)
-            // Get the log in event before the current one.
-            if (data.data.length > 2) {
+            if (data.data.length >= 2) {
               const lastActivity = Date.parse(
                 data.data[data.data.length - 2].log
               )
