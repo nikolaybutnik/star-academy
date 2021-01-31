@@ -33,7 +33,34 @@ function UserProvider(props) {
       .then((res) => res.json())
       .then((data) => {
         let user = data.data
-        // Make a request to server to log the user log in event.
+
+        // Check if the day has advanced and personal goals need to be unchecked.
+        // Must be performed before logging the current log in event.
+        fetch(`/getlog/${user._id}`, {
+          method: 'GET',
+          headers: {
+            Accept: 'application/json, text/plain, */*',
+            'Content-Type': 'application/json',
+          },
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            const lastActivity = Date.parse(data.data[data.data.length - 1].log)
+            console.log(data.data[data.data.length - 1].log)
+            if (!isToday(lastActivity)) {
+              const resetTasks = user.tasks.map((task) => {
+                return {
+                  task: task.task,
+                  checked: false,
+                }
+              })
+              user = { ...user, tasks: resetTasks }
+              updateUser(user)
+              setUser(user)
+            }
+          })
+
+        // Log the current log in event.
         const newLog = { userId: user._id, log: new Date() }
         fetch('/log', {
           method: 'POST',
@@ -43,6 +70,7 @@ function UserProvider(props) {
             'Content-Type': 'application/json',
           },
         })
+
         setUser(user)
         // Check if user's energy needs to be topped up since last time.
         if (user.energy.value < user.maxEnergy) {
@@ -81,31 +109,6 @@ function UserProvider(props) {
             setUser(user)
           }
         }
-
-        // Check if the day has advanced and personal goals need to be unchecked.
-        fetch(`/getlog/${user._id}`, {
-          method: 'GET',
-          headers: {
-            Accept: 'application/json, text/plain, */*',
-            'Content-Type': 'application/json',
-          },
-        })
-          .then((res) => res.json())
-          .then((data) => {
-            const lastActivity = Date.parse(data.data[data.data.length - 1].log)
-            console.log(data.data[data.data.length - 1].log)
-            if (!isToday(lastActivity)) {
-              const resetTasks = user.tasks.map((task) => {
-                return {
-                  task: task.task,
-                  checked: false,
-                }
-              })
-              user = { ...user, tasks: resetTasks }
-              updateUser(user)
-              setUser(user)
-            }
-          })
       })
   }
   return (
