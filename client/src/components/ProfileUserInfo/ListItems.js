@@ -17,20 +17,24 @@ const ListItems = (props) => {
   }
 
   const handleCheckTask = (event) => {
-    const tasksArray = user.tasks
-    const updatedTasksArray = tasksArray.map((task) => {
-      if (task.task === event.target.textContent) {
-        return {
-          task: event.target.textContent,
-          checked: !task.checked,
+    // Allow item to get checked off, but prevent it from getting unchecked.
+    // Checked values will be reset on user login if the day has advanced.
+    if (event.target.className === '') {
+      const tasksArray = user.tasks
+      const updatedTasksArray = tasksArray.map((task) => {
+        if (task.task === event.target.textContent) {
+          return {
+            task: event.target.textContent,
+            checked: !task.checked,
+          }
+        } else {
+          return task
         }
-      } else {
-        return task
-      }
-    })
-    const updatedUser = { ...user, tasks: updatedTasksArray }
-    updateUser(updatedUser)
-    setUser(updatedUser)
+      })
+      const updatedUser = { ...user, tasks: updatedTasksArray }
+      updateUser(updatedUser)
+      setUser(updatedUser)
+    }
   }
 
   /* <li onClick={(ev) => ev.target.classList.toggle('checked')}></li> */
