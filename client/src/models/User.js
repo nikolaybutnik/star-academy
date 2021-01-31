@@ -45,7 +45,12 @@ const userSchema = new Schema({
     type: String,
   },
   energy: {
-    type: Number,
+    value: {
+      type: Number,
+    },
+    timestamp: {
+      type: Date,
+    },
   },
   maxEnergy: {
     type: Number,

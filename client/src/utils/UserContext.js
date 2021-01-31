@@ -1,6 +1,9 @@
+/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable no-unused-vars */
 import React, { useState, useEffect } from 'react'
 import useLocalStorageState from '../utils/useLocalStorageState'
+import { isToday, differenceInMinutes } from 'date-fns'
+import updateUser from '../utils/updateUser'
 
 // Store token and user object
 const UserContext = React.createContext()
@@ -29,8 +32,35 @@ function UserProvider(props) {
     })
       .then((res) => res.json())
       .then((data) => {
-        const user = data.data
-        // Make a request to server to log the user log in event.
+        let user = data.data
+
+        // Check if the day has advanced and personal goals need to be unchecked.
+        // Must be performed before logging the current log in event.
+        fetch(`/getlog/${user._id}`, {
+          method: 'GET',
+          headers: {
+            Accept: 'application/json, text/plain, */*',
+            'Content-Type': 'application/json',
+          },
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            const lastActivity = Date.parse(data.data[data.data.length - 1].log)
+            console.log(data.data[data.data.length - 1].log)
+            if (!isToday(lastActivity)) {
+              const resetTasks = user.tasks.map((task) => {
+                return {
+                  task: task.task,
+                  checked: false,
+                }
+              })
+              user = { ...user, tasks: resetTasks }
+              updateUser(user)
+              setUser(user)
+            }
+          })
+
+        // Log the current log in event.
         const newLog = { userId: user._id, log: new Date() }
         fetch('/log', {
           method: 'POST',
@@ -40,7 +70,45 @@ function UserProvider(props) {
             'Content-Type': 'application/json',
           },
         })
+
         setUser(user)
+        // Check if user's energy needs to be topped up since last time.
+        if (user.energy.value < user.maxEnergy) {
+          const now = Date.parse(new Date())
+          const timestamp = Date.parse(user.energy.timestamp)
+          const difference = differenceInMinutes(now, timestamp)
+          console.log(difference)
+          if (difference >= 1 && difference < 2) {
+            user = {
+              ...user,
+              energy: { value: user.energy.value + 1, timestamp: new Date() },
+            }
+            updateUser(user)
+            setUser(user)
+          } else if (difference >= 2 && difference < 3) {
+            user = {
+              ...user,
+              energy: { value: user.energy.value + 2, timestamp: new Date() },
+            }
+            updateUser(user)
+            setUser(user)
+          } else if (difference >= 3) {
+            user = {
+              ...user,
+              energy: { value: user.energy.value + 3, timestamp: new Date() },
+            }
+            updateUser(user)
+            setUser(user)
+          }
+          if (user.energy.value > user.maxEnergy) {
+            user = {
+              ...user,
+              energy: { value: user.maxEnergy, timestamp: new Date() },
+            }
+            updateUser(user)
+            setUser(user)
+          }
+        }
       })
   }
   return (

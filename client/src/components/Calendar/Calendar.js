@@ -10,35 +10,38 @@ const Calendar = () => {
   const [userLogs, setUserLogs] = useState([])
 
   useEffect(() => {
-    // On page render, fetch an array of all user login instances.
-    fetch(`/getlog/${user._id}`, {
-      method: 'GET',
-      headers: {
-        Accept: 'application/json, text/plain, */*',
-        'Content-Type': 'application/json',
-      },
-    })
-      .then((res) => res.json())
-      .then((data) => setUserLogs(data.data))
+    // STREAKS
+    // fetch(`/getlog/${user._id}`, {
+    //   method: 'GET',
+    //   headers: {
+    //     Accept: 'application/json, text/plain, */*',
+    //     'Content-Type': 'application/json',
+    //   },
+    // })
+    //   .then((res) => res.json())
+    //   .then((data) => {
+    //     setUserLogs(data.data)
+    //   })
   }, [])
+  // console.log(userLogs)
 
-  // Make a new array of objects with time of log in
-  const logsArr = userLogs.map((log) => {
-    return {
-      day: new Date(Date.parse(log.log)).getDay(),
-      month: new Date(Date.parse(log.log)).getMonth(),
-      date: new Date(Date.parse(log.log)).getDate(),
-      year: new Date(Date.parse(log.log)).getYear(),
-    }
-  })
-  // Remove all duplicates from the above arr. leaving only uniquw dates.
-  const uniqueEntries = Array.from(new Set(logsArr.map((a) => a.id))).map(
-    (id) => {
-      return logsArr.find((a) => a.id === id)
-    }
-  )
-  console.log(logsArr)
-  console.log(uniqueEntries)
+  // // Make a new array of objects with time of log in
+  // const logsArr = userLogs.map((log) => {
+  //   return {
+  //     day: new Date(Date.parse(log.log)).getDay(),
+  //     month: new Date(Date.parse(log.log)).getMonth(),
+  //     date: new Date(Date.parse(log.log)).getDate(),
+  //     year: new Date(Date.parse(log.log)).getYear(),
+  //   }
+  // })
+  // // Remove all duplicates from the above arr. leaving only uniquw dates.
+  // const uniqueEntries = Array.from(new Set(logsArr.map((a) => a.id))).map(
+  //   (id) => {
+  //     return logsArr.find((a) => a.id === id)
+  //   }
+  // )
+  // console.log(logsArr)
+  // console.log(uniqueEntries)
 
   const today = new Date()
   const oneDayAgo = new Date()

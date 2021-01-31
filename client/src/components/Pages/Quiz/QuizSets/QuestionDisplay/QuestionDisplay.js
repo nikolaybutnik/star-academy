@@ -4,6 +4,7 @@ import React, { useState, useEffect } from 'react'
 import './QuestionDisplay.css'
 import { useUser } from '../../../../../utils/UserContext'
 import checkLevelUp from '../../../../../utils/checkLevelUp'
+import updateUser from '../../../../../utils/updateUser'
 
 const nextQuestion = (event, index, setIndex) => {
   event.target.style.background = 'rgb(241 241 241)'
@@ -41,14 +42,7 @@ const QuestionDisplay = ({ questionState, setQuestionState }) => {
 
       // Pass the resulting user object through a function that checks if user has levelled up.
       setUser(checkLevelUp(updatedUser))
-      fetch('/edituser', {
-        method: 'PATCH',
-        body: JSON.stringify(updatedUser),
-        headers: {
-          Accept: 'application/json, text/plain, */*',
-          'Content-Type': 'application/json',
-        },
-      })
+      updateUser(updatedUser)
     } else {
       // Visually notify user the answer is wrong
       event.target.style.background = '#e65f55'
@@ -62,14 +56,7 @@ const QuestionDisplay = ({ questionState, setQuestionState }) => {
         incorrect: user.incorrect + 1,
       }
       setUser(updatedUser)
-      fetch('/edituser', {
-        method: 'PATCH',
-        body: JSON.stringify(updatedUser),
-        headers: {
-          Accept: 'application/json, text/plain, */*',
-          'Content-Type': 'application/json',
-        },
-      })
+      updateUser(updatedUser)
     }
   }
 

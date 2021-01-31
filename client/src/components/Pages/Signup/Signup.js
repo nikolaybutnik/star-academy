@@ -18,40 +18,46 @@ function Signup() {
   const [email, setEmail] = useState('')
   const [username, setUsername] = useState('')
   const [password, setPassword] = useState('')
-  const [, setConfirmPassword] = useState('')
+  const [confirmPassword, setConfirmPassword] = useState('')
 
   const handleNewUser = (event) => {
-    // ADD LOGIC TO MAKE SURE PASSWORD AND CONFIRMATION MATCH
     event.preventDefault()
-    const newUser = {
-      email: email,
-      username: username,
-      password: password,
-      level: 1,
-      experience: 0,
-      experienceToNextLevel: 15,
-      totalExperience: 0,
-      correct: 0,
-      incorrect: 0,
-      class: 'Beginner',
-      energy: 3,
-      maxEnergy: 3,
-      tasks: [],
-      answered: [],
+    if (password === confirmPassword) {
+      const newUser = {
+        email: email,
+        username: username,
+        password: password,
+        level: 1,
+        experience: 0,
+        experienceToNextLevel: 15,
+        totalExperience: 0,
+        correct: 0,
+        incorrect: 0,
+        class: 'Beginner',
+        energy: { value: 3, timestamp: new Date() },
+        maxEnergy: 3,
+        tasks: [],
+        answered: [],
+      }
+
+      fetch('/auth/users', {
+        method: 'POST',
+        body: JSON.stringify(newUser),
+        headers: {
+          Accept: 'application/json, text/plain, */*',
+          'Content-Type': 'application/json',
+        },
+      })
+      setEmail('')
+      setUsername('')
+      setPassword('')
+      setConfirmPassword('')
+      history.push('/')
+    } else {
+      console.log("Passwords don't match.")
+      newPasswordRef.current.value = ''
+      confirmNewPasswrdRef.current.value = ''
     }
-    fetch('/auth/users', {
-      method: 'POST',
-      body: JSON.stringify(newUser),
-      headers: {
-        Accept: 'application/json, text/plain, */*',
-        'Content-Type': 'application/json',
-      },
-    })
-    setEmail('')
-    setUsername('')
-    setPassword('')
-    setConfirmPassword('')
-    history.push('/')
   }
 
   return (
@@ -110,7 +116,7 @@ function Signup() {
               className="form-control"
               id="confirmNewPassword"
               placeholder="Confirm password"
-              // onChange={(event) => setConfirmPassword(event.target.value)}
+              onChange={(event) => setConfirmPassword(event.target.value)}
               ref={confirmNewPasswrdRef}
             ></input>
           </div>

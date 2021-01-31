@@ -5,7 +5,6 @@ const app = express()
 const mongoose = require('mongoose')
 const User = require('./client/src/models/User')
 const Log = require('./client/src/models/Log')
-// const jwt = require('jsonwebtoken')
 const bcrypt = require('bcrypt')
 const saltRounds = 14
 const authorize = require('./client/src/middleware/auth')
@@ -115,11 +114,6 @@ app.get('/auth/users/me', authorize, async (req, res) => {
   // console.log(user)
   res.send({ data: user })
 })
-
-// Create an API route that gets a user by id if a user is currently logged in.
-// app.get('/auth/users/loggedin', (req, res) => {
-//   console.log(req)
-// })
 
 // This route will be used to update the user object
 app.patch('/edituser', async (req, res) => {
