@@ -7,24 +7,32 @@ import eighthNoteIcon from '../../../../../Assets/redtriple.png'
 
 import { useUser } from '../../../../../utils/UserContext'
 import getQuestions from '../../../../../utils/getQuestions'
+import updateUser from '../../../../../utils/updateUser'
 
 const QuestionButtons = ({ setQuestionState }) => {
   const { user, setUser } = useUser()
 
   const handleGoToQuiz = (difficulty) => {
-    // On button click, deduct user energy
-    const updatedUser = {
-      ...user,
-      energy: user.energy - 0,
+    // On button click, deduct user energy, update + set user
+    let updatedUser
+    if (user.energy.value === user.maxEnergy) {
+      updatedUser = {
+        ...user,
+        energy: {
+          value: user.energy.value - 1,
+          timestamp: new Date(),
+        },
+      }
+    } else {
+      updatedUser = {
+        ...user,
+        energy: {
+          value: user.energy.value - 1,
+          timestamp: user.energy.timestamp,
+        },
+      }
     }
-    fetch('/edituser', {
-      method: 'PATCH',
-      body: JSON.stringify(updatedUser),
-      headers: {
-        Accept: 'application/json, text/plain, */*',
-        'Content-Type': 'application/json',
-      },
-    })
+    updateUser(updatedUser)
     setUser(updatedUser)
 
     // Select the correct questions based on user level/class

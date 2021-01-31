@@ -66,7 +66,7 @@ function ProfileHeader() {
                       color: '#42bffb',
                     }}
                   >
-                    {user ? user.energy + '/' + user.maxEnergy : null}
+                    {user ? user.energy.value + '/' + user.maxEnergy : null}
                   </span>
                   <h9
                     className="energy-title"
