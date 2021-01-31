@@ -12,7 +12,7 @@ const ProfileUserInfo = () => {
   return (
     // check if user id exists in context. if not, get id from local storage and fetch.
     // if none exists, redirect to login page.
-    <div className="row col-md-12" style={{ marginTop: '70px' }}>
+    <div className="row col-md-12" style={{ marginTop: '40px' }}>
       <div className="col-md-5">
         <div className="row" style={{ justifyContent: 'center' }}>
           <h3
@@ -27,7 +27,7 @@ const ProfileUserInfo = () => {
             style={{
               height: '25px',
               width: '25px',
-              backgroundColor: 'rgb(0 156 92)',
+              backgroundColor: 'rgb(74 198 147)',
               borderRadius: '50%',
               display: 'inline-block',
               margin: '5px',
@@ -41,7 +41,7 @@ const ProfileUserInfo = () => {
             style={{
               height: '25px',
               width: '25px',
-              backgroundColor: '#ff5061',
+              backgroundColor: 'rgb(252 105 120)',
               borderRadius: '50%',
               display: 'inline-block',
               margin: '5px',
@@ -57,9 +57,13 @@ const ProfileUserInfo = () => {
               title: 'Right answers',
               value:
                 user.correct === 0 && user.incorrect === 0 ? 1 : user.correct,
-              color: 'rgb(0 156 92)',
+              color: 'rgb(74 198 147)',
             },
-            { title: 'Wrong answers', value: user.incorrect, color: '#ff5061' },
+            {
+              title: 'Wrong answers',
+              value: user.incorrect,
+              color: 'rgb(252 105 120)',
+            },
           ]}
           style={{ height: 'auto', maxHeight: '250px', margin: '20px' }}
         />

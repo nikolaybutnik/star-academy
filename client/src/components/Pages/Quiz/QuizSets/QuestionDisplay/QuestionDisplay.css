@@ -10,5 +10,6 @@
 }
 
 .list-group-item.question-list:hover {
-  background-color: rgb(226 225 225);
+  border: black normal solid;
+  border-color: rgb(0, 0, 0);
 }

@@ -47,7 +47,7 @@ const ToDoList = () => {
             placeholder="Title..."
             style={{ padding: '9px' }}
           />
-          <button>Add</button>
+          <button className="addBtn">Add</button>
         </form>
       </div>
 

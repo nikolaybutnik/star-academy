@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
 import React from 'react'
 import './QuestionButtonsLocked.css'
-import lockIcon from '../../../../../Assets/lock-icon.png'
+
 import lockIconGreen from '../../../../../Assets/lock-icon-green.png'
 import lockIconOrange from '../../../../../Assets/lock-icon-orange.png'
 import lockIconRed from '../../../../../Assets/lock-icon-red.png'
