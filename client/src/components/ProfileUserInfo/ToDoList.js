@@ -12,7 +12,10 @@ const ToDoList = () => {
   const handleNewTask = (event) => {
     event.preventDefault()
     if (inputRef) {
-      const newTask = { task: inputRef.current.value, checked: false }
+      const newTask = {
+        task: inputRef.current.value,
+        checked: false,
+      }
       const newTasks = [...tasks, newTask]
       const updatedUser = { ...user, tasks: newTasks }
       updateUser(updatedUser)
@@ -50,7 +53,11 @@ const ToDoList = () => {
 
       <ul id="myUL">
         {tasks.map((toDoItem) => {
-          return <ListItem item={toDoItem} />
+          return toDoItem.checked ? (
+            <ListItem item={toDoItem} checked={true} />
+          ) : (
+            <ListItem item={toDoItem} checked={false} />
+          )
         })}
       </ul>
     </div>

@@ -4,6 +4,7 @@ import updateUser from '../../utils/updateUser'
 
 const ListItems = (props) => {
   const { user, setUser } = useUser()
+
   const handleRemoveListItem = (event) => {
     const taskToDelete = event.target.parentNode.parentNode.textContent
     const tasksArray = user.tasks
@@ -15,8 +16,29 @@ const ListItems = (props) => {
     setUser(updatedUser)
   }
 
+  const handleCheckTask = (event) => {
+    const tasksArray = user.tasks
+    const updatedTasksArray = tasksArray.map((task) => {
+      if (task.task === event.target.textContent) {
+        return {
+          task: event.target.textContent,
+          checked: !task.checked,
+        }
+      } else {
+        return task
+      }
+    })
+    const updatedUser = { ...user, tasks: updatedTasksArray }
+    updateUser(updatedUser)
+    setUser(updatedUser)
+  }
+
+  /* <li onClick={(ev) => ev.target.classList.toggle('checked')}></li> */
   return (
-    <li onClick={(ev) => ev.target.classList.toggle('checked')}>
+    <li
+      className={props.checked ? 'checked' : ''}
+      onClick={(event) => handleCheckTask(event)}
+    >
       {props.item.task}
       <button
         style={{ float: 'right' }}
