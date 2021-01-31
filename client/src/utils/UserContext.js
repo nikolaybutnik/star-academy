@@ -45,25 +45,22 @@ function UserProvider(props) {
         })
           .then((res) => res.json())
           .then((data) => {
-            ///////////////////////////////////////////////////////////////////
-            ///////////////////////////////////////////////////////////////////
-            ///////////////////////////////////////////////////////////////////
-            // PUT IN A GUARD FOR FIRST TIME LOG-INS THAT HAVE NO USER ACTIVITY.
-            ///////////////////////////////////////////////////////////////////
-            ///////////////////////////////////////////////////////////////////
-            ///////////////////////////////////////////////////////////////////
-            const lastActivity = Date.parse(data.data[data.data.length - 1].log)
-            console.log(data.data[data.data.length - 1].log)
-            if (!isToday(lastActivity)) {
-              const resetTasks = user.tasks.map((task) => {
-                return {
-                  task: task.task,
-                  checked: false,
-                }
-              })
-              user = { ...user, tasks: resetTasks }
-              updateUser(user)
-              setUser(user)
+            if (data.data > 1) {
+              const lastActivity = Date.parse(
+                data.data[data.data.length - 1].log
+              )
+              console.log(data.data[data.data.length - 1].log)
+              if (!isToday(lastActivity)) {
+                const resetTasks = user.tasks.map((task) => {
+                  return {
+                    task: task.task,
+                    checked: false,
+                  }
+                })
+                user = { ...user, tasks: resetTasks }
+                updateUser(user)
+                setUser(user)
+              }
             }
           })
 
