@@ -6,8 +6,6 @@ import home from '../../Assets/home.png'
 import { useUser } from '../../utils/UserContext'
 import energyIcon from '../../Assets/bolt-128.png'
 
-// import logoutIcon from '../../Assets/toppng.com-logout-icon-png-transparent-login-logout-icon-1653x1637.png'
-
 function QuizHeader() {
   // Currently logged in user
   const { user, logout } = useUser()
@@ -16,7 +14,6 @@ function QuizHeader() {
 
   return (
     <div className="homepage-header">
-      {/* Header */}
       <div
         className="col-md-12"
         style={{ paddingRight: '0px', paddingLeft: '0px' }}
@@ -26,18 +23,7 @@ function QuizHeader() {
             <div className="row">
               <div className="col-md-6">
                 <Link to="/userprofile">
-                  <button
-                    className="user-home-btn btn-gradient"
-                    href=""
-                    style={{
-                      height: '50px',
-                      width: '100%',
-                      marginTop: '10px',
-                      backgroundColor: 'rgb(233 233 233)',
-                      justifyContent: 'center',
-                      padding: '0px',
-                    }}
-                  >
+                  <button className="user-home-btn btn-gradient" href="">
                     <img
                       src={home}
                       alt="home icon"
@@ -51,32 +37,11 @@ function QuizHeader() {
               </div>
               <div className="col-md-6" style={{ flexWrap: 'nowrap' }}>
                 <div className="row" style={{ flexWrap: 'nowrap' }}>
-                  <img
-                    src={energyIcon}
-                    alt="logo"
-                    style={{
-                      height: '30px',
-                      marginTop: '18px',
-                      marginBottom: '18px',
-                      paddingLeft: '5px',
-                    }}
-                  />
-                  <span
-                    style={{
-                      marginLeft: '0px',
-                      marginRight: '5px',
-                      marginTop: '20px',
-                      color: '#42bffb',
-                    }}
-                  >
+                  <img className="energy-icon" src={energyIcon} alt="logo" />
+                  <span className="energy-section">
                     {user ? user.energy.value + '/' + user.maxEnergy : null}
                   </span>
-                  <h9
-                    className="energy-title"
-                    style={{ fontSize: '15px', marginTop: '20px' }}
-                  >
-                    ENERGY
-                  </h9>
+                  <h9 className="energy-title">ENERGY</h9>
                 </div>
               </div>
             </div>
@@ -91,28 +56,14 @@ function QuizHeader() {
           </div>
           <div className="col-md-3">
             <button
-              className="col btn-gradient"
-              style={{
-                height: '50px',
-                maxWidth: '150px',
-                margin: '5px',
-                marginTop: '10px',
-                backgroundColor: 'rgb(233 233 233)',
-                color: 'black',
-                float: 'right',
-              }}
+              className="col btn-gradient logout-btn"
+              style={{}}
               onClick={logout}
             >
               LOGOUT
             </button>
           </div>
         </div>
-        {/*  */}
-
-        {/* <h4 style={{ paddingRight: '0px' }} className="xp-progressbar">
-          Lv {user.level}: {user.class} {user.username}
-        </h4> */}
-        {/* Progress Bar */}
         <ProgressBar
           className="user-main-progressbar"
           animated
@@ -122,7 +73,6 @@ function QuizHeader() {
           } fans until next level`}
           style={{ height: '2rem' }}
         />
-        {/*  */}
       </div>
     </div>
   )
