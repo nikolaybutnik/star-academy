@@ -33,17 +33,7 @@ const UserProfile = () => {
           <div className="col-md-8" style={{ padding: '0px' }}>
             <ProfileUserInfo />
             <HomePageButtons />
-            <Container
-              style={{
-                width: '100%',
-                paddingRight: '0px',
-                paddingLeft: '0px',
-                marginRight: 'auto',
-                marginLeft: 'auto',
-                float: 'right',
-              }}
-              className="col-md-11"
-            >
+            <Container className="calendar-container col-md-11">
               <Calendar />
             </Container>
           </div>

@@ -48,32 +48,11 @@ function ProfileHeader() {
               </div>
               <div className="col-md-6" style={{ flexWrap: 'nowrap' }}>
                 <div className="row" style={{ flexWrap: 'nowrap' }}>
-                  <img
-                    src={energyIcon}
-                    alt="logo"
-                    style={{
-                      height: '30px',
-                      marginTop: '18px',
-                      marginBottom: '18px',
-                      paddingLeft: '5px',
-                    }}
-                  />
-                  <span
-                    style={{
-                      marginLeft: '0px',
-                      marginRight: '5px',
-                      marginTop: '20px',
-                      color: '#42bffb',
-                    }}
-                  >
+                  <img className="energy-icon" src={energyIcon} alt="logo" />
+                  <span className="energy-section">
                     {user ? user.energy + '/' + user.maxEnergy : null}
                   </span>
-                  <h9
-                    className="energy-title"
-                    style={{ fontSize: '15px', marginTop: '20px' }}
-                  >
-                    ENERGY
-                  </h9>
+                  <h9 className="energy-title">ENERGY</h9>
                 </div>
               </div>
             </div>
@@ -87,18 +66,7 @@ function ProfileHeader() {
             </h3>
           </div>
           <div className="col-md-3">
-            <button
-              className="col btn-gradient"
-              style={{
-                height: '50px',
-                maxWidth: '150px',
-                marginTop: '10px',
-                backgroundColor: 'rgb(233 233 233)',
-                color: 'black',
-                float: 'right',
-              }}
-              onClick={logout}
-            >
+            <button className="col btn-gradient logout-btn" onClick={logout}>
               LOGOUT
             </button>
           </div>
