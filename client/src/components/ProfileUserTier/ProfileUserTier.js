@@ -30,7 +30,7 @@ const ProfileUserTier = () => {
       imageSource = countryIconIcon
       break
     default:
-      imageSource = localTalentIcon
+      imageSource = countryIconIcon
   }
 
   return (
