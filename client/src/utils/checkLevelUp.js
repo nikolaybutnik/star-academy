@@ -10,13 +10,13 @@ const checkLevelUp = (user) => {
         userClass = 'Local Talent'
         break
       case 4:
-        userClass = 'Local Star'
+        userClass = 'Regional Talent'
         break
       case 5:
-        userClass = 'Upcoming Legend'
+        userClass = 'Country Icon'
         break
       default:
-        userClass = 'Super Star'
+        userClass = 'Country Icon'
     }
     user = {
       ...user,

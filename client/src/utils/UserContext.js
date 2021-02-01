@@ -2,8 +2,11 @@
 /* eslint-disable no-unused-vars */
 import React, { useState, useEffect } from 'react'
 import useLocalStorageState from '../utils/useLocalStorageState'
-import { isToday, isYesterday, differenceInMinutes } from 'date-fns'
+import { isToday, isYesterday, differenceInMinutes, parseJSON } from 'date-fns'
 import updateUser from '../utils/updateUser'
+import registerLoginEvent from '../utils/registerLoginEvent'
+import dailyResetPersonalGoals from '../utils/dailyResetPersonalGoals'
+import userEnergyCheck from '../utils/userEnergyCheck'
 
 // Store token and user object
 const UserContext = React.createContext()
@@ -35,6 +38,9 @@ function UserProvider(props) {
         let user = data.data
 
         // Check if the day has advanced and personal goals need to be unchecked.
+        dailyResetPersonalGoals(user, updateUser, setUser)
+
+        // Check if the user logged in yesterday. If so, add 1 to streak.
         fetch(`/getlog/${user._id}`, {
           method: 'GET',
           headers: {
@@ -45,74 +51,30 @@ function UserProvider(props) {
           .then((res) => res.json())
           .then((data) => {
             if (data.data.length >= 2) {
-              const lastActivity = Date.parse(
+              const lastActivity = parseJSON(
                 data.data[data.data.length - 2].log
               )
-              if (!isToday(lastActivity)) {
-                const resetTasks = user.tasks.map((task) => {
-                  return {
-                    task: task.task,
-                    checked: false,
-                  }
-                })
-                user = { ...user, tasks: resetTasks }
+              const currentLogin = parseJSON(
+                data.data[data.data.length - 1].log
+              )
+              if (isYesterday(lastActivity) && isToday(currentLogin)) {
+                user = { ...user, streak: user.streak + 1 }
                 updateUser(user)
                 setUser(user)
               }
             }
           })
 
-        // Log the current log in event.
-        const newLog = { userId: user._id, log: new Date() }
-        fetch('/log', {
-          method: 'POST',
-          body: JSON.stringify(newLog),
-          headers: {
-            Accept: 'application/json, text/plain, */*',
-            'Content-Type': 'application/json',
-          },
-        })
+        // Log the current log in event in database.
+        registerLoginEvent(user)
 
         setUser(user)
+
         // Check if user's energy needs to be topped up since last time.
-        if (user.energy.value < user.maxEnergy) {
-          const now = Date.parse(new Date())
-          const timestamp = Date.parse(user.energy.timestamp)
-          const difference = differenceInMinutes(now, timestamp)
-          console.log(difference)
-          if (difference >= 1 && difference < 2) {
-            user = {
-              ...user,
-              energy: { value: user.energy.value + 1, timestamp: new Date() },
-            }
-            updateUser(user)
-            setUser(user)
-          } else if (difference >= 2 && difference < 3) {
-            user = {
-              ...user,
-              energy: { value: user.energy.value + 2, timestamp: new Date() },
-            }
-            updateUser(user)
-            setUser(user)
-          } else if (difference >= 3) {
-            user = {
-              ...user,
-              energy: { value: user.energy.value + 3, timestamp: new Date() },
-            }
-            updateUser(user)
-            setUser(user)
-          }
-          if (user.energy.value > user.maxEnergy) {
-            user = {
-              ...user,
-              energy: { value: user.maxEnergy, timestamp: new Date() },
-            }
-            updateUser(user)
-            setUser(user)
-          }
-        }
+        userEnergyCheck(user, updateUser, setUser)
       })
   }
+
   return (
     <UserContext.Provider
       value={{ user, setUser, logout, setToken }}

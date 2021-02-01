@@ -20,7 +20,7 @@ function ProfileHeader() {
           className="row col-md-12 bandname-header"
           style={{ justifyContent: 'center' }}
         >
-          The SkullCrushers
+          {user.username}
         </h2>
         <div
           className="col-md-12"
