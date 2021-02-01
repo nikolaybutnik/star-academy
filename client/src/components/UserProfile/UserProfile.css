@@ -1,6 +1,6 @@
 /* Profile */
 .user-image-profile {
-  margin-bottom: 20px;
+  margin-bottom: 0.5rem;
   border-radius: 50%;
 }
 
@@ -15,9 +15,9 @@
 
 .user-level {
   text-align: center;
-  margin-top: 30px;
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande',
     'Lucida Sans', Arial, sans-serif;
+  margin-top: 15px;
 }
 
 .user-tier-info {
@@ -62,7 +62,13 @@
   border: 0;
 }
 
-.calendar-container {
+.weekly-streak-title {
+  margin-bottom: 0px;
+  background-color: #a7d7ff;
+  padding: 5px;
+}
+
+.container.calendar-container {
   width: 100%;
   padding-right: 0px;
   padding-left: 0px;
@@ -94,7 +100,7 @@
 thead {
   box-shadow: 0px 2px 3px rgba(0, 0, 0, 0.2);
   z-index: 2;
-  background: white;
+  background: #e0f0fe;
   border-bottom: 2px solid #ddd;
 }
 
@@ -151,7 +157,7 @@ tr td {
 }
 
 .btn-gradient.blue.quiz-btn:hover {
-  background: rgb(89, 134, 179);
+  background: #3d8ed4;
 }
 
 .daily-quiz-title {
@@ -191,43 +197,11 @@ tr td {
 }
 
 .btn-gradient.blue {
-  background: rgba(102, 152, 203, 1);
-  background: -moz-linear-gradient(
-    top,
-    rgba(102, 152, 203, 1) 0%,
-    rgba(92, 138, 184, 1) 100%
-  );
-  background: -webkit-gradient(
-    left top,
-    left bottom,
-    color-stop(0%, rgba(102, 152, 203, 1)),
-    color-stop(100%, rgba(92, 138, 184, 1))
-  );
-  background: -webkit-linear-gradient(
-    top,
-    rgba(102, 152, 203, 1) 0%,
-    rgba(92, 138, 184, 1) 100%
-  );
-  background: -o-linear-gradient(
-    top,
-    rgba(102, 152, 203, 1) 0%,
-    rgba(92, 138, 184, 1) 100%
-  );
-  background: -ms-linear-gradient(
-    top,
-    rgba(102, 152, 203, 1) 0%,
-    rgba(92, 138, 184, 1) 100%
-  );
-  background: linear-gradient(
-    to bottom,
-    rgba(102, 152, 203, 1) 0%,
-    rgba(92, 138, 184, 1) 100%
-  );
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#6698cb', endColorstr='#5c8ab8', GradientType=0 );
+  background: #449fec;
 }
 
 .btn-gradient.blue:active {
-  background: #608fbf;
+  background: #449fec;
 }
 
 /* Todo list */
@@ -253,7 +227,7 @@ ul li:nth-child(odd) {
 }
 
 ul li:hover {
-  background: #bcdafd;
+  background: #e0f0fe;
 }
 
 ul li.checked {
@@ -280,6 +254,8 @@ ul li.checked::before {
   right: 0;
   top: 0;
   padding: 12px 16px 12px 16px;
+  height: 100%;
+  background: rgb(175, 175, 175);
 }
 
 .close:hover {
@@ -311,8 +287,8 @@ input {
 .addBtn {
   padding: 10px;
   width: 25%;
-  background: #d9d9d9;
-  color: #555;
+  background: #b8b8b8;
+  color: rgb(10, 9, 9);
   float: left;
   text-align: center;
   font-size: 16px;
@@ -322,5 +298,5 @@ input {
 }
 
 .addBtn:hover {
-  background-color: #bbb;
+  background: #a1a1a1;
 }

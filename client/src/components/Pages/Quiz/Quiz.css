@@ -1,17 +1,40 @@
+/* Header */
 .homepage-header {
   display: flex;
   width: 100%;
 }
 
+.header-row {
+  padding-right: 0px !important;
+}
+
+.header-btn-column {
+  padding-right: 0px !important;
+}
+
+.bandname-header {
+  padding-right: 0px;
+  margin-top: 15px;
+  margin-bottom: 20px;
+}
+
+.progress.user-main-progressbar {
+  height: 2rem;
+  width: 100%;
+  margin-left: 15px;
+}
+
+.xp-progressbar {
+  text-align: center;
+  margin-top: 15px;
+}
+
+/* Question Cards */
 .question-cards {
   display: flex;
 }
 
-.xp-progressbar {
-  margin-top: 20px;
-  text-align: center;
-}
-
+/* Btn */
 .btn-gradient.user-home-btn {
   height: 50px;
   width: 100%;
@@ -28,7 +51,6 @@
 .btn-gradient.logout-btn {
   height: 50px;
   max-width: 150px;
-  margin: 5px;
   margin-top: 10px;
   background-color: rgb(233 233 233);
   color: black;

@@ -3,6 +3,8 @@ import React from 'react'
 import beginnerIcon from '../../Assets/beginnerIcon.png'
 import buskerIcon from '../../Assets/buskerIcon.png'
 import localTalentIcon from '../../Assets/localtalentIcon.png'
+import regionalTalentIcon from '../../Assets/regionaltalentIcon.png'
+import countryIconIcon from '../../Assets/countryiconIcon.png'
 import energyIcon from '../../Assets/bolt-128.png'
 import { useUser } from '../../utils/UserContext'
 
@@ -21,6 +23,12 @@ const ProfileUserTier = () => {
     case 'Local Talent':
       imageSource = localTalentIcon
       break
+    case 'Regional Talent':
+      imageSource = regionalTalentIcon
+      break
+    case 'Country Icon':
+      imageSource = countryIconIcon
+      break
     default:
       imageSource = localTalentIcon
   }
@@ -33,7 +41,7 @@ const ProfileUserTier = () => {
         alt="beginner logo"
         className="user-image-profile col-md-12"
       />
-      <h2>Total fans: {user.totalExperience}</h2>
+      <h3>Total fans: {user.totalExperience}</h3>
     </div>
   )
 }

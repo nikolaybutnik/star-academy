@@ -79,6 +79,9 @@ const Calendar = () => {
 
   return (
     <div className="calendar">
+      <h6 className="weekly-streak-title" style={{ paddingTop: '5px' }}>
+        Weekly Streak
+      </h6>
       <div className="outer">
         <table>
           <thead>
@@ -103,7 +106,7 @@ const Calendar = () => {
                     threeDaysAgo.setDate(threeDaysAgo.getDate() - 3)
                   ).getDate()}
                 </td>
-                <td>
+                <td style={{ backgroundColor: 'rgb(204 254 222)' }}>
                   {new Date(
                     twoDaysAgo.setDate(twoDaysAgo.getDate() - 2)
                   ).getDate()}

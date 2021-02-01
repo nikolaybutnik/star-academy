@@ -53,8 +53,9 @@ const ListItems = (props) => {
       <button
         style={{ float: 'right' }}
         onClick={(event) => handleRemoveListItem(event)}
+        className="close"
       >
-        <i class="fa fa-trash"></i>
+        <i class="fa fa-trash close"></i>
       </button>
     </li>
   )
