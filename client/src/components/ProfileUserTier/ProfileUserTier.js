@@ -42,6 +42,7 @@ const ProfileUserTier = () => {
         className="user-image-profile col-md-12"
       />
       <h3>Total fans: {user.totalExperience}</h3>
+      <h3>Streak: {user.streak}</h3>
     </div>
   )
 }
