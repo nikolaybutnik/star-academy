@@ -8,6 +8,7 @@ import {
   eachDayOfInterval,
   parseJSON,
   getDate,
+  isToday,
 } from 'date-fns'
 
 const Calendar = () => {
@@ -64,7 +65,15 @@ const Calendar = () => {
             <tbody>
               <tr>
                 {currentWeek.map((day) => {
-                  return <td>{getDate(day)}</td>
+                  if (isToday(day)) {
+                    return (
+                      <td style={{ backgroundColor: '#fdffb8' }}>
+                        {getDate(day)}
+                      </td>
+                    )
+                  } else {
+                    return <td>{getDate(day)}</td>
+                  }
                 })}
                 {/* <td className="calendar-date"></td>
                 <td style={{ backgroundColor: 'rgb(204 254 222)' }}></td>
