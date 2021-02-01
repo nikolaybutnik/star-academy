@@ -12,7 +12,6 @@ import { Container } from 'react-bootstrap'
 import { differenceInHours, differenceInMinutes, parseJSON } from 'date-fns'
 import updateUser from '../../utils/updateUser'
 import { useUser } from '../../utils/UserContext'
-import userEnergyCheck from '../../utils/userEnergyCheck'
 
 import './UserProfile.css'
 

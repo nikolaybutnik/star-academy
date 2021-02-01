@@ -67,7 +67,12 @@ const Calendar = () => {
                 {currentWeek.map((day) => {
                   if (isToday(day)) {
                     return (
-                      <td style={{ backgroundColor: '#fdffb8' }}>
+                      <td
+                        style={{
+                          backgroundColor: '#fdffb8',
+                          fontWeight: 'bold',
+                        }}
+                      >
                         {getDate(day)}
                       </td>
                     )

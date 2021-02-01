@@ -41,6 +41,29 @@ function UserProvider(props) {
         dailyResetPersonalGoals(user, updateUser, setUser)
 
         // Check if the user logged in yesterday. If so, add 1 to streak.
+        fetch(`/getlog/${user._id}`, {
+          method: 'GET',
+          headers: {
+            Accept: 'application/json, text/plain, */*',
+            'Content-Type': 'application/json',
+          },
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            if (data.data.length >= 2) {
+              const lastActivity = parseJSON(
+                data.data[data.data.length - 2].log
+              )
+              const currentLogin = parseJSON(
+                data.data[data.data.length - 1].log
+              )
+              if (isYesterday(lastActivity) && isToday(currentLogin)) {
+                user = { ...user, streak: user.streak + 1 }
+                updateUser(user)
+                setUser(user)
+              }
+            }
+          })
 
         // Log the current log in event in database.
         registerLoginEvent(user)
