@@ -12,6 +12,7 @@ import { Container } from 'react-bootstrap'
 import { differenceInHours, differenceInMinutes } from 'date-fns'
 import updateUser from '../../utils/updateUser'
 import { useUser } from '../../utils/UserContext'
+import userEnergyCheck from '../../utils/userEnergyCheck'
 
 import './UserProfile.css'
 
@@ -21,44 +22,7 @@ const UserProfile = () => {
 
   useEffect(() => {
     // Check if user's energy needs to be topped on page render
-    if (user) {
-      if (user.energy.value < user.maxEnergy) {
-        const now = Date.parse(new Date())
-        const timestamp = Date.parse(user.energy.timestamp)
-        const difference = differenceInMinutes(now, timestamp)
-        console.log(difference)
-        if (difference >= 1 && difference < 2) {
-          user = {
-            ...user,
-            energy: { value: user.energy.value + 1, timestamp: new Date() },
-          }
-          updateUser(user)
-          setUser(user)
-        } else if (difference >= 2 && difference < 3) {
-          user = {
-            ...user,
-            energy: { value: user.energy.value + 2, timestamp: new Date() },
-          }
-          updateUser(user)
-          setUser(user)
-        } else if (difference >= 3) {
-          user = {
-            ...user,
-            energy: { value: user.energy.value + 3, timestamp: new Date() },
-          }
-          updateUser(user)
-          setUser(user)
-        }
-        if (user.energy.value > user.maxEnergy) {
-          user = {
-            ...user,
-            energy: { value: user.maxEnergy, timestamp: new Date() },
-          }
-          updateUser(user)
-          setUser(user)
-        }
-      }
-    }
+    userEnergyCheck(user, updateUser, setUser)
   }, [])
 
   if (!user) {
