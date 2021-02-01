@@ -9,7 +9,7 @@ import ProfileUserInfo from '../ProfileUserInfo/ProfileUserInfo'
 import ProfileUserTier from '../ProfileUserTier/ProfileUserTier'
 import HomePageButtons from '../HomePageButtons/HomePageButtons'
 import { Container } from 'react-bootstrap'
-import { differenceInHours, differenceInMinutes } from 'date-fns'
+import { differenceInHours, differenceInMinutes, parseJSON } from 'date-fns'
 import updateUser from '../../utils/updateUser'
 import { useUser } from '../../utils/UserContext'
 
@@ -21,12 +21,13 @@ const UserProfile = () => {
 
   useEffect(() => {
     // Check if user's energy needs to be topped on page render
+    // This functionality must be defined within the hook or it'll thrown an unresolved promise error.
     if (user) {
       if (user.energy.value < user.maxEnergy) {
-        const now = Date.parse(new Date())
-        const timestamp = Date.parse(user.energy.timestamp)
+        const now = new Date()
+        const timestamp = parseJSON(user.energy.timestamp)
         const difference = differenceInMinutes(now, timestamp)
-        console.log(difference)
+        // console.log(difference)
         if (difference >= 1 && difference < 2) {
           user = {
             ...user,

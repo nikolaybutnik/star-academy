@@ -2,7 +2,14 @@
 import React, { useEffect, useState } from 'react'
 import { useUser } from '../../utils/UserContext'
 // import { DateTime } from 'luxon'
-import { formatDistance, subDays } from 'date-fns'
+import {
+  startOfWeek,
+  lastDayOfWeek,
+  eachDayOfInterval,
+  parseJSON,
+  getDate,
+  isToday,
+} from 'date-fns'
 
 const Calendar = () => {
   const { user } = useUser()
@@ -25,57 +32,13 @@ const Calendar = () => {
   }, [])
   // console.log(userLogs)
 
-  // // Make a new array of objects with time of log in
-  // const logsArr = userLogs.map((log) => {
-  //   return {
-  //     day: new Date(Date.parse(log.log)).getDay(),
-  //     month: new Date(Date.parse(log.log)).getMonth(),
-  //     date: new Date(Date.parse(log.log)).getDate(),
-  //     year: new Date(Date.parse(log.log)).getYear(),
-  //   }
-  // })
-  // // Remove all duplicates from the above arr. leaving only uniquw dates.
-  // const uniqueEntries = Array.from(new Set(logsArr.map((a) => a.id))).map(
-  //   (id) => {
-  //     return logsArr.find((a) => a.id === id)
-  //   }
-  // )
-  // console.log(logsArr)
-  // console.log(uniqueEntries)
-
-  const today = new Date()
-  const oneDayAgo = new Date()
-  const twoDaysAgo = new Date()
-  const threeDaysAgo = new Date()
-  const oneDayFuture = new Date()
-  const twoDaysFuture = new Date()
-  const threeDaysFuture = new Date()
-  let days = []
-  switch (today.getDay()) {
-    case 1:
-      days = ['FRI', 'SAT', 'SUN', 'MON', 'TUE', 'WED', 'THU']
-      break
-    case 2:
-      days = ['SAT', 'SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI']
-      break
-    case 3:
-      days = ['SUN', 'MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT']
-      break
-    case 4:
-      days = ['MON', 'TUE', 'WED', 'THU', 'FRI', 'SAT', 'SUN']
-      break
-    case 5:
-      days = ['TUE', 'WED', 'THU', 'FRI', 'SAT', 'SUN', 'MON']
-      break
-    case 6:
-      days = ['WED', 'THU', 'FRI', 'SAT', 'SUN', 'MON', 'TUE']
-      break
-    case 7:
-      days = ['THU', 'FRI', 'SAT', 'SUN', 'MON', 'TUE', 'WED']
-      break
-    default:
-      break
-  }
+  // getDate, getDay (0,1,2,3,4,5,6 - 0 is sunday)
+  //
+  const firstDay = startOfWeek(new Date(), { weekStartsOn: 1 })
+  const lastDay = lastDayOfWeek(new Date(), { weekStartsOn: 1 })
+  const currentWeek = eachDayOfInterval({ start: firstDay, end: lastDay })
+  // console.log(currentWeek[0])
+  // console.log(new Date())
 
   return (
     <div className="calendar">
@@ -86,52 +49,44 @@ const Calendar = () => {
         <table>
           <thead>
             <tr>
-              <th>{days[0]}</th>
-              <th>{days[1]}</th>
-              <th>{days[2]}</th>
-              <th>{days[3]}</th>
-              <th>{days[4]}</th>
-              <th className="secondary">{days[5]}</th>
-              <th className="secondary">{days[6]}</th>
+              <th>MON</th>
+              <th>TUE</th>
+              <th>WED</th>
+              <th>THU</th>
+              <th>FRI</th>
+              <th className="secondary">SAT</th>
+              <th className="secondary">SUN</th>
             </tr>
           </thead>
         </table>
 
-        <div className="wrap">
+        <div>
           <table>
             <tbody>
               <tr>
-                <td className="calendar-date">
-                  {new Date(
-                    threeDaysAgo.setDate(threeDaysAgo.getDate() - 3)
-                  ).getDate()}
-                </td>
-                <td style={{ backgroundColor: 'rgb(204 254 222)' }}>
-                  {new Date(
-                    twoDaysAgo.setDate(twoDaysAgo.getDate() - 2)
-                  ).getDate()}
-                </td>
-                <td>
-                  {new Date(
-                    oneDayAgo.setDate(oneDayAgo.getDate() - 1)
-                  ).getDate()}
-                </td>
-                <th>{today.getDate()}</th>
-                <td>
-                  {new Date(
-                    oneDayFuture.setDate(oneDayFuture.getDate() + 1)
-                  ).getDate()}
-                </td>
-                <td>
-                  {new Date(
-                    twoDaysFuture.setDate(twoDaysFuture.getDate() + 2)
-                  ).getDate()}
-                </td>
-                <td>
-                  {new Date(
-                    threeDaysFuture.setDate(threeDaysFuture.getDate() + 3)
-                  ).getDate()}
-                </td>
+                {currentWeek.map((day) => {
+                  if (isToday(day)) {
+                    return (
+                      <td
+                        style={{
+                          backgroundColor: '#fdffb8',
+                          fontWeight: 'bold',
+                        }}
+                      >
+                        {getDate(day)}
+                      </td>
+                    )
+                  } else {
+                    return <td>{getDate(day)}</td>
+                  }
+                })}
+                {/* <td className="calendar-date"></td>
+                <td style={{ backgroundColor: 'rgb(204 254 222)' }}></td>
+                <td></td>
+                <th></th>
+                <td></td>
+                <td></td>
+                <td></td> */}
               </tr>
             </tbody>
           </table>

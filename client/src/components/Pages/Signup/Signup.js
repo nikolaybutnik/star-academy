@@ -33,6 +33,7 @@ function Signup() {
         totalExperience: 0,
         correct: 0,
         incorrect: 0,
+        streak: 1,
         class: 'Beginner',
         energy: { value: 3, timestamp: new Date() },
         maxEnergy: 3,

@@ -55,6 +55,9 @@ const userSchema = new Schema({
   maxEnergy: {
     type: Number,
   },
+  streak: {
+    type: Number,
+  },
   answered: {
     type: Array,
   },
