@@ -41,6 +41,7 @@ function UserProvider(props) {
         dailyResetPersonalGoals(user, updateUser, setUser)
 
         // Check if the user logged in yesterday. If so, add 1 to streak.
+        // NOTE: consider integrating with goals reset to utilize the same db call.
         fetch(`/getlog/${user._id}`, {
           method: 'GET',
           headers: {
