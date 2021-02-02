@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
 import React, { useEffect, useState } from 'react'
 import { useUser } from '../../utils/UserContext'
-// import { DateTime } from 'luxon'
+import randomstring from 'randomstring'
 import {
   startOfWeek,
   lastDayOfWeek,
@@ -36,9 +36,12 @@ const Calendar = () => {
   //
   const firstDay = startOfWeek(new Date(), { weekStartsOn: 1 })
   const lastDay = lastDayOfWeek(new Date(), { weekStartsOn: 1 })
-  const currentWeek = eachDayOfInterval({ start: firstDay, end: lastDay })
-  // console.log(currentWeek[0])
-  // console.log(new Date())
+  const currentWeek = eachDayOfInterval({
+    start: firstDay,
+    end: lastDay,
+  }).map((item) => {
+    return { date: item, key: randomstring.generate(10) }
+  })
 
   return (
     <div className="calendar">
@@ -65,7 +68,7 @@ const Calendar = () => {
             <tbody>
               <tr>
                 {currentWeek.map((day) => {
-                  if (isToday(day)) {
+                  if (isToday(day.date)) {
                     return (
                       <td
                         style={{
@@ -73,11 +76,11 @@ const Calendar = () => {
                           fontWeight: 'bold',
                         }}
                       >
-                        {getDate(day)}
+                        {getDate(day.date)}
                       </td>
                     )
                   } else {
-                    return <td>{getDate(day)}</td>
+                    return <td>{getDate(day.date)}</td>
                   }
                 })}
                 {/* <td className="calendar-date"></td>

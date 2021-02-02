@@ -1,4 +1,5 @@
 import { differenceInMinutes, isToday, isYesterday, parseJSON } from 'date-fns'
+import randomstring from 'randomstring'
 
 const userLoginEventChecks = (user, updateUser, setUser) => {
   fetch(`/getlog/${user._id}`, {
@@ -10,8 +11,11 @@ const userLoginEventChecks = (user, updateUser, setUser) => {
   })
     .then((res) => res.json())
     .then((data) => {
+      const retrievedData = data.data.map((item) => {
+        return { ...item, key: randomstring.generate(10) }
+      })
       // If there have been two login events or more...
-      if (data.data.length >= 2) {
+      if (retrievedData.length >= 2) {
         // Check if user's energy needs a top up since last log in
         if (user.energy.value < user.maxEnergy) {
           console.log('energy update block triggered')
@@ -44,8 +48,12 @@ const userLoginEventChecks = (user, updateUser, setUser) => {
         }
 
         // Check if the user logged in yesterday. If so, add 1 to streak.
-        const lastActivity = parseJSON(data.data[data.data.length - 2].log)
-        const currentLogin = parseJSON(data.data[data.data.length - 1].log)
+        const lastActivity = parseJSON(
+          retrievedData[retrievedData.length - 2].log
+        )
+        const currentLogin = parseJSON(
+          retrievedData[retrievedData.length - 1].log
+        )
         if (isYesterday(lastActivity) && isToday(currentLogin)) {
           user = { ...user, streak: user.streak + 1 }
           console.log('Streaks block triggered')
@@ -58,17 +66,17 @@ const userLoginEventChecks = (user, updateUser, setUser) => {
         }
 
         // console.log(
-        //   parseJSON(data.data[data.data.length - 3].log),
-        //   isToday(parseJSON(data.data[data.data.length - 3].log))
+        //   parseJSON(retrievedData[retrievedData.length - 3].log),
+        //   isToday(parseJSON(retrievedData[retrievedData.length - 3].log))
         // )
         // console.log(
-        //   parseJSON(data.data[data.data.length - 2].log),
-        //   isToday(parseJSON(data.data[data.data.length - 2].log)),
+        //   parseJSON(retrievedData[retrievedData.length - 2].log),
+        //   isToday(parseJSON(retrievedData[retrievedData.length - 2].log)),
         //   'last activity'
         // )
         // console.log(
-        //   parseJSON(data.data[data.data.length - 1].log),
-        //   isToday(parseJSON(data.data[data.data.length - 1].log)),
+        //   parseJSON(retrievedData[retrievedData.length - 1].log),
+        //   isToday(parseJSON(retrievedData[retrievedData.length - 1].log)),
         //   'current login'
         // )
 
