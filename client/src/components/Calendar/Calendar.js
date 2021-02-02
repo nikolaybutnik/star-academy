@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
 import React, { useEffect, useState } from 'react'
 import { useUser } from '../../utils/UserContext'
-// import { DateTime } from 'luxon'
+import randomstring from 'randomstring'
 import {
   startOfWeek,
   lastDayOfWeek,
@@ -36,9 +36,22 @@ const Calendar = () => {
   //
   const firstDay = startOfWeek(new Date(), { weekStartsOn: 1 })
   const lastDay = lastDayOfWeek(new Date(), { weekStartsOn: 1 })
-  const currentWeek = eachDayOfInterval({ start: firstDay, end: lastDay })
-  // console.log(currentWeek[0])
-  // console.log(new Date())
+  const currentWeek = eachDayOfInterval({
+    start: firstDay,
+    end: lastDay,
+  })
+
+  // combine with above arr to override styles if current week day is detected on login.
+  // Highlight if the date is today and write array to use object?
+  const arr = [
+    { weekDay: 1, style: '' },
+    { weekDay: 2, style: '' },
+    { weekDay: 3, style: '' },
+    { weekDay: 4, style: '' },
+    { weekDay: 5, style: '' },
+    { weekDay: 6, style: '' },
+    { weekDay: 0, style: '' },
+  ]
 
   return (
     <div className="calendar">
@@ -68,6 +81,7 @@ const Calendar = () => {
                   if (isToday(day)) {
                     return (
                       <td
+                        key={randomstring.generate(10)}
                         style={{
                           backgroundColor: '#fdffb8',
                           fontWeight: 'bold',
@@ -77,7 +91,9 @@ const Calendar = () => {
                       </td>
                     )
                   } else {
-                    return <td>{getDate(day)}</td>
+                    return (
+                      <td key={randomstring.generate(10)}>{getDate(day)}</td>
+                    )
                   }
                 })}
                 {/* <td className="calendar-date"></td>

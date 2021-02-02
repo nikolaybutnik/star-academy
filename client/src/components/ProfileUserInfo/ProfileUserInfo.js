@@ -23,7 +23,7 @@ const ProfileUserInfo = () => {
             WINS{' '}
           </h3>
           <span
-            class="dot"
+            className="dot"
             style={{
               height: '25px',
               width: '25px',
@@ -37,7 +37,7 @@ const ProfileUserInfo = () => {
           ></span>
           <h3>LOSSES</h3>
           <span
-            class="dot"
+            className="dot"
             style={{
               height: '25px',
               width: '25px',

@@ -59,7 +59,7 @@ function Login() {
         <form onSubmit={(event) => handleFormSubmit(event)}>
           <div className="form-group sign-up-form">
             <h2 style={{ marginBottom: '20px', marginTop: '10px' }}>Login</h2>
-            <label for="email">Email address</label>
+            <label htmlFor="email">Email address</label>
             <input
               type="email"
               className="form-control"
@@ -71,7 +71,7 @@ function Login() {
           </div>
 
           <div className="form-group sign-up-form">
-            <label for="password">Password</label>
+            <label htmlFor="password">Password</label>
             <input
               type="password"
               className="form-control signin-form"

@@ -55,7 +55,7 @@ const ListItems = (props) => {
         onClick={(event) => handleRemoveListItem(event)}
         className="close"
       >
-        <i class="fa fa-trash close"></i>
+        <i className="fa fa-trash close"></i>
       </button>
     </li>
   )

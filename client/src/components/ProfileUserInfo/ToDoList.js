@@ -3,6 +3,7 @@ import { useUser } from '../../utils/UserContext'
 import React, { useRef, useState } from 'react'
 import ListItem from './ListItems'
 import updateUser from '../../utils/updateUser'
+import randomstring from 'randomstring'
 
 const ToDoList = () => {
   const inputRef = useRef()
@@ -37,7 +38,7 @@ const ToDoList = () => {
         borderRadius: '3%',
       }}
     >
-      <div id="myDIV" class="header" style={{ backgroundColor: '#f6f6f6' }}>
+      <div id="myDIV" className="header" style={{ backgroundColor: '#f6f6f6' }}>
         <h3 style={{ paddingTop: '8px' }}>Personal Goals</h3>
         <form onSubmit={(event) => handleNewTask(event)}>
           <input
@@ -54,9 +55,17 @@ const ToDoList = () => {
       <ul id="myUL">
         {tasks.map((toDoItem) => {
           return toDoItem.checked ? (
-            <ListItem item={toDoItem} checked={true} />
+            <ListItem
+              key={randomstring.generate(10)}
+              item={toDoItem}
+              checked={true}
+            />
           ) : (
-            <ListItem item={toDoItem} checked={false} />
+            <ListItem
+              key={randomstring.generate(10)}
+              item={toDoItem}
+              checked={false}
+            />
           )
         })}
       </ul>
