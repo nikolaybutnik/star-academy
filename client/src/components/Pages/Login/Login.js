@@ -58,7 +58,7 @@ function Login() {
       <div className="signup-column">
         <form onSubmit={(event) => handleFormSubmit(event)}>
           <div className="form-group sign-up-form">
-            <h2 style={{ marginBottom: '20px', marginTop: '10px' }}>Login</h2>
+            <h2 style={{ marginBottom: '20px', marginTop: '20px' }}>Login</h2>
             <label htmlFor="email">Email address</label>
             <input
               type="email"
@@ -71,7 +71,9 @@ function Login() {
           </div>
 
           <div className="form-group sign-up-form">
-            <label htmlFor="password">Password</label>
+            <label htmlFor="password" style={{ margin: '10px' }}>
+              Password
+            </label>
             <input
               type="password"
               className="form-control signin-form"
@@ -95,6 +97,7 @@ function Login() {
               <button
                 type="submit"
                 className="btn-gradient blue mini signup-btn col-md-9"
+                style={{ margin: '10px' }}
               >
                 Sign Up
               </button>

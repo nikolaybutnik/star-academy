@@ -54,6 +54,7 @@ app.post('/auth/users', async (req, res) => {
     User.create(newUser)
       .then((user) => {
         res.status(201).send({ data: newUser })
+        // TODO: send welcome email
       })
       .catch((err) => {
         res.status(400).json(err)

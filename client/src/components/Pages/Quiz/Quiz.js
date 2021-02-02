@@ -11,6 +11,7 @@ import HomeHeader from '../../Header/QuizHeader'
 import QuestionDisplay from './QuizSets/QuestionDisplay/QuestionDisplay'
 import updateUser from '../../../utils/updateUser'
 import { differenceInHours, differenceInMinutes, parseJSON } from 'date-fns'
+import test from '../../../Assets/BeFunky-collage (30).png'
 
 const Quiz = () => {
   // Currently logged in user
