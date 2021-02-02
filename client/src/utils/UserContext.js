@@ -2,11 +2,9 @@
 /* eslint-disable no-unused-vars */
 import React, { useState, useEffect } from 'react'
 import useLocalStorageState from '../utils/useLocalStorageState'
-import { isToday, isYesterday, differenceInMinutes, parseJSON } from 'date-fns'
 import updateUser from '../utils/updateUser'
 import registerLoginEvent from '../utils/registerLoginEvent'
-import dailyResetPersonalGoals from '../utils/dailyResetPersonalGoals'
-import userEnergyCheck from '../utils/userEnergyCheck'
+import userLoginEventChecks from '../utils/userLoginEventChecks'
 
 // Store token and user object
 const UserContext = React.createContext()
@@ -36,44 +34,13 @@ function UserProvider(props) {
       .then((res) => res.json())
       .then((data) => {
         let user = data.data
-
-        // Check if the day has advanced and personal goals need to be unchecked.
-        dailyResetPersonalGoals(user, updateUser, setUser)
-
-        // Check if the user logged in yesterday. If so, add 1 to streak.
-        // NOTE: consider integrating with goals reset to utilize the same db call.
-        fetch(`/getlog/${user._id}`, {
-          method: 'GET',
-          headers: {
-            Accept: 'application/json, text/plain, */*',
-            'Content-Type': 'application/json',
-          },
-        })
-          .then((res) => res.json())
-          .then((data) => {
-            if (data.data.length >= 2) {
-              const lastActivity = parseJSON(
-                data.data[data.data.length - 2].log
-              )
-              const currentLogin = parseJSON(
-                data.data[data.data.length - 1].log
-              )
-              if (isYesterday(lastActivity) && isToday(currentLogin)) {
-                user = { ...user, streak: user.streak + 1 }
-                updateUser(user)
-                setUser(user)
-              }
-            }
-          })
-
         // Log the current log in event in database.
         registerLoginEvent(user)
 
-        setUser(user)
-
-        // Check if user's energy needs to be topped up since last time.
-        userEnergyCheck(user, updateUser, setUser)
+        // Perform check on user login event.
+        userLoginEventChecks(user, updateUser, setUser)
       })
+    setUser(user)
   }
 
   return (

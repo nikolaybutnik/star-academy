@@ -11,7 +11,31 @@ const dailyResetPersonalGoals = (user, updateUser, setUser) => {
     .then((data) => {
       if (data.data.length >= 2) {
         const lastActivity = parseJSON(data.data[data.data.length - 2].log)
+        console.log(
+          parseJSON(data.data[data.data.length - 5].log),
+          isToday(parseJSON(data.data[data.data.length - 5].log))
+        )
+        console.log(
+          parseJSON(data.data[data.data.length - 4].log),
+          isToday(parseJSON(data.data[data.data.length - 4].log))
+        )
+        console.log(
+          parseJSON(data.data[data.data.length - 3].log),
+          isToday(parseJSON(data.data[data.data.length - 3].log))
+        )
+        console.log(
+          parseJSON(data.data[data.data.length - 2].log),
+          isToday(parseJSON(data.data[data.data.length - 2].log)),
+          'last activity'
+        )
+        console.log(
+          parseJSON(data.data[data.data.length - 1].log),
+          isToday(parseJSON(data.data[data.data.length - 1].log))
+        )
+
+        // console.log(!isToday(lastActivity))
         if (!isToday(lastActivity)) {
+          console.log('block reached')
           const resetTasks = user.tasks.map((task) => {
             return {
               task: task.task,
@@ -21,6 +45,7 @@ const dailyResetPersonalGoals = (user, updateUser, setUser) => {
           user = { ...user, tasks: resetTasks }
           updateUser(user)
           setUser(user)
+          console.log('user set')
         }
       }
     })
