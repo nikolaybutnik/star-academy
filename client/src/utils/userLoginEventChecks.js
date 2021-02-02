@@ -1,5 +1,4 @@
 import { differenceInMinutes, isToday, isYesterday, parseJSON } from 'date-fns'
-import randomstring from 'randomstring'
 
 const userLoginEventChecks = (user, updateUser, setUser) => {
   fetch(`/getlog/${user._id}`, {
@@ -11,9 +10,7 @@ const userLoginEventChecks = (user, updateUser, setUser) => {
   })
     .then((res) => res.json())
     .then((data) => {
-      const retrievedData = data.data.map((item) => {
-        return { ...item, key: randomstring.generate(10) }
-      })
+      const retrievedData = data.data
       // If there have been two login events or more...
       if (retrievedData.length >= 2) {
         // Check if user's energy needs a top up since last log in
@@ -88,6 +85,7 @@ const userLoginEventChecks = (user, updateUser, setUser) => {
             }
           })
           user = { ...user, tasks: resetTasks }
+
           console.log('Personal goals block triggered')
         }
 

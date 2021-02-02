@@ -39,9 +39,19 @@ const Calendar = () => {
   const currentWeek = eachDayOfInterval({
     start: firstDay,
     end: lastDay,
-  }).map((item) => {
-    return { date: item, key: randomstring.generate(10) }
   })
+
+  // combine with above arr to override styles if current week day is detected on login.
+  // Highlight if the date is today and write array to use object?
+  const arr = [
+    { weekDay: 1, style: '' },
+    { weekDay: 2, style: '' },
+    { weekDay: 3, style: '' },
+    { weekDay: 4, style: '' },
+    { weekDay: 5, style: '' },
+    { weekDay: 6, style: '' },
+    { weekDay: 0, style: '' },
+  ]
 
   return (
     <div className="calendar">
@@ -68,19 +78,22 @@ const Calendar = () => {
             <tbody>
               <tr>
                 {currentWeek.map((day) => {
-                  if (isToday(day.date)) {
+                  if (isToday(day)) {
                     return (
                       <td
+                        key={randomstring.generate(10)}
                         style={{
                           backgroundColor: '#fdffb8',
                           fontWeight: 'bold',
                         }}
                       >
-                        {getDate(day.date)}
+                        {getDate(day)}
                       </td>
                     )
                   } else {
-                    return <td>{getDate(day.date)}</td>
+                    return (
+                      <td key={randomstring.generate(10)}>{getDate(day)}</td>
+                    )
                   }
                 })}
                 {/* <td className="calendar-date"></td>

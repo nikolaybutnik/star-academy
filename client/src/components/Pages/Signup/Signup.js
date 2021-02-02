@@ -71,7 +71,7 @@ function Signup() {
         <form onSubmit={(event) => handleNewUser(event)}>
           <div className="form-group sign-up-form">
             <h2 style={{ marginBottom: '10px', marginTop: '10px' }}>Sign up</h2>
-            <label for="newEmail">Email address</label>
+            <label htmlFor="newEmail">Email address</label>
             <input
               type="email"
               className="form-control"
@@ -87,19 +87,19 @@ function Signup() {
           </div>
 
           <div className="form-group sign-up-form">
-            <label for="newUsername">Bandname</label>
+            <label htmlFor="newUsername">Bandname</label>
             <input
               type="username"
               className="form-control"
               id="newUsername"
-              placeholder="Enter username"
+              placeholder="Enter bandname"
               onChange={(event) => setUsername(event.target.value)}
               ref={newUsernameRef}
             ></input>
           </div>
 
           <div className="form-group sign-up-form">
-            <label for="newPassword">Password</label>
+            <label htmlFor="newPassword">Password</label>
             <input
               type="password"
               className="form-control"
@@ -111,7 +111,7 @@ function Signup() {
           </div>
 
           <div className="form-group sign-up-form">
-            <label for="confirmNewPassword">Confirm Password</label>
+            <label htmlFor="confirmNewPassword">Confirm Password</label>
             <input
               type="password"
               className="form-control"
@@ -125,7 +125,7 @@ function Signup() {
             <button
               href=""
               type="submit"
-              class="btn-gradient col-md-9 blue mini signup-btn"
+              className="btn-gradient col-md-9 blue mini signup-btn"
             >
               {' '}
               Sign Up
