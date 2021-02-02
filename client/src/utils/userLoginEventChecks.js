@@ -10,6 +10,7 @@ const userLoginEventChecks = (user, updateUser, setUser) => {
   })
     .then((res) => res.json())
     .then((data) => {
+      // If there have been two login events or more...
       if (data.data.length >= 2) {
         // Check if user's energy needs a top up since last log in
         if (user.energy.value < user.maxEnergy) {
@@ -48,31 +49,28 @@ const userLoginEventChecks = (user, updateUser, setUser) => {
         if (isYesterday(lastActivity) && isToday(currentLogin)) {
           user = { ...user, streak: user.streak + 1 }
           console.log('Streaks block triggered')
+        } else if (
+          !isYesterday(lastActivity) &&
+          !isToday(lastActivity) &&
+          isToday(currentLogin)
+        ) {
+          user = { ...user, streak: 1 }
         }
 
-        // Check if the day has advanced and personal goals need to be unchecked.
-        console.log(
-          parseJSON(data.data[data.data.length - 5].log),
-          isToday(parseJSON(data.data[data.data.length - 5].log))
-        )
-        console.log(
-          parseJSON(data.data[data.data.length - 4].log),
-          isToday(parseJSON(data.data[data.data.length - 4].log))
-        )
-        console.log(
-          parseJSON(data.data[data.data.length - 3].log),
-          isToday(parseJSON(data.data[data.data.length - 3].log))
-        )
-        console.log(
-          parseJSON(data.data[data.data.length - 2].log),
-          isToday(parseJSON(data.data[data.data.length - 2].log)),
-          'last activity'
-        )
-        console.log(
-          parseJSON(data.data[data.data.length - 1].log),
-          isToday(parseJSON(data.data[data.data.length - 1].log)),
-          'current login'
-        )
+        // console.log(
+        //   parseJSON(data.data[data.data.length - 3].log),
+        //   isToday(parseJSON(data.data[data.data.length - 3].log))
+        // )
+        // console.log(
+        //   parseJSON(data.data[data.data.length - 2].log),
+        //   isToday(parseJSON(data.data[data.data.length - 2].log)),
+        //   'last activity'
+        // )
+        // console.log(
+        //   parseJSON(data.data[data.data.length - 1].log),
+        //   isToday(parseJSON(data.data[data.data.length - 1].log)),
+        //   'current login'
+        // )
 
         if (!isToday(lastActivity)) {
           const resetTasks = user.tasks.map((task) => {
