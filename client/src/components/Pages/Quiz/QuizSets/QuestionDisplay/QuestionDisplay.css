@@ -10,6 +10,12 @@
 }
 
 .list-group-item.question-list:hover {
-  border: black normal solid;
-  border-color: rgb(0, 0, 0);
+  border: rgb(151, 151, 151) normal solid;
+  border-top-width: 2px;
+  border-width: 2px;
+  border-color: rgb(151, 151, 151);
+}
+
+.list-group-flush > .list-group-item:last-child {
+  border-bottom-width: 2px !important;
 }

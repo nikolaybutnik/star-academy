@@ -71,7 +71,7 @@ function Signup() {
         <form onSubmit={(event) => handleNewUser(event)}>
           <div className="form-group sign-up-form">
             <h2 style={{ marginBottom: '10px', marginTop: '10px' }}>Sign up</h2>
-            <label for="newEmail">Email address</label>
+            <label for="newEmail">Email Address</label>
             <input
               type="email"
               className="form-control"

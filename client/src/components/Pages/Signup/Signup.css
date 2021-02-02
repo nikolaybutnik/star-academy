@@ -22,14 +22,11 @@
   }
 }
 
-.signup-slogan {
-  margin-bottom: 70px;
-}
-
 .signup-btn {
   height: 9% !important;
   background: rgb(89, 174, 248) !important;
   margin-top: 10px;
+  padding: 20px;
 }
 
 .sign-up-form {
