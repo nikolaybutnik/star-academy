@@ -8,7 +8,7 @@ import '../UserProfile/UserProfile.css'
 const HomePageButtons = () => {
   return (
     <Link to="/quiz">
-      <button href="" class="btn-gradient col-md-11 blue mini quiz-btn">
+      <button href="" className="btn-gradient col-md-11 blue mini quiz-btn">
         <h2 className="daily-quiz-title">DAILY QUIZ</h2>
       </button>
     </Link>

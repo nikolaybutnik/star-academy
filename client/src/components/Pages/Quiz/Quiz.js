@@ -21,7 +21,7 @@ const Quiz = () => {
 
   useEffect(() => {
     // Check if user's energy needs to be topped on page render
-    // This functionality must be defined within the hook or it'll thrown an unresolved promise error.
+    // This functionality must be defined within the hook or it'll throw an unresolved promise error.
     if (user) {
       if (user.energy.value < user.maxEnergy) {
         const now = new Date()

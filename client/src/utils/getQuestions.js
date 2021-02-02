@@ -1,5 +1,6 @@
 /* eslint-disable no-unused-vars */
 import React from 'react'
+import randomstring from 'randomstring'
 
 import { beginnerEasyQuestions } from './QuestionSets/Beginner/beginnerEasyQ'
 import { beginnerMediumQuestions } from './QuestionSets/Beginner/beginnerMediumQ'
@@ -58,7 +59,7 @@ const getQuestions = (difficulty, user) => {
     }
   }
 
-  // Make new questionb array and prevent duplicate questions
+  // Make new question array and prevent duplicate questions
   const newArr = []
   while (newArr.length < 5) {
     const randNum = Math.floor(Math.random() * questionSet.length)
@@ -74,7 +75,10 @@ const getQuestions = (difficulty, user) => {
     }
     newArr.push(nextQuestion)
   }
-  return newArr
+  const questionsArr = newArr.map((q) => {
+    return { ...q, key: randomstring.generate(10) }
+  })
+  return questionsArr
 }
 
 export default getQuestions
