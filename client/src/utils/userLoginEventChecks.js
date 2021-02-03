@@ -21,76 +21,63 @@ const userLoginEventChecks = (user, updateUser, setUser) => {
       // Perform check of whether to log the current login event.
       const retrievedData = data.data
       // If user logs in for the first time, log the event.
-      // Keep two logs per day
       if (retrievedData.length === 0) {
         registerLoginEvent(user)
-        registerLoginEvent(user)
+        // registerLoginEvent(user)
         console.log('event 1')
       } else {
         // If user logged in before, check if the day changed and log the event.
-        // Keep two logs per day
         const lastActivity = parseJSON(
           retrievedData[retrievedData.length - 1].log
         )
-        const currentActivity = new Date()
-        // console.log(lastActivity)
-        // console.log(currentActivity)
-        // console.log(isToday(lastActivity) === false)
-        if (!isToday(lastActivity) && isToday(currentActivity)) {
+        if (!isToday(lastActivity)) {
           registerLoginEvent(user)
           console.log('event 2')
         }
-        if (
-          retrievedData.length >= 3 &&
-          !isToday(retrievedData[retrievedData.length - 2]) &&
-          isToday(lastActivity) &&
-          isToday(currentActivity)
-        ) {
-          registerLoginEvent(user)
-          console.log('event 3')
+      }
+
+      // Check if user's energy needs a top up
+      if (user.energy.value < user.maxEnergy) {
+        console.log('energy update block triggered')
+        const now = new Date()
+        const timestamp = parseJSON(user.energy.timestamp)
+        const difference = differenceInMinutes(now, timestamp)
+        console.log(difference)
+        if (difference >= 1 && difference < 2) {
+          user = {
+            ...user,
+            energy: { value: user.energy.value + 1, timestamp: new Date() },
+          }
+        } else if (difference >= 2 && difference < 3) {
+          user = {
+            ...user,
+            energy: { value: user.energy.value + 2, timestamp: new Date() },
+          }
+        } else if (difference >= 3) {
+          user = {
+            ...user,
+            energy: { value: user.energy.value + 3, timestamp: new Date() },
+          }
+        }
+        if (user.energy.value > user.maxEnergy) {
+          user = {
+            ...user,
+            energy: { value: user.maxEnergy, timestamp: new Date() },
+          }
         }
       }
 
-      // If there have been two login events or more...
-      if (retrievedData.length >= 2) {
-        // Check if user's energy needs a top up since last log in
-        if (user.energy.value < user.maxEnergy) {
-          console.log('energy update block triggered')
-          const now = new Date()
-          const timestamp = parseJSON(user.energy.timestamp)
-          const difference = differenceInMinutes(now, timestamp)
-          console.log(difference)
-          if (difference >= 1 && difference < 2) {
-            user = {
-              ...user,
-              energy: { value: user.energy.value + 1, timestamp: new Date() },
-            }
-          } else if (difference >= 2 && difference < 3) {
-            user = {
-              ...user,
-              energy: { value: user.energy.value + 2, timestamp: new Date() },
-            }
-          } else if (difference >= 3) {
-            user = {
-              ...user,
-              energy: { value: user.energy.value + 3, timestamp: new Date() },
-            }
-          }
-          if (user.energy.value > user.maxEnergy) {
-            user = {
-              ...user,
-              energy: { value: user.maxEnergy, timestamp: new Date() },
-            }
-          }
-        }
-
+      // Perform the streak operation in the same fetch. Aka, use the data from the database
+      // before the current login has been set and fetched.
+      // Example: once a user logs in, the new login event will be set, but this block will
+      // only have access to what's already been fetched, and the lastActivity will be the previous
+      // login event, not the current one.
+      if (retrievedData.length >= 1) {
         // Check if the user logged in yesterday. If so, add 1 to streak.
         const lastActivity = parseJSON(
-          retrievedData[retrievedData.length - 2].log
-        )
-        const currentLogin = parseJSON(
           retrievedData[retrievedData.length - 1].log
         )
+        const currentLogin = new Date()
         if (isYesterday(lastActivity) && isToday(currentLogin)) {
           // On day change, add + 1 to streak if conditions are met.
           // also write to calendar object to highlight today's day.
@@ -147,7 +134,6 @@ const userLoginEventChecks = (user, updateUser, setUser) => {
       }
       updateUser(user)
       setUser(user)
-      console.log('user data updated')
     })
 }
 
