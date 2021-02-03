@@ -39,6 +39,7 @@ function Signup() {
         maxEnergy: 3,
         tasks: [],
         answered: [],
+        calendar: [],
       }
 
       fetch('/auth/users', {

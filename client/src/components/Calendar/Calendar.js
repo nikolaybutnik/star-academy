@@ -7,6 +7,7 @@ import {
   lastDayOfWeek,
   eachDayOfInterval,
   parseJSON,
+  getDay,
   getDate,
   isToday,
 } from 'date-fns'
@@ -67,8 +68,8 @@ const Calendar = () => {
               <th>WED</th>
               <th>THU</th>
               <th>FRI</th>
-              <th className="secondary">SAT</th>
-              <th className="secondary">SUN</th>
+              <th>SAT</th>
+              <th>SUN</th>
             </tr>
           </thead>
         </table>

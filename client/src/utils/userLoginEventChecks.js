@@ -1,4 +1,12 @@
-import { differenceInMinutes, isToday, isYesterday, parseJSON } from 'date-fns'
+/* eslint-disable no-unused-vars */
+import {
+  differenceInMinutes,
+  isToday,
+  isYesterday,
+  parseJSON,
+  getDay,
+} from 'date-fns'
+import registerLoginEvent from './registerLoginEvent'
 
 const userLoginEventChecks = (user, updateUser, setUser) => {
   fetch(`/getlog/${user._id}`, {
@@ -10,7 +18,39 @@ const userLoginEventChecks = (user, updateUser, setUser) => {
   })
     .then((res) => res.json())
     .then((data) => {
+      // Perform check of whether to log the current login event.
       const retrievedData = data.data
+      // If user logs in for the first time, log the event.
+      // Keep two logs per day
+      if (retrievedData.length === 0) {
+        registerLoginEvent(user)
+        registerLoginEvent(user)
+        console.log('event 1')
+      } else {
+        // If user logged in before, check if the day changed and log the event.
+        // Keep two logs per day
+        const lastActivity = parseJSON(
+          retrievedData[retrievedData.length - 1].log
+        )
+        const currentActivity = new Date()
+        // console.log(lastActivity)
+        // console.log(currentActivity)
+        // console.log(isToday(lastActivity) === false)
+        if (!isToday(lastActivity) && isToday(currentActivity)) {
+          registerLoginEvent(user)
+          console.log('event 2')
+        }
+        if (
+          retrievedData.length >= 3 &&
+          !isToday(retrievedData[retrievedData.length - 2]) &&
+          isToday(lastActivity) &&
+          isToday(currentActivity)
+        ) {
+          registerLoginEvent(user)
+          console.log('event 3')
+        }
+      }
+
       // If there have been two login events or more...
       if (retrievedData.length >= 2) {
         // Check if user's energy needs a top up since last log in
@@ -52,13 +92,29 @@ const userLoginEventChecks = (user, updateUser, setUser) => {
           retrievedData[retrievedData.length - 1].log
         )
         if (isYesterday(lastActivity) && isToday(currentLogin)) {
+          // On day change, add + 1 to streak if conditions are met.
+          // also write to calendar object to highlight today's day.
+          console.log(lastActivity)
+          console.log(currentLogin)
+          console.log(getDay(currentLogin))
+          // const calendar = [
+          //   { weekDay: 1, style: '' },
+          //   { weekDay: 2, style: '' },
+          //   { weekDay: 3, style: '' },
+          //   { weekDay: 4, style: '' },
+          //   { weekDay: 5, style: '' },
+          //   { weekDay: 6, style: '' },
+          //   { weekDay: 0, style: '' },
+          // ]
           user = { ...user, streak: user.streak + 1 }
           console.log('Streaks block triggered')
         } else if (
+          // Or reset streak to 1.
           !isYesterday(lastActivity) &&
           !isToday(lastActivity) &&
           isToday(currentLogin)
         ) {
+          console.log('resetting streak to 1')
           user = { ...user, streak: 1 }
         }
 
@@ -88,11 +144,10 @@ const userLoginEventChecks = (user, updateUser, setUser) => {
 
           console.log('Personal goals block triggered')
         }
-
-        updateUser(user)
-        setUser(user)
-        console.log('user data updated')
       }
+      updateUser(user)
+      setUser(user)
+      console.log('user data updated')
     })
 }
 
