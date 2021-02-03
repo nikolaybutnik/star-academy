@@ -34,9 +34,6 @@ function UserProvider(props) {
       .then((res) => res.json())
       .then((data) => {
         let user = data.data
-        // Log the current log in event in database.
-        // registerLoginEvent(user)
-
         // Perform check on user login event.
         userLoginEventChecks(user, updateUser, setUser)
       })

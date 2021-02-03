@@ -5,6 +5,8 @@ import {
   isYesterday,
   parseJSON,
   getDay,
+  isSunday,
+  isMonday,
 } from 'date-fns'
 import registerLoginEvent from './registerLoginEvent'
 
@@ -78,22 +80,34 @@ const userLoginEventChecks = (user, updateUser, setUser) => {
           retrievedData[retrievedData.length - 1].log
         )
         const currentLogin = new Date()
+        let calendar = user.calendar
         if (isYesterday(lastActivity) && isToday(currentLogin)) {
+          // Perform a check if calendar needs to be reset.
+          if (isSunday(lastActivity) && isMonday(currentLogin)) {
+            calendar = [
+              { weekDay: 1, style: null },
+              { weekDay: 2, style: null },
+              { weekDay: 3, style: null },
+              { weekDay: 4, style: null },
+              { weekDay: 5, style: null },
+              { weekDay: 6, style: null },
+              { weekDay: 0, style: null },
+            ]
+          }
           // On day change, add + 1 to streak if conditions are met.
           // also write to calendar object to highlight today's day.
-          console.log(lastActivity)
-          console.log(currentLogin)
-          console.log(getDay(currentLogin))
-          // const calendar = [
-          //   { weekDay: 1, style: '' },
-          //   { weekDay: 2, style: '' },
-          //   { weekDay: 3, style: '' },
-          //   { weekDay: 4, style: '' },
-          //   { weekDay: 5, style: '' },
-          //   { weekDay: 6, style: '' },
-          //   { weekDay: 0, style: '' },
-          // ]
-          user = { ...user, streak: user.streak + 1 }
+          calendar = calendar.map((day) => {
+            if (getDay(new Date()) === day.weekDay) {
+              return {
+                weekDay: day.weekDay,
+                style: { backgroundColor: 'rgb(204 254 222)' },
+              }
+            } else {
+              return day
+            }
+          })
+
+          user = { ...user, streak: user.streak + 1, calendar: calendar }
           console.log('Streaks block triggered')
         } else if (
           // Or reset streak to 1.
@@ -128,7 +142,6 @@ const userLoginEventChecks = (user, updateUser, setUser) => {
             }
           })
           user = { ...user, tasks: resetTasks }
-
           console.log('Personal goals block triggered')
         }
       }
