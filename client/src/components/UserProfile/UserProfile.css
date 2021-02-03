@@ -205,6 +205,16 @@ tr td {
 }
 
 /* Todo list */
+.todoListCol {
+  overflow: scroll;
+  height: 300px;
+  min-width: 250px;
+  margin-bottom: 30px;
+  box-shadow: 0 4px 8px 0 rgb(255 255 255 / 20%),
+    0 6px 20px 0 rgb(151 151 151 / 19%);
+  border-radius: 3%;
+}
+
 ul {
   margin: 0;
   padding: 0;
@@ -278,7 +288,7 @@ input {
   margin: 0;
   border: thin solid black;
   border-radius: 0;
-  width: 75%;
+  width: 84%;
   padding: 10px;
   float: left;
   font-size: 16px;
@@ -286,7 +296,7 @@ input {
 
 .addBtn {
   padding: 10px;
-  width: 25%;
+  width: 16%;
   background: #b8b8b8;
   color: rgb(10, 9, 9);
   float: left;
