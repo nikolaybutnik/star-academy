@@ -26,18 +26,7 @@ const ToDoList = () => {
   }
 
   return (
-    <div
-      id=""
-      style={{
-        overflow: 'scroll',
-        height: '300px',
-        minWidth: '310px',
-        marginBottom: '30px',
-        boxShadow:
-          '0 4px 8px 0 rgb(255 255 255 / 20%), 0 6px 20px 0 rgb(151 151 151 / 19%)',
-        borderRadius: '3%',
-      }}
-    >
+    <div className="todoListCol">
       <div id="myDIV" className="header" style={{ backgroundColor: '#f6f6f6' }}>
         <h3 style={{ paddingTop: '8px' }}>Personal Goals</h3>
         <form onSubmit={(event) => handleNewTask(event)}>
@@ -48,7 +37,9 @@ const ToDoList = () => {
             placeholder="Title..."
             style={{ padding: '9px' }}
           />
-          <button className="addBtn">Add</button>
+          <button className="addBtn">
+            <i class="fa fa-plus"></i>
+          </button>
         </form>
       </div>
 

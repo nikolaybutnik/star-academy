@@ -60,7 +60,7 @@ function ProfileHeader() {
                     <span className="energy-section">
                       {user ? user.energy.value + '/' + user.maxEnergy : null}
                     </span>
-                    <h9 className="energy-title">ENERGY</h9>
+                    <div className="energy-title">ENERGY</div>
                   </div>
                 </div>
               </div>

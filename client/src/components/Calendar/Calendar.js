@@ -68,7 +68,7 @@ const Calendar = () => {
               <th>THU</th>
               <th>FRI</th>
               <th className="secondary">SAT</th>
-              <th className="secondary">SUN</th>
+              <th>SUN</th>
             </tr>
           </thead>
         </table>

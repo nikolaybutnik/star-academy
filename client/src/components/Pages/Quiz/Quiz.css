@@ -60,3 +60,13 @@
 .btn-gradient.logout-btn:hover {
   background-color: rgb(224, 224, 224);
 }
+
+/* Columns */
+.question-display-column {
+  background-image: url('../../../Assets/512x512 (7).jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  flex-wrap: nowrap;
+  margin-top: 38px;
+  padding-bottom: 15px;
+}

@@ -80,14 +80,7 @@ const Quiz = () => {
             <QuestionButtonsLocked />
           )}
         </div>
-        <div
-          className="col-md-6"
-          style={{
-            flexWrap: 'nowrap',
-            marginTop: '38px',
-            paddingBottom: '15px',
-          }}
-        >
+        <div className="col-md-6 question-display-column">
           <QuestionDisplay
             questionState={questionState}
             setQuestionState={setQuestionState}
