@@ -39,6 +39,15 @@ function Signup() {
         maxEnergy: 3,
         tasks: [],
         answered: [],
+        calendar: [
+          { weekDay: 1, style: null },
+          { weekDay: 2, style: null },
+          { weekDay: 3, style: null },
+          { weekDay: 4, style: null },
+          { weekDay: 5, style: null },
+          { weekDay: 6, style: null },
+          { weekDay: 0, style: null },
+        ],
       }
 
       fetch('/auth/users', {

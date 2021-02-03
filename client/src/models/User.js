@@ -64,6 +64,9 @@ const userSchema = new Schema({
   tasks: {
     type: Array,
   },
+  calendar: {
+    type: Array,
+  },
 })
 
 // Do not use an arrow function here. We need 'this' inside the function to
