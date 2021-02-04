@@ -1,8 +1,8 @@
 /* eslint-disable no-unused-vars */
-import { useUser } from '../../utils/UserContext'
+import { useUser } from '../../../../utils/UserContext'
 import React, { useRef, useState } from 'react'
 import ListItem from './ListItems'
-import updateUser from '../../utils/updateUser'
+import updateUser from '../../../../utils/updateUser'
 import randomstring from 'randomstring'
 
 const ToDoList = () => {
@@ -38,7 +38,7 @@ const ToDoList = () => {
             style={{ padding: '9px' }}
           />
           <button className="addBtn">
-            <i class="fa fa-plus"></i>
+            <i className="fa fa-plus"></i>
           </button>
         </form>
       </div>

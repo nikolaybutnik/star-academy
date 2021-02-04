@@ -75,12 +75,13 @@ const userLoginEventChecks = (user, updateUser, setUser) => {
       // only have access to what's already been fetched, and the lastActivity will be the previous
       // login event, not the current one.
       if (retrievedData.length >= 1) {
-        // Check if the user logged in yesterday. If so, add 1 to streak.
         const lastActivity = parseJSON(
           retrievedData[retrievedData.length - 1].log
         )
         const currentLogin = new Date()
         let calendar = user.calendar
+
+        // Perform change of day checks.
         if (isYesterday(lastActivity) && isToday(currentLogin)) {
           // Perform a check if calendar needs to be reset.
           if (isSunday(lastActivity) && isMonday(currentLogin)) {
@@ -107,6 +108,7 @@ const userLoginEventChecks = (user, updateUser, setUser) => {
             }
           })
 
+          // If user logged in yesterday, add 1 to streak.
           user = { ...user, streak: user.streak + 1, calendar: calendar }
           console.log('Streaks block triggered')
         } else if (
@@ -134,6 +136,7 @@ const userLoginEventChecks = (user, updateUser, setUser) => {
         //   'current login'
         // )
 
+        // If the day has changed, reset personal goals.
         if (!isToday(lastActivity)) {
           const resetTasks = user.tasks.map((task) => {
             return {

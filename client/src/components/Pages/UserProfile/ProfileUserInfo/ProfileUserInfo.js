@@ -1,8 +1,8 @@
 /* eslint-disable no-unused-vars */
-import { useUser } from '../../utils/UserContext'
+import { useUser } from '../../../../utils/UserContext'
 import { PieChart } from 'react-minimal-pie-chart'
-import React, { useRef, useState } from 'react'
-import ListItem from './ListItems'
+import React from 'react'
+// import ListItem from './ListItems'
 import ToDoList from './ToDoList'
 
 const ProfileUserInfo = () => {
