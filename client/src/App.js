@@ -7,7 +7,7 @@ import './components/Pages/Signup/Signup.css'
 import Login from './components/Pages/Login/Login'
 import Signup from './components/Pages/Signup/Signup'
 import Quiz from './components/Pages/Quiz/Quiz'
-import UserProfile from './components/UserProfile/UserProfile'
+import UserProfile from './components/Pages/UserProfile/UserProfile/UserProfile'
 
 import { UserProvider } from './utils/UserContext'
 

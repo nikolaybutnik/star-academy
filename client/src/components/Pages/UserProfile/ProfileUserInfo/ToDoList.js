@@ -1,8 +1,8 @@
 /* eslint-disable no-unused-vars */
-import { useUser } from '../../utils/UserContext'
+import { useUser } from '../../../../utils/UserContext'
 import React, { useRef, useState } from 'react'
 import ListItem from './ListItems'
-import updateUser from '../../utils/updateUser'
+import updateUser from '../../../../utils/updateUser'
 import randomstring from 'randomstring'
 
 const ToDoList = () => {

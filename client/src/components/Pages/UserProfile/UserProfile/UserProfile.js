@@ -3,15 +3,15 @@
 import React, { useEffect } from 'react'
 import { Redirect } from 'react-router-dom'
 
-import ProfileHeader from '../Header/ProfileHeader'
+import ProfileHeader from '../../../Header/ProfileHeader'
 import Calendar from '../Calendar/Calendar'
 import ProfileUserInfo from '../ProfileUserInfo/ProfileUserInfo'
 import ProfileUserTier from '../ProfileUserTier/ProfileUserTier'
 import HomePageButtons from '../HomePageButtons/HomePageButtons'
 import { Container } from 'react-bootstrap'
 import { differenceInHours, differenceInMinutes, parseJSON } from 'date-fns'
-import updateUser from '../../utils/updateUser'
-import { useUser } from '../../utils/UserContext'
+import updateUser from '../../../../utils/updateUser'
+import { useUser } from '../../../../utils/UserContext'
 
 import './UserProfile.css'
 
