@@ -26,6 +26,14 @@
   align-items: center;
 }
 
+.userprof-total-fans {
+  color: #0068db;
+}
+
+.userprof-streaks {
+  color: rgb(252, 105, 120);
+}
+
 /* Energy Header*/
 .energy-section {
   margin-left: 0px;
