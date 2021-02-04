@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
-import { useUser } from '../../utils/UserContext'
-import updateUser from '../../utils/updateUser'
-import checkLevelUp from '../../utils/checkLevelUp'
+import { useUser } from '../../../../utils/UserContext'
+import updateUser from '../../../../utils/updateUser'
+import checkLevelUp from '../../../../utils/checkLevelUp'
 
 const ListItems = (props) => {
   const { user, setUser } = useUser()

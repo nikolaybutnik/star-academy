@@ -1,7 +1,6 @@
 /* eslint-disable no-unused-vars */
 import React from 'react'
 import { Link } from 'react-router-dom'
-import UserProfile from '../UserProfile/UserProfile'
 
 import '../UserProfile/UserProfile.css'
 

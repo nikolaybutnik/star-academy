@@ -1,6 +1,6 @@
 /* eslint-disable no-unused-vars */
 import React from 'react'
-import { useUser } from '../../utils/UserContext'
+import { useUser } from '../../../../utils/UserContext'
 import randomstring from 'randomstring'
 import {
   startOfWeek,
@@ -27,7 +27,7 @@ const Calendar = () => {
   const updatedCalendar = currentWeek.map((day, i) => {
     return { day, ...calendar[i] }
   })
-  console.log(updatedCalendar)
+  // console.log(updatedCalendar)
 
   return (
     <div className="calendar">

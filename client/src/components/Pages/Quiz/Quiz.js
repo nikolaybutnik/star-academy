@@ -7,15 +7,18 @@ import './Quiz.css'
 
 import QuestionButtons from './QuizSets/QuestionButtons/QuestionButtons'
 import QuestionButtonsLocked from './QuizSets/QuestionButtonsLocked/QestionButtonsLocked'
+import QuestionButtonsLockedQuiz from './QuizSets/QuestionButtonsLockedQuiz/QuestionButtonsLockedQuiz'
 import HomeHeader from '../../Header/QuizHeader'
 import QuestionDisplay from './QuizSets/QuestionDisplay/QuestionDisplay'
 import updateUser from '../../../utils/updateUser'
 import { differenceInHours, differenceInMinutes, parseJSON } from 'date-fns'
-import test from '../../../Assets/BeFunky-collage (30).png'
+// import test from '../../../Assets/BeFunky-collage (30).png'
 
 const Quiz = () => {
   // Currently logged in user
   let { user, setUser } = useUser()
+
+  const [buttonsLock, setButtonsLock] = useState(false)
 
   const [questionState, setQuestionState] = useState([])
 
@@ -73,9 +76,14 @@ const Quiz = () => {
 
       <div className="row">
         <div className="main-page-body col-md-6">
-          {/* If user has no energy left, render locked buttons */}
-          {user.energy.value > 0 ? (
-            <QuestionButtons setQuestionState={setQuestionState} />
+          {/* If user has no energy left, or if question was clicked render locked buttons */}
+          {buttonsLock ? (
+            <QuestionButtonsLockedQuiz />
+          ) : user.energy.value > 0 ? (
+            <QuestionButtons
+              setButtonsLock={setButtonsLock}
+              setQuestionState={setQuestionState}
+            />
           ) : (
             <QuestionButtonsLocked />
           )}
@@ -84,6 +92,7 @@ const Quiz = () => {
           <QuestionDisplay
             questionState={questionState}
             setQuestionState={setQuestionState}
+            setButtonsLock={setButtonsLock}
           />
         </div>
       </div>
