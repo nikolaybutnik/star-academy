@@ -1,16 +1,5 @@
 /* eslint-disable no-unused-vars */
 import React from 'react'
-<<<<<<< HEAD:client/src/components/ProfileUserTier/ProfileUserTier.js
-import beginnerIcon from '../../Assets/beginnerIcon.png'
-import buskerIcon from '../../Assets/buskerIcon.png'
-import localTalentIcon from '../../Assets/localtalentIcon.png'
-import regionalTalentIcon from '../../Assets/regionaltalentIcon.png'
-import countryIconIcon from '../../Assets/countryiconIcon.png'
-import energyIcon from '../../Assets/bolt-128.png'
-import energyTest from '../../Assets/bolt-128.png'
-import { useUser } from '../../utils/UserContext'
-import '../UserProfile/UserProfile.css'
-=======
 import beginnerIcon from '../../../../Assets/beginnerIcon.png'
 import buskerIcon from '../../../../Assets/buskerIcon.png'
 import localTalentIcon from '../../../../Assets/localtalentIcon.png'
@@ -18,7 +7,6 @@ import regionalTalentIcon from '../../../../Assets/regionaltalentIcon.png'
 import countryIconIcon from '../../../../Assets/countryiconIcon.png'
 // import energyIcon from '../../Assets/bolt-128.png'
 import { useUser } from '../../../../utils/UserContext'
->>>>>>> main:client/src/components/Pages/UserProfile/ProfileUserTier/ProfileUserTier.js
 
 const ProfileUserTier = () => {
   // Currently logged in user
