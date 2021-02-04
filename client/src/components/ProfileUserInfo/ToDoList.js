@@ -38,7 +38,7 @@ const ToDoList = () => {
             style={{ padding: '9px' }}
           />
           <button className="addBtn">
-            <i class="fa fa-plus"></i>
+            <i className="fa fa-plus"></i>
           </button>
         </form>
       </div>
