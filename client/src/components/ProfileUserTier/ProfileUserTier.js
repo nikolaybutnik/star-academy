@@ -6,7 +6,9 @@ import localTalentIcon from '../../Assets/localtalentIcon.png'
 import regionalTalentIcon from '../../Assets/regionaltalentIcon.png'
 import countryIconIcon from '../../Assets/countryiconIcon.png'
 import energyIcon from '../../Assets/bolt-128.png'
+import energyTest from '../../Assets/bolt-128.png'
 import { useUser } from '../../utils/UserContext'
+import '../UserProfile/UserProfile.css'
 
 const ProfileUserTier = () => {
   // Currently logged in user
@@ -41,8 +43,11 @@ const ProfileUserTier = () => {
         alt="beginner logo"
         className="user-image-profile col-md-12"
       />
-      <h3>Total fans: {user.totalExperience}</h3>
-      <h3>Streak: {user.streak}</h3>
+      <h3 className="userprof-total-fans">
+        Total fans: {user.totalExperience}{' '}
+        {/* <img src={energyTest} alt="beginger" id="energy-test" /> */}
+      </h3>
+      <h3 className="userprof-streaks">Streak: {user.streak}</h3>
     </div>
   )
 }
