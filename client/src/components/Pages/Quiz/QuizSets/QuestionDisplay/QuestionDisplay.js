@@ -1,6 +1,6 @@
 /* eslint-disable prefer-const */
 /* eslint-disable no-unused-vars */
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import './QuestionDisplay.css'
 import { useUser } from '../../../../../utils/UserContext'
 import checkLevelUp from '../../../../../utils/checkLevelUp'
@@ -12,7 +12,11 @@ const nextQuestion = (event, index, setIndex) => {
   setIndex(index + 1)
 }
 
-const QuestionDisplay = ({ questionState, setQuestionState }) => {
+const QuestionDisplay = ({
+  questionState,
+  setQuestionState,
+  setButtonsLock,
+}) => {
   const { user, setUser } = useUser()
 
   // Keep track of current question index. If the index exceeds question array length, reset everything.
@@ -20,6 +24,7 @@ const QuestionDisplay = ({ questionState, setQuestionState }) => {
   if (index === 5) {
     setQuestionState([])
     setIndex(0)
+    setButtonsLock(false)
   }
 
   let currentQuestion = questionState[index]

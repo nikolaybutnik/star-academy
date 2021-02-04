@@ -4,16 +4,16 @@ import './QuestionButtons.css'
 import wholeNoteIcon from '../../../../../Assets/greensingle.png'
 import halfNoteIcon from '../../../../../Assets/orangedouble.png'
 import eighthNoteIcon from '../../../../../Assets/redtriple.png'
-
 import { useUser } from '../../../../../utils/UserContext'
 import getQuestions from '../../../../../utils/getQuestions'
 import updateUser from '../../../../../utils/updateUser'
 
-const QuestionButtons = ({ setQuestionState }) => {
+const QuestionButtons = ({ setQuestionState, setButtonsLock }) => {
   const { user, setUser } = useUser()
 
   const handleGoToQuiz = (difficulty) => {
-    // On button click, deduct user energy, update + set user
+    // On button click lock the buttons, deduct user energy, update + set user
+    setButtonsLock(true)
     let updatedUser
     if (user.energy.value === user.maxEnergy) {
       updatedUser = {
@@ -43,7 +43,6 @@ const QuestionButtons = ({ setQuestionState }) => {
   return (
     <>
       <h3 className="">CHOOSE A QUESTION</h3>
-      {/* <div className="question-cards"> */}
       <button
         className="card easy-questions col-md-12"
         style={{

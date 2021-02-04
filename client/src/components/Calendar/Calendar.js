@@ -27,7 +27,7 @@ const Calendar = () => {
   const updatedCalendar = currentWeek.map((day, i) => {
     return { day, ...calendar[i] }
   })
-  console.log(updatedCalendar)
+  // console.log(updatedCalendar)
 
   return (
     <div className="calendar">
