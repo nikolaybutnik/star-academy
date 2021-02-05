@@ -16,7 +16,7 @@ function App() {
     // INCLUDE A SWITCH ROUTE AT THE END
     <UserProvider>
       <Router>
-        <div className="container col-md-10">
+        <div className="container col-md-8">
           <Route exact path="/" component={Login} />
           <Route exact path="/signup" component={Signup} />
           <Route path="/quiz" component={Quiz} />

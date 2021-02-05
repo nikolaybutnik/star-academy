@@ -42,7 +42,7 @@ const QuestionButtons = ({ setQuestionState, setButtonsLock }) => {
 
   return (
     <>
-      <h3 className="">CHOOSE A QUESTION</h3>
+      <h3 className="">CHOOSE YOUR DIFFICULTY</h3>
       <button
         className="card easy-questions col-md-12"
         style={{

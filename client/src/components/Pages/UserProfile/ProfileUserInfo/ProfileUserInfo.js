@@ -41,7 +41,7 @@ const ProfileUserInfo = () => {
             style={{
               height: '25px',
               width: '25px',
-              backgroundColor: 'rgb(252 105 120)',
+              backgroundColor: 'rgba(252, 105, 120, .4)',
               borderRadius: '50%',
               display: 'inline-block',
               margin: '5px',
@@ -62,7 +62,7 @@ const ProfileUserInfo = () => {
             {
               title: 'Wrong answers',
               value: user.incorrect,
-              color: 'rgb(252 105 120)',
+              color: 'rgba(252, 105, 120, .4)',
             },
           ]}
           style={{ height: 'auto', maxHeight: '250px', margin: '20px' }}
