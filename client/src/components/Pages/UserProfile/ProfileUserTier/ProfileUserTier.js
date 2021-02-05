@@ -5,7 +5,8 @@ import buskerIcon from '../../../../Assets/buskerIcon.png'
 import localTalentIcon from '../../../../Assets/localtalentIcon.png'
 import regionalTalentIcon from '../../../../Assets/regionaltalentIcon.png'
 import countryIconIcon from '../../../../Assets/countryiconIcon.png'
-// import energyIcon from '../../Assets/bolt-128.png'
+import energyIcon from '../../Assets/bolt-128.png'
+import energyTest from '../../Assets/bolt-128.png'
 import { useUser } from '../../../../utils/UserContext'
 
 const ProfileUserTier = () => {
