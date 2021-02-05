@@ -71,7 +71,14 @@ function Signup() {
   }
 
   return (
-    <div className="row signup-row">
+    <div
+      className="row signup-row"
+      style={{
+        maxWidth: '600px',
+        marginLeft: 'auto',
+        marginRight: 'auto',
+      }}
+    >
       <div className="hero-column">
         <Hero />
       </div>
@@ -80,52 +87,57 @@ function Signup() {
         <form onSubmit={(event) => handleNewUser(event)}>
           <div className="form-group sign-up-form">
             <h2 style={{ marginBottom: '10px', marginTop: '10px' }}>Sign up</h2>
-            <label htmlFor="newEmail">Email Address</label>
+            <label htmlFor="newEmail" style={{ float: 'left' }}>
+              Email Address
+            </label>
             <input
               type="email"
               className="form-control"
               id="newEmail"
               aria-describedby="emailHelp"
-              placeholder="Enter email"
+              placeholder=""
               onChange={(event) => setEmail(event.target.value)}
               ref={newEmailRef}
             ></input>
-            {/* <small id="emailHelp" class="form-text text-muted">
-                We'll never share your email with anyone else.
-              </small> */}
           </div>
 
           <div className="form-group sign-up-form">
-            <label htmlFor="newUsername">Bandname</label>
+            <label htmlFor="newUsername" style={{ float: 'left' }}>
+              Bandname
+            </label>
             <input
               type="username"
               className="form-control"
               id="newUsername"
-              placeholder="Enter bandname"
+              placeholder=""
               onChange={(event) => setUsername(event.target.value)}
               ref={newUsernameRef}
             ></input>
           </div>
 
           <div className="form-group sign-up-form">
-            <label htmlFor="newPassword">Password</label>
+            <label htmlFor="newPassword" style={{ float: 'left' }}>
+              Password
+            </label>
             <input
               type="password"
               className="form-control"
               id="newPassword"
-              placeholder="Enter password"
+              placeholder=""
               onChange={(event) => setPassword(event.target.value)}
               ref={newPasswordRef}
             ></input>
           </div>
 
           <div className="form-group sign-up-form">
-            <label htmlFor="confirmNewPassword">Confirm Password</label>
+            <label htmlFor="confirmNewPassword" style={{ float: 'left' }}>
+              Confirm Password
+            </label>
             <input
               type="password"
               className="form-control"
               id="confirmNewPassword"
-              placeholder="Confirm password"
+              placeholder=""
               onChange={(event) => setConfirmPassword(event.target.value)}
               ref={confirmNewPasswrdRef}
             ></input>
@@ -135,6 +147,7 @@ function Signup() {
               href=""
               type="submit"
               className="btn-gradient col-md-9 blue mini signup-btn"
+              style={{ marginTop: '20px' }}
             >
               {' '}
               Sign Up
