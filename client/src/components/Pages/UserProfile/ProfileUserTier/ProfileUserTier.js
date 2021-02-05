@@ -9,7 +9,6 @@ import energyIcon from '../../../../Assets/bolt-128.png'
 import { useUser } from '../../../../utils/UserContext'
 
 const ProfileUserTier = () => {
-  // Currently logged in user
   const { user } = useUser()
 
   let imageSource
@@ -43,11 +42,13 @@ const ProfileUserTier = () => {
       />
       <h3 className="userprof-total-fans">
         Total fans: {user.totalExperience}{' '}
+      </h3>
+      <h3 className="userprof-streaks">
+        Streak: {user.streak}
         {user.streak > 1 ? (
           <img src={energyIcon} alt="beginger" id="energy-test" />
         ) : null}
       </h3>
-      <h3 className="userprof-streaks">Streak: {user.streak}</h3>
     </div>
   )
 }
