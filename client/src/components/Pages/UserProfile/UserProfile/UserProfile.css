@@ -163,10 +163,6 @@ tr td {
   margin-top: 15px;
 }
 
-.btn-gradient.blue.quiz-btn:hover {
-  background: #3d8ed4;
-}
-
 .daily-quiz-title {
   padding: 5px;
   font-family: Trebuchet MS, Lucida Sans Unicode, Lucida Grande, Lucida Sans,
@@ -203,11 +199,15 @@ tr td {
 }
 
 .btn-gradient.blue {
-  background: #449fec;
+  background: rgb(66, 192, 251);
 }
 
 .btn-gradient.blue:active {
-  background: #449fec;
+  background: rgb(66, 192, 251);
+}
+
+.btn-gradient.blue.quiz-btn:hover {
+  background: #3d8ed4;
 }
 
 /* Todo list */

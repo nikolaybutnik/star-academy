@@ -59,12 +59,12 @@ const ProfileUserTier = () => {
             title: 'Right answers',
             value:
               user.correct === 0 && user.incorrect === 0 ? 1 : user.correct,
-            color: 'rgb(74 198 147)',
+            color: 'rgb(66, 192, 251)',
           },
           {
             title: 'Wrong answers',
             value: user.incorrect,
-            color: 'rgb(252 105 120)',
+            color: 'rgba(252, 105, 120, 0.4)',
           },
         ]}
         style={{
@@ -82,7 +82,7 @@ const ProfileUserTier = () => {
             style={{
               height: '25px',
               width: '25px',
-              backgroundColor: 'rgb(74 198 147)',
+              backgroundColor: 'rgb(66, 192, 251)',
               borderRadius: '50%',
               display: 'inline-block',
               margin: '5px',
@@ -96,7 +96,7 @@ const ProfileUserTier = () => {
             style={{
               height: '25px',
               width: '25px',
-              backgroundColor: 'rgb(252 105 120)',
+              backgroundColor: 'rgba(252, 105, 120, 0.4)',
               borderRadius: '50%',
               display: 'inline-block',
               margin: '5px',
