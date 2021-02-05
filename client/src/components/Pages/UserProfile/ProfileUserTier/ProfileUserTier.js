@@ -6,6 +6,8 @@ import localTalentIcon from '../../../../Assets/localtalentIcon.png'
 import regionalTalentIcon from '../../../../Assets/regionaltalentIcon.png'
 import countryIconIcon from '../../../../Assets/countryiconIcon.png'
 import energyIcon from '../../../../Assets/bolt-128.png'
+import fireIcon from '../../../../Assets/fire-icon.png'
+
 import { useUser } from '../../../../utils/UserContext'
 import { PieChart } from 'react-minimal-pie-chart'
 
@@ -46,10 +48,10 @@ const ProfileUserTier = () => {
         Total fans: {user.totalExperience}{' '}
       </h3>
       <h3 className="userprof-streaks">
-        Streak: {user.streak}
-        {/* {user.streak > 1 ? (
-          <img src={energyIcon} alt="beginger" id="energy-test" />
-        ) : null} */}
+        Streak: {user.streak}{' '}
+        {user.streak > 1 ? (
+          <img src={fireIcon} alt="streak" className="fire-icon" />
+        ) : null}
       </h3>
 
       <PieChart
