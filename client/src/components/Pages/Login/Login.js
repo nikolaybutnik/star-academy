@@ -51,7 +51,14 @@ function Login() {
   }
 
   return (
-    <div className="row signup-row">
+    <div
+      className="row signup-row"
+      style={{
+        maxWidth: '600px',
+        marginLeft: 'auto',
+        marginRight: 'auto',
+      }}
+    >
       <div className="hero-column">
         <Hero />
       </div>
@@ -59,26 +66,31 @@ function Login() {
         <form onSubmit={(event) => handleFormSubmit(event)}>
           <div className="form-group sign-up-form">
             <h2 style={{ marginBottom: '20px', marginTop: '20px' }}>Login</h2>
-            <label htmlFor="email">Email address</label>
+            <label htmlFor="email" style={{ float: 'left' }}>
+              Email address
+            </label>
             <input
               type="email"
               className="form-control"
               id="email"
               aria-describedby="emailHelp"
-              placeholder="Enter email"
+              placeholder=""
               ref={emailRef}
             ></input>
           </div>
 
           <div className="form-group sign-up-form">
-            <label htmlFor="password" style={{ margin: '10px' }}>
+            <label
+              htmlFor="password"
+              style={{ marginTop: '10px', float: 'left' }}
+            >
               Password
             </label>
             <input
               type="password"
               className="form-control signin-form"
               id="password"
-              placeholder="Enter password"
+              placeholder=""
               ref={passwordRef}
             ></input>
           </div>
@@ -87,6 +99,7 @@ function Login() {
             <button
               type="submit"
               className="btn-gradient blue mini signup-btn col-md-9"
+              style={{ marginTop: '20px' }}
             >
               Sign In
             </button>
@@ -97,7 +110,6 @@ function Login() {
               <button
                 type="submit"
                 className="btn-gradient blue mini signup-btn col-md-9"
-                style={{ margin: '10px' }}
               >
                 Sign Up
               </button>

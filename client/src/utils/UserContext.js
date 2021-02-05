@@ -3,7 +3,6 @@
 import React, { useState, useEffect } from 'react'
 import useLocalStorageState from '../utils/useLocalStorageState'
 import updateUser from '../utils/updateUser'
-import registerLoginEvent from '../utils/registerLoginEvent'
 import userLoginEventChecks from '../utils/userLoginEventChecks'
 
 // Store token and user object

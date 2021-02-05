@@ -82,7 +82,6 @@
   padding-left: 0px;
   margin-right: auto;
   margin-left: auto;
-  float: right;
 }
 
 .calendar {
@@ -160,12 +159,8 @@ tr td {
 
 /* Quiz Button, Gradient Design */
 .quiz-btn {
-  min-width: 50px;
-  float: right;
-}
-
-.btn-gradient.blue.quiz-btn:hover {
-  background: #3d8ed4;
+  height: 80px;
+  margin-top: 15px;
 }
 
 .daily-quiz-title {
@@ -201,15 +196,18 @@ tr td {
   border-bottom: 4px solid rgba(0, 0, 0, 0.21);
   border-radius: 15px;
   text-shadow: 0 1px 0 rgba(0, 0, 0, 0.15);
-  height: 125px;
 }
 
 .btn-gradient.blue {
-  background: #449fec;
+  background: rgb(66, 192, 251);
 }
 
 .btn-gradient.blue:active {
-  background: #449fec;
+  background: rgb(66, 192, 251);
+}
+
+.btn-gradient.blue.quiz-btn:hover {
+  background: #3d8ed4;
 }
 
 /* Todo list */

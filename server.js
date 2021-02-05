@@ -54,13 +54,11 @@ app.post('/auth/users', async (req, res) => {
     User.create(newUser)
       .then((user) => {
         res.status(201).send({ data: newUser })
-        // TODO: send welcome email
       })
       .catch((err) => {
         res.status(400).json(err)
       })
   } catch (err) {
-    // debug('Error saving new user: ', err.message)
     res.status(500).send({
       errors: [
         {
@@ -95,7 +93,6 @@ app.post('/auth/tokens', async (req, res) => {
     // If all is good, return a token. The method is defined in the User model.
     res.status(201).send({ data: { token: user.generateAuthToken() } })
   } catch (err) {
-    // debug(`Error authenticating user ... `, err.message)
     res.status(500).send({
       errors: [
         {
@@ -110,9 +107,7 @@ app.post('/auth/tokens', async (req, res) => {
 
 // Verify a user by the token. If verified, return the user.
 app.get('/auth/users/me', authorize, async (req, res) => {
-  // console.log(req.user)
   const user = await User.findById(req.user._id)
-  // console.log(user)
   res.send({ data: user })
 })
 
@@ -120,11 +115,9 @@ app.get('/auth/users/me', authorize, async (req, res) => {
 app.patch('/edituser', async (req, res) => {
   try {
     const id = req.body._id
-    // console.log(id)
     const updatedUser = await User.findByIdAndUpdate(id, req.body)
     res.send({ data: updatedUser })
   } catch (err) {
-    // debug('Error updating the user: ', err.message)
     res.status(500).send({
       errors: [
         {
@@ -140,7 +133,6 @@ app.patch('/edituser', async (req, res) => {
 // This route will make a log of a user log in event.
 app.post('/log', (req, res) => {
   const newLog = req.body
-  // console.log(req.body)
   Log.create(newLog)
     .then((user) => {
       res.status(201).send({ data: newLog })
