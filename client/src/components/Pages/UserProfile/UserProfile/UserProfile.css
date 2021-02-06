@@ -204,15 +204,15 @@ tr td {
 }
 
 .btn-gradient.blue {
-  background: rgb(66, 192, 251);
+  background: rgb(30 133 246);
 }
 
 .btn-gradient.blue:active {
-  background: rgb(66, 192, 251);
+  background: rgb(30 133 246);
 }
 
 .btn-gradient.blue.quiz-btn:hover {
-  background: #3d8ed4;
+  background: #1961a0;
 }
 
 /* Todo list */
