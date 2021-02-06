@@ -22,10 +22,30 @@ const userLoginEventChecks = (user, updateUser, setUser) => {
     .then((data) => {
       // Perform check of whether to log the current login event.
       const retrievedData = data.data
-      // If user logs in for the first time, log the event.
+      // If user logs in for the first time, log the event and update the calendar.
       if (retrievedData.length === 0) {
         registerLoginEvent(user)
-        // registerLoginEvent(user)
+        let calendar = [
+          { weekDay: 1, style: null },
+          { weekDay: 2, style: null },
+          { weekDay: 3, style: null },
+          { weekDay: 4, style: null },
+          { weekDay: 5, style: null },
+          { weekDay: 6, style: null },
+          { weekDay: 0, style: null },
+        ]
+        calendar = calendar.map((day) => {
+          if (getDay(new Date()) === day.weekDay) {
+            return {
+              weekDay: day.weekDay,
+              style: { backgroundColor: 'rgb(204 254 222)' },
+            }
+          } else {
+            return day
+          }
+        })
+        updateUser({ ...user, calendar: calendar })
+        setUser({ ...user, calendar: calendar })
         console.log('event 1')
       } else {
         // If user logged in before, check if the day changed and log the event.
