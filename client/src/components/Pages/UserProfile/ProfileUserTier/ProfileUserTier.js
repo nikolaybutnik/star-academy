@@ -61,7 +61,7 @@ const ProfileUserTier = () => {
             title: 'Right answers',
             value:
               user.correct === 0 && user.incorrect === 0 ? 1 : user.correct,
-            color: 'rgb(66, 192, 251)',
+            color: 'rgb(30 133 246)',
           },
           {
             title: 'Wrong answers',
@@ -84,7 +84,7 @@ const ProfileUserTier = () => {
             style={{
               height: '25px',
               width: '25px',
-              backgroundColor: 'rgb(66, 192, 251)',
+              backgroundColor: 'rgb(30 133 246)',
               borderRadius: '50%',
               display: 'inline-block',
               margin: '5px',

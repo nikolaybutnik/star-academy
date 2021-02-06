@@ -63,8 +63,9 @@
 
 /* Columns */
 .question-display-column {
-  background-image: url('../../../Assets/question-area.png');
-  background-repeat: no-repeat;
+  /* background-image: url('../../../Assets/question-area.png'); */
+  /* background-repeat: no-repeat; */
+  background: rgb(244 244 244);
   background-size: cover;
   flex-wrap: nowrap;
   margin-top: 38px;
