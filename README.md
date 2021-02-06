@@ -1,9 +1,9 @@
-[![Contributors][contributors-shield]][contributors-url]
+<!-- [![Contributors][contributors-shield]][contributors-url]
 [![Forks][forks-shield]][forks-url]
 [![Stargazers][stars-shield]][stars-url]
 [![Issues][issues-shield]][issues-url]
 [![MIT License][license-shield]][license-url]
-[![LinkedIn][linkedin-shield]][linkedin-url]
+[![LinkedIn][linkedin-shield]][linkedin-url] -->
 
 <!-- PROJECT LOGO -->
 <br />
@@ -81,11 +81,9 @@ The following technologies and libraries were used in the creation of STAR Acade
 
 ## Getting Started
 
-To get a local copy up and running, follow these simple steps.
+To get a local copy up and running, follow these steps.
 
 ### Prerequisites
-
-This is an example of how to list things you need to use the software and how to install them.
 
 - npm
   ```sh
@@ -103,15 +101,14 @@ This is an example of how to list things you need to use the software and how to
    ```sh
    npm install
    ```
-3. Install MongoDB by following their [guide.](https://docs.mongodb.com/manual/installation/)
+3. Install MongoDB by following the [guide.](https://docs.mongodb.com/manual/installation/)
 
-4. Inside MongoDB create a database called `musicplayground`, and two colloections: `users` and `logs`.
+4. Inside MongoDB create a database called `musicplayground`, and two collections: `users` and `logs`.
 
 5. You're ready to go!
-
-```sh
+   ```sh
    npm start
-```
+   ```
 
 <!-- USAGE EXAMPLES -->
 
@@ -125,7 +122,7 @@ _For more examples, please refer to the [Documentation](https://example.com)_
 
 ## Roadmap
 
-See the [open issues](https://github.com/othneildrew/Best-README-Template/issues) for a list of proposed features (and known issues).
+See the [open issues](https://github.com/nikolaybutnik/star-academy/issues) for a list of proposed features (and known issues).
 
 <!-- CONTRIBUTING -->
 
@@ -149,9 +146,11 @@ Distributed under the MIT License. See `LICENSE` for more information.
 
 ## Contact
 
-Your Name - [@your_twitter](https://twitter.com/your_username) - email@example.com
+Nikolay Butnik - [LinkedIn](https://www.linkedin.com/in/nikolay-b-2887971b7/) - btnk.nik@gmail.com
 
-Project Link: [https://github.com/your_username/repo_name](https://github.com/your_username/repo_name)
+Louis Yacksmith - [LinkedIn](https://www.linkedin.com/in/louis-yacksmith-2a06321b2/)
+
+Project Link: [https://github.com/your_username/repo_name](https://github.com/nikolaybutnik/star-academy)
 
 <!-- ACKNOWLEDGEMENTS -->
 
@@ -172,7 +171,7 @@ Project Link: [https://github.com/your_username/repo_name](https://github.com/yo
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
 
-[contributors-shield]: https://img.shields.io/github/contributors/othneildrew/Best-README-Template.svg?style=for-the-badge
+<!-- [contributors-shield]: https://img.shields.io/github/contributors/othneildrew/Best-README-Template.svg?style=for-the-badge
 [contributors-url]: https://github.com/nikolaybutnik/star-academy/graphs/contributors
 [forks-shield]: https://img.shields.io/github/forks/othneildrew/Best-README-Template.svg?style=for-the-badge
 [forks-url]: https://github.com/nikolaybutnik/star-academy/network/members
@@ -183,23 +182,5 @@ Project Link: [https://github.com/your_username/repo_name](https://github.com/yo
 [license-shield]: https://img.shields.io/github/license/othneildrew/Best-README-Template.svg?style=for-the-badge
 [license-url]: https://github.com/othneildrew/Best-README-Template/blob/master/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
-[linkedin-url]: https://linkedin.com/in/othneildrew
-[product-screenshot]: images/screenshot.png
-
-# music-playground
-
-Basic functionality:
-
-- User creates a personal profile to keep track of their progress.
-- Each day a user is presented with a set of music related questions. Answering a question correctly rewards the user with experience points towards their in-app character. Each question has a 20(?) second timer. If the question is answered within the time frame, user gets bonus experience, but if not, they are not penalized.
-- Experience points earned go towards leveling up of a virtual character. As characters level up, their character class names change. As the user levels up, they unlock more and harder questions. Questions start out very general. After a bit, a question will be presented to narrow down the user's interest. Depending on the answer, the course of the questions will branch out into multiple paths. If a user gets a question wrong, there is a chance it will be asked again later.
-- Starting out, the user will be able to add one custom personal challenge they can complete each day for experience. There may be suggestions, but the user has full control over what that challenge is. As the user levels up, more challenge slots will be unlocked for more daily challenges.
-- Streak sytem will award bonus experience points for completing questions and daily challenge each day.
-- With each level up, the amount of experience to progress to the next level will increase, making the user rely more and more on setting personal challenges/goals for themselves to keep leveling up.
-
-Ideas for expanded functionality:
-
-- Have a full RPG system. Each time a user levels up, they get one skill point that they can assign to a character's stat. The stats are: HP, MP, ATK, DEF. Users can challenge others to a one on one challenge that resemble turn based combat between their characters. Users have a limited number of challenges they can send out per day. Winning a challenge will award extra experience.
-- Currency system. Completing daily tasks will award currency in addition to experience. The user can use the currency to purchase upgrade items/gear to boost their character's stats, or an expensive item to reset all skill points and reassign them as the user sees fit.
-- Winning one of one battles will also award the user unique score points. These points will be accumulated and the characters with highest scores will be displayed in a Hall of Fame.
-- A messaging system and/or a forum for users to communicate and help each pther learn.
+[linkedin-url]: https://www.linkedin.com/in/nikolay-b-2887971b7/
+[product-screenshot]: images/screenshot.png -->
