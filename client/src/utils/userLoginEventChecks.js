@@ -44,8 +44,7 @@ const userLoginEventChecks = (user, updateUser, setUser) => {
             return day
           }
         })
-        updateUser({ ...user, calendar: calendar })
-        setUser({ ...user, calendar: calendar })
+        user = { ...user, calendar: calendar }
         console.log('event 1')
       } else {
         // If user logged in before, check if the day changed and log the event.
