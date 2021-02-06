@@ -10,6 +10,9 @@ const QuestionButtonsLocked = () => {
   return (
     <>
       <h3 className="">OUT OF ENERGY</h3>
+      <small className="form-text text-muted">
+        1 energy recovers every 2 hours, take a break!
+      </small>
       <button className="card questions col-md-12 easy-lock-card">
         <div className="col-md-12">
           <img src={lockIconGreen} alt="whole note" className="lock-icon" />

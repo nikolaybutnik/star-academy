@@ -43,6 +43,9 @@ const QuestionButtons = ({ setQuestionState, setButtonsLock }) => {
   return (
     <>
       <h3 className="">CHOOSE YOUR DIFFICULTY</h3>
+      <small className="form-text text-muted">
+        Answer a set of 5 questions to get new fans!
+      </small>
       <button
         className="card easy-questions col-md-12"
         style={{

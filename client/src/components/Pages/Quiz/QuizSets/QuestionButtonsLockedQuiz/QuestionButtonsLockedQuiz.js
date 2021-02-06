@@ -10,6 +10,9 @@ const QuestionButtonsLocked = () => {
   return (
     <>
       <h3 className="">ANSWER THE QUESTIONS!</h3>
+      <small className="form-text text-muted">
+        Sharpen your knowledge and earn new fans!
+      </small>
       <button className="card questions col-md-12 easy-lock-card">
         <div className="col-md-12">
           <img src={lockIconGreen} alt="whole note" className="lock-icon" />
