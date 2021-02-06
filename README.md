@@ -75,13 +75,13 @@ The following technologies and libraries were used in the creation of STAR Acade
 - [Bcrypt](https://www.npmjs.com/package/bcrypt)
 - [ProgressBar](https://react-bootstrap.github.io/components/progress/#progress-bar-props)
 - [React-minimal-pie-chart](https://www.npmjs.com/package/react-minimal-pie-chart)
+- [MongoDB](https://www.mongodb.com/)
 
 <!-- GETTING STARTED -->
 
 ## Getting Started
 
-This is an example of how you may give instructions on setting up your project locally.
-To get a local copy up and running follow these simple example steps.
+To get a local copy up and running, follow these simple steps.
 
 ### Prerequisites
 
@@ -91,22 +91,27 @@ This is an example of how to list things you need to use the software and how to
   ```sh
   npm install npm@latest -g
   ```
+- MongoDB
 
 ### Installation
 
-1. Get a free API Key at [https://example.com](https://example.com)
-2. Clone the repo
+1. Clone the repo
    ```sh
-   git clone https://github.com/your_username_/Project-Name.git
+   git clone https://github.com/nikolaybutnik/star-academy
    ```
-3. Install NPM packages
+2. Install NPM packages
    ```sh
    npm install
    ```
-4. Enter your API in `config.js`
-   ```JS
-   const API_KEY = 'ENTER YOUR API';
-   ```
+3. Install MongoDB by following their [guide.](https://docs.mongodb.com/manual/installation/)
+
+4. Inside MongoDB create a database called `musicplayground`, and two colloections: `users` and `logs`.
+
+5. You're ready to go!
+
+```sh
+   npm start
+```
 
 <!-- USAGE EXAMPLES -->
 
@@ -182,14 +187,6 @@ Project Link: [https://github.com/your_username/repo_name](https://github.com/yo
 [product-screenshot]: images/screenshot.png
 
 # music-playground
-
-Description:
-
-- A music learning assistant app that uses RPG game elements to motivate the user to continue learning.
-
-Problem being solved:
-
-- lack of motivation when tackling a difficult new challenge. Injecting fun game elements into learning provides a sense of reward and motivates the user to continue learning.
 
 Basic functionality:
 
