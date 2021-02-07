@@ -1,6 +1,5 @@
 /* Lock Icon */
 .lock-icon {
-  opacity: 50%;
   height: 50px;
   margin: 20px;
 }
@@ -23,7 +22,7 @@
   margin: 10px;
   margin-right: 0px;
   margin-left: 0px;
-  cursor:no-drop;
+  cursor: no-drop;
 }
 
 /*  */
@@ -44,7 +43,7 @@
   margin: 10px;
   margin-right: 0px;
   margin-left: 0px;
-  cursor:no-drop;
+  cursor: no-drop;
 }
 
 /*  */
@@ -65,5 +64,5 @@
   margin: 10px;
   margin-right: 0px;
   margin-left: 0px;
-  cursor:no-drop;
+  cursor: no-drop;
 }
