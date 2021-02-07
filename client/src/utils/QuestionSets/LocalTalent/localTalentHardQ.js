@@ -131,7 +131,7 @@ const localTalentHardQuestions = [
     answers: [
       'A capo',
       'A term to say “get louder”',
-      'A term to say “play staccato',
+      'A term to say “play staccato”',
     ],
     correct: 'A capo',
     answeredBefore: false,
