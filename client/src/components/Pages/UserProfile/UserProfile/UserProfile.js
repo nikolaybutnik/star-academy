@@ -3,7 +3,6 @@
 import React, { useEffect } from 'react'
 import { Redirect } from 'react-router-dom'
 import ProfileHeader from '../../../Header/ProfileHeader'
-import Calendar from '../Calendar/Calendar'
 import ProfileUserInfo from '../ProfileUserInfo/ProfileUserInfo'
 import ProfileUserTier from '../ProfileUserTier/ProfileUserTier'
 // import { Container } from 'react-bootstrap'
@@ -75,9 +74,6 @@ const UserProfile = () => {
           <ProfileUserTier />
           <div className="col-md-6" style={{ padding: '0px' }}>
             <ProfileUserInfo />
-            {/* <Container className="calendar-container col-md-11">
-              <Calendar />
-            </Container> */}
           </div>
         </div>
       </div>

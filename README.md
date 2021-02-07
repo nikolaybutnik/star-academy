@@ -1,14 +1,14 @@
-[![Contributors][contributors-shield]][contributors-url]
+<!-- [![Contributors][contributors-shield]][contributors-url]
 [![Forks][forks-shield]][forks-url]
 [![Stargazers][stars-shield]][stars-url]
 [![Issues][issues-shield]][issues-url]
 [![MIT License][license-shield]][license-url]
-[![LinkedIn][linkedin-shield]][linkedin-url]
+[![LinkedIn][linkedin-shield]][linkedin-url] -->
 
 <!-- PROJECT LOGO -->
 <br />
 <p align="center">
-  <a href="https://github.com/othneildrew/Best-README-Template">
+  <a href="">
     <img src="images/logo.png" alt="Logo" width="80" height="80">
   </a>
 
@@ -58,73 +58,96 @@
 
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
+[Star Academy Screen Shot](https://github.com/nikolaybutnik/star-academy/blob/main/client/src/assets/star-academy-banner.png?raw=true)
 
-There are many great README templates available on GitHub, however, I didn't find one that really suit my needs so I created this enhanced one. I want to create a README template so amazing that it'll be the last one you ever need -- I think this is it.
+Ever wanted to learn guitar but found the process too daunting and unapproachable? We have you covered. STAR Academy is a web application that brings musical learning to you anywhere and everywhere. The app combines theory through randomized trivia quizez, with user defined daily goals.
 
-Here's why:
-
-- Your time should be focused on creating something amazing. A project that solves a problem and helps others
-- You shouldn't be doing the same tasks over and over like creating a README from scratch
-- You should element DRY principles to the rest of your life :smile:
-
-Of course, no one template will serve all projects since your needs may be different. So I'll be adding more in the near future. You may also suggest changes by forking this repo and creating a pull request or opening an issue. Thanks to all the people have have contributed to expanding this template!
-
-A list of commonly used resources that I find helpful are listed in the acknowledgements.
+The philosophy behind STAR Academy is that of rewarding the user for learning. Thus, we have created a game-ified app that rewards the user simply for keeping up with their daily practice and studies by turning the act of learning into a game.
 
 ### Built With
 
-This section should list any major frameworks that you built your project using. Leave any add-ons/plugins for the acknowledgements section. Here are a few examples.
+The following technologies and libraries were used in the creation of STAR Academy:
 
+- [React](https://reactjs.org/)
 - [Bootstrap](https://getbootstrap.com)
-- [JQuery](https://jquery.com)
-- [Laravel](https://laravel.com)
+- [Date-fns](https://date-fns.org/)
+- [JSON Web Tokens](https://jwt.io/)
+- [Bcrypt](https://www.npmjs.com/package/bcrypt)
+- [ProgressBar](https://react-bootstrap.github.io/components/progress/#progress-bar-props)
+- [React-minimal-pie-chart](https://www.npmjs.com/package/react-minimal-pie-chart)
+- [MongoDB](https://www.mongodb.com/)
 
 <!-- GETTING STARTED -->
 
 ## Getting Started
 
-This is an example of how you may give instructions on setting up your project locally.
-To get a local copy up and running follow these simple example steps.
+To get a local copy up and running, follow these steps.
 
 ### Prerequisites
-
-This is an example of how to list things you need to use the software and how to install them.
 
 - npm
   ```sh
   npm install npm@latest -g
   ```
+- MongoDB
 
 ### Installation
 
-1. Get a free API Key at [https://example.com](https://example.com)
-2. Clone the repo
+1. Clone the repo
    ```sh
-   git clone https://github.com/your_username_/Project-Name.git
+   git clone https://github.com/nikolaybutnik/star-academy
    ```
-3. Install NPM packages
+2. Install NPM packages
    ```sh
    npm install
    ```
-4. Enter your API in `config.js`
-   ```JS
-   const API_KEY = 'ENTER YOUR API';
+3. Install MongoDB by following the [guide.](https://docs.mongodb.com/manual/installation/)
+
+4. Inside MongoDB create a database called `musicplayground`, and two collections: `users` and `logs`.
+
+5. You're ready to go!
+   ```sh
+   npm start
    ```
 
 <!-- USAGE EXAMPLES -->
 
 ## Usage
 
-Use this space to show useful examples of how a project can be used. Additional screenshots, code examples and demos work well in this space. You may also link to more resources.
+After signing up for an account on logging in, the user is presented with the user profile screen.
 
-_For more examples, please refer to the [Documentation](https://example.com)_
+[Profile page Screen Shot](https://github.com/nikolaybutnik/star-academy/blob/main/client/src/assets/profile-page-legend.png?raw=true)
+
+The profile screen shows all basic user information.
+
+- Band name: your very own custom band name.
+- Level: the level of your virtual rock star. New questions get added to the quizes as you level up.
+- Energy: how many attempts you have left to do the quiz. For the current version of the app, 1 energy recovers every minute, but in a full production version this would change to 1 energy every hour.
+- Experience bar: answer quiz questions and complete dailt goals to earn fans and level up.
+- Class: a title reflecting your musical achievements.
+- Tier picture: your profile picture that changes with your class as you level up.
+- Total fans: how many fans (experience points) you've gained on your musical journey.
+- Streak: consecutive days you've logged in.
+- Wins/losses: a pie chart that tracks correct and incorrect quiz answers.
+- Personal goals: Add daily goals and check them off to gain fans. Daily goals reset once per day at midnight.
+- Go to quiz: go to the quiz page.
+- Calendar: shows the current week. Current day is highlighted in yellow. If you have logged in on any previous days, those days will be highlighted in green.
+
+The quiz page is where you spend energy to challenge your theory knowledge. Correct answers will earn fans based on the difficulty level.
+
+[Quiz Difficulty Level Screen Shot](https://github.com/nikolaybutnik/star-academy/blob/main/client/src/assets/quiz-difficulty-level.png?raw=true)
+
+Each attempt costs 1 energy point and comes with 5 randomly selected multiple choice questions. When you click on an answer, right answers are highlighted in green, and wrong answers are highlighted in red.
+
+[Example Question Screen Shot](https://github.com/nikolaybutnik/star-academy/blob/main/client/src/assets/example-question.png?raw=true)
+
+New questions are added to the pool as you level up, so make sure to keep coming back and get more fans!
 
 <!-- ROADMAP -->
 
 ## Roadmap
 
-See the [open issues](https://github.com/othneildrew/Best-README-Template/issues) for a list of proposed features (and known issues).
+See the [open issues](https://github.com/nikolaybutnik/star-academy/issues) for a list of proposed features (and known issues).
 
 <!-- CONTRIBUTING -->
 
@@ -148,30 +171,33 @@ Distributed under the MIT License. See `LICENSE` for more information.
 
 ## Contact
 
-Your Name - [@your_twitter](https://twitter.com/your_username) - email@example.com
+Nikolay Butnik - [LinkedIn](https://www.linkedin.com/in/nikolay-b-2887971b7/) - btnk.nik@gmail.com
 
-Project Link: [https://github.com/your_username/repo_name](https://github.com/your_username/repo_name)
+Louis Yacksmith - [LinkedIn](https://www.linkedin.com/in/louis-yacksmith-2a06321b2/)
+
+Project Link: [https://github.com/nikolaybutnik/star-academy](https://github.com/nikolaybutnik/star-academy)
 
 <!-- ACKNOWLEDGEMENTS -->
 
 ## Acknowledgements
 
-- [GitHub Emoji Cheat Sheet](https://www.webpagefx.com/tools/emoji-cheat-sheet)
-- [Img Shields](https://shields.io)
 - [Choose an Open Source License](https://choosealicense.com)
+- [Font Awesome](https://fontawesome.com)
+- [Heroku](https://heroku.com)
+<!-- - [GitHub Emoji Cheat Sheet](https://www.webpagefx.com/tools/emoji-cheat-sheet)
+- [Img Shields](https://shields.io)
 - [GitHub Pages](https://pages.github.com)
 - [Animate.css](https://daneden.github.io/animate.css)
 - [Loaders.css](https://connoratherton.com/loaders)
 - [Slick Carousel](https://kenwheeler.github.io/slick)
 - [Smooth Scroll](https://github.com/cferdinandi/smooth-scroll)
 - [Sticky Kit](http://leafo.net/sticky-kit)
-- [JVectorMap](http://jvectormap.com)
-- [Font Awesome](https://fontawesome.com)
+- [JVectorMap](http://jvectormap.com) -->
 
 <!-- MARKDOWN LINKS & IMAGES -->
 <!-- https://www.markdownguide.org/basic-syntax/#reference-style-links -->
 
-[contributors-shield]: https://img.shields.io/github/contributors/othneildrew/Best-README-Template.svg?style=for-the-badge
+<!-- [contributors-shield]: https://img.shields.io/github/contributors/othneildrew/Best-README-Template.svg?style=for-the-badge
 [contributors-url]: https://github.com/nikolaybutnik/star-academy/graphs/contributors
 [forks-shield]: https://img.shields.io/github/forks/othneildrew/Best-README-Template.svg?style=for-the-badge
 [forks-url]: https://github.com/nikolaybutnik/star-academy/network/members
@@ -182,31 +208,5 @@ Project Link: [https://github.com/your_username/repo_name](https://github.com/yo
 [license-shield]: https://img.shields.io/github/license/othneildrew/Best-README-Template.svg?style=for-the-badge
 [license-url]: https://github.com/othneildrew/Best-README-Template/blob/master/LICENSE.txt
 [linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
-[linkedin-url]: https://linkedin.com/in/othneildrew
-[product-screenshot]: images/screenshot.png
-
-# music-playground
-
-Description:
-
-- A music learning assistant app that uses RPG game elements to motivate the user to continue learning.
-
-Problem being solved:
-
-- lack of motivation when tackling a difficult new challenge. Injecting fun game elements into learning provides a sense of reward and motivates the user to continue learning.
-
-Basic functionality:
-
-- User creates a personal profile to keep track of their progress.
-- Each day a user is presented with a set of music related questions. Answering a question correctly rewards the user with experience points towards their in-app character. Each question has a 20(?) second timer. If the question is answered within the time frame, user gets bonus experience, but if not, they are not penalized.
-- Experience points earned go towards leveling up of a virtual character. As characters level up, their character class names change. As the user levels up, they unlock more and harder questions. Questions start out very general. After a bit, a question will be presented to narrow down the user's interest. Depending on the answer, the course of the questions will branch out into multiple paths. If a user gets a question wrong, there is a chance it will be asked again later.
-- Starting out, the user will be able to add one custom personal challenge they can complete each day for experience. There may be suggestions, but the user has full control over what that challenge is. As the user levels up, more challenge slots will be unlocked for more daily challenges.
-- Streak sytem will award bonus experience points for completing questions and daily challenge each day.
-- With each level up, the amount of experience to progress to the next level will increase, making the user rely more and more on setting personal challenges/goals for themselves to keep leveling up.
-
-Ideas for expanded functionality:
-
-- Have a full RPG system. Each time a user levels up, they get one skill point that they can assign to a character's stat. The stats are: HP, MP, ATK, DEF. Users can challenge others to a one on one challenge that resemble turn based combat between their characters. Users have a limited number of challenges they can send out per day. Winning a challenge will award extra experience.
-- Currency system. Completing daily tasks will award currency in addition to experience. The user can use the currency to purchase upgrade items/gear to boost their character's stats, or an expensive item to reset all skill points and reassign them as the user sees fit.
-- Winning one of one battles will also award the user unique score points. These points will be accumulated and the characters with highest scores will be displayed in a Hall of Fame.
-- A messaging system and/or a forum for users to communicate and help each pther learn.
+[linkedin-url]: https://www.linkedin.com/in/nikolay-b-2887971b7/
+[product-screenshot]: images/screenshot.png -->

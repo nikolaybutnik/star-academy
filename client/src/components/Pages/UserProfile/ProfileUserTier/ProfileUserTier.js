@@ -5,9 +5,7 @@ import buskerIcon from '../../../../Assets/buskerIcon.png'
 import localTalentIcon from '../../../../Assets/localtalentIcon.png'
 import regionalTalentIcon from '../../../../Assets/regionaltalentIcon.png'
 import countryIconIcon from '../../../../Assets/countryiconIcon.png'
-import energyIcon from '../../../../Assets/bolt-128.png'
 import fireIcon from '../../../../Assets/fire-icon.png'
-
 import { useUser } from '../../../../utils/UserContext'
 import { PieChart } from 'react-minimal-pie-chart'
 
