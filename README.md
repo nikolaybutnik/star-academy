@@ -9,7 +9,7 @@
 <br />
 <p align="center">
   <a href="https://github.com/nikolaybutnik/star-academy">
-    <img src="./client/src/Assets/staracademyIcon.png" alt="Logo" width="80" height="80">
+    <img src="./client/src/Assets/staracademyIcon.png" alt="Logo" width="50" height="50">
   </a>
 
   <h3 align="center">STAR Academy</h3>
@@ -58,7 +58,9 @@
 
 ## About The Project
 
-[Star Academy Screen Shot](https://github.com/nikolaybutnik/star-academy/blob/main/client/src/assets/star-academy-banner.png?raw=true)
+<img src="./client/src/Assets/README_Signup.png" alt="Home pages" width="400" height="280">
+
+<img src="./client/src/Assets/README_Screenshot.png" alt="Home pages" width="400" height="280">
 
 Ever wanted to learn guitar but found the process too daunting and unapproachable? We have you covered. STAR Academy is a web application that brings musical learning to you anywhere and everywhere. The app combines theory through randomized trivia quizez, with user defined daily goals.
 
@@ -173,7 +175,7 @@ Distributed under the MIT License. See `LICENSE` for more information.
 
 Nikolay Butnik - [LinkedIn](https://www.linkedin.com/in/nikolay-b-2887971b7/) - btnk.nik@gmail.com
 
-Louis Yacksmith - [LinkedIn](https://www.linkedin.com/in/louis-yacksmith-2a06321b2/)
+Louis Yacksmith - [LinkedIn](https://www.linkedin.com/in/louis-yacksmith-2a06321b2/) - louisyscarleton@gmail.com
 
 Project Link: [https://github.com/nikolaybutnik/star-academy](https://github.com/nikolaybutnik/star-academy)
 
