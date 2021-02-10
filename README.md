@@ -171,7 +171,7 @@ Distributed under the MIT License. See `LICENSE` for more information.
 
 ## Contact
 
-Nikolay Butnik - [LinkedIn](https://www.linkedin.com/in/nikolay-b-2887971b7/) - btnk.nik@gmail.com
+Nikolay Butnik - [LinkedIn](https://www.linkedin.com/in/nikolay-butnik/) - btnk.nik@gmail.com
 
 Louis Yacksmith - [LinkedIn](https://www.linkedin.com/in/louis-yacksmith-2a06321b2/) - louisyscarleton@gmail.com
 
