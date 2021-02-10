@@ -1,70 +1,179 @@
-# Getting Started with Create React App
+<!-- PROJECT LOGO -->
+<br />
+<p align="center">
+  <a href="">
+    <img src="images/logo.png" alt="Logo" width="80" height="80">
+  </a>
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+  <h3 align="center">STAR Academy</h3>
 
-## Available Scripts
+  <p align="center">
+    Learn music the fun way
+    <br />
+    <a href="https://github.com/nikolaybutnik/star-academy"><strong>Explore the docs »</strong></a>
+    <br />
+    <br />
+    <a href="https://guarded-crag-12899.herokuapp.com/">View Demo</a>
+    ·
+    <a href="https://github.com/nikolaybutnik/star-academy/issues">Report Bug</a>
+    ·
+    <a href="https://github.com/nikolaybutnik/star-academy/issues">Request Feature</a>
+  </p>
+</p>
 
-In the project directory, you can run:
+<!-- TABLE OF CONTENTS -->
+<details open="open">
+  <summary>Table of Contents</summary>
+  <ol>
+    <li>
+      <a href="#about-the-project">About The Project</a>
+      <ul>
+        <li><a href="#built-with">Built With</a></li>
+      </ul>
+    </li>
+    <li>
+      <a href="#getting-started">Getting Started</a>
+      <ul>
+        <li><a href="#prerequisites">Prerequisites</a></li>
+        <li><a href="#installation">Installation</a></li>
+      </ul>
+    </li>
+    <li><a href="#usage">Usage</a></li>
+    <li><a href="#roadmap">Roadmap</a></li>
+    <li><a href="#contributing">Contributing</a></li>
+    <li><a href="#license">License</a></li>
+    <li><a href="#contact">Contact</a></li>
+    <li><a href="#acknowledgements">Acknowledgements</a></li>
+  </ol>
+</details>
 
-### `yarn start`
+<!-- ABOUT THE PROJECT -->
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## About The Project
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+[Star Academy Screen Shot](https://github.com/nikolaybutnik/star-academy/blob/main/client/src/assets/star-academy-banner.png?raw=true)
 
-### `yarn test`
+Ever wanted to learn guitar but found the process too daunting and unapproachable? We have you covered. STAR Academy is a web application that brings musical learning to you anywhere and everywhere. The app combines theory through randomized trivia quizzes, with user defined daily goals.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+The philosophy behind STAR Academy is that of rewarding the user for learning. Thus, we have created a game-ified app that rewards the user simply for keeping up with their daily practice and studies by turning the act of learning into a game.
 
-### `yarn build`
+### Built With
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+The following technologies and libraries were used in the creation of STAR Academy:
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- [React](https://reactjs.org/)
+- [Bootstrap](https://getbootstrap.com)
+- [Date-fns](https://date-fns.org/)
+- [JSON Web Tokens](https://jwt.io/)
+- [Bcrypt](https://www.npmjs.com/package/bcrypt)
+- [ProgressBar](https://react-bootstrap.github.io/components/progress/#progress-bar-props)
+- [React-minimal-pie-chart](https://www.npmjs.com/package/react-minimal-pie-chart)
+- [MongoDB](https://www.mongodb.com/)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+<!-- GETTING STARTED -->
 
-### `yarn eject`
+## Getting Started
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+To get a local copy up and running, follow these steps.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### Prerequisites
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+- npm
+  ```sh
+  npm install npm@latest -g
+  ```
+- MongoDB
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+### Installation
 
-## Learn More
+1. Clone the repo
+   ```sh
+   git clone https://github.com/nikolaybutnik/star-academy
+   ```
+2. Install NPM packages
+   ```sh
+   npm install
+   ```
+3. Install MongoDB by following the [guide.](https://docs.mongodb.com/manual/installation/)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+4. Inside MongoDB create a database called `musicplayground`, and two collections: `users` and `logs`.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+5. You're ready to go!
+   ```sh
+   npm start
+   ```
 
-### Code Splitting
+<!-- USAGE EXAMPLES -->
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## Usage
 
-### Analyzing the Bundle Size
+After signing up for an account on logging in, the user is presented with the user profile screen.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+[Profile page Screen Shot](https://github.com/nikolaybutnik/star-academy/blob/main/client/src/assets/profile-page-legend.png?raw=true)
 
-### Making a Progressive Web App
+The profile screen shows all basic user information.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+- Band name: your very own custom band name.
+- Level: the level of your virtual rock star. New questions get added to the quizes as you level up.
+- Energy: how many attempts you have left to do the quiz. For the current version of the app, 1 energy recovers every minute, but in a full production version this would change to 1 energy every hour.
+- Experience bar: answer quiz questions and complete dailt goals to earn fans and level up.
+- Class: a title reflecting your musical achievements.
+- Tier picture: your profile picture that changes with your class as you level up.
+- Total fans: how many fans (experience points) you've gained on your musical journey.
+- Streak: consecutive days you've logged in.
+- Wins/losses: a pie chart that tracks correct and incorrect quiz answers.
+- Personal goals: Add daily goals and check them off to gain fans. Daily goals reset once per day at midnight.
+- Go to quiz: go to the quiz page.
+- Calendar: shows the current week. Current day is highlighted in yellow. If you have logged in on any previous days, those days will be highlighted in green.
 
-### Advanced Configuration
+The quiz page is where you spend energy to challenge your theory knowledge. Correct answers will earn fans based on the difficulty level.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+[Quiz Difficulty Level Screen Shot](https://github.com/nikolaybutnik/star-academy/blob/main/client/src/assets/quiz-difficulty-level.png?raw=true)
 
-### Deployment
+Each attempt costs 1 energy point and comes with 5 randomly selected multiple choice questions. When you click on an answer, right answers are highlighted in green, and wrong answers are highlighted in red.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+[Example Question Screen Shot](https://github.com/nikolaybutnik/star-academy/blob/main/client/src/assets/example-question.png?raw=true)
 
-### `yarn build` fails to minify
+New questions are added to the pool as you level up, so make sure to keep coming back and get more fans!
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+<!-- ROADMAP -->
+
+## Roadmap
+
+See the [open issues](https://github.com/nikolaybutnik/star-academy/issues) for a list of proposed features (and known issues).
+
+<!-- CONTRIBUTING -->
+
+## Contributing
+
+Contributions are what make the open source community such an amazing place to be learn, inspire, and create. Any contributions you make are **greatly appreciated**.
+
+1. Fork the Project
+2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the Branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+<!-- LICENSE -->
+
+## License
+
+Distributed under the MIT License. See `LICENSE` for more information.
+
+<!-- CONTACT -->
+
+## Contact
+
+Nikolay Butnik - [LinkedIn](https://www.linkedin.com/in/nikolay-b-2887971b7/) - btnk.nik@gmail.com
+
+Louis Yacksmith - [LinkedIn](https://www.linkedin.com/in/louis-yacksmith-2a06321b2/)
+
+Project Link: [https://github.com/nikolaybutnik/star-academy](https://github.com/nikolaybutnik/star-academy)
+
+<!-- ACKNOWLEDGEMENTS -->
+
+## Acknowledgements
+
+- [Choose an Open Source License](https://choosealicense.com)
+- [Font Awesome](https://fontawesome.com)
+- [Heroku](https://heroku.com)

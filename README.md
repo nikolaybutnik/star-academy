@@ -60,7 +60,7 @@
 
 [Star Academy Screen Shot](https://github.com/nikolaybutnik/star-academy/blob/main/client/src/assets/star-academy-banner.png?raw=true)
 
-Ever wanted to learn guitar but found the process too daunting and unapproachable? We have you covered. STAR Academy is a web application that brings musical learning to you anywhere and everywhere. The app combines theory through randomized trivia quizez, with user defined daily goals.
+Ever wanted to learn guitar but found the process too daunting and unapproachable? We have you covered. STAR Academy is a web application that brings musical learning to you anywhere and everywhere. The app combines theory through randomized trivia quizzes, with user defined daily goals.
 
 The philosophy behind STAR Academy is that of rewarding the user for learning. Thus, we have created a game-ified app that rewards the user simply for keeping up with their daily practice and studies by turning the act of learning into a game.
 
