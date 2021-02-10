@@ -8,8 +8,8 @@
 <!-- PROJECT LOGO -->
 <br />
 <p align="center">
-  <a href="">
-    <img src="images/logo.png" alt="Logo" width="80" height="80">
+  <a href="https://github.com/nikolaybutnik/star-academy">
+    <img src="./client/src/Assets/staracademyIcon.png" alt="Logo" width="50" height="50">
   </a>
 
   <h3 align="center">STAR Academy</h3>
@@ -58,7 +58,7 @@
 
 ## About The Project
 
-[Star Academy Screen Shot](https://github.com/nikolaybutnik/star-academy/blob/main/client/src/assets/star-academy-banner.png?raw=true)
+<img src="./client/src/Assets/star-academy-banner.png" alt="Home pages" width="400" height="250">
 
 Ever wanted to learn guitar but found the process too daunting and unapproachable? We have you covered. STAR Academy is a web application that brings musical learning to you anywhere and everywhere. The app combines theory through randomized trivia quizzes, with user defined daily goals.
 
@@ -116,7 +116,7 @@ To get a local copy up and running, follow these steps.
 
 After signing up for an account on logging in, the user is presented with the user profile screen.
 
-[Profile page Screen Shot](https://github.com/nikolaybutnik/star-academy/blob/main/client/src/assets/profile-page-legend.png?raw=true)
+<img src="./client/src/Assets/profile-page-legend.png" alt="Home pages" width="400" height="250">
 
 The profile screen shows all basic user information.
 
@@ -135,11 +135,11 @@ The profile screen shows all basic user information.
 
 The quiz page is where you spend energy to challenge your theory knowledge. Correct answers will earn fans based on the difficulty level.
 
-[Quiz Difficulty Level Screen Shot](https://github.com/nikolaybutnik/star-academy/blob/main/client/src/assets/quiz-difficulty-level.png?raw=true)
+<img src="./client/src/Assets/quiz-difficulty-level.png" alt="quiz difficulty level" width="400" height="250">
 
 Each attempt costs 1 energy point and comes with 5 randomly selected multiple choice questions. When you click on an answer, right answers are highlighted in green, and wrong answers are highlighted in red.
 
-[Example Question Screen Shot](https://github.com/nikolaybutnik/star-academy/blob/main/client/src/assets/example-question.png?raw=true)
+<img src="./client/src/Assets/example-question.png" alt="example question" width="400" height="250">
 
 New questions are added to the pool as you level up, so make sure to keep coming back and get more fans!
 
@@ -173,7 +173,7 @@ Distributed under the MIT License. See `LICENSE` for more information.
 
 Nikolay Butnik - [LinkedIn](https://www.linkedin.com/in/nikolay-b-2887971b7/) - btnk.nik@gmail.com
 
-Louis Yacksmith - [LinkedIn](https://www.linkedin.com/in/louis-yacksmith-2a06321b2/)
+Louis Yacksmith - [LinkedIn](https://www.linkedin.com/in/louis-yacksmith-2a06321b2/) - louisyscarleton@gmail.com
 
 Project Link: [https://github.com/nikolaybutnik/star-academy](https://github.com/nikolaybutnik/star-academy)
 
